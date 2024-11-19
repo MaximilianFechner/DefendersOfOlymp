@@ -3,6 +3,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
       <profile-state>
@@ -17,4 +18,5 @@
       </profile-state>
     </entry>
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
 </project>
