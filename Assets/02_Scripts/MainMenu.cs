@@ -20,11 +20,13 @@ public class MainMenu : MonoBehaviour
 
     //Resolution
     public Dropdown resolutionDropdown;
+    public GameObject resolution;
 
     Resolution[] resolutions;
 
     void Start()
     {
+        resolutionDropdown = resolution.GetComponent<Dropdown>();
         resolutions = Screen.resolutions;
 
         resolutionDropdown.ClearOptions();
