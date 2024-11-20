@@ -1,33 +1,24 @@
+using System;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Xml.Schema;
+using TMPro;
 using UnityEditor;
 public class MainMenu : MonoBehaviour
 {
-
-    //Play
-    public void PlayGame()
-    {
-        SceneManager.LoadSceneAsync(1);
-    }
-
-    //Quit
-    public void QuitGame()
-    {
-        Application.Quit();
-
-#if UNITY_EDITOR
-        EditorApplication.ExitPlaymode();
-#endif
-    }
-
     //Resolution
-    public Dropdown _resolutionDropdown;
-    public GameObject resolution;
+    [SerializeField] private TMP_Dropdown _resolutionDropdown; 
+    private GameObject _resolution;
 
-    Resolution[] _resolutions;
+    private Resolution[] _resolutions;
+    
+    private void Awake()
+    {
+        LoadSettings();
+    }
 
     void Start()
     {
@@ -57,6 +48,8 @@ public class MainMenu : MonoBehaviour
          resolutionDropdown.RefreshShownValue();
         */
 
+        _resolutionDropdown.ClearOptions();
+        
         var options = new List<string>();
         _resolutions = Screen.resolutions;
         var currentResolutionIndex = 0;
@@ -69,14 +62,28 @@ public class MainMenu : MonoBehaviour
                 currentResolutionIndex = i;
             }
         }
-
-        /*
+        
         _resolutionDropdown.AddOptions(options);
+        /*
         _resolutionDropdown.RefreshShownValue();
         LoadSettings(currentResolutionIndex);
         */
     }
+    //Play
+    public void PlayGame()
+    {
+        SceneManager.LoadSceneAsync(1);
+    }
 
+    //Quit
+    public void QuitGame()
+    {
+        Application.Quit();
+
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#endif
+    }
     public void SetResolution(int resolutionIndex)
     {
         var resolution = _resolutions[resolutionIndex];
@@ -87,6 +94,16 @@ public class MainMenu : MonoBehaviour
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
+    }
+
+    public void SaveSettings()
+    {
+        PlayerPrefs.SetInt("ResolutionPreference", _resolutionDropdown.value);
+    }
+
+    public void LoadSettings()
+    {
+        
     }
 
 }

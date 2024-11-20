@@ -3316,7 +3316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be6aea330568cb40a6f82d26d828f0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resolutionDropdown: {fileID: 0}
+  _resolutionDropdown: {fileID: 1118540589}
   resolution: {fileID: 1118540587}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
