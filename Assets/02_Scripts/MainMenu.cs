@@ -10,11 +10,11 @@ using UnityEditor;
 public class MainMenu : MonoBehaviour
 {
     //Resolution
-    [SerializeField] private TMP_Dropdown _resolutionDropdown; 
+    [SerializeField] private TMP_Dropdown _resolutionDropdown;
     private GameObject _resolution;
 
     private Resolution[] _resolutions;
-    
+
     private void Awake()
     {
         LoadSettings();
@@ -22,6 +22,9 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
+
+        AudioSource.Play();
+
         /* 
          resolutionDropdown = resolution.GetComponent<Dropdown>();
          resolutions = Screen.resolutions;
@@ -49,7 +52,7 @@ public class MainMenu : MonoBehaviour
         */
 
         _resolutionDropdown.ClearOptions();
-        
+
         var options = new List<string>();
         _resolutions = Screen.resolutions;
         var currentResolutionIndex = 0;
@@ -62,7 +65,7 @@ public class MainMenu : MonoBehaviour
                 currentResolutionIndex = i;
             }
         }
-        
+
         _resolutionDropdown.AddOptions(options);
         /*
         _resolutionDropdown.RefreshShownValue();
@@ -103,10 +106,26 @@ public class MainMenu : MonoBehaviour
 
     public void LoadSettings()
     {
-        
+
+    }
+
+    //Music
+
+    public AudioSource AudioSource;
+
+    private float musicVolume = 1.0f;
+
+     void Update()
+    {
+        AudioSource.volume = musicVolume;
+    }
+    public void updateVolume (float volume)
+    {
+        musicVolume = volume;
     }
 
 }
+
 
 
 
