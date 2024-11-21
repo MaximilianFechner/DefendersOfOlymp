@@ -38,8 +38,8 @@ public class ProjectileBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.tag.Equals("Enemy") && collider.gameObject.Equals(_targetEnemy)) {
-            EnemyBehaviour enemy = collider.gameObject.GetComponent<EnemyBehaviour>();
-            enemy.LoseLife(_damage);
+            EnemyManager enemy = collider.gameObject.GetComponent<EnemyManager>();
+            enemy.TakeDamage(_damage);
             Destroy(gameObject);
         }
     }
