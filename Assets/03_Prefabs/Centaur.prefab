@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 1823426431447677399}
   - component: {fileID: 1780309422200576250}
   m_Layer: 6
-  m_Name: DefaultEnemy
+  m_Name: Centaur
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
