@@ -168,9 +168,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6182855329937793076, guid: 41b37ae901de6e84cb9031d0d9dd67fa, type: 3}
+      propertyPath: m_Size.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182855329937793076, guid: 41b37ae901de6e84cb9031d0d9dd67fa, type: 3}
+      propertyPath: m_Size.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182855329937793076, guid: 41b37ae901de6e84cb9031d0d9dd67fa, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 2ef858578bc0467428c171d5cde6fc0a, type: 3}
+      objectReference: {fileID: 21300000, guid: c9c0215ffa6ef7b4e86592216d89d74c, type: 3}
+    - target: {fileID: 6182855329937793076, guid: 41b37ae901de6e84cb9031d0d9dd67fa, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6542587194349683963, guid: 41b37ae901de6e84cb9031d0d9dd67fa, type: 3}
       propertyPath: m_Name
       value: EnemyTestJan (1)
@@ -298,9 +310,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6182855329937793076, guid: 41b37ae901de6e84cb9031d0d9dd67fa, type: 3}
+      propertyPath: m_Size.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182855329937793076, guid: 41b37ae901de6e84cb9031d0d9dd67fa, type: 3}
+      propertyPath: m_Size.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182855329937793076, guid: 41b37ae901de6e84cb9031d0d9dd67fa, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 2ef858578bc0467428c171d5cde6fc0a, type: 3}
+      objectReference: {fileID: 21300000, guid: c9c0215ffa6ef7b4e86592216d89d74c, type: 3}
+    - target: {fileID: 6182855329937793076, guid: 41b37ae901de6e84cb9031d0d9dd67fa, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6542587194349683963, guid: 41b37ae901de6e84cb9031d0d9dd67fa, type: 3}
       propertyPath: m_Name
       value: EnemyTestJan (3)

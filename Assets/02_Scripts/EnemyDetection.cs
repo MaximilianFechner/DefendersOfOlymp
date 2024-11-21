@@ -57,29 +57,29 @@ public class EnemyDetection : MonoBehaviour
         Collider2D[] enemiesColliders = Physics2D.OverlapCircleAll(transform.position, _radius, _enemyLayerMask);
         _targetEnemy = null;
         if (enemiesColliders.Length > 0) {
-            EnemyBehaviour targetEnemyBehaviour = enemiesColliders[0].GetComponent<EnemyBehaviour>();
+            EnemyManager targetEnemyManager = enemiesColliders[0].GetComponent<EnemyManager>();
 
             switch (_targetType) {
                 case TargetType.lowestHealth:
                     foreach (Collider2D collider2d in enemiesColliders) {
-                        EnemyBehaviour currentEnemy = collider2d.GetComponent<EnemyBehaviour>();
-                        if (currentEnemy.currentLife < targetEnemyBehaviour.currentLife) {
-                            targetEnemyBehaviour = currentEnemy;
+                        EnemyManager currentEnemy = collider2d.GetComponent<EnemyManager>();
+                        if (currentEnemy.GetCurrentHP() < targetEnemyManager.GetCurrentHP()) {
+                            targetEnemyManager = currentEnemy;
                         }
                     }
                     break;
                 case TargetType.highestHealth:
                     foreach (Collider2D collider2d in enemiesColliders) {
-                        EnemyBehaviour currentEnemy = collider2d.GetComponent<EnemyBehaviour>();
-                        if (currentEnemy.currentLife > targetEnemyBehaviour.currentLife) {
-                            targetEnemyBehaviour = currentEnemy;
+                        EnemyManager currentEnemy = collider2d.GetComponent<EnemyManager>();
+                        if (currentEnemy.GetCurrentHP() > targetEnemyManager.GetCurrentHP()) {
+                            targetEnemyManager = currentEnemy;
                         }
                     }
                     break;
                 default:
                     break;
             }
-            _targetEnemy = targetEnemyBehaviour.gameObject;
+            _targetEnemy = targetEnemyManager.gameObject;
         }
         return _targetEnemy;
     }

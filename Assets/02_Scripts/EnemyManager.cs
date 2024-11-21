@@ -55,4 +55,8 @@ public class EnemyManager : MonoBehaviour
         float healthPercentage = _currentHP / _maxHP;
         enemyHealthBar.SetHealth(healthPercentage);
     }
+
+    public float GetCurrentHP() {
+        return _currentHP; 
+    }
 }
