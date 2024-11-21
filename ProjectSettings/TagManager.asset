@@ -4,13 +4,14 @@
 TagManager:
   serializedVersion: 3
   tags:
+  - EnemyPath
   - Projectile
   - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - EnemyPath
   - Water
   - UI
   - Enemy
@@ -42,6 +43,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Enemys
+    uniqueID: 3030613415
+    locked: 0
+  - name: Background
+    uniqueID: 3919620955
     locked: 0
   m_RenderingLayers:
   - Default
