@@ -25,7 +25,6 @@ public class EnemyManager : MonoBehaviour
             return;
         }
 
-        UpdateHealthBar(); // only for testing with the inspector
         if (_currentHP <= 0 || _currentHP == _maxHP)
         {
             enemyHealthBar.SetVisible(false);
@@ -47,6 +46,8 @@ public class EnemyManager : MonoBehaviour
 
     public void Die()
     {
+        GameManager.Instance.AddEnemyKilled();
+        GameManager.Instance.SubRemainingEnemy();
         Destroy(this.gameObject);
     }
 
@@ -58,5 +59,14 @@ public class EnemyManager : MonoBehaviour
 
     public float GetCurrentHP() {
         return _currentHP; 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            GameManager.Instance.LoseLife(_playerDamage);
+            Destroy(this.gameObject, 3f);
+        }
     }
 }

@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6795407972033938170
 Transform:
   m_ObjectHideFlags: 0
@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 749370822717877504}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.03, z: -1}
-  m_LocalScale: {x: 0.25, y: 0.05, z: 1}
+  m_LocalPosition: {x: 0, y: -3.25, z: -1}
+  m_LocalScale: {x: 5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8975915847488379779}
@@ -113,7 +113,6 @@ GameObject:
   - component: {fileID: 1173280012366497405}
   - component: {fileID: 8632824403928502139}
   - component: {fileID: 5577367278272065987}
-  - component: {fileID: 1823426431447677399}
   - component: {fileID: 1780309422200576250}
   - component: {fileID: -8783524597175107458}
   m_Layer: 6
@@ -133,7 +132,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6795407972033938170}
@@ -183,7 +182,7 @@ SpriteRenderer:
   m_SortingLayerID: -1264353881
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6513278468211716785, guid: bcb2979dc0283b6469af2c5d570cef80, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9b0c90d153d57ad45916fcd37d5f9491, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -191,7 +190,7 @@ SpriteRenderer:
   m_Size: {x: 0.14, y: 0.15}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1173280012366497405
@@ -218,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c553cf6bfd4ac5248ac2caca4256537d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHP: 50
+  _maxHP: 70
   _currentHP: 0
   _playerDamage: 1
 --- !u!195 &5577367278272065987
@@ -231,7 +230,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.1
-  m_Speed: 4
+  m_Speed: 3.75
   m_Acceleration: 8
   avoidancePriority: 30
   m_AngularSpeed: 120
@@ -243,28 +242,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 0
---- !u!95 &1823426431447677399
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6555997334480401726}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5a229540f2d563142af1ee1848cfbfe8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &1780309422200576250
 Rigidbody2D:
   serializedVersion: 5
