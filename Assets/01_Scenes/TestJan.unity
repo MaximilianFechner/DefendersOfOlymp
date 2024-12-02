@@ -2988,6 +2988,10 @@ PrefabInstance:
       propertyPath: _radius
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 5671828757576864370, guid: e607f517af798464f9111ce99e5cc7ec, type: 3}
+      propertyPath: towerSO
+      value: 
+      objectReference: {fileID: 11400000, guid: c95405ddced78ba46a68929c69f68704, type: 2}
     - target: {fileID: 8844577905314880619, guid: e607f517af798464f9111ce99e5cc7ec, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20.6

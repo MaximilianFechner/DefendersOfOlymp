@@ -3,38 +3,28 @@ using UnityEngine;
 public class EnemyDetection : MonoBehaviour
 {
 
-    [SerializeField] private float _radius;
-    [SerializeField] private LayerMask _enemyLayerMask;
-    [SerializeField] private TargetType _targetType;
-
-    [SerializeField] private float _timeToSpawn;
+    [SerializeField] private TowerSO towerSO;
     [SerializeField] private float _timer;
     [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private GameObject _projectilePrefab;
     [SerializeField] private GameObject _targetEnemy;
-
-    private enum TargetType {
-        lowestHealth,
-        highestHealth
-    }
 
     private void Awake() {
         CircleCollider2D circleCollider2D = GetComponent<CircleCollider2D>();
-        circleCollider2D.radius = _radius;
+        circleCollider2D.radius = towerSO.attackRadius;
 
         _timer = 0;
     }
 
     private void OnDrawGizmos() {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, _radius);
+        Gizmos.DrawWireSphere(transform.position, towerSO.attackRadius);
     }
 
     // Update is called once per frame
     void Update()
     {
         _timer += Time.deltaTime;
-        if (_targetEnemy != null && _timer >= _timeToSpawn) {
+        if (_targetEnemy != null && _timer >= towerSO.attackSpeed) {
             //TODO Hier müsste die Überprüfung kommen, ob der Gegner noch ein Projektil aushält,
             //Wenn nicht, soll ein anderer Enemy ausgewählt werden.
             SpawnProjectile(_targetEnemy);
@@ -54,12 +44,12 @@ public class EnemyDetection : MonoBehaviour
     }
 
     private GameObject GetTargetEnemy() {
-        Collider2D[] enemiesColliders = Physics2D.OverlapCircleAll(transform.position, _radius, _enemyLayerMask);
+        Collider2D[] enemiesColliders = Physics2D.OverlapCircleAll(transform.position, towerSO.attackRadius, towerSO.enemyLayerMask);
         _targetEnemy = null;
         if (enemiesColliders.Length > 0) {
             EnemyManager targetEnemyManager = enemiesColliders[0].GetComponent<EnemyManager>();
 
-            switch (_targetType) {
+            switch (towerSO.targetType) {
                 case TargetType.lowestHealth:
                     foreach (Collider2D collider2d in enemiesColliders) {
                         EnemyManager currentEnemy = collider2d.GetComponent<EnemyManager>();
@@ -85,7 +75,7 @@ public class EnemyDetection : MonoBehaviour
     }
 
     private void SpawnProjectile(GameObject target) {
-        GameObject projectile = Instantiate(_projectilePrefab, _spawnPoint);
+        GameObject projectile = Instantiate(towerSO.projectileSO.prefab, _spawnPoint);
         projectile.transform.SetParent(null);
         ProjectileBehaviour projectileBehaviour = projectile.GetComponent<ProjectileBehaviour>();
         projectileBehaviour.SetTargetEnemy(target);
