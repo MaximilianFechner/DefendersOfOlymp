@@ -6,10 +6,24 @@ public class ProjectileSO : ScriptableObject
 {
     public GameObject prefab;
 
-    public float movementSpeed;
-    public float damage;
-    public float aoeRadius;
-    public float slowValue;
-    public Dictionary<GameObject, float> enemyBonusMalusTable;
+    [SerializeField] float defaultMovementSpeed;
+    [SerializeField] float defaultDamage;
+    [SerializeField] float defaultAoeRadius;
+    [SerializeField] float defaultSlowValue;
+    [SerializeField] Dictionary<GameObject, float> defaultEnemyBonusMalusTable;
+
+    [HideInInspector] public float movementSpeed;
+    [HideInInspector] public float damage;
+    [HideInInspector] public float aoeRadius;
+    [HideInInspector] public float slowValue;
+    [HideInInspector] public Dictionary<GameObject, float> enemyBonusMalusTable;
+
+    public void ResetData() {
+        movementSpeed = defaultMovementSpeed;
+        damage = defaultDamage;
+        aoeRadius = defaultAoeRadius;
+        slowValue = defaultSlowValue;
+        enemyBonusMalusTable = defaultEnemyBonusMalusTable;
+    }
 
 }

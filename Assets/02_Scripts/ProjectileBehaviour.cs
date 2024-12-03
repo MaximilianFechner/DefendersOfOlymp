@@ -4,10 +4,14 @@ public class ProjectileBehaviour : MonoBehaviour
 {
 
     [SerializeField] private GameObject _targetEnemy;
-    [SerializeField] private float _movementSpeed;
-    [SerializeField] private float _damage;
+    [SerializeField] private ProjectileSO _projectileSO;
 
     private Rigidbody2D rb2D;
+
+
+    private void OnEnable() {
+        _projectileSO.ResetData();
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,7 +24,7 @@ public class ProjectileBehaviour : MonoBehaviour
     {
         if (_targetEnemy != null) {
             Vector2 direction = (_targetEnemy.transform.position - rb2D.transform.position).normalized;
-            rb2D.MovePosition(rb2D.position + direction * _movementSpeed * Time.fixedDeltaTime);
+            rb2D.MovePosition(rb2D.position + direction * _projectileSO.movementSpeed * Time.fixedDeltaTime);
         } else {
             //TODO Diese Lösung ist nur temporär und muss entfernt werden,
             //wenn Tower erkennt, dass keine Projektile mehr gespawned werden sollen, wenn Life unter 0
@@ -33,14 +37,18 @@ public class ProjectileBehaviour : MonoBehaviour
     }
 
     public float GetDamage() {
-        return _damage; 
+        return _projectileSO.damage; 
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.tag.Equals("Enemy") && collider.gameObject.Equals(_targetEnemy)) {
             EnemyManager enemy = collider.gameObject.GetComponent<EnemyManager>();
-            enemy.TakeDamage(_damage);
+            enemy.TakeDamage(_projectileSO.damage);
             Destroy(gameObject);
         }
+    }
+
+    private void OnDisable() {
+        _projectileSO.ResetData();
     }
 }

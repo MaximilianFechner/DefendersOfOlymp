@@ -180,5 +180,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetEnemy: {fileID: 0}
-  _movementSpeed: 10
-  _damage: 5
+  _projectileSO: {fileID: 11400000, guid: 497b08fc38d0dd4439788e6b5ff89785, type: 2}

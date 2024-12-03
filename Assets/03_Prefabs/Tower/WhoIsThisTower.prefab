@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1067a099e702a28459fc833e8f84f3db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerSO: {fileID: 11400000, guid: 574e757cecd5cf24aa4e13661fbce331, type: 2}
+  _towerSO: {fileID: 11400000, guid: 003bc2c036389134d8e8c937ffe374f4, type: 2}
   _timer: 0
   _spawnPoint: {fileID: 2033527041545563814}
   _targetEnemy: {fileID: 0}

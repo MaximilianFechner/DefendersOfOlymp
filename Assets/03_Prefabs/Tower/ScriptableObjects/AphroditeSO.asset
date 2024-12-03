@@ -12,11 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71f5905d1e77204194206a2397a62d3, type: 3}
   m_Name: AphroditeSO
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  projectileSO: {fileID: 0}
-  attackSpeed: 0
-  attackRadius: 0
+  prefab: {fileID: 5225003605191494454, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
+  projectileSO: {fileID: 11400000, guid: e10402f5ab660bf4fa5be8c8d0028580, type: 2}
+  defaultAttackSpeed: 0.5
+  defaultAttackRadius: 16
+  defaultEnemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  defaultTargetType: 0
+  attackSpeed: 0.5
+  attackRadius: 16
   enemyLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   targetType: 0
