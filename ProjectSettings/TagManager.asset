@@ -15,8 +15,8 @@ TagManager:
   - Water
   - UI
   - Enemy
-  - 
-  - 
+  - Can Build
+  - Cursor
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 3919620955
+    locked: 0
+  - name: BuildSystem
+    uniqueID: 2988539925
     locked: 0
   m_RenderingLayers:
   - Default
