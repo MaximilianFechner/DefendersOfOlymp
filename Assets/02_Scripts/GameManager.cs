@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
     public Text remainingEnemiesText;
     public Button nextWaveButton;
     public Button drawCardButton;
+    public GameObject gameOverPanel;
 
     private int cardsToDraw = 1;
 
@@ -59,10 +61,28 @@ public class GameManager : MonoBehaviour
         enemiesKilledText.text = $"Hades' minions slayed: {EnemiesKilled.ToString()}";
     }
 
+    public void TryAgain()
+    {
+        EnemiesKilled = 0;
+        RemainingLives = _playerStartLives;
+        waveNumber = 0;
+        waveNumberText.text = $"Current wave: {waveNumber.ToString()}";
+        playerLifeText.text = RemainingLives.ToString();
+        enemiesKilledText.text = $"Hades' minions slayed: {EnemiesKilled.ToString()}";
+        gameOverPanel.SetActive(false);
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1;
+    }
+
     public void LoseLife(int damage)
     {
         RemainingLives -= damage;
         playerLifeText.text = RemainingLives.ToString();
+
+        if (RemainingLives == 0)
+        {
+            GameOver();
+        }
     }
 
     public void AddEnemyKilled()
@@ -96,7 +116,9 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        Debug.Log("Game Over!");
+        Time.timeScale = 0;
+        gameOverPanel.SetActive(true);
+
     }
 
     private void EndOfWave()
