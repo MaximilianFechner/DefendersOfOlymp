@@ -219,7 +219,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHP: 180
-  _currentHP: 0
   _playerDamage: 1
 --- !u!195 &5577367278272065987
 NavMeshAgent:
@@ -253,7 +252,7 @@ Animator:
   m_GameObject: {fileID: 6555997334480401726}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9873324373192ab45b868bf594da2b46, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
