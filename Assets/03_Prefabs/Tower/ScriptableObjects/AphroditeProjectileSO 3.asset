@@ -15,9 +15,17 @@ MonoBehaviour:
   prefab: {fileID: 7359844151393371129, guid: 44b782209fc6e8a47bdbb863d6e12fc5, type: 3}
   defaultMovementSpeed: 10
   defaultDamage: 5
-  defaultAoeRadius: 1
+  defaultAoeRadius: 0
   defaultSlowValue: 0
+  defaultTowerType: 0
+  defaultEnemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
   movementSpeed: 10
   damage: 5
-  aoeRadius: 2
+  aoeRadius: 0
   slowValue: 0
+  towerType: 0
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 0

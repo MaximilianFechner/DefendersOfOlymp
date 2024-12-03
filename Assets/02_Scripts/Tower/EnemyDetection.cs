@@ -54,7 +54,7 @@ public class EnemyDetection : MonoBehaviour
             EnemyManager targetEnemyManager = enemiesColliders[0].GetComponent<EnemyManager>();
 
             switch (_towerSO.targetType) {
-                case TargetType.lowestHealth:
+                case TargetType.LOWEST_HEALTH:
                     foreach (Collider2D collider2d in enemiesColliders) {
                         EnemyManager currentEnemy = collider2d.GetComponent<EnemyManager>();
                         if (currentEnemy.GetCurrentHP() < targetEnemyManager.GetCurrentHP()) {
@@ -62,7 +62,7 @@ public class EnemyDetection : MonoBehaviour
                         }
                     }
                     break;
-                case TargetType.highestHealth:
+                case TargetType.HIGHEST_HEALTH:
                     foreach (Collider2D collider2d in enemiesColliders) {
                         EnemyManager currentEnemy = collider2d.GetComponent<EnemyManager>();
                         if (currentEnemy.GetCurrentHP() > targetEnemyManager.GetCurrentHP()) {

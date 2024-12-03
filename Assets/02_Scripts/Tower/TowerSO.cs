@@ -1,8 +1,8 @@
 using UnityEngine;
 
 public enum TargetType {
-    lowestHealth,
-    highestHealth
+    LOWEST_HEALTH,
+    HIGHEST_HEALTH
 }
 
 [CreateAssetMenu(fileName = "new TowerSO", menuName = "Scriptable Objects/TowerSO")]

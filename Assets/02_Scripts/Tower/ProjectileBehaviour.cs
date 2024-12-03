@@ -20,8 +20,11 @@ public class ProjectileBehaviour : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
+    void FixedUpdate() {
+        Move();
+    }
+
+    private void Move() {
         if (_targetEnemy != null) {
             Vector2 direction = (_targetEnemy.transform.position - rb2D.transform.position).normalized;
             rb2D.MovePosition(rb2D.position + direction * _projectileSO.movementSpeed * Time.fixedDeltaTime);
@@ -40,11 +43,38 @@ public class ProjectileBehaviour : MonoBehaviour
         return _projectileSO.damage; 
     }
 
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, _projectileSO.aoeRadius);
+    }
+
     private void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.tag.Equals("Enemy") && collider.gameObject.Equals(_targetEnemy)) {
-            EnemyManager enemy = collider.gameObject.GetComponent<EnemyManager>();
-            enemy.TakeDamage(_projectileSO.damage);
+            switch (_projectileSO.towerType) {
+                case TowerType.NORMAL:
+                    EnemyManager enemy = collider.gameObject.GetComponent<EnemyManager>();
+                    enemy.TakeDamage(_projectileSO.damage);
+                    break;
+                case TowerType.SLOW:
+                    EnemyManager enemySlow = collider.gameObject.GetComponent<EnemyManager>();
+                    enemySlow.TakeDamage(_projectileSO.damage);
+                    //enemySlow.SlowMovement(_projectileSO.slowValue);
+                    break;
+                case TowerType.AOE:
+                    AOEDamageCalculation();
+                    break;
+            }
             Destroy(gameObject);
+        }
+    }
+
+    private void AOEDamageCalculation() {
+        Collider2D[] enemiesColliders = Physics2D.OverlapCircleAll(transform.position, _projectileSO.aoeRadius);
+        foreach (Collider2D enemyCollider in enemiesColliders) {
+            if (enemyCollider.gameObject.CompareTag("Enemy")) {
+                EnemyManager enemy = enemyCollider.gameObject.GetComponent<EnemyManager>();
+                enemy.TakeDamage(_projectileSO.damage);
+            }
         }
     }
 
