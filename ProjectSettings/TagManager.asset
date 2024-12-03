@@ -2,16 +2,21 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - EnemyPath
+  - Projectile
+  - Enemy
+  - EnemyGoal
+  - EnemyTarget
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - EnemyPath
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -41,3 +46,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Enemys
+    uniqueID: 3030613415
+    locked: 0
+  - name: Background
+    uniqueID: 3919620955
+    locked: 0
+  m_RenderingLayers:
+  - Default
