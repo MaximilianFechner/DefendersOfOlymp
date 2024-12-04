@@ -71,6 +71,8 @@ public class ProjectileBehaviour : MonoBehaviour
                 case TowerType.AOE:
                     AOEDamageCalculation();
                     break;
+                case TowerType.SUPPORT:
+                    break;
             }
             Destroy(gameObject);
         }

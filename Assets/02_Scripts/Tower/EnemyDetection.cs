@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EnemyDetection : MonoBehaviour
@@ -33,14 +34,27 @@ public class EnemyDetection : MonoBehaviour
     void Update()
     {
         _timer += Time.deltaTime;
-        if (_targetEnemy != null && _timer >= attackSpeed) {
-            //TODO Hier müsste die Überprüfung kommen, ob der Gegner noch ein Projektil aushält,
-            //Wenn nicht, soll ein anderer Enemy ausgewählt werden.
+        //TODO Hier müsste die Überprüfung kommen, ob der Gegner noch ein Projektil aushält,
+        //Wenn nicht, soll ein anderer Enemy ausgewählt werden.
+        if (_towerSO.projectileSO.towerType.Equals(TowerType.SUPPORT) && _timer >= attackSpeed) {
+            SupportAOEDamageCalculation();
+            _timer = 0;
+        }else if (_targetEnemy != null && _timer >= attackSpeed) {
             SpawnProjectile(_targetEnemy);
             _timer = 0;
         }
     }
 
+    private void SupportAOEDamageCalculation() {
+        Debug.Log("Test");
+        Collider2D[] enemiesColliders = Physics2D.OverlapCircleAll(transform.position, _towerSO.attackRadius);
+        foreach (Collider2D enemyCollider in enemiesColliders) {
+            if (enemyCollider.gameObject.CompareTag("Enemy")) {
+                EnemyManager enemy = enemyCollider.gameObject.GetComponent<EnemyManager>();
+                enemy.TakeDamage(attackDamage);
+            }
+        }
+    }
 
     private void OnTriggerStay2D(Collider2D collision) {
         if (collision.gameObject.tag.Equals("Enemy")) {
