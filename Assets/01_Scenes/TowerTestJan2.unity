@@ -2988,7 +2988,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8844577905314880619, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.562736
+      value: 9.13
       objectReference: {fileID: 0}
     - target: {fileID: 8844577905314880619, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3237,6 +3237,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Aphrodite (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5225003605191494454, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5671828757576864370, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
       propertyPath: attackSpeed
       value: 0.5
@@ -3484,7 +3488,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8844577905314880619, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.77
+      value: 9.337265
       objectReference: {fileID: 0}
     - target: {fileID: 8844577905314880619, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3827,6 +3831,10 @@ PrefabInstance:
     - target: {fileID: 5225003605191494454, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
       propertyPath: m_Name
       value: Aphrodite (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5225003605191494454, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671828757576864370, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
       propertyPath: attackSpeed
@@ -5371,6 +5379,10 @@ PrefabInstance:
     - target: {fileID: 5225003605191494454, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
       propertyPath: m_Name
       value: Aphrodite
+      objectReference: {fileID: 0}
+    - target: {fileID: 5225003605191494454, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671828757576864370, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
       propertyPath: attackSpeed
