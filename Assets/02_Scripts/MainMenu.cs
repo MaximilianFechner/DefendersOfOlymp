@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
 
     private Resolution[] _resolutions;
 
-    
+    [SerializeField] private GameObject _optionsMenu;
 
      void Start()
     {
@@ -49,6 +49,14 @@ public class MainMenu : MonoBehaviour
         LoadSettings(currentResolutionIndex);
     }
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            _optionsMenu.SetActive(true);
+        }
+    } 
+
     public void SetResolution(int resolutionIndex)
     {
         var resolution = _resolutions[resolutionIndex];
@@ -59,6 +67,11 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadSceneAsync(1);
+    }
+
+    public void LeaveGame()
+    {
+        SceneManager.LoadSceneAsync(0);
     }
 
     //Quit
