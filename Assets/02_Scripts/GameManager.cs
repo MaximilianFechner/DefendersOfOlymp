@@ -25,13 +25,24 @@ public class GameManager : MonoBehaviour
     [Min(0)]
     public int firstWaveEnemies = 2;
 
-    private int cardsToDraw = 1;
+    [Tooltip("How many cards allowed to draw between the waves")]
+    [Min(1)]
+    [SerializeField]
+    private int _cardsToDraw = 1;
 
     [Space(10)]
     [Header("Wave Management")]
     public GameObject[] enemyPrefabs;
     public Transform[] spawnPoints;
     private bool isSpawning = false;
+
+    [HideInInspector]
+    public float thisWaveDuration;
+    [HideInInspector]
+    public float totalWaveDurations;
+
+    private float _waveStartTime;
+    private float _waveEndTime;
 
     private void Awake()
     {
@@ -69,6 +80,7 @@ public class GameManager : MonoBehaviour
         EndOfWave();
         UIManager.Instance.UpdateUITexts();
         UIManager.Instance.gameOverPanel.SetActive(false);
+        UIManager.Instance.waveFinPanel.SetActive(false);
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
     }
@@ -130,15 +142,25 @@ public class GameManager : MonoBehaviour
 
     private void EndOfWave()
     {
-        int remainingCardsToDraw = cardsToDraw;
+        int remainingCardsToDraw = _cardsToDraw;
+
+        _waveEndTime = Time.time;
+        thisWaveDuration = _waveEndTime - _waveStartTime;
+        totalWaveDurations += thisWaveDuration;
+
+        UIManager.Instance.ShowWaveFinResults();
+
         UIManager.Instance.nextWaveButton.gameObject.SetActive(true);
         if (remainingCardsToDraw > 0)
         {
             UIManager.Instance.drawCardButton.gameObject.SetActive(true);
             remainingCardsToDraw--;
         }
+
+
     }
 
+    // Enemy - Wave Spawn Methods
     public void StartNextWave()
     {
         if (!isSpawning)
@@ -146,6 +168,9 @@ public class GameManager : MonoBehaviour
             AddRemainingEnemy(firstWaveEnemies + waveNumber + 1);
             AddWaveCounter();
             StartCoroutine(SpawnWave(waveNumber));
+
+            _waveStartTime = Time.time;
+
             UIManager.Instance.nextWaveButton.gameObject.SetActive(false);
         }
     }
@@ -170,5 +195,7 @@ public class GameManager : MonoBehaviour
         GameObject enemyPrefab = enemyPrefabs[randomEnemyIndex];
         Instantiate(enemyPrefab, spawnPoints[randomSpawnerIndex].position, Quaternion.identity);
     }
+
+
 
 }
