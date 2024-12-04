@@ -12,6 +12,17 @@ public class CardManager : MonoBehaviour
     public Image CardDisplay;
     public Button drawCardButton;
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (GetCurrentCard() != null)
+            {
+                PlaceTower();
+            }
+        }
+    }
+
     public void DrawCard()
     {
         if (AvailableCards.Count == 0) return;
@@ -21,6 +32,10 @@ public class CardManager : MonoBehaviour
         CardDisplay.sprite = currentCard.CardSprite;
         CardDisplay.gameObject.SetActive(true);
         drawCardButton.gameObject.SetActive(false);
+        UIManager.Instance.waveFinPanel.SetActive(false);
+
+        if (!UIManager.Instance.prepareFirstWavePanel) return;
+        UIManager.Instance.prepareFirstWavePanel.SetActive(false);
 
     }
 
@@ -33,6 +48,18 @@ public class CardManager : MonoBehaviour
     {
         currentCard = null;
         CardDisplay.gameObject.SetActive(false);
+    }
+
+
+    void PlaceTower()
+    {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0; // Z-Achse auf 0 setzen für 2D
+
+        Cards selectedCard = GetCurrentCard();
+        Instantiate(selectedCard.TowerPrefab, mousePosition, Quaternion.identity);
+
+        ClearCard();
     }
 }
 
