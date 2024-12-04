@@ -6,6 +6,8 @@ public class ProjectileBehaviour : MonoBehaviour
     [SerializeField] private GameObject _targetEnemy;
     [SerializeField] private ProjectileSO _projectileSO;
 
+    [SerializeField] private float damage;
+
     private Rigidbody2D rb2D;
 
 
@@ -40,7 +42,11 @@ public class ProjectileBehaviour : MonoBehaviour
     }
 
     public float GetDamage() {
-        return _projectileSO.damage; 
+        return damage; 
+    }
+
+    public void SetDamage(float damage) {
+        this.damage = damage; 
     }
 
     private void OnDrawGizmos() {
@@ -53,17 +59,19 @@ public class ProjectileBehaviour : MonoBehaviour
             switch (_projectileSO.towerType) {
                 case TowerType.NORMAL:
                     EnemyManager enemy = collider.gameObject.GetComponent<EnemyManager>();
-                    enemy.TakeDamage(_projectileSO.damage);
+                    enemy.TakeDamage(damage);
                     break;
                 case TowerType.SLOW:
                     EnemyManager enemyManager = collider.gameObject.GetComponent<EnemyManager>();
-                    enemyManager.TakeDamage(_projectileSO.damage);
+                    enemyManager.TakeDamage(damage);
                     EnemyPathfinding enemyPathfinding = collider.gameObject.GetComponent<EnemyPathfinding>();
                     float calculatedSlowValue = (100 - _projectileSO.slowValue) / 100;
                     enemyPathfinding.SlowMovement(calculatedSlowValue, _projectileSO.timeSlowed);
                     break;
                 case TowerType.AOE:
                     AOEDamageCalculation();
+                    break;
+                case TowerType.SUPPORT:
                     break;
             }
             Destroy(gameObject);
@@ -75,7 +83,7 @@ public class ProjectileBehaviour : MonoBehaviour
         foreach (Collider2D enemyCollider in enemiesColliders) {
             if (enemyCollider.gameObject.CompareTag("Enemy")) {
                 EnemyManager enemy = enemyCollider.gameObject.GetComponent<EnemyManager>();
-                enemy.TakeDamage(_projectileSO.damage);
+                enemy.TakeDamage(damage);
             }
         }
     }

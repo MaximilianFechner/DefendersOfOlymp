@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 4055087075238510546}
   - component: {fileID: 5671828757576864370}
   m_Layer: 0
-  m_Name: HeraTower
-  m_TagString: Untagged
+  m_Name: Aphrodite
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

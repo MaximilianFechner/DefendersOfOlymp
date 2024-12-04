@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EnemyDetection : MonoBehaviour
@@ -8,9 +9,14 @@ public class EnemyDetection : MonoBehaviour
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private GameObject _targetEnemy;
 
+    [SerializeField] private float attackDamage;
+    [SerializeField] private float attackSpeed;
+
     private void Awake() {
         CircleCollider2D circleCollider2D = GetComponent<CircleCollider2D>();
         circleCollider2D.radius = _towerSO.attackRadius;
+        attackDamage = _towerSO.projectileSO.damage;
+        attackSpeed = _towerSO.attackSpeed;
 
         _timer = 0;
     }
@@ -28,14 +34,27 @@ public class EnemyDetection : MonoBehaviour
     void Update()
     {
         _timer += Time.deltaTime;
-        if (_targetEnemy != null && _timer >= _towerSO.attackSpeed) {
-            //TODO Hier müsste die Überprüfung kommen, ob der Gegner noch ein Projektil aushält,
-            //Wenn nicht, soll ein anderer Enemy ausgewählt werden.
+        //TODO Hier müsste die Überprüfung kommen, ob der Gegner noch ein Projektil aushält,
+        //Wenn nicht, soll ein anderer Enemy ausgewählt werden.
+        if (_towerSO.projectileSO.towerType.Equals(TowerType.SUPPORT) && _timer >= attackSpeed) {
+            SupportAOEDamageCalculation();
+            _timer = 0;
+        }else if (_targetEnemy != null && _timer >= attackSpeed) {
             SpawnProjectile(_targetEnemy);
             _timer = 0;
         }
     }
 
+    private void SupportAOEDamageCalculation() {
+        Debug.Log("Test");
+        Collider2D[] enemiesColliders = Physics2D.OverlapCircleAll(transform.position, _towerSO.attackRadius);
+        foreach (Collider2D enemyCollider in enemiesColliders) {
+            if (enemyCollider.gameObject.CompareTag("Enemy")) {
+                EnemyManager enemy = enemyCollider.gameObject.GetComponent<EnemyManager>();
+                enemy.TakeDamage(attackDamage);
+            }
+        }
+    }
 
     private void OnTriggerStay2D(Collider2D collision) {
         if (collision.gameObject.tag.Equals("Enemy")) {
@@ -83,10 +102,36 @@ public class EnemyDetection : MonoBehaviour
         projectile.transform.SetParent(null);
         ProjectileBehaviour projectileBehaviour = projectile.GetComponent<ProjectileBehaviour>();
         projectileBehaviour.SetTargetEnemy(target);
+        projectileBehaviour.SetDamage(attackDamage);
     }
 
 
     private void OnDisable() {
         _towerSO.ResetData();
+    }
+
+    public TowerSO GetTowerSO() { return _towerSO; }
+
+    public float GetAttackDamage() {
+        return this.attackDamage;
+    }
+
+    public void SetAttackDamage(float attackSpeed) {
+        this.attackSpeed = attackSpeed;
+    }
+    public void AddBonusToAttackDamage(float amount) {
+        this.attackDamage *= amount;
+    }
+    public float GetAttackSpeed() {
+        return this.attackDamage;
+    }
+
+    public void SetAttackSpeed(float attackSpeed) {
+        this.attackSpeed = attackSpeed;
+    }
+
+
+    public void AddBonusToAttackSpeed(float amount) {
+        this.attackSpeed *= amount;
     }
 }
