@@ -14,11 +14,7 @@ GameObject:
   - component: {fileID: 1295193638439123765}
   - component: {fileID: 4874417660913582619}
   m_Layer: 0
-<<<<<<<< HEAD:Assets/03_Prefabs/Tower/AphroditeProjectile.prefab
-  m_Name: AphroditeProjectile
-========
   m_Name: HeraProjectile
->>>>>>>> develop:Assets/03_Prefabs/HeraProjectile.prefab
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

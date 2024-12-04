@@ -1744,6 +1744,7 @@ MonoBehaviour:
   - {fileID: 741708336}
   spawnDelay: 1
   startEnemies: 2
+  nextWaveButton: {fileID: 0}
 --- !u!1001 &841300771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3157,10 +3158,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5825af1e3f8e640a1eab4d2752d8d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerStartLives: 5
   playerLifeText: {fileID: 915823003}
   enemiesKilledText: {fileID: 1356616251}
   waveNumberText: {fileID: 603864031}
   remainingEnemiesText: {fileID: 1849769902}
+  nextWaveButton: {fileID: 2023358708}
+  drawCardButton: {fileID: 2023358708}
+  gameOverPanel: {fileID: 2023358706}
 --- !u!4 &1755081242
 Transform:
   m_ObjectHideFlags: 0
