@@ -10,6 +10,7 @@ public class LightningBolt : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale != 1) return;
         if (Input.GetMouseButtonDown(0))
         {
             TriggerLightning();

@@ -15,9 +15,45 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] 
     private int _playerDamage = 1; // default value
 
-    private float _currentHP; // serialize field to test in inspector
+    [Header("Game Design Values: Sounds")]
+    [Tooltip("Chance to play the enemy sound when the enemy get a hit or dies")]
+    [Min(1)]
+    [SerializeField]
+    private int _chanceToPlaySound = 20;
+
+    [Tooltip("The Waiting-Time in seconds before the enemy can play the sound again")]
+    [Min(1)]
+    [SerializeField]
+    private float soundCooldown = 3f;
+
+    [Tooltip("Minimum volume for the enemy sounds")]
+    [Range(0,1)]
+    [SerializeField]
+    private float minVolumeSounds = 0.1f;
+
+    [Tooltip("Maximum volume for the enemy sounds")]
+    [Range(0, 1)]
+    [SerializeField]
+    private float maxVolumeSounds = 0.35f;
+
+    [Tooltip("Minimum pitch for the enemy sounds")]
+    [Range(-3, 3)]
+    [SerializeField]
+    private float minPitchSounds = 0.8f;
+
+    [Tooltip("Maximum pitch for the enemy sounds")]
+    [Range(-3, 3)]
+    [SerializeField]
+    private float maxPitchSounds = 1f;
+
+    private AudioSource audioSource;
+
+    [Space(10)]
+    public AudioClip[] enemySounds;
+
+    private float _currentHP;
     private bool _isAlive = true;
-    //[SerializeField] private float enemySpeed = 5f; // not used because NavMeshAgent
+    private float nextSoundAvailable = 0f;
 
     void Start()
     {
@@ -27,6 +63,8 @@ public class EnemyManager : MonoBehaviour
             return;
         }
         _currentHP = _maxHP;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -49,6 +87,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (!_isAlive) return; // avoid damage on dead enemies
         _currentHP -= damage;
+        HitAndDieSound();
         UpdateHealthBar();
         if (_currentHP <= 0 && _isAlive)
         {
@@ -75,6 +114,33 @@ public class EnemyManager : MonoBehaviour
 
     public float GetCurrentHP() {
         return _currentHP; 
+    }
+
+    private void HitAndDieSound()
+    {
+        int randomNumber = Random.Range(1, 100);
+        if (randomNumber > _chanceToPlaySound) return;
+
+        if (_isAlive && Time.time >= nextSoundAvailable)
+        {
+            PlaySoundOnTempGameObject(enemySounds[Random.Range(0, enemySounds.Length)]);
+            nextSoundAvailable = Time.time + soundCooldown;
+        }
+    }
+
+    private void PlaySoundOnTempGameObject(AudioClip clip)
+    {
+        GameObject soundObject = new GameObject("TemporarySound");
+        AudioSource tempAudioSource = soundObject.AddComponent<AudioSource>();
+
+        tempAudioSource.clip = clip;
+        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.volume = Random.Range(minVolumeSounds, maxVolumeSounds);
+        tempAudioSource.pitch = Random.Range(minPitchSounds, maxPitchSounds);
+
+        tempAudioSource.Play();
+
+        Destroy(soundObject, clip.length);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -34,6 +34,9 @@ public class CardManager : MonoBehaviour
         drawCardButton.gameObject.SetActive(false);
         UIManager.Instance.waveFinPanel.SetActive(false);
 
+        if (!UIManager.Instance.prepareFirstWavePanel) return;
+        UIManager.Instance.prepareFirstWavePanel.SetActive(false);
+
     }
 
     public Cards GetCurrentCard()

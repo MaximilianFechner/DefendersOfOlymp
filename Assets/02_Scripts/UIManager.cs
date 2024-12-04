@@ -28,6 +28,10 @@ public class UIManager : MonoBehaviour
     public Text waveEnemiesKilledText;
     public Text waveDurationText;
 
+    [Space(10)]
+    [Header("UI Elements: First Wave Panel")]
+    public GameObject prepareFirstWavePanel;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -54,12 +58,12 @@ public class UIManager : MonoBehaviour
         endEnemiesKilled.text = $"Total enemies killed: {GameManager.Instance.EnemiesKilled.ToString()}";
     }
 
-    public void ShowWaveFinResults()
+    public void ShowWaveResults()
     {
         waveFinishedText.text = $"Wave {GameManager.Instance.waveNumber.ToString()} finished!";
         nextWaveEnemiesText.text = $"Enemies next wave: {GameManager.Instance.firstWaveEnemies + GameManager.Instance.waveNumber + 1}";
         waveEnemiesKilledText.text = $"Enemies killed this wave: {GameManager.Instance.firstWaveEnemies + GameManager.Instance.waveNumber}";
-        waveDurationText.text = $"Time needed for this wave: {GameManager.Instance.thisWaveDuration}";
+        waveDurationText.text = $"Time needed for this wave:\n{GameManager.Instance.thisWaveDuration:F1} seconds";
         waveFinPanel.SetActive(true);
     }
 

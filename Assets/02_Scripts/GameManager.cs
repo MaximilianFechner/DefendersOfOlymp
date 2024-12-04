@@ -61,12 +61,15 @@ public class GameManager : MonoBehaviour
     {
         ResetStats();
         UIManager.Instance.UpdateUITexts();
+        AudioManager.Instance.PlayLevelBackgroundMusic();
+        Time.timeScale = 0;
     }
 
     public void NewGame()
     {
         ResetStats();
         UIManager.Instance.UpdateUITexts();
+        Time.timeScale = 0;
     }
 
     public void CloseGame()
@@ -81,8 +84,8 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.UpdateUITexts();
         UIManager.Instance.gameOverPanel.SetActive(false);
         UIManager.Instance.waveFinPanel.SetActive(false);
+        UIManager.Instance.prepareFirstWavePanel.SetActive(true);
         SceneManager.LoadScene(0);
-        Time.timeScale = 1;
     }
 
     public void LoseLife(int damage)
@@ -113,7 +116,7 @@ public class GameManager : MonoBehaviour
         RemainingEnemies--;
         UIManager.Instance.remainingEnemiesText.text = $"Remaining Enemies: {RemainingEnemies.ToString()}";
 
-        if (RemainingEnemies == 0)
+        if (RemainingEnemies == 0 && RemainingLives > 0)
         {
             EndOfWave();
         }
@@ -148,7 +151,9 @@ public class GameManager : MonoBehaviour
         thisWaveDuration = _waveEndTime - _waveStartTime;
         totalWaveDurations += thisWaveDuration;
 
-        UIManager.Instance.ShowWaveFinResults();
+        Time.timeScale = 0;
+
+        UIManager.Instance.ShowWaveResults();
 
         UIManager.Instance.nextWaveButton.gameObject.SetActive(true);
         if (remainingCardsToDraw > 0)
@@ -172,6 +177,8 @@ public class GameManager : MonoBehaviour
             _waveStartTime = Time.time;
 
             UIManager.Instance.nextWaveButton.gameObject.SetActive(false);
+
+            Time.timeScale = 1;
         }
     }
 
