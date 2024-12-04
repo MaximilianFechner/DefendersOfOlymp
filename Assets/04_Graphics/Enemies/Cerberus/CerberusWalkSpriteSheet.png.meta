@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 380c40165d48ec146af84701e7506a0a
+guid: 21b50da9c3f78a44490250c438e13b2b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CentaurWalkSpriteSheet_0
+      name: CerberusWalkSpriteSheet_0
       rect:
         serializedVersion: 2
-        x: 43
+        x: 0
         y: 0
-        width: 942
-        height: 1000
+        width: 798
+        height: 690
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,42 +125,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf27756d74f40e5489a54b47664cbf55
-      internalID: 298964941
+      spriteID: d11d18e5abd4e21488f17ce388f7bead
+      internalID: 1310203819
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CentaurWalkSpriteSheet_1
+      name: CerberusWalkSpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 1036
-        y: 262
-        width: 100
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 005d96f8635d2ba4d930837f634c972a
-      internalID: -702173583
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CentaurWalkSpriteSheet_2
-      rect:
-        serializedVersion: 2
-        x: 1051
+        x: 798
         y: 0
-        width: 942
-        height: 1000
+        width: 802
+        height: 690
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,42 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72c50ef99592cdd45a0097517dc09f61
-      internalID: 735916484
+      spriteID: f2323144d47f98748ab3f32a76378fe0
+      internalID: 1005009409
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CentaurWalkSpriteSheet_3
+      name: CerberusWalkSpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 2028
-        y: 21
-        width: 966
-        height: 975
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d7a47435a8193004fbd61085c6bbc9ea
-      internalID: -664642556
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CentaurWalkSpriteSheet_4
-      rect:
-        serializedVersion: 2
-        x: 3043
+        x: 1600
         y: 0
-        width: 952
-        height: 1000
+        width: 801
+        height: 690
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3734b03a9c8f8c428669804407a9dab
-      internalID: -1269848893
+      spriteID: 21f6891b9c1c209448c1154e18749af7
+      internalID: 2018023654
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CentaurWalkSpriteSheet_5
+      name: CerberusWalkSpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 4076
-        y: 6
-        width: 920
-        height: 990
+        x: 2401
+        y: 0
+        width: 768
+        height: 690
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,8 +191,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3465c2c14bcf95d4d9f354f4e4c72574
-      internalID: 1081159532
+      spriteID: 8541fc947197c6d4cb6e4006284c07d9
+      internalID: 1640853777
       vertices: []
       indices: 
       edges: []
@@ -245,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: aa380f99150f7ad4cbc1c88eb14a9cbc
+    spriteID: 0c3e2eec169930f4d8d4ce9f80b42410
     internalID: 0
     vertices: []
     indices: 
@@ -255,12 +211,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      CentaurWalkSpriteSheet_0: 298964941
-      CentaurWalkSpriteSheet_1: -702173583
-      CentaurWalkSpriteSheet_2: 735916484
-      CentaurWalkSpriteSheet_3: -664642556
-      CentaurWalkSpriteSheet_4: -1269848893
-      CentaurWalkSpriteSheet_5: 1081159532
+      CerberusWalkSpriteSheet_0: 1310203819
+      CerberusWalkSpriteSheet_1: 1005009409
+      CerberusWalkSpriteSheet_2: 2018023654
+      CerberusWalkSpriteSheet_3: 1640853777
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
