@@ -17,14 +17,16 @@ MonoBehaviour:
   defaultDamage: 5
   defaultAoeRadius: 0
   defaultSlowValue: 0
-  defaultTowerType: 0
+  defaultTimeSlowed: 0
+  defaultTowerType: 3
   defaultEnemyLayerMask:
     serializedVersion: 2
     m_Bits: 64
   movementSpeed: 10
-  damage: 5
+  damage: 1.2
   aoeRadius: 0
   slowValue: 0
+  timeSlowed: 0
   towerType: 0
   enemyLayerMask:
     serializedVersion: 2

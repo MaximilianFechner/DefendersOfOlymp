@@ -49,8 +49,6 @@ public class EnemyPathfinding : MonoBehaviour
             //SlowValue is already added to the agent speed
             return;
         } else {
-            Debug.Log("SlowMovement");
-            Debug.Log("Prozent: " + slowValue);
             _agent.speed = _agent.speed * slowValue;
             _isSlowed = true;
         }
