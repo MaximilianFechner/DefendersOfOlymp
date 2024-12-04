@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4055087075238510546}
   - component: {fileID: 5671828757576864370}
   m_Layer: 0
-  m_Name: Tower
+  m_Name: ZeusTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5225003605191494454}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.85, y: 1.86, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0105cacecca65944192951af632a2d3a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -138,15 +138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1067a099e702a28459fc833e8f84f3db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 4
-  _enemyLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  _targetType: 0
-  _timeToSpawn: 0.5
+  _towerSO: {fileID: 11400000, guid: fd765e7f3f0488b49aaa1a05072b4d99, type: 2}
   _timer: 0
   _spawnPoint: {fileID: 2033527041545563814}
-  _projectilePrefab: {fileID: 7359844151393371129, guid: a4a3ed72930194e44ad448ad469646e9, type: 3}
   _targetEnemy: {fileID: 0}
 --- !u!1 &6844670136081900507
 GameObject:
