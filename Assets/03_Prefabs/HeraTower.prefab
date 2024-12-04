@@ -138,15 +138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1067a099e702a28459fc833e8f84f3db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 17
-  _enemyLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  _targetType: 0
-  _timeToSpawn: 0.5
+  _towerSO: {fileID: 11400000, guid: 003bc2c036389134d8e8c937ffe374f4, type: 2}
   _timer: 0
   _spawnPoint: {fileID: 2033527041545563814}
-  _projectilePrefab: {fileID: 7359844151393371129, guid: 44b782209fc6e8a47bdbb863d6e12fc5, type: 3}
   _targetEnemy: {fileID: 0}
 --- !u!1 &6844670136081900507
 GameObject:

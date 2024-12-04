@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1295193638439123765}
   - component: {fileID: 4874417660913582619}
   m_Layer: 0
-  m_Name: ZeusProjectile
+  m_Name: HephaistosProjectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0, g: 0.7176471, b: 0.93725497, a: 1}
+  m_Color: {r: 0.89019614, g: 0.454902, b: 0.10196079, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -180,5 +180,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetEnemy: {fileID: 0}
-  _movementSpeed: 10
-  _damage: 5
+  _projectileSO: {fileID: 11400000, guid: 497b08fc38d0dd4439788e6b5ff89785, type: 2}
