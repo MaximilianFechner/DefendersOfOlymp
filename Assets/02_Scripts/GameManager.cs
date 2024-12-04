@@ -1,6 +1,6 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,17 +16,33 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int _playerStartLives = 5;
 
-    [Space(10)]
-    [Header("UI Elements")]
-    public Text playerLifeText;
-    public Text enemiesKilledText;
-    public Text waveNumberText;
-    public Text remainingEnemiesText;
-    public Button nextWaveButton;
-    public Button drawCardButton;
-    public GameObject gameOverPanel;
+    [Tooltip("The time delay in seconds until the next enemy after the last spawn")]
+    [Min(0)]
+    [SerializeField]
+    private float _waveSpawnDelay = 1f;
 
-    private int cardsToDraw = 1;
+    [Tooltip("Enemies in the first wave + 1 enemy (when u choose 2, then 3 enemies will spawn)")]
+    [Min(0)]
+    public int firstWaveEnemies = 2;
+
+    [Tooltip("How many cards allowed to draw between the waves")]
+    [Min(1)]
+    [SerializeField]
+    private int _cardsToDraw = 1;
+
+    [Space(10)]
+    [Header("Wave Management")]
+    public GameObject[] enemyPrefabs;
+    public Transform[] spawnPoints;
+    private bool isSpawning = false;
+
+    [HideInInspector]
+    public float thisWaveDuration;
+    [HideInInspector]
+    public float totalWaveDurations;
+
+    private float _waveStartTime;
+    private float _waveEndTime;
 
     private void Awake()
     {
@@ -43,41 +59,39 @@ public class GameManager : MonoBehaviour
     // only for tests in Unity, implement the NewGame()-Method for build game
     private void Start()
     {
-        RemainingLives = _playerStartLives;
-        EnemiesKilled = 0;
-        waveNumber = 0;
-        waveNumberText.text = $"Current wave: {waveNumber.ToString()}";
-        playerLifeText.text = RemainingLives.ToString();
-        enemiesKilledText.text = $"Hades' minions slayed: {EnemiesKilled.ToString()}";
+        ResetStats();
+        UIManager.Instance.UpdateUITexts();
+        AudioManager.Instance.PlayLevelBackgroundMusic();
+        Time.timeScale = 0;
     }
 
     public void NewGame()
     {
-        EnemiesKilled = 0;
-        RemainingLives = _playerStartLives;
-        waveNumber = 0;
-        waveNumberText.text = $"Current wave: {waveNumber.ToString()}";
-        playerLifeText.text = RemainingLives.ToString();
-        enemiesKilledText.text = $"Hades' minions slayed: {EnemiesKilled.ToString()}";
+        ResetStats();
+        UIManager.Instance.UpdateUITexts();
+        Time.timeScale = 0;
+    }
+
+    public void CloseGame()
+    {
+        Application.Quit();
     }
 
     public void TryAgain()
     {
-        EnemiesKilled = 0;
-        RemainingLives = _playerStartLives;
-        waveNumber = 0;
-        waveNumberText.text = $"Current wave: {waveNumber.ToString()}";
-        playerLifeText.text = RemainingLives.ToString();
-        enemiesKilledText.text = $"Hades' minions slayed: {EnemiesKilled.ToString()}";
-        gameOverPanel.SetActive(false);
+        ResetStats();
+        EndOfWave();
+        UIManager.Instance.UpdateUITexts();
+        UIManager.Instance.gameOverPanel.SetActive(false);
+        UIManager.Instance.waveFinPanel.SetActive(false);
+        UIManager.Instance.prepareFirstWavePanel.SetActive(true);
         SceneManager.LoadScene(0);
-        Time.timeScale = 1;
     }
 
     public void LoseLife(int damage)
     {
         RemainingLives -= damage;
-        playerLifeText.text = RemainingLives.ToString();
+        UIManager.Instance.playerLifeText.text = RemainingLives.ToString();
 
         if (RemainingLives == 0)
         {
@@ -88,21 +102,21 @@ public class GameManager : MonoBehaviour
     public void AddEnemyKilled()
     {
         EnemiesKilled++;
-        enemiesKilledText.text = $"Hades' minions slayed: {EnemiesKilled.ToString()}";
+        UIManager.Instance.enemiesKilledText.text = $"Hades' minions slayed: {EnemiesKilled.ToString()}";
     }
 
     public void AddRemainingEnemy(int enemies)
     {
         RemainingEnemies += enemies;
-        remainingEnemiesText.text = $"Remaining Enemies: {RemainingEnemies.ToString()}";
+        UIManager.Instance.remainingEnemiesText.text = $"Remaining Enemies: {RemainingEnemies.ToString()}";
     }
 
     public void SubRemainingEnemy()
     {
         RemainingEnemies--;
-        remainingEnemiesText.text = $"Remaining Enemies: {RemainingEnemies.ToString()}";
+        UIManager.Instance.remainingEnemiesText.text = $"Remaining Enemies: {RemainingEnemies.ToString()}";
 
-        if (RemainingEnemies == 0)
+        if (RemainingEnemies == 0 && RemainingLives > 0)
         {
             EndOfWave();
         }
@@ -111,26 +125,84 @@ public class GameManager : MonoBehaviour
     public void AddWaveCounter()
     {
         waveNumber++;
-        waveNumberText.text = $"Current wave: {waveNumber.ToString()}";
+        UIManager.Instance.waveNumberText.text = $"Current wave: {waveNumber.ToString()}";
+    }
+
+    public void ResetStats()
+    {
+        RemainingEnemies = 0;
+        EnemiesKilled = 0;
+        RemainingLives = _playerStartLives;
+        waveNumber = 0;
     }
 
     private void GameOver()
     {
         Time.timeScale = 0;
-        gameOverPanel.SetActive(true);
-
+        UIManager.Instance.gameOverPanel.SetActive(true);
+        UIManager.Instance.ShowEndResults();
     }
 
     private void EndOfWave()
     {
-        int remainingCardsToDraw = cardsToDraw;
-        nextWaveButton.gameObject.SetActive(true);
+        int remainingCardsToDraw = _cardsToDraw;
+
+        _waveEndTime = Time.time;
+        thisWaveDuration = _waveEndTime - _waveStartTime;
+        totalWaveDurations += thisWaveDuration;
+
+        Time.timeScale = 0;
+
+        UIManager.Instance.ShowWaveResults();
+
+        UIManager.Instance.nextWaveButton.gameObject.SetActive(true);
         if (remainingCardsToDraw > 0)
         {
-            drawCardButton.gameObject.SetActive(true);
+            UIManager.Instance.drawCardButton.gameObject.SetActive(true);
             remainingCardsToDraw--;
         }
+
+
     }
+
+    // Enemy - Wave Spawn Methods
+    public void StartNextWave()
+    {
+        if (!isSpawning)
+        {
+            AddRemainingEnemy(firstWaveEnemies + waveNumber + 1);
+            AddWaveCounter();
+            StartCoroutine(SpawnWave(waveNumber));
+
+            _waveStartTime = Time.time;
+
+            UIManager.Instance.nextWaveButton.gameObject.SetActive(false);
+
+            Time.timeScale = 1;
+        }
+    }
+
+    private IEnumerator SpawnWave(int enemyCount)
+    {
+        isSpawning = true;
+
+        for (int i = 0; i < firstWaveEnemies + enemyCount; i++)
+        {
+            SpawnEnemy();
+            yield return new WaitForSeconds(_waveSpawnDelay);
+        }
+
+        isSpawning = false;
+    }
+
+    private void SpawnEnemy()
+    {
+        int randomEnemyIndex = Random.Range(0, enemyPrefabs.Length);
+        int randomSpawnerIndex = Random.Range(0, spawnPoints.Length);
+        GameObject enemyPrefab = enemyPrefabs[randomEnemyIndex];
+        Instantiate(enemyPrefab, spawnPoints[randomSpawnerIndex].position, Quaternion.identity);
+    }
+
 
 
 }
