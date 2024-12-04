@@ -3,9 +3,20 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     private EnemyHealthBar enemyHealthBar;
-    [SerializeField] private float _maxHP = 50f; // default value
-    [SerializeField] private float _currentHP; // serialize field to test in inspector
-    [SerializeField] private int _playerDamage = 1; // default value
+
+    [Header("Game Design Values")]
+    [Tooltip("The maximum hp for the enemy")]
+    [Min(1)]
+    [SerializeField] 
+    private float _maxHP = 50f; // default value
+
+    [Tooltip("The damage the enemy did on the player when he reached the target/goal")]
+    [Min(1)]
+    [SerializeField] 
+    private int _playerDamage = 1; // default value
+
+    private float _currentHP; // serialize field to test in inspector
+    private bool _isAlive = true;
     //[SerializeField] private float enemySpeed = 5f; // not used because NavMeshAgent
 
     void Start()
@@ -36,9 +47,10 @@ public class EnemyManager : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
+        if (!_isAlive) return; // avoid damage on dead enemies
         _currentHP -= damage;
         UpdateHealthBar();
-        if (_currentHP <= 0)
+        if (_currentHP <= 0 && _isAlive)
         {
             Die();
         }
@@ -46,9 +58,13 @@ public class EnemyManager : MonoBehaviour
 
     public void Die()
     {
-        GameManager.Instance.AddEnemyKilled();
-        GameManager.Instance.SubRemainingEnemy();
-        Destroy(this.gameObject);
+        if (_isAlive)
+        {
+            _isAlive = false;
+            GameManager.Instance.AddEnemyKilled();
+            GameManager.Instance.SubRemainingEnemy();
+            Destroy(this.gameObject);
+        }
     }
 
     public void UpdateHealthBar()
@@ -63,9 +79,10 @@ public class EnemyManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "EnemyTarget")
         {
             GameManager.Instance.LoseLife(_playerDamage);
+            GameManager.Instance.SubRemainingEnemy();
             Destroy(this.gameObject, 3f);
         }
     }

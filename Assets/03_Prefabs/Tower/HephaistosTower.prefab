@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8844577905314880619}
   - component: {fileID: 6186527600433012005}
-  - component: {fileID: 4055087075238510546}
   - component: {fileID: 5671828757576864370}
+  - component: {fileID: 4055087075238510546}
   m_Layer: 0
   m_Name: HephaistosTower
   m_TagString: Untagged

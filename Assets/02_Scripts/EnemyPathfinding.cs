@@ -9,7 +9,7 @@ public class EnemyPathfinding : MonoBehaviour
     void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
-        _player = GameObject.FindGameObjectWithTag("Player");
+        _player = GameObject.FindGameObjectWithTag("EnemyTarget");
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
     }
