@@ -17,6 +17,7 @@ public class ProjectileSO : ScriptableObject
     [SerializeField] float defaultDamage;
     [SerializeField] float defaultAoeRadius;
     [SerializeField] float defaultSlowValue;
+    [SerializeField] float defaultTimeSlowed;
     [SerializeField] TowerType defaultTowerType;
     [SerializeField] LayerMask defaultEnemyLayerMask;
     [SerializeField] Dictionary<GameObject, float> defaultEnemyBonusMalusTable;
@@ -25,6 +26,7 @@ public class ProjectileSO : ScriptableObject
     [HideInInspector] public float damage;
     [HideInInspector] public float aoeRadius;
     [HideInInspector] public float slowValue;
+    [HideInInspector] public float timeSlowed;
     [HideInInspector] public TowerType towerType;
     [HideInInspector] public LayerMask enemyLayerMask;
     [HideInInspector] public Dictionary<GameObject, float> enemyBonusMalusTable;
@@ -34,6 +36,7 @@ public class ProjectileSO : ScriptableObject
         damage = defaultDamage;
         aoeRadius = defaultAoeRadius;
         slowValue = defaultSlowValue;
+        timeSlowed = defaultTimeSlowed;
         towerType = defaultTowerType;
         enemyLayerMask = defaultEnemyLayerMask;
         enemyBonusMalusTable = defaultEnemyBonusMalusTable;

@@ -56,9 +56,11 @@ public class ProjectileBehaviour : MonoBehaviour
                     enemy.TakeDamage(_projectileSO.damage);
                     break;
                 case TowerType.SLOW:
-                    EnemyManager enemySlow = collider.gameObject.GetComponent<EnemyManager>();
-                    enemySlow.TakeDamage(_projectileSO.damage);
-                    //enemySlow.SlowMovement(_projectileSO.slowValue);
+                    EnemyManager enemyManager = collider.gameObject.GetComponent<EnemyManager>();
+                    enemyManager.TakeDamage(_projectileSO.damage);
+                    EnemyPathfinding enemyPathfinding = collider.gameObject.GetComponent<EnemyPathfinding>();
+                    float calculatedSlowValue = (100 - _projectileSO.slowValue) / 100;
+                    enemyPathfinding.SlowMovement(calculatedSlowValue, _projectileSO.timeSlowed);
                     break;
                 case TowerType.AOE:
                     AOEDamageCalculation();
