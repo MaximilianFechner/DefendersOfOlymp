@@ -23,11 +23,9 @@ public class CardManager : MonoBehaviour
         }
 
         if (Input.GetMouseButtonDown(1)) {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0; // Z-Achse auf 0 setzen für 2D
-            Ray ray = Camera.main.ScreenPointToRay(mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit)) {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+            if (hit.collider != null) {
                 GameObject tower = hit.collider.gameObject;
                 if (tower.tag.Equals("Tower")) {
                     EnemyDetection enemyDetection = tower.GetComponent<EnemyDetection>();
