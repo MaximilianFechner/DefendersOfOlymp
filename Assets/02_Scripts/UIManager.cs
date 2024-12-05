@@ -15,6 +15,10 @@ public class UIManager : MonoBehaviour
     public Button drawCardButton;
 
     [Space(10)]
+    [Header("UI Elements: Active Skills")]
+    public Text zeusSkillCooldown;
+
+    [Space(10)]
     [Header("UI Elements: Game Over Panel")]
     public GameObject gameOverPanel;
     public Text endWaveCounter;
@@ -62,7 +66,7 @@ public class UIManager : MonoBehaviour
     {
         waveFinishedText.text = $"Wave {GameManager.Instance.waveNumber.ToString()} finished!";
         nextWaveEnemiesText.text = $"Enemies next wave: {GameManager.Instance.firstWaveEnemies + GameManager.Instance.waveNumber + 1}";
-        waveEnemiesKilledText.text = $"Enemies killed this wave: {GameManager.Instance.firstWaveEnemies + GameManager.Instance.waveNumber}";
+        waveEnemiesKilledText.text = $"Enemies killed this wave: {GameManager.Instance.EnemiesKilled}";
         waveDurationText.text = $"Time needed for this wave:\n{GameManager.Instance.thisWaveDuration:F1} seconds";
         waveFinPanel.SetActive(true);
     }
