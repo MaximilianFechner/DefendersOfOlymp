@@ -52,7 +52,9 @@ public class EnemyDetection : MonoBehaviour
     }
 
     private void SupportAOEDamageCalculation() {
-        _animator.SetTrigger("attackTrigger");
+        if (_animator != null) {
+            _animator.SetTrigger("attackTrigger");
+        }
         Collider2D[] enemiesColliders = Physics2D.OverlapCircleAll(transform.position, _towerSO.attackRadius);
         foreach (Collider2D enemyCollider in enemiesColliders) {
             if (enemyCollider.gameObject.CompareTag("Enemy")) {
@@ -104,7 +106,9 @@ public class EnemyDetection : MonoBehaviour
     }
 
     private void SpawnProjectile(GameObject target) {
-        _animator.SetTrigger("attackTrigger");
+        if (_animator != null) {
+            _animator.SetTrigger("attackTrigger");
+        }
         GameObject projectile = Instantiate(_towerSO.projectileSO.prefab, _spawnPoint);
         projectile.transform.SetParent(null);
         ProjectileBehaviour projectileBehaviour = projectile.GetComponent<ProjectileBehaviour>();
