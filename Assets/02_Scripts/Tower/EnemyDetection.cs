@@ -12,11 +12,15 @@ public class EnemyDetection : MonoBehaviour
     [SerializeField] private float attackDamage;
     [SerializeField] private float attackSpeed;
 
+    [SerializeField] private GameObject rangeVisual;
+
     private void Awake() {
         CircleCollider2D circleCollider2D = GetComponent<CircleCollider2D>();
         circleCollider2D.radius = _towerSO.attackRadius;
         attackDamage = _towerSO.projectileSO.damage;
         attackSpeed = _towerSO.attackSpeed;
+
+        rangeVisual.transform.localScale = new Vector3(_towerSO.attackRadius * 2, _towerSO.attackRadius * 2, 1);
 
         _timer = 0;
     }
@@ -134,4 +138,9 @@ public class EnemyDetection : MonoBehaviour
     public void AddBonusToAttackSpeed(float amount) {
         this.attackSpeed *= amount;
     }
+
+    public void SetRangeVisual() {
+        rangeVisual.SetActive(!rangeVisual.activeSelf);
+    }
+
 }
