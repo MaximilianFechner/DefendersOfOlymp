@@ -13,8 +13,10 @@ public class EnemyDetection : MonoBehaviour
     [SerializeField] private float attackSpeed;
 
     [SerializeField] private GameObject rangeVisual;
+    [SerializeField] private Animator _animator;
 
     private void Awake() {
+
         CircleCollider2D circleCollider2D = GetComponent<CircleCollider2D>();
         circleCollider2D.radius = _towerSO.attackRadius;
         attackDamage = _towerSO.projectileSO.damage;
@@ -50,7 +52,7 @@ public class EnemyDetection : MonoBehaviour
     }
 
     private void SupportAOEDamageCalculation() {
-        Debug.Log("Test");
+        _animator.SetTrigger("attackTrigger");
         Collider2D[] enemiesColliders = Physics2D.OverlapCircleAll(transform.position, _towerSO.attackRadius);
         foreach (Collider2D enemyCollider in enemiesColliders) {
             if (enemyCollider.gameObject.CompareTag("Enemy")) {
@@ -102,6 +104,7 @@ public class EnemyDetection : MonoBehaviour
     }
 
     private void SpawnProjectile(GameObject target) {
+        _animator.SetTrigger("attackTrigger");
         GameObject projectile = Instantiate(_towerSO.projectileSO.prefab, _spawnPoint);
         projectile.transform.SetParent(null);
         ProjectileBehaviour projectileBehaviour = projectile.GetComponent<ProjectileBehaviour>();

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6186527600433012005}
   - component: {fileID: 4055087075238510546}
   - component: {fileID: 5671828757576864370}
+  - component: {fileID: 2144846199632697628}
   m_Layer: 0
   m_Name: PoseidonTower
   m_TagString: Tower
@@ -146,6 +147,29 @@ MonoBehaviour:
   attackDamage: 0
   attackSpeed: 0
   rangeVisual: {fileID: 6999961223203824562}
+  _animator: {fileID: 2144846199632697628}
+--- !u!95 &2144846199632697628
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5225003605191494454}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6bac162053528674a90f01a1d717baed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6844670136081900507
 GameObject:
   m_ObjectHideFlags: 0
