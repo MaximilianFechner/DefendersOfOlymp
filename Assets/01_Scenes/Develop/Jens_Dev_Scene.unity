@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 343671656}
   - component: {fileID: 343671655}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -383,7 +383,7 @@ Transform:
   m_GameObject: {fileID: 343671654}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0.5}
   m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -554,9 +554,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 569642623}
     m_Modifications:
+    - target: {fileID: 2967762513063067116, guid: 9764184056ab1744b946e5d41f9202a0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6021969475789100921, guid: 9764184056ab1744b946e5d41f9202a0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7230780318854617077, guid: 9764184056ab1744b946e5d41f9202a0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7271098937257688895, guid: 9764184056ab1744b946e5d41f9202a0, type: 3}
       propertyPath: m_Name
       value: PRE_CursorIndicatorParent
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271098937257688895, guid: 9764184056ab1744b946e5d41f9202a0, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8295677803294476357, guid: 9764184056ab1744b946e5d41f9202a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -597,6 +613,10 @@ PrefabInstance:
     - target: {fileID: 8295677803294476357, guid: 9764184056ab1744b946e5d41f9202a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356707585809158423, guid: 9764184056ab1744b946e5d41f9202a0, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -642,6 +662,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1649687508}
   - {fileID: 1253177551}
   m_Father: {fileID: 569642623}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -842,7 +863,7 @@ GameObject:
   - component: {fileID: 1649687506}
   - component: {fileID: 1649687505}
   m_Layer: 0
-  m_Name: Plane (1)
+  m_Name: GridRectangularTransparent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -931,12 +952,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649687504}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.015, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 0.015, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 978813824}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1862737425
 GameObject:
@@ -1117,7 +1138,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e22952a7792d9ad4eb8b00bae9f06f09, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1155,4 +1176,3 @@ SceneRoots:
   - {fileID: 343671658}
   - {fileID: 569642623}
   - {fileID: 1862737429}
-  - {fileID: 1649687508}
