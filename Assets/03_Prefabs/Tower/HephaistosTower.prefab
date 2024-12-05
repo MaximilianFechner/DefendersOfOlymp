@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5671828757576864370}
   - component: {fileID: 4055087075238510546}
   - component: {fileID: 572989423193425501}
+  - component: {fileID: -7902435757129618146}
   m_Layer: 0
   m_Name: HephaistosTower
   m_TagString: Tower
@@ -81,7 +82,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 93ae4f524b63f4441bcb2d7c00e01903, type: 3}
+  m_Sprite: {fileID: -1252828465, guid: 18e478dd7699edc4697b3f764034fb7c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -163,6 +164,28 @@ MonoBehaviour:
   _buffAttackSpeedValue: 50
   _buffedTowers: []
   _towerSO: {fileID: 11400000, guid: 574e757cecd5cf24aa4e13661fbce331, type: 2}
+--- !u!95 &-7902435757129618146
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5225003605191494454}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: de9ca0ea85bd3b3449b93c2ab3d2af93, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6501918954586205008
 GameObject:
   m_ObjectHideFlags: 0
