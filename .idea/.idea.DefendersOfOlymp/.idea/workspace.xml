@@ -4,13 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5c2b25d-1da6-43e0-9be8-ccd5b961fa75" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/02_Scripts/System.meta" afterDir="false" />
+    <list default="true" id="f5c2b25d-1da6-43e0-9be8-ccd5b961fa75" name="Changes" comment="Add">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DefendersOfOlymp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DefendersOfOlymp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/InputManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/InputManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/PlacementSystem.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/PlacementSystem.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="autoShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -33,7 +40,10 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/01_Scenes/Develop/Jens_Dev_Scene.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Packages/packages-lock.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Packages/packages-lock.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Packages/packages-lock.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -46,8 +56,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Elija",
+    "XThreadsFramesViewSplitterKey": "0.51618123",
+    "git-widget-placeholder": "Jens",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -58,6 +70,14 @@
   }
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/TestBuild\DefendersOfOlymp.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="F:\OneDrive - games-academy.de\GitFork\DefendersOfOlymp\TestBuild" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="F:\Unity\6000.0.25f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;F:\OneDrive - games-academy.de\GitFork\DefendersOfOlymp&quot; -debugCodeOptimization" />
@@ -84,10 +104,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="46064">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="46064" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -126,7 +146,31 @@
       <option name="project" value="LOCAL" />
       <updated>1732109074748</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fix Merge Conflicts">
+      <option name="closed" value="true" />
+      <created>1733406162271</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1733406162271</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Change Directory for some things to Misc Folder! |Edit URP Again...| Fix Material Issues">
+      <option name="closed" value="true" />
+      <created>1733406988804</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733406988804</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Grid Shaders and Cursor Indicator work!">
+      <option name="closed" value="true" />
+      <created>1733407638243</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1733407638243</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,6 +211,9 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="+ Default Stuff" />
     <MESSAGE value="+ Scene&#10;+ IDE Stuff&#10;+ meta..." />
-    <option name="LAST_COMMIT_MESSAGE" value="+ Scene&#10;+ IDE Stuff&#10;+ meta..." />
+    <MESSAGE value="Fix Merge Conflicts" />
+    <MESSAGE value="Change Directory for some things to Misc Folder! |Edit URP Again...| Fix Material Issues" />
+    <MESSAGE value="Grid Shaders and Cursor Indicator work!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Grid Shaders and Cursor Indicator work!" />
   </component>
 </project>
