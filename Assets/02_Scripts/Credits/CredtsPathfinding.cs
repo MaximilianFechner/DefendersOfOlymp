@@ -25,23 +25,23 @@ public class CredtsPathfinding : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(andreasPrefab, spawnPoints[Random.Range(0, spawnPoints.Length)].gameObject.transform.position, Quaternion.identity);
+            Instantiate(andreasPrefab, spawnPoints[1].gameObject.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(6);
-            Instantiate(christinaPrefab, spawnPoints[Random.Range(0, spawnPoints.Length)].gameObject.transform.position, Quaternion.identity);
+            Instantiate(christinaPrefab, spawnPoints[1].gameObject.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(6);
-            Instantiate(elisabethPrefab, spawnPoints[Random.Range(0, spawnPoints.Length)].gameObject.transform.position, Quaternion.identity);
+            Instantiate(elisabethPrefab, spawnPoints[1].gameObject.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(6);
-            Instantiate(stevenPrefab, spawnPoints[Random.Range(0, spawnPoints.Length)].gameObject.transform.position, Quaternion.identity);
+            Instantiate(stevenPrefab, spawnPoints[1].gameObject.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(6);
-            Instantiate(iliaPrefab, spawnPoints[Random.Range(0, spawnPoints.Length)].gameObject.transform.position, Quaternion.identity);
+            Instantiate(iliaPrefab, spawnPoints[1].gameObject.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(6);
-            Instantiate(elijaPrefab, spawnPoints[Random.Range(0, spawnPoints.Length)].gameObject.transform.position, Quaternion.identity);
+            Instantiate(elijaPrefab, spawnPoints[1].gameObject.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(6);
-            Instantiate(janPrefab, spawnPoints[Random.Range(0, spawnPoints.Length)].gameObject.transform.position, Quaternion.identity);
+            Instantiate(janPrefab, spawnPoints[1].gameObject.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(6);
-            Instantiate(jensPrefab, spawnPoints[Random.Range(0, spawnPoints.Length)].gameObject.transform.position, Quaternion.identity);
+            Instantiate(jensPrefab, spawnPoints[1].gameObject.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(6);
-            Instantiate(maxPrefab, spawnPoints[Random.Range(0, spawnPoints.Length)].gameObject.transform.position, Quaternion.identity);
+            Instantiate(maxPrefab, spawnPoints[1].gameObject.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(6); 
 
         }
