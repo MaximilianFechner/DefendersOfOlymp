@@ -21,6 +21,18 @@ public class CardManager : MonoBehaviour
                 PlaceTower();
             }
         }
+
+        if (Input.GetMouseButtonDown(1)) {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+            if (hit.collider != null) {
+                GameObject tower = hit.collider.gameObject;
+                if (tower.tag.Equals("Tower")) {
+                    EnemyDetection enemyDetection = tower.GetComponent<EnemyDetection>();
+                    enemyDetection.SetRangeVisual();
+                }
+            }
+        }
     }
 
     public void DrawCard()
