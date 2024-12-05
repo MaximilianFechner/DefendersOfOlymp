@@ -69,6 +69,7 @@ public class GameManager : MonoBehaviour
     {
         ResetStats();
         UIManager.Instance.UpdateUITexts();
+        AudioManager.Instance.PlayLevelBackgroundMusic();
         Time.timeScale = 0;
     }
 
@@ -102,7 +103,7 @@ public class GameManager : MonoBehaviour
     public void AddEnemyKilled()
     {
         EnemiesKilled++;
-        UIManager.Instance.enemiesKilledText.text = $"Hades' minions slayed: {EnemiesKilled.ToString()}";
+        UIManager.Instance.enemiesKilledText.text = $"{EnemiesKilled.ToString()}";
     }
 
     public void AddRemainingEnemy(int enemies)
@@ -125,7 +126,7 @@ public class GameManager : MonoBehaviour
     public void AddWaveCounter()
     {
         waveNumber++;
-        UIManager.Instance.waveNumberText.text = $"Current wave: {waveNumber.ToString()}";
+        UIManager.Instance.waveNumberText.text = $"{waveNumber.ToString()}";
     }
 
     public void ResetStats()

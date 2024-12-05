@@ -50,9 +50,9 @@ public class UIManager : MonoBehaviour
 
     public void UpdateUITexts()
     {
-        waveNumberText.text = $"Current wave: {GameManager.Instance.waveNumber.ToString()}";
+        waveNumberText.text = $"{GameManager.Instance.waveNumber.ToString()}";
         playerLifeText.text = GameManager.Instance.RemainingLives.ToString();
-        enemiesKilledText.text = $"Hades' minions slayed: {GameManager.Instance.EnemiesKilled.ToString()}";
+        enemiesKilledText.text = $"{GameManager.Instance.EnemiesKilled.ToString()}";
         remainingEnemiesText.text = $"Remaining Enemies: {GameManager.Instance.RemainingEnemies.ToString()}";
     }
 

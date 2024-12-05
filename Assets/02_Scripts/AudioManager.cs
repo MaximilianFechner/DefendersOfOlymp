@@ -42,7 +42,7 @@ public class AudioManager : MonoBehaviour
 
         tempAudioSource.clip = waveEndMusic;
         tempAudioSource.ignoreListenerPause = true;
-
+        tempAudioSource.volume = 0.3f;
         tempAudioSource.Play();
 
         Destroy(waveSoundObject, waveEndMusic.length);
