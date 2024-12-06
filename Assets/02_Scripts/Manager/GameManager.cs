@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
     {
         ResetStats();
         EndOfWave();
+        UIManager.Instance.InitializeLives(_playerStartLives);
         UIManager.Instance.UpdateUITexts();
         UIManager.Instance.gameOverPanel.SetActive(false);
         UIManager.Instance.waveFinPanel.SetActive(false);
@@ -92,7 +93,7 @@ public class GameManager : MonoBehaviour
     public void LoseLife(int damage)
     {
         RemainingLives -= damage;
-        UIManager.Instance.playerLifeText.text = RemainingLives.ToString();
+        UIManager.Instance.UpdateLives(RemainingLives);
 
         if (RemainingLives == 0)
         {
@@ -167,7 +168,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    // Enemy - Wave Spawn Methods
+    // Enemy Wave Spawn Methods ++
     public void StartNextWave()
     {
         if (!isSpawning)
@@ -204,7 +205,12 @@ public class GameManager : MonoBehaviour
         GameObject enemyPrefab = enemyPrefabs[randomEnemyIndex];
         Instantiate(enemyPrefab, spawnPoints[randomSpawnerIndex].position, Quaternion.identity);
     }
+    // Enemy Wave Spawn Methods --
 
-
+    public int ReturnLives()
+    {
+        return _playerStartLives;
+    }
+    
 
 }

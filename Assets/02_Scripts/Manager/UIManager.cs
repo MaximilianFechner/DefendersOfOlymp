@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,12 +8,15 @@ public class UIManager : MonoBehaviour
 
     [Space(10)]
     [Header("UI Elements: Ingame")]
-    public Text playerLifeText;
     public Text enemiesKilledText;
     public Text waveNumberText;
     public Text remainingEnemiesText;
     public Button nextWaveButton;
     public Button drawCardButton;
+    public Transform PlayerLife;
+    public GameObject heartPrefab;
+
+    private List<GameObject> hearts = new List<GameObject>();
 
     [Space(10)]
     [Header("UI Elements: Active Skills")]
@@ -48,10 +52,14 @@ public class UIManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Start()
+    {
+        prepareFirstWavePanel.SetActive(true);
+        InitializeLives(GameManager.Instance.ReturnLives());
+    }
     public void UpdateUITexts()
     {
         waveNumberText.text = $"{GameManager.Instance.waveNumber.ToString()}";
-        playerLifeText.text = GameManager.Instance.RemainingLives.ToString();
         enemiesKilledText.text = $"{GameManager.Instance.EnemiesKilled.ToString()}";
         remainingEnemiesText.text = $"Remaining Enemies: {GameManager.Instance.RemainingEnemies.ToString()}";
     }
@@ -71,4 +79,31 @@ public class UIManager : MonoBehaviour
         waveFinPanel.SetActive(true);
     }
 
+    // Player Life Methods ++
+    public void InitializeLives(int lives)
+    {
+        ClearHearts();
+        for (int i = 0; i < lives; i++)
+        {
+            GameObject newHeart = Instantiate(heartPrefab, PlayerLife);
+            hearts.Add(newHeart);
+        }
+    }
+    public void UpdateLives(int currentLives)
+    {
+        for (int i = 0; i < hearts.Count; i++)
+        {
+            hearts[i].SetActive(i < currentLives);
+        }
+    }
+
+    private void ClearHearts()
+    {
+        foreach (GameObject heart in hearts)
+        {
+            Destroy(heart);
+        }
+        hearts.Clear();
+    }
+    // Player Life Methods --
 }
