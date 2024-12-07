@@ -21,9 +21,13 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float _waveSpawnDelay = 1f;
 
-    [Tooltip("Enemies in the first wave + 1 enemy (when u choose 2, then 3 enemies will spawn)")]
+    [Tooltip("Enemies in the first wave + 1 enemy (when u choose 2, then 3 enemies will spawn in the first wave)")]
     [Min(0)]
     public int firstWaveEnemies = 2;
+
+    [Tooltip("Every wave increase the enemies + 1, here you can add extra enemies every wave - if not wanted choose 0")]
+    [Min(0)]
+    public int addExtraEnemiesEveryWave = 0;
 
     [Tooltip("How many cards allowed to draw between the waves")]
     [Min(1)]
@@ -173,9 +177,9 @@ public class GameManager : MonoBehaviour
     {
         if (!isSpawning)
         {
-            AddRemainingEnemy(firstWaveEnemies + waveNumber + 1);
             AddWaveCounter();
-            StartCoroutine(SpawnWave(waveNumber));
+            AddRemainingEnemy(firstWaveEnemies + waveNumber + addExtraEnemiesEveryWave);
+            StartCoroutine(SpawnWave(firstWaveEnemies + waveNumber + addExtraEnemiesEveryWave));
 
             _waveStartTime = Time.time;
 
@@ -189,7 +193,7 @@ public class GameManager : MonoBehaviour
     {
         isSpawning = true;
 
-        for (int i = 0; i < firstWaveEnemies + enemyCount; i++)
+        for (int i = 0; i < enemyCount; i++)
         {
             SpawnEnemy();
             yield return new WaitForSeconds(_waveSpawnDelay);
