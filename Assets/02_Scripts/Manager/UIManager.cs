@@ -39,6 +39,7 @@ public class UIManager : MonoBehaviour
     [Space(10)]
     [Header("UI Elements: First Wave Panel")]
     public GameObject prepareFirstWavePanel;
+    public Text firstWaveEnemiesText;
 
     private void Awake()
     {
@@ -54,27 +55,28 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        firstWaveEnemiesText.text = $"Enemies in the first wave: {GameManager.Instance.firstWaveEnemies + (GameManager.Instance.waveNumber + 1) + GameManager.Instance.addExtraEnemiesEveryWave}";
         prepareFirstWavePanel.SetActive(true);
         InitializeLives(GameManager.Instance.ReturnLives());
     }
     public void UpdateUITexts()
     {
         waveNumberText.text = $"{GameManager.Instance.waveNumber.ToString()}";
-        enemiesKilledText.text = $"{GameManager.Instance.EnemiesKilled.ToString()}";
+        enemiesKilledText.text = $"{GameManager.Instance.TotalEnemiesKilled.ToString()}";
         remainingEnemiesText.text = $"Remaining Enemies: {GameManager.Instance.RemainingEnemies.ToString()}";
     }
 
     public void ShowEndResults()
     {
         endWaveCounter.text = $"Waves finished: {(GameManager.Instance.waveNumber - 1).ToString()}";
-        endEnemiesKilled.text = $"Total enemies killed: {GameManager.Instance.EnemiesKilled.ToString()}";
+        endEnemiesKilled.text = $"Total enemies killed: {GameManager.Instance.TotalEnemiesKilled.ToString()}";
     }
 
     public void ShowWaveResults()
     {
         waveFinishedText.text = $"Wave {GameManager.Instance.waveNumber.ToString()} finished!";
-        nextWaveEnemiesText.text = $"Enemies next wave: {GameManager.Instance.firstWaveEnemies + GameManager.Instance.waveNumber + 1}";
-        waveEnemiesKilledText.text = $"Enemies killed this wave: {GameManager.Instance.EnemiesKilled}";
+        nextWaveEnemiesText.text = $"Enemies next wave: {GameManager.Instance.firstWaveEnemies + (GameManager.Instance.waveNumber + 1) + GameManager.Instance.addExtraEnemiesEveryWave}";
+        waveEnemiesKilledText.text = $"Enemies killed this wave: {GameManager.Instance.WaveEnemiesKilled}";
         waveDurationText.text = $"Time needed for this wave:\n{GameManager.Instance.thisWaveDuration:F1} seconds";
         waveFinPanel.SetActive(true);
     }

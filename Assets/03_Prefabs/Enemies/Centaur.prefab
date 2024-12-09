@@ -298,6 +298,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHP: 70
+  absoluteHPIncreaseWave: 0
+  prozentualHPIncreaseWave: 0
   _playerDamage: 1
   _chanceToPlaySound: 20
   soundCooldown: 3
@@ -308,6 +310,7 @@ MonoBehaviour:
   enemySounds:
   - {fileID: 8300000, guid: cedb5cde337b73d4286ed8932af6db8d, type: 3}
   - {fileID: 8300000, guid: 01c69b3e9c9ef554097ed20fed9505d1, type: 3}
+  _currentHP: 0
 --- !u!114 &1173280012366497405
 MonoBehaviour:
   m_ObjectHideFlags: 0

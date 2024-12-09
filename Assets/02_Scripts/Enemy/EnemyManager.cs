@@ -10,6 +10,16 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] 
     private float _maxHP = 50f; // default value
 
+    [Tooltip("Add extra absolute HP for this enemy for every wave")]
+    [Min(0)]
+    [SerializeField]
+    private float absoluteHPIncreaseWave = 0f;
+
+    [Tooltip("Add extra prozentual HP for this enemy for every wave")]
+    [Min(0)]
+    [SerializeField]
+    private float prozentualHPIncreaseWave = 0f;
+
     [Tooltip("The damage the enemy did on the player when he reached the target/goal")]
     [Min(1)]
     [SerializeField] 
@@ -51,6 +61,7 @@ public class EnemyManager : MonoBehaviour
     [Space(10)]
     public AudioClip[] enemySounds;
 
+    [SerializeField]
     private float _currentHP;
     private bool _isAlive = true;
     private float nextSoundAvailable = 0f;
@@ -62,6 +73,11 @@ public class EnemyManager : MonoBehaviour
         {
             return;
         }
+
+        prozentualHPIncreaseWave = ((_maxHP / 100) * prozentualHPIncreaseWave) * GameManager.Instance.waveNumber;
+        absoluteHPIncreaseWave *= GameManager.Instance.waveNumber;
+
+        _maxHP += (absoluteHPIncreaseWave + prozentualHPIncreaseWave);
         _currentHP = _maxHP;
 
         audioSource = GetComponent<AudioSource>();

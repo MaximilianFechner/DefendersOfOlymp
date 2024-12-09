@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public int RemainingLives { get; private set; }
     public int RemainingEnemies { get; private set; }
-    public int EnemiesKilled { get; private set; }
+    public int TotalEnemiesKilled { get; private set; }
+    public int WaveEnemiesKilled { get; private set; }
     public int waveNumber { get; private set; }
 
     [Header("Game Design Values")]
@@ -107,8 +108,9 @@ public class GameManager : MonoBehaviour
 
     public void AddEnemyKilled()
     {
-        EnemiesKilled++;
-        UIManager.Instance.enemiesKilledText.text = $"{EnemiesKilled.ToString()}";
+        TotalEnemiesKilled++;
+        WaveEnemiesKilled++;
+        UIManager.Instance.enemiesKilledText.text = $"{TotalEnemiesKilled.ToString()}";
     }
 
     public void AddRemainingEnemy(int enemies)
@@ -137,7 +139,7 @@ public class GameManager : MonoBehaviour
     public void ResetStats()
     {
         RemainingEnemies = 0;
-        EnemiesKilled = 0;
+        TotalEnemiesKilled = 0;
         RemainingLives = _playerStartLives;
         waveNumber = 0;
     }
@@ -181,6 +183,7 @@ public class GameManager : MonoBehaviour
             AddRemainingEnemy(firstWaveEnemies + waveNumber + addExtraEnemiesEveryWave);
             StartCoroutine(SpawnWave(firstWaveEnemies + waveNumber + addExtraEnemiesEveryWave));
 
+            WaveEnemiesKilled = 0;
             _waveStartTime = Time.time;
 
             UIManager.Instance.nextWaveButton.gameObject.SetActive(false);
