@@ -61,8 +61,11 @@ public class EnemyManager : MonoBehaviour
     [Space(10)]
     public AudioClip[] enemySounds;
 
+    [Header("TESTING - DONT CHANGE")]
     [SerializeField]
+    [Tooltip("Only displayed in the inspector for testing purposes - DONT change the values here")]
     private float _currentHP;
+
     private bool _isAlive = true;
     private float nextSoundAvailable = 0f;
 
