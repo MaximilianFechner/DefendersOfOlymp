@@ -58,6 +58,7 @@ public class ZeusBolt : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 if (EventSystem.current.IsPointerOverGameObject()) return;
+
                 TriggerLightning();
                 Destroy(currentPreview);
                 currentPreview = null;
@@ -84,23 +85,23 @@ public class ZeusBolt : MonoBehaviour
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
         worldPosition.z = 0;
 
-        GameObject bolt = Instantiate(boltPrefab, new Vector3(worldPosition.x, worldPosition.y + 10, 0), Quaternion.identity);
-        Destroy(bolt, lightningDuration);
-
         Collider2D targetEnemy = Physics2D.OverlapCircle(new Vector2(worldPosition.x, worldPosition.y), attackRadius, enemyLayer);
 
         if (targetEnemy != null)
         {
+            GameObject bolt = Instantiate(boltPrefab, new Vector3(worldPosition.x, worldPosition.y + 10, 0), Quaternion.identity);
+            Destroy(bolt, lightningDuration);
+
             targetEnemy.GetComponent<EnemyManager>().TakeDamage(damage);
-        }
 
-        lastUseTime = Time.time;
-        isReady = false;
+            lastUseTime = Time.time;
+            isReady = false;
 
-        if (currentPreview != null)
-        {
-            Destroy(currentPreview);
-            currentPreview = null;
+            if (currentPreview != null)
+            {
+                Destroy(currentPreview);
+                currentPreview = null;
+            }
         }
     }
 

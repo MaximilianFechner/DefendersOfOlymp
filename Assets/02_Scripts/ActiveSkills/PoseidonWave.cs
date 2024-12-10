@@ -67,6 +67,7 @@ public class PoseidonWave : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 if (EventSystem.current.IsPointerOverGameObject()) return;
+
                 PlaceWave();
                 Destroy(currentPreview);
                 currentPreview = null;
