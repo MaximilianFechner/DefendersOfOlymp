@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
     [Space(10)]
     [Header("UI Elements: Active Skills")]
     public Text zeusSkillCooldown;
+    public Text poseidonSkillCooldown;
 
     [Space(10)]
     [Header("UI Elements: Game Over Panel")]

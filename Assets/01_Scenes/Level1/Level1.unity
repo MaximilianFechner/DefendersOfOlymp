@@ -510,7 +510,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1127305501548914579, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
   m_PrefabInstance: {fileID: 1898595611454031961}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1898595611454031962}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85af347b82110ce4fbeb736753cb8503, type: 3}
@@ -658,6 +658,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417444487}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &446868712 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 974068949885939717, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+  m_PrefabInstance: {fileID: 1507989259852378251}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &518135120
 GameObject:
   m_ObjectHideFlags: 0
@@ -2293,9 +2304,17 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontSize
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 737750985073284501, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: m_Name
+      value: TXTZeusCD
+      objectReference: {fileID: 0}
     - target: {fileID: 831557373138585164, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 974068949885939717, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: m_Text
+      value: Wave
       objectReference: {fileID: 0}
     - target: {fileID: 1079370259593621858, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_FontData.m_FontSize
@@ -2328,6 +2347,14 @@ PrefabInstance:
     - target: {fileID: 1703511118812776954, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 16.199951
+      objectReference: {fileID: 0}
+    - target: {fileID: 1986034244357251841, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1986034244357251841, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 2496833424012145039, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2393,6 +2420,22 @@ PrefabInstance:
       propertyPath: fitstWaveEnemiesText
       value: 
       objectReference: {fileID: 859947151}
+    - target: {fileID: 3776431016061551521, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: poseidonSkillCooldown
+      value: 
+      objectReference: {fileID: 446868712}
+    - target: {fileID: 3921220489469710532, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1898595611454031963}
+    - target: {fileID: 3921220489469710532, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActivatePoseidonSkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 3921220489469710532, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PoseidonWave, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4067185540345730313, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2605,6 +2648,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 414738697}
+    - target: {fileID: 6432001440346457914, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActivateZeusSkill
+      objectReference: {fileID: 0}
     - target: {fileID: 6549500234699600946, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -650
@@ -2677,6 +2724,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7547082845917174224, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: m_Text
+      value: Bolt
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547082845917174224, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 7574908307095403308, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 60
@@ -2692,6 +2747,18 @@ PrefabInstance:
     - target: {fileID: 8171729141745949920, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316365152456741708, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396731460684920955, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -34.99997
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396731460684920955, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 17.500015
       objectReference: {fileID: 0}
     - target: {fileID: 8504863670524309375, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_FontData.m_FontSize
@@ -2790,8 +2857,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6173109287454674010, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1898595611454031963}
   m_SourcePrefab: {fileID: 100100000, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+--- !u!1 &1898595611454031962 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6173109287454674010, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+  m_PrefabInstance: {fileID: 1898595611454031961}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1898595611454031963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898595611454031962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f85022cb21527c43b1e5d5715a426a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wavePrefab: {fileID: 1422252865915524416, guid: 594c1fcc1f97c794b9bf25cc22d53633, type: 3}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _damagePerInterval: 10
+  _damageIntervalSeconds: 2
+  _waveDuration: 10
+  _waveRadius: 10
+  _cooldownTime: 20
 --- !u!1001 &5453057623450108571
 PrefabInstance:
   m_ObjectHideFlags: 0
