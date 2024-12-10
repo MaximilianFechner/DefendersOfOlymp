@@ -1,8 +1,11 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ZeusBolt : MonoBehaviour
 {
-    public GameObject lightningPrefab;
+    public GameObject boltPrefab;
+    public GameObject boltPreview;
+    private GameObject currentPreview;
     public LayerMask enemyLayer;
 
     [Space(10)]
@@ -48,9 +51,17 @@ public class ZeusBolt : MonoBehaviour
             ActivateZeusSkill();
         }
 
-        if (isReady && Input.GetMouseButtonDown(0))
+        if (isReady)
         {
-            TriggerLightning();
+            PlacementPreview();
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (EventSystem.current.IsPointerOverGameObject()) return;
+                TriggerLightning();
+                Destroy(currentPreview);
+                currentPreview = null;
+            }
         }
     }
 
@@ -59,6 +70,11 @@ public class ZeusBolt : MonoBehaviour
         if (Time.time >= lastUseTime + cooldownTime)
         {
             isReady = true;
+
+            if (currentPreview == null)
+            {
+                currentPreview = Instantiate(boltPreview);
+            }
         }
     }
 
@@ -68,7 +84,7 @@ public class ZeusBolt : MonoBehaviour
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
         worldPosition.z = 0;
 
-        GameObject bolt = Instantiate(lightningPrefab, new Vector3(worldPosition.x, worldPosition.y + 10, 0), Quaternion.identity);
+        GameObject bolt = Instantiate(boltPrefab, new Vector3(worldPosition.x, worldPosition.y + 10, 0), Quaternion.identity);
         Destroy(bolt, lightningDuration);
 
         Collider2D targetEnemy = Physics2D.OverlapCircle(new Vector2(worldPosition.x, worldPosition.y), attackRadius, enemyLayer);
@@ -80,5 +96,26 @@ public class ZeusBolt : MonoBehaviour
 
         lastUseTime = Time.time;
         isReady = false;
+
+        if (currentPreview != null)
+        {
+            Destroy(currentPreview);
+            currentPreview = null;
+        }
+    }
+
+    private void PlacementPreview()
+    {
+        Vector3 mousePosition = Input.mousePosition;
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
+        worldPosition.z = 0;
+        worldPosition.y += 10; //only for positioning for the placeholder asset
+
+        if (currentPreview == null)
+        {
+            currentPreview = Instantiate(boltPreview);
+        }
+
+        currentPreview.transform.position = worldPosition;
     }
 }

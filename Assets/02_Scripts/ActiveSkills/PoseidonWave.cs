@@ -1,9 +1,12 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class PoseidonWave : MonoBehaviour
 {
     public GameObject wavePrefab;
+    public GameObject wavePreview;
+    private GameObject currentPreview;
     public LayerMask enemyLayer;
 
     [Space(10)]
@@ -57,17 +60,33 @@ public class PoseidonWave : MonoBehaviour
             ActivatePoseidonSkill();
         }
 
-        if (isReady && Input.GetMouseButtonDown(0))
+        if (isReady)
         {
-            PlaceWave();
+            PlacementPreview();
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (EventSystem.current.IsPointerOverGameObject()) return;
+                PlaceWave();
+                Destroy(currentPreview);
+                currentPreview = null;
+            }
         }
+
     }
 
     public void ActivatePoseidonSkill()
     {
+        if (Time.timeScale != 1) return;
         if (Time.time >= lastUseTime + _cooldownTime)
         {
             isReady = true;
+
+            if (currentPreview == null)
+            {
+                currentPreview = Instantiate(wavePreview);
+                currentPreview.transform.localScale = new Vector3(_waveRadius, _waveRadius, _waveRadius);
+            }
         }
     }
 
@@ -84,6 +103,12 @@ public class PoseidonWave : MonoBehaviour
 
         lastUseTime = Time.time;
         isReady = false;
+
+        if (currentPreview != null)
+        {
+            Destroy(currentPreview);
+            currentPreview = null;
+        }
     }
 
     private IEnumerator PoseidonWaveDamageOverTime(Vector3 wavePosition)
@@ -104,5 +129,20 @@ public class PoseidonWave : MonoBehaviour
             elapsedTime += _damageIntervalSeconds;
             yield return new WaitForSeconds(_damageIntervalSeconds);
         }
+    }
+
+    private void PlacementPreview()
+    {
+        Vector3 mousePosition = Input.mousePosition;
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
+        worldPosition.z = 0;
+
+        if (currentPreview == null)
+        {
+            currentPreview = Instantiate(wavePreview);
+            currentPreview.transform.localScale = new Vector3(_waveRadius, _waveRadius, _waveRadius);
+        }
+
+        currentPreview.transform.position = worldPosition;
     }
 }
