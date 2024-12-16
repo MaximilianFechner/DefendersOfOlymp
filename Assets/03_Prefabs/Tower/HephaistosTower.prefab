@@ -112,6 +112,7 @@ MonoBehaviour:
   attackDamage: 0
   attackSpeed: 0
   rangeVisual: {fileID: 6501918954586205008}
+  _animator: {fileID: -7902435757129618146}
 --- !u!58 &4055087075238510546
 CircleCollider2D:
   m_ObjectHideFlags: 0

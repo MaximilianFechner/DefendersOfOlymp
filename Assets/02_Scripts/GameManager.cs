@@ -153,6 +153,7 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 0;
 
+        AudioManager.Instance.PlayWaveEndMusic();
         UIManager.Instance.ShowWaveResults();
 
         UIManager.Instance.nextWaveButton.gameObject.SetActive(true);

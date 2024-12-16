@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
     private AudioSource audioSource;
 
     public AudioClip levelBackgroundMusic;
+    public AudioClip waveEndMusic;
 
     private void Awake()
     {
@@ -32,6 +33,19 @@ public class AudioManager : MonoBehaviour
         audioSource.ignoreListenerPause = true;
         audioSource.resource = levelBackgroundMusic;
         audioSource.Play();
+    }
+
+    public void PlayWaveEndMusic()
+    {
+        GameObject waveSoundObject = new GameObject("WaveEndSound");
+        AudioSource tempAudioSource = waveSoundObject.AddComponent<AudioSource>();
+
+        tempAudioSource.clip = waveEndMusic;
+        tempAudioSource.ignoreListenerPause = true;
+
+        tempAudioSource.Play();
+
+        Destroy(waveSoundObject, waveEndMusic.length);
     }
 
 
