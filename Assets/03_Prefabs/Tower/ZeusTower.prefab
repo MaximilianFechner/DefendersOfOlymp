@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8844577905314880619}
   - component: {fileID: 6186527600433012005}
   - component: {fileID: 4055087075238510546}
-  - component: {fileID: 5671828757576864370}
+  - component: {fileID: 8204586654887780968}
   m_Layer: 0
   m_Name: ZeusTower
   m_TagString: Tower
@@ -127,7 +127,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 4
---- !u!114 &5671828757576864370
+--- !u!114 &8204586654887780968
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,17 +136,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 5225003605191494454}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1067a099e702a28459fc833e8f84f3db, type: 3}
+  m_Script: {fileID: 11500000, guid: b755468701b9b314dae82591416c687c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _towerSO: {fileID: 11400000, guid: fd765e7f3f0488b49aaa1a05072b4d99, type: 2}
-  _timer: 0
-  _spawnPoint: {fileID: 2033527041545563814}
-  _targetEnemy: {fileID: 0}
-  attackDamage: 0
-  attackSpeed: 0
+  attackSpeed: 0.5
+  attackRadius: 16
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  targetType: 0
+  timer: 0
+  spawnPoint: {fileID: 2033527041545563814}
+  targetEnemy: {fileID: 0}
   rangeVisual: {fileID: 6583868184036047370}
-  _animator: {fileID: 0}
+  animator: {fileID: 0}
+  projectilePrefab: {fileID: 7359844151393371129, guid: 3e01c33f800cfaf47b27bbdf1c838472, type: 3}
+  movementSpeed: 10
+  damage: 5
+  aoeRadius: 0
+  slowValue: 0
+  timeSlowed: 0
 --- !u!1 &6583868184036047370
 GameObject:
   m_ObjectHideFlags: 0

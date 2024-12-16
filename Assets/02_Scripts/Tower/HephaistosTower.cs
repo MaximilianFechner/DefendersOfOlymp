@@ -1,14 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuffEffectTower : MonoBehaviour
+public class HephaistosTower : BaseTower
 {
     [SerializeField] private float _buffDamageValue;
     [SerializeField] private float _buffAttackSpeedValue;
 
     [SerializeField] private List<GameObject> _buffedTowers;
-
-    [SerializeField] private TowerSO _towerSO;
 
     private void Awake() {
         _buffedTowers = new List<GameObject>();
@@ -23,7 +21,23 @@ public class BuffEffectTower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
+        if (towerType.Equals(TowerType.SUPPORT) && timer >= attackSpeed) {
+            SupportAOEDamageCalculation();
+            timer = 0;
+        }
+    }
+    private void SupportAOEDamageCalculation() {
+        if (animator != null) {
+            animator.SetTrigger("attackTrigger");
+        }
+        Collider2D[] enemiesColliders = Physics2D.OverlapCircleAll(transform.position, attackRadius);
+        foreach (Collider2D enemyCollider in enemiesColliders) {
+            if (enemyCollider.gameObject.CompareTag("Enemy")) {
+                EnemyManager enemy = enemyCollider.gameObject.GetComponent<EnemyManager>();
+                enemy.TakeDamage(damage);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -31,13 +45,13 @@ public class BuffEffectTower : MonoBehaviour
     }
 
     private void BuffTowers() {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _towerSO.attackRadius);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, attackRadius);
         foreach (Collider2D collider in colliders) {
             if (collider.gameObject.CompareTag("Tower")) {
                 if (_buffedTowers.Contains(collider.gameObject)) {
                     return;
                 } else {
-                    EnemyDetection unbuffedTower = collider.gameObject.GetComponent<EnemyDetection>();
+                    BaseTower unbuffedTower = collider.gameObject.GetComponent<BaseTower>();
                     unbuffedTower.AddBonusToAttackDamage(CalculatePercentage(_buffDamageValue, true));
                     unbuffedTower.AddBonusToAttackSpeed(CalculatePercentage(_buffAttackSpeedValue, false));
                     _buffedTowers.Add(collider.gameObject);

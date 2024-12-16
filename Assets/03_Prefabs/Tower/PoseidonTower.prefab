@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8844577905314880619}
   - component: {fileID: 6186527600433012005}
   - component: {fileID: 4055087075238510546}
-  - component: {fileID: 5671828757576864370}
+  - component: {fileID: 2811062342124996428}
   - component: {fileID: 2144846199632697628}
   m_Layer: 0
   m_Name: PoseidonTower
@@ -128,7 +128,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 4
---- !u!114 &5671828757576864370
+--- !u!114 &2811062342124996428
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,17 +137,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 5225003605191494454}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1067a099e702a28459fc833e8f84f3db, type: 3}
+  m_Script: {fileID: 11500000, guid: 843dc1c2019eff549b99d9ce58a9bb47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _towerSO: {fileID: 11400000, guid: c95405ddced78ba46a68929c69f68704, type: 2}
-  _timer: 0
-  _spawnPoint: {fileID: 2033527041545563814}
-  _targetEnemy: {fileID: 0}
-  attackDamage: 0
-  attackSpeed: 0
+  attackSpeed: 0.5
+  attackRadius: 16
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  targetType: 0
+  timer: 0
+  spawnPoint: {fileID: 2033527041545563814}
+  targetEnemy: {fileID: 0}
   rangeVisual: {fileID: 6999961223203824562}
-  _animator: {fileID: 2144846199632697628}
+  animator: {fileID: 0}
+  projectilePrefab: {fileID: 7359844151393371129, guid: f5d8a3b5003b80c4092adc2c5a4402f7, type: 3}
+  movementSpeed: 10
+  damage: 3
+  aoeRadius: 5
+  slowValue: 0
+  timeSlowed: 0
 --- !u!95 &2144846199632697628
 Animator:
   serializedVersion: 7

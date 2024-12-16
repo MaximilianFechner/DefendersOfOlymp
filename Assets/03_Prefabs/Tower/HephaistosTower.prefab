@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8844577905314880619}
   - component: {fileID: 6186527600433012005}
-  - component: {fileID: 5671828757576864370}
   - component: {fileID: 4055087075238510546}
   - component: {fileID: 572989423193425501}
   - component: {fileID: -7902435757129618146}
@@ -93,26 +92,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5671828757576864370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5225003605191494454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1067a099e702a28459fc833e8f84f3db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _towerSO: {fileID: 11400000, guid: 574e757cecd5cf24aa4e13661fbce331, type: 2}
-  _timer: 0
-  _spawnPoint: {fileID: 2033527041545563814}
-  _targetEnemy: {fileID: 0}
-  attackDamage: 0
-  attackSpeed: 0
-  rangeVisual: {fileID: 6501918954586205008}
-  _animator: {fileID: -7902435757129618146}
 --- !u!58 &4055087075238510546
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -161,6 +140,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9c941f6f5e824408b6b040a69f9316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackSpeed: 2
+  attackRadius: 16
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  targetType: 0
+  timer: 0
+  spawnPoint: {fileID: 2033527041545563814}
+  targetEnemy: {fileID: 0}
+  rangeVisual: {fileID: 6501918954586205008}
+  animator: {fileID: 0}
+  projectilePrefab: {fileID: 7359844151393371129, guid: 61fbda69a02c5524eac6c0acf49c7c97, type: 3}
+  movementSpeed: 10
+  damage: 10
+  aoeRadius: 16
+  slowValue: 0
+  timeSlowed: 0
   _buffDamageValue: 20
   _buffAttackSpeedValue: 50
   _buffedTowers: []

@@ -28,8 +28,8 @@ public class CardManager : MonoBehaviour
             if (hit.collider != null) {
                 GameObject tower = hit.collider.gameObject;
                 if (tower.tag.Equals("Tower")) {
-                    EnemyDetection enemyDetection = tower.GetComponent<EnemyDetection>();
-                    enemyDetection.SetRangeVisual();
+                    BaseTower baseTower = tower.GetComponent<BaseTower>();
+                    baseTower.SetRangeVisual();
                 }
             }
         }
