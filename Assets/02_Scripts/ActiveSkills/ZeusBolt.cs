@@ -37,7 +37,7 @@ public class ZeusBolt : MonoBehaviour
     private float lastUseTime = -Mathf.Infinity;
     private bool isReady = false;
 
-    void Update()
+    private void Update()
     {
         if (Time.timeScale != 1) return;
         if (UIManager.Instance.zeusSkillCooldown != null)
@@ -79,7 +79,7 @@ public class ZeusBolt : MonoBehaviour
         }
     }
 
-    void TriggerLightning()
+    private void TriggerLightning()
     {
         Vector3 mousePosition = Input.mousePosition;
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
