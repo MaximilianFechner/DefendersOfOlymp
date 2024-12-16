@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 5225003605191494454, guid: f7d11c95b6eeba64295c6386295fbb2e, type: 3}
   projectileSO: {fileID: 11400000, guid: a983afcbed15bc147ba52187e58fb4b6, type: 2}
-  defaultAttackSpeed: 4
-  defaultAttackRadius: 40
+  defaultAttackSpeed: 2
+  defaultAttackRadius: 45
   defaultEnemyLayerMask:
     serializedVersion: 2
     m_Bits: 64
   defaultTargetType: 1
-  attackSpeed: 4
-  attackRadius: 50
+  attackSpeed: 2
+  attackRadius: 45
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 64
