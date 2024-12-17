@@ -71,7 +71,7 @@ public class HephaistosQuake : MonoBehaviour
 
         if (isReady)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha3))
+            if (Input.GetKeyDown(KeyCode.Alpha4))
             {
                 ActivateQuake();
             }

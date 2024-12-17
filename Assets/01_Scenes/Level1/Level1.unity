@@ -1205,17 +1205,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369048756}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1385521589 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6209289012161430039, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
-  m_PrefabInstance: {fileID: 1507989259852378251}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1755081241 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1040459522354727499, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
@@ -2190,22 +2179,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1898595611454031965}
-    - target: {fileID: 44957163070741157, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ActivateQuake
-      objectReference: {fileID: 0}
-    - target: {fileID: 44957163070741157, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: HephaistosQuake, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 553511375603535885, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 575723617470120247}
-    - target: {fileID: 1351319188939323988, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -130
-      objectReference: {fileID: 0}
     - target: {fileID: 1491383314061702089, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2218,10 +2195,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 575723617470120247}
-    - target: {fileID: 3776431016061551521, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
-      propertyPath: hephaistosSkillCooldown
-      value: 
-      objectReference: {fileID: 1385521589}
     - target: {fileID: 3921220489469710532, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2314,6 +2287,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5892662974899104173, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: m_Name
+      value: IMGGameOver
+      objectReference: {fileID: 0}
     - target: {fileID: 6377782925950251365, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_Name
       value: UI
@@ -2322,6 +2299,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 414738697}
+    - target: {fileID: 7209473145831457452, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136432028019618692, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1898595611454031967}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2416,6 +2401,9 @@ PrefabInstance:
       addedObject: {fileID: 1898595611454031963}
     - targetCorrespondingSourceObject: {fileID: 6173109287454674010, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1898595611454031967}
+    - targetCorrespondingSourceObject: {fileID: 6173109287454674010, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1898595611454031965}
   m_SourcePrefab: {fileID: 100100000, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
 --- !u!1 &1898595611454031962 stripped
@@ -2467,6 +2455,28 @@ MonoBehaviour:
   _quakeRadius: 100
   _cooldownTime: 20
   _cameraShakeMagnitude: 0.125
+--- !u!114 &1898595611454031967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898595611454031962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b7ebb0a516a154c92f080118affa45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunPrefab: {fileID: 1422252865915524416, guid: 1f0855698561e6940b98546a107f1831, type: 3}
+  stunPreview: {fileID: 1422252865915524416, guid: ce6adf8ef073cab4b8370d18ad2041c8, type: 3}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _damageOnUse: 15
+  _slowPercentage: 0.1
+  _slowDuration: 3
+  _skillRadius: 5
+  _cooldownTime: 30
 --- !u!1001 &5453057623450108571
 PrefabInstance:
   m_ObjectHideFlags: 0
