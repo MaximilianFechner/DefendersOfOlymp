@@ -7,6 +7,9 @@ TagManager:
   - EnemyPath
   - Projectile
   - Enemy
+  - EnemyGoal
+  - EnemyTarget
+  - Tower
   layers:
   - Default
   - TransparentFX

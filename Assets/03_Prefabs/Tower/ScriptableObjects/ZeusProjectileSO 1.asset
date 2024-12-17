@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b5e7582f23ffed46a800221f64351d2, type: 3}
+  m_Name: ZeusProjectileSO 1
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 7359844151393371129, guid: 3e01c33f800cfaf47b27bbdf1c838472, type: 3}
+  defaultMovementSpeed: 10
+  defaultDamage: 5
+  defaultAoeRadius: 0
+  defaultSlowValue: 0
+  defaultTowerType: 0
+  defaultEnemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  movementSpeed: 10
+  damage: 5
+  aoeRadius: 0
+  slowValue: 0
+  towerType: 0
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
