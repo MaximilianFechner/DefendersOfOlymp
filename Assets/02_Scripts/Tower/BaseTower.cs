@@ -17,26 +17,56 @@ public class BaseTower : MonoBehaviour
 {
 
     //TOWER
-
+    [Header("Game Design Values: Tower")]
+    [Tooltip("The base attack speed for the tower")]
     [SerializeField] public float attackSpeed;
+
+    [Tooltip("The base attack radius for the tower")]
+    [Min(1)]
     [SerializeField] public float attackRadius;
+
+
+    [Tooltip("The attack pattern/target type for the tower")]
+    [SerializeField] public TargetType targetType;
+
+    [Space(5)]
+
+    //PROJECTILE
+
+    [Header("Game Design Values: Projectile")]
+    [Tooltip("The base attack speed for the projectile")]
+    [Min(1)]
+    [SerializeField] public float movementSpeed;
+
+    [Tooltip("The base attack damage for the projectile")]
+    [Min(1)]
+    [SerializeField] public float damage;
+
+    [Tooltip("The base aoe radius for the projectile")]
+    [SerializeField] public float aoeRadius;
+
+    [Tooltip("The base slow Value deducted from the base speed of the enemy")]
+    [SerializeField] public float slowValue;
+
+    [Tooltip("The base time in seconds for the slow effect")]
+    [SerializeField] public float timeSlowed;
+
+    [Space(10)]
+
+    //TOWER
+    [Header("Technical Values: Tower")]
     [SerializeField] public LayerMask enemyLayerMask;
-    [SerializeField] public TargetType targetType;    
     [SerializeField] public float timer;
     [SerializeField] public Transform spawnPoint;
     [SerializeField] public GameObject targetEnemy;    
     [SerializeField] public GameObject rangeVisual;
     [SerializeField] public Animator animator;
-    
-    //PROJECTILE
-    public GameObject projectilePrefab;
-    [SerializeField] public float movementSpeed;
-    [SerializeField] public float damage;
-    [SerializeField] public float aoeRadius;
-    [SerializeField] public float slowValue;
-    [SerializeField] public float timeSlowed;
-    [SerializeField] public Dictionary<GameObject, float> enemyBonusMalusTable;
 
+    //PROJECTILE
+    [Space(5)]
+    [Header("Technical Values: Projectile")]
+    [SerializeField] public Dictionary<GameObject, float> enemyBonusMalusTable;
+    public GameObject projectilePrefab;
     [SerializeField] public TowerType towerType  { get; set; }
 
 
