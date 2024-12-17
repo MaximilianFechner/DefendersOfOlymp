@@ -41,6 +41,7 @@ public class BaseTower : MonoBehaviour
 
 
     private void Awake() {
+        animator = GetComponent<Animator>();
 
         CircleCollider2D circleCollider2D = GetComponent<CircleCollider2D>();
         circleCollider2D.radius = attackRadius;

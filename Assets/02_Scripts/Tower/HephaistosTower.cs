@@ -7,14 +7,12 @@ public class HephaistosTower : BaseTower
     [SerializeField] private float _buffAttackSpeedValue;
 
     [SerializeField] private List<GameObject> _buffedTowers;
-
-    private void Awake() {
-        _buffedTowers = new List<GameObject>();
-    }
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _buffedTowers = new List<GameObject>();
         BuffTowers();
     }
 
@@ -22,7 +20,7 @@ public class HephaistosTower : BaseTower
     void Update()
     {
         timer += Time.deltaTime;
-        if (towerType.Equals(TowerType.SUPPORT) && timer >= attackSpeed) {
+        if (timer >= attackSpeed) {
             SupportAOEDamageCalculation();
             timer = 0;
         }
@@ -68,4 +66,5 @@ public class HephaistosTower : BaseTower
             return (100 - value) / 100;
         }
     }
+    
 }
