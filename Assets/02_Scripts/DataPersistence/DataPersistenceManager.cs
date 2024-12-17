@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using NUnit.Framework;
 
+/*
 public class DataPersistenceManager : MonoBehaviour
 {
     private GameData gameData;
@@ -68,3 +69,5 @@ public class DataPersistenceManager : MonoBehaviour
         return new List<IDataPersistence>(dataPersistenceObjects);
     }
 }
+
+*/

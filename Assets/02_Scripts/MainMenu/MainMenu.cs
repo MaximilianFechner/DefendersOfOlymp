@@ -8,11 +8,18 @@ using System.Xml.Schema;
 using TMPro;
 using UnityEditor;
 using UnityEngine.Audio;
+using Unity.VisualScripting;
+
 
 public class MainMenu : MonoBehaviour
 {
+    public InputField inputFPS;
+    public Text selectedFPS;
+    
+
 
     public AudioSource AudioSource;
+
     private float _musicVolume;
     [SerializeField] private AudioMixer _audioMixer;
 
@@ -24,12 +31,23 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] private GameObject _optionsMenu;
 
-     void Start()
+
+    //Framerate Limit
+
+    public int targetFPS; //int.Parse(selectedFPS.text);
+
+    
+
+    void Start()
     {
+
+        //Audio
 
         AudioSource.Play();
 
         _resolutionDropdown.ClearOptions();
+
+     //Resolution Dropdown
 
         var options = new List<string>();
         _resolutions = Screen.resolutions;
@@ -47,6 +65,8 @@ public class MainMenu : MonoBehaviour
         _resolutionDropdown.AddOptions(options);
         _resolutionDropdown.RefreshShownValue();
         LoadSettings(currentResolutionIndex);
+
+        
     }
 
     public void Update()
@@ -55,7 +75,17 @@ public class MainMenu : MonoBehaviour
         {
             _optionsMenu.SetActive(true);
         }
-    } 
+
+        //FramerateLimit
+        string input = selectedFPS.text;
+        targetFPS = int.Parse(input);
+
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = targetFPS;
+
+    }
+
+    //Resolution Dropdown
 
     public void SetResolution(int resolutionIndex)
     {
@@ -102,13 +132,14 @@ public class MainMenu : MonoBehaviour
 
     //Music
 
-
-
     public void updateVolume(float volume)
     {
         _audioMixer.SetFloat("AUD_Master", volume);
         _musicVolume = volume;
     }
+
+ 
+
 
 }
 

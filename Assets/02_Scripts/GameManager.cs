@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class GameManager : MonoBehaviour, IDataPersistence
+public class GameManager : MonoBehaviour //IDataPersistence
 {
     public static GameManager Instance { get; private set; }
     public int RemainingLives { get; private set; }
