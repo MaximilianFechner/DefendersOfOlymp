@@ -12,11 +12,17 @@ public class EnemyDetection : MonoBehaviour
     [SerializeField] private float attackDamage;
     [SerializeField] private float attackSpeed;
 
+    [SerializeField] private GameObject rangeVisual;
+    [SerializeField] private Animator _animator;
+
     private void Awake() {
+
         CircleCollider2D circleCollider2D = GetComponent<CircleCollider2D>();
         circleCollider2D.radius = _towerSO.attackRadius;
         attackDamage = _towerSO.projectileSO.damage;
         attackSpeed = _towerSO.attackSpeed;
+
+        rangeVisual.transform.localScale = new Vector3(_towerSO.attackRadius * 2, _towerSO.attackRadius * 2, 1);
 
         _timer = 0;
     }
@@ -46,7 +52,9 @@ public class EnemyDetection : MonoBehaviour
     }
 
     private void SupportAOEDamageCalculation() {
-        Debug.Log("Test");
+        if (_animator != null) {
+            _animator.SetTrigger("attackTrigger");
+        }
         Collider2D[] enemiesColliders = Physics2D.OverlapCircleAll(transform.position, _towerSO.attackRadius);
         foreach (Collider2D enemyCollider in enemiesColliders) {
             if (enemyCollider.gameObject.CompareTag("Enemy")) {
@@ -98,6 +106,9 @@ public class EnemyDetection : MonoBehaviour
     }
 
     private void SpawnProjectile(GameObject target) {
+        if (_animator != null) {
+            _animator.SetTrigger("attackTrigger");
+        }
         GameObject projectile = Instantiate(_towerSO.projectileSO.prefab, _spawnPoint);
         projectile.transform.SetParent(null);
         ProjectileBehaviour projectileBehaviour = projectile.GetComponent<ProjectileBehaviour>();
@@ -134,4 +145,9 @@ public class EnemyDetection : MonoBehaviour
     public void AddBonusToAttackSpeed(float amount) {
         this.attackSpeed *= amount;
     }
+
+    public void SetRangeVisual() {
+        rangeVisual.SetActive(!rangeVisual.activeSelf);
+    }
+
 }
