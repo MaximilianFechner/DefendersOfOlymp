@@ -74,9 +74,6 @@ public class BaseTower : MonoBehaviour
     private void Awake() {
         animator = GetComponent<Animator>();
 
-        CircleCollider2D circleCollider2D = GetComponent<CircleCollider2D>();
-        circleCollider2D.radius = attackRadius;
-
         rangeVisual.transform.localScale = new Vector3(attackRadius * 2, attackRadius * 2, 1);
 
         timer = 0;
