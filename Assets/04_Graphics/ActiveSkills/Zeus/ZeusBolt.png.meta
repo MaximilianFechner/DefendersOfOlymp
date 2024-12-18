@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4a189129ec328e040ad030866f21e32d
+guid: c212df73de85fd646b9f7b89fe2f220a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -37,18 +37,18 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 0
+    wrapU: 2
+    wrapV: 2
+    wrapW: 2
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,123 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lightning Strike_0
+      name: Attacke_Blitz3-ezgif.com-gif-to-sprite-converter_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 672
+        width: 112
+        height: 672
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b275b5d43458cb74eb726d5831a0e5f9
+      internalID: -1894966711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacke_Blitz3-ezgif.com-gif-to-sprite-converter_1
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 672
+        width: 112
+        height: 672
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 217af31cd846acc42ae6680774dd08c2
+      internalID: -1521820542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacke_Blitz3-ezgif.com-gif-to-sprite-converter_2
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 672
+        width: 112
+        height: 672
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2062e5673c4b9b64ca73bcfa53affa91
+      internalID: 14653344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacke_Blitz3-ezgif.com-gif-to-sprite-converter_3
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 672
+        width: 112
+        height: 672
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89edacda6257da241a704e2dd690c690
+      internalID: -1653894762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacke_Blitz3-ezgif.com-gif-to-sprite-converter_4
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 672
+        width: 112
+        height: 672
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44158c14264db854d9e47b0bc8cea2f3
+      internalID: -8025685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacke_Blitz3-ezgif.com-gif-to-sprite-converter_5
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 32
+        width: 112
+        height: 672
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,20 +235,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8818d57b336eea4fb4d0b1e0aeab702
-      internalID: -1818846914
+      spriteID: a55525ef19f39c74aaedb36c2233111c
+      internalID: 1505220107
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lightning Strike_1
+      name: Attacke_Blitz3-ezgif.com-gif-to-sprite-converter_6
       rect:
         serializedVersion: 2
-        x: 16
+        x: 112
         y: 0
-        width: 16
-        height: 32
+        width: 112
+        height: 672
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,74 +257,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd2bf19d81dd5404092b9ee382586b9a
-      internalID: -961398661
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lightning Strike_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d4792d5bb818d96478b4ac22ffbe8f61
-      internalID: 1842902438
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lightning Strike_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fe21778e7ca65714d8b2159906bafcfa
-      internalID: -2020467675
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lightning Strike_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4ea5f37d5c053c24995169e6dc4a83f2
-      internalID: 1223165945
+      spriteID: 48eb36717ca460f4d85f43bd641f8251
+      internalID: -1289898924
       vertices: []
       indices: 
       edges: []
@@ -223,7 +267,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 62c7268560c2a6e498784aac10cdf8ac
+    spriteID: df39867e82ab0c942ac00298509d01c2
     internalID: 0
     vertices: []
     indices: 
@@ -233,16 +277,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Lightning Strike_0: -1818846914
-      Lightning Strike_1: -961398661
-      Lightning Strike_2: 1842902438
-      Lightning Strike_3: -2020467675
-      Lightning Strike_4: 1223165945
-      Lightning Strike_5: -517883764
-      Lightning Strike_6: -1179632579
-      Lightning Strike_7: -116254253
-      Lightning Strike_8: 1943632769
-      Lightning Strike_9: 639346424
+      Attacke_Blitz3-ezgif.com-gif-to-sprite-converter_0: -1894966711
+      Attacke_Blitz3-ezgif.com-gif-to-sprite-converter_1: -1521820542
+      Attacke_Blitz3-ezgif.com-gif-to-sprite-converter_2: 14653344
+      Attacke_Blitz3-ezgif.com-gif-to-sprite-converter_3: -1653894762
+      Attacke_Blitz3-ezgif.com-gif-to-sprite-converter_4: -8025685
+      Attacke_Blitz3-ezgif.com-gif-to-sprite-converter_5: 1505220107
+      Attacke_Blitz3-ezgif.com-gif-to-sprite-converter_6: -1289898924
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

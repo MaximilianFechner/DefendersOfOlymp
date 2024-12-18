@@ -66,7 +66,7 @@ public class HephaistosQuake : MonoBehaviour
         if (UIManager.Instance.hephaistosSkillCooldown != null)
         {
             float remainingTime = Mathf.Max(0, lastUseTime + _cooldownTime - Time.time);
-            UIManager.Instance.hephaistosSkillCooldown.text = remainingTime > 0 ? $"{remainingTime:F1}s" : "Ready";
+            UIManager.Instance.hephaistosSkillCooldown.text = remainingTime > 0 ? $"{remainingTime:F1}s" : "Quake";
         }
 
         if (isReady)

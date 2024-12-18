@@ -53,7 +53,7 @@ public class HeraStun : MonoBehaviour
         if (UIManager.Instance.heraSkillCooldown != null)
         {
             float remainingTime = Mathf.Max(0, lastUseTime + _cooldownTime - Time.time);
-            UIManager.Instance.heraSkillCooldown.text = remainingTime > 0 ? $"{remainingTime:F1}s" : "Ready";
+            UIManager.Instance.heraSkillCooldown.text = remainingTime > 0 ? $"{remainingTime:F1}s" : "Stun";
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))

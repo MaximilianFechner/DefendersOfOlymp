@@ -2428,10 +2428,10 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
-  _damagePerInterval: 10
-  _damageIntervalSeconds: 2
+  _damagePerInterval: 2.5
+  _damageIntervalSeconds: 0.5
   _waveDuration: 10
-  _waveRadius: 10
+  _waveRadius: 4
   _cooldownTime: 20
 --- !u!114 &1898595611454031965
 MonoBehaviour:
