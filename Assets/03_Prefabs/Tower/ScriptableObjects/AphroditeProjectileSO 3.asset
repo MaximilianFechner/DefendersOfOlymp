@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 7359844151393371129, guid: 44b782209fc6e8a47bdbb863d6e12fc5, type: 3}
   defaultMovementSpeed: 10
-  defaultDamage: 1
+  defaultDamage: 21.875
   defaultAoeRadius: 0
   defaultSlowValue: 50
   defaultTimeSlowed: 2
@@ -23,7 +23,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   movementSpeed: 10
-  damage: 1
+  damage: 21.875
   aoeRadius: 0
   slowValue: 50
   timeSlowed: 2
