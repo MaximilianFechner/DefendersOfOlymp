@@ -28,10 +28,10 @@ public class AudioManager : MonoBehaviour
 
     public void PlayLevelBackgroundMusic()
     {
+        audioSource.resource = levelBackgroundMusic;
         audioSource.volume = 0.1f;
         audioSource.loop = true;
         audioSource.ignoreListenerPause = true;
-        audioSource.resource = levelBackgroundMusic;
         audioSource.Play();
     }
 
