@@ -60,6 +60,7 @@ public class BaseTower : MonoBehaviour
     [SerializeField] public Transform spawnPoint;
     [SerializeField] public GameObject targetEnemy;    
     [SerializeField] public GameObject rangeVisual;
+    [SerializeField] public GameObject towerMenu;
     [SerializeField] public Animator animator;
 
     //PROJECTILE
@@ -86,18 +87,7 @@ public class BaseTower : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRadius);
     }
 
-
-    private void OnTriggerStay2D(Collider2D collision) {
-        if (collision.gameObject.tag.Equals("Enemy")) {
-            targetEnemy = GetTargetEnemy();
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision) {
-        targetEnemy = null;
-    }
-
-    private GameObject GetTargetEnemy() {
+    public GameObject GetTargetEnemy() {
         Collider2D[] enemiesColliders = Physics2D.OverlapCircleAll(transform.position, attackRadius, enemyLayerMask);
         targetEnemy = null;
         if (enemiesColliders.Length > 0) {
@@ -138,6 +128,10 @@ public class BaseTower : MonoBehaviour
 
     public void SetRangeVisual() {
         rangeVisual.SetActive(!rangeVisual.activeSelf);
+    }
+
+    public void SetTowerMenu() {
+        towerMenu.SetActive(!towerMenu.activeSelf);
     }
 
 }

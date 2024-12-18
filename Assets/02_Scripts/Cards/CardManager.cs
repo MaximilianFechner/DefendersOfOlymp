@@ -29,7 +29,7 @@ public class CardManager : MonoBehaviour
                 GameObject tower = hit.collider.gameObject;
                 if (tower.tag.Equals("Tower")) {
                     BaseTower baseTower = tower.GetComponent<BaseTower>();
-                    baseTower.SetRangeVisual();
+                    baseTower.SetTowerMenu();
                 }
             }
         }

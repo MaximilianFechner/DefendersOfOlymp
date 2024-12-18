@@ -184,7 +184,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.016666668
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 3e79ad26123fe4846bc08ade7341273d, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: fca1120bbed762044b2068ceca1e8a83, type: 2}
   m_BuildHeightMesh: 0
 --- !u!64 &26383228
 MeshCollider:
@@ -581,7 +581,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.016666668
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: db2a85ad258eb2d4f867bcbd871685eb, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 619ea0da654f4e449aec37cac33b76dd, type: 2}
   m_BuildHeightMesh: 0
 --- !u!64 &417444490
 MeshCollider:
@@ -766,6 +766,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &700142345
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5225003605191494454, guid: e607f517af798464f9111ce99e5cc7ec, type: 3}
+      propertyPath: m_Name
+      value: PoseidonTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: e607f517af798464f9111ce99e5cc7ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -39.94423
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: e607f517af798464f9111ce99e5cc7ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.613836
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: e607f517af798464f9111ce99e5cc7ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: e607f517af798464f9111ce99e5cc7ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: e607f517af798464f9111ce99e5cc7ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: e607f517af798464f9111ce99e5cc7ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: e607f517af798464f9111ce99e5cc7ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: e607f517af798464f9111ce99e5cc7ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: e607f517af798464f9111ce99e5cc7ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: e607f517af798464f9111ce99e5cc7ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e607f517af798464f9111ce99e5cc7ec, type: 3}
 --- !u!1 &774772444
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,7 +888,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.016666668
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: db2a85ad258eb2d4f867bcbd871685eb, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: efb5dc3d4f8e80244a45dee8e722d577, type: 2}
   m_BuildHeightMesh: 0
 --- !u!64 &774772447
 MeshCollider:
@@ -930,6 +987,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &904020723
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5225003605191494454, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
+      propertyPath: m_Name
+      value: HephaistosTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.943016
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.2591696
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
 --- !u!1 &937753359
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,7 +1109,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.016666668
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: f211559aa4f4d164cbbda6d2f89d1f7e, type: 2}
   m_BuildHeightMesh: 0
 --- !u!64 &937753362
 MeshCollider:
@@ -1142,7 +1256,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.016666668
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: db2a85ad258eb2d4f867bcbd871685eb, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 700a3f271ae6c7d48a33011cee93764b, type: 2}
   m_BuildHeightMesh: 0
 --- !u!64 &1369048759
 MeshCollider:
@@ -1219,6 +1333,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369048756}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1641853452
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5225003605191494454, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
+      propertyPath: m_Name
+      value: Hera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -39.072086
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7.294237
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
 --- !u!114 &1755081241 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1040459522354727499, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
@@ -1295,7 +1466,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.016666668
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: db2a85ad258eb2d4f867bcbd871685eb, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: be113a879f8a4dd4096f9fb923bc4d3c, type: 2}
   m_BuildHeightMesh: 0
 --- !u!64 &1764382109
 MeshCollider:
@@ -1437,7 +1608,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.016666668
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: db2a85ad258eb2d4f867bcbd871685eb, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: b87958fd2e65c4348b155031a1d2c9a1, type: 2}
   m_BuildHeightMesh: 0
 --- !u!64 &1814989660
 MeshCollider:
@@ -1579,7 +1750,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.016666668
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: db2a85ad258eb2d4f867bcbd871685eb, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 600c8643ddaad5b4d9a8cdf0224b2f16, type: 2}
   m_BuildHeightMesh: 0
 --- !u!64 &1889154660
 MeshCollider:
@@ -1721,7 +1892,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.016666668
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: db2a85ad258eb2d4f867bcbd871685eb, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 2a46134436a85724c9f833470962e4b8, type: 2}
   m_BuildHeightMesh: 0
 --- !u!64 &1899245912
 MeshCollider:
@@ -1863,7 +2034,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.016666668
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: db2a85ad258eb2d4f867bcbd871685eb, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 01ef82778f8cfaf4fa6f0b1228fb30b3, type: 2}
   m_BuildHeightMesh: 0
 --- !u!64 &1903780602
 MeshCollider:
@@ -1951,6 +2122,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &2017365680
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5225003605191494454, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_Name
+      value: ZeusTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.66393
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.4507537
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844577905314880619, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
 --- !u!1 &2118132949
 GameObject:
   m_ObjectHideFlags: 0
@@ -2016,7 +2244,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.016666668
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 1a02a629a7ce5274a959655b7f040624, type: 2}
   m_BuildHeightMesh: 0
 --- !u!64 &2118132952
 MeshCollider:
@@ -2895,3 +3123,7 @@ SceneRoots:
   - {fileID: 5453057623450108571}
   - {fileID: 1507989259852378251}
   - {fileID: 172336949}
+  - {fileID: 700142345}
+  - {fileID: 1641853452}
+  - {fileID: 904020723}
+  - {fileID: 2017365680}

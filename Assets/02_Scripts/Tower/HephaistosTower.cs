@@ -21,8 +21,10 @@ public class HephaistosTower : BaseTower
     {
         timer += Time.deltaTime;
         if (timer >= attackSpeed) {
-            SupportAOEDamageCalculation();
-            timer = 0;
+            if (GetTargetEnemy() != null) {
+                SupportAOEDamageCalculation();
+                timer = 0;
+            }
         }
     }
     private void SupportAOEDamageCalculation() {

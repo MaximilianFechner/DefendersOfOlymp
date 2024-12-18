@@ -7,9 +7,13 @@ public class HeraTower : BaseTower
     void Update()
     {
         timer += Time.deltaTime;
-        if (targetEnemy != null && timer >= attackSpeed) {
-            SpawnProjectile();
-            timer = 0;
+
+
+        if (timer >= attackSpeed) {
+            if (GetTargetEnemy() != null) {
+                SpawnProjectile();
+                timer = 0;
+            }
         }
     }
     public void SpawnProjectile() {
