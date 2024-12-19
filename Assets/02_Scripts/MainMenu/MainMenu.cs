@@ -69,26 +69,39 @@ public class MainMenu : MonoBehaviour
         
     }
 
-    public void Update()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             _optionsMenu.SetActive(true);
         }
 
-        //FramerateLimit
+        // Framerate Limit
         string input = selectedFPS.text;
-        targetFPS = int.Parse(input);
+        if (int.TryParse(input, out int fps))
+        {
+            targetFPS = fps;
+        }
+        else
+        {
+            targetFPS = 60; // Default FPS
+            
+        }
 
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = targetFPS;
-
     }
 
     //Resolution Dropdown
 
     public void SetResolution(int resolutionIndex)
     {
+        if (_resolutions == null || _resolutions.Length == 0)
+        {
+         
+            return;
+        }
+
         var resolution = _resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
