@@ -70,6 +70,8 @@ public class EnemyManager : MonoBehaviour
     private bool _isAlive = true;
     private float nextSoundAvailable = 0f;
 
+    public GameObject deathPrefab;
+
     void Start()
     {
         enemyHealthBar = GetComponentInChildren<EnemyHealthBar>();
@@ -122,7 +124,14 @@ public class EnemyManager : MonoBehaviour
             _isAlive = false;
             GameManager.Instance.AddEnemyKilled();
             GameManager.Instance.SubRemainingEnemy();
+
+            if (deathPrefab != null)
+            {
+                Instantiate(deathPrefab, this.gameObject.transform.position, Quaternion.identity);
+            }
+
             Destroy(this.gameObject);
+
         }
     }
 

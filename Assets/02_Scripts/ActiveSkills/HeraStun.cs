@@ -86,8 +86,12 @@ public class HeraStun : MonoBehaviour
 
             if (currentPreview == null)
             {
+                Vector3 mousePosition = Input.mousePosition;
+                Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
+                worldPosition.z = 0;
+
                 currentPreview = Instantiate(stunPreview);
-                currentPreview.transform.localScale = new Vector3(_skillRadius, _skillRadius, _skillRadius);
+                currentPreview.transform.localScale = new Vector3(1 * (_skillRadius / 5), 1 * (_skillRadius / 5), 1 * (_skillRadius / 5));
             }
         }
     }
@@ -99,7 +103,7 @@ public class HeraStun : MonoBehaviour
         worldPosition.z = 0;
 
         GameObject stun = Instantiate(stunPrefab, worldPosition, Quaternion.identity);
-        stun.transform.localScale = new Vector3(_skillRadius, _skillRadius, _skillRadius);
+        stun.transform.localScale = new Vector3(1 * (_skillRadius / 5), 1 * (_skillRadius / 5), 1 * (_skillRadius / 5));
         Destroy(stun, 0.5f);
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(worldPosition, _skillRadius, enemyLayer);
@@ -136,9 +140,20 @@ public class HeraStun : MonoBehaviour
         if (currentPreview == null)
         {
             currentPreview = Instantiate(stunPreview);
-            currentPreview.transform.localScale = new Vector3(_skillRadius, _skillRadius, _skillRadius);
+            currentPreview.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 10, 0);
+            currentPreview.transform.localScale = new Vector3(1 * (_skillRadius / 5), 1 * (_skillRadius / 5), 1 * (_skillRadius / 5));
         }
 
         currentPreview.transform.position = worldPosition;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Vector3 mousePosition = Input.mousePosition;
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
+        worldPosition.z = 0;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(worldPosition, _skillRadius);
     }
 }

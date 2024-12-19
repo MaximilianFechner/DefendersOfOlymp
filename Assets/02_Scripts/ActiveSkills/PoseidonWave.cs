@@ -147,14 +147,4 @@ public class PoseidonWave : MonoBehaviour
         currentPreview.transform.position = worldPosition;
     }
 
-
-    private void OnDrawGizmos()
-    {
-        Vector3 mousePosition = Input.mousePosition;
-        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
-        worldPosition.z = 0;
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(worldPosition, _waveRadius);
-    }
 }
