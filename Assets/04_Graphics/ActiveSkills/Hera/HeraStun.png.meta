@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9dd2592f83c266b418846df6373f91de
+guid: 4c35068161717894c81bcee8da79f657
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HeraStun_0
+      name: HeraStun 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 286
+        y: 320
         width: 320
-        height: 286
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,20 +125,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11de7ec7e811b9344beb7d571d0c22e0
-      internalID: -1797869834
+      spriteID: 094a1387e3d00d84999ebab4587d0da6
+      internalID: 1316203462
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeraStun_1
+      name: HeraStun 1_1
       rect:
         serializedVersion: 2
         x: 320
-        y: 286
+        y: 320
         width: 320
-        height: 286
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df0509d98d1de3d46b673b469b31bdd5
-      internalID: 1103930182
+      spriteID: fceb85d2fd34da64c9f21bf3ea1ab516
+      internalID: 32735070
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeraStun_2
+      name: HeraStun 1_2
       rect:
         serializedVersion: 2
         x: 640
-        y: 286
+        y: 320
         width: 320
-        height: 286
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0305c492f744374aa3f2370d196d67c
-      internalID: -1478391350
+      spriteID: 8c4fd58b884136e4599fc29641ba0811
+      internalID: 769796261
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeraStun_3
+      name: HeraStun 1_3
       rect:
         serializedVersion: 2
         x: 960
-        y: 286
+        y: 320
         width: 320
-        height: 286
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,20 +191,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 677915485b1aa90438fb77eeb29bc356
-      internalID: 1660809847
+      spriteID: 01a221ed72b3dfa4aac441e26a002719
+      internalID: -1004062453
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeraStun_4
+      name: HeraStun 1_4
       rect:
         serializedVersion: 2
         x: 1280
-        y: 286
+        y: 320
         width: 320
-        height: 286
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ce1a9d4621ece64683d2669f17fba6b
-      internalID: 1018474438
+      spriteID: 6ae2765129a2a164196e0d37474eddc3
+      internalID: -364211891
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeraStun_5
+      name: HeraStun 1_5
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 320
-        height: 286
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,20 +235,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81d36852f488b3a4eb7c3b6392dbdf65
-      internalID: 1813213720
+      spriteID: d778097caaa3a9c4c9d0099af53a0e2a
+      internalID: -262922096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeraStun_6
+      name: HeraStun 1_6
       rect:
         serializedVersion: 2
         x: 320
         y: 0
         width: 320
-        height: 286
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,20 +257,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6c1f1d817d1e2248b7bea768685c401
-      internalID: -771574526
+      spriteID: aba2b97851652774f922a2bd9ca5a5df
+      internalID: 1682841117
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeraStun_7
+      name: HeraStun 1_7
       rect:
         serializedVersion: 2
         x: 640
         y: 0
         width: 320
-        height: 286
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,20 +279,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0968bda226342854fa1a2050a148c41e
-      internalID: -91646085
+      spriteID: 9c78e1404c5eaa04a8294305888f428f
+      internalID: 24402755
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeraStun_8
+      name: HeraStun 1_8
       rect:
         serializedVersion: 2
         x: 960
         y: 0
         width: 320
-        height: 286
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -301,8 +301,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40d98fd7a755f5e468680bb451231cb2
-      internalID: 1293691813
+      spriteID: d58bcb65697d43740b64c6c34a94a1c2
+      internalID: -394087789
       vertices: []
       indices: 
       edges: []
@@ -311,7 +311,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b12d44d3208e2bb47bfa69744dab5645
+    spriteID: 3ac29b9ee08723a41b4244b4c75a5ee1
     internalID: 0
     vertices: []
     indices: 
@@ -321,15 +321,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      HeraStun_0: -1797869834
-      HeraStun_1: 1103930182
-      HeraStun_2: -1478391350
-      HeraStun_3: 1660809847
-      HeraStun_4: 1018474438
-      HeraStun_5: 1813213720
-      HeraStun_6: -771574526
-      HeraStun_7: -91646085
-      HeraStun_8: 1293691813
+      HeraStun 1_0: 1316203462
+      HeraStun 1_1: 32735070
+      HeraStun 1_2: 769796261
+      HeraStun 1_3: -1004062453
+      HeraStun 1_4: -364211891
+      HeraStun 1_5: -262922096
+      HeraStun 1_6: 1682841117
+      HeraStun 1_7: 24402755
+      HeraStun 1_8: -394087789
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

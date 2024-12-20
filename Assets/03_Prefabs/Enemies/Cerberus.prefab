@@ -124,6 +124,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1ef95a7e9e9560d429e1901d47dfbbb7, type: 3}
   - {fileID: 8300000, guid: a5a7887439b29ef41bc65e56e72c4fcb, type: 3}
   _currentHP: 0
+  deathPrefab: {fileID: 6555997334480401726, guid: 59bd3323f7e8ba84aada906ba1c477b4, type: 3}
 --- !u!114 &1173280012366497405
 MonoBehaviour:
   m_ObjectHideFlags: 0
