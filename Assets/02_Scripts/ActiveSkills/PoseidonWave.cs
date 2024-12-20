@@ -52,7 +52,7 @@ public class PoseidonWave : MonoBehaviour
         if (UIManager.Instance.poseidonSkillCooldown != null)
         {
             float remainingTime = Mathf.Max(0, lastUseTime + _cooldownTime - Time.time);
-            UIManager.Instance.poseidonSkillCooldown.text = remainingTime > 0 ? $"{remainingTime:F1}s" : "Ready";
+            UIManager.Instance.poseidonSkillCooldown.text = remainingTime > 0 ? $"{remainingTime:F1}s" : "Wave";
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -86,7 +86,7 @@ public class PoseidonWave : MonoBehaviour
             if (currentPreview == null)
             {
                 currentPreview = Instantiate(wavePreview);
-                currentPreview.transform.localScale = new Vector3(_waveRadius, _waveRadius, _waveRadius);
+                currentPreview.transform.localScale = new Vector3(1 * (_waveRadius / 4), 1 * (_waveRadius / 4), 1 * (_waveRadius / 4));
             }
         }
     }
@@ -98,7 +98,7 @@ public class PoseidonWave : MonoBehaviour
         worldPosition.z = 0;
 
         GameObject wave = Instantiate(wavePrefab, worldPosition, Quaternion.identity);
-        wave.transform.localScale = new Vector3(_waveRadius, _waveRadius, _waveRadius);
+        wave.transform.localScale = new Vector3(1 * (_waveRadius / 4), 1 * (_waveRadius / 4), 1 * (_waveRadius / 4));
         StartCoroutine(PoseidonWaveDamageOverTime(wave.transform.position));
         Destroy(wave, _waveDuration);
 
@@ -141,9 +141,10 @@ public class PoseidonWave : MonoBehaviour
         if (currentPreview == null)
         {
             currentPreview = Instantiate(wavePreview);
-            currentPreview.transform.localScale = new Vector3(_waveRadius, _waveRadius, _waveRadius);
+            currentPreview.transform.localScale = new Vector3(1 * (_waveRadius / 4), 1 * (_waveRadius / 4), 1 * (_waveRadius / 4));
         }
 
         currentPreview.transform.position = worldPosition;
     }
+
 }

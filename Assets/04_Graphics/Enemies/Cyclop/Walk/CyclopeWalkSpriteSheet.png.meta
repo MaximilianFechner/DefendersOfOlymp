@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4a189129ec328e040ad030866f21e32d
+guid: a3d0f36862e0f75459e5e058e284d3e5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 160
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lightning Strike_0
+      name: CyclopeWalkSpriteSheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 32
+        width: 1002
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,20 +125,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8818d57b336eea4fb4d0b1e0aeab702
-      internalID: -1818846914
+      spriteID: cc45e25f0cab8e54ebae52c5190fa523
+      internalID: 1736606907
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lightning Strike_1
+      name: CyclopeWalkSpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 1046
         y: 0
-        width: 16
-        height: 32
+        width: 938
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd2bf19d81dd5404092b9ee382586b9a
-      internalID: -961398661
+      spriteID: 7f837ebaff3fcae47b9e96ba6678ceb8
+      internalID: 2117092689
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lightning Strike_2
+      name: CyclopeWalkSpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 32
+        x: 2047
         y: 0
-        width: 16
-        height: 32
+        width: 925
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4792d5bb818d96478b4ac22ffbe8f61
-      internalID: 1842902438
+      spriteID: 8b1159c9dd82aa74dbe1c98f51c4fc9a
+      internalID: -1471383335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lightning Strike_3
+      name: CyclopeWalkSpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 48
+        x: 3046
         y: 0
-        width: 16
-        height: 32
+        width: 957
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,20 +191,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe21778e7ca65714d8b2159906bafcfa
-      internalID: -2020467675
+      spriteID: 7eaa8d64a4d549040911b546a507925c
+      internalID: 1887344915
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lightning Strike_4
+      name: CyclopeWalkSpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 64
+        x: 4047
         y: 0
-        width: 16
-        height: 32
+        width: 953
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,8 +213,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ea5f37d5c053c24995169e6dc4a83f2
-      internalID: 1223165945
+      spriteID: 27fdb055fa3eec64db3431177ea36ff5
+      internalID: -2088835957
       vertices: []
       indices: 
       edges: []
@@ -223,7 +223,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 62c7268560c2a6e498784aac10cdf8ac
+    spriteID: b2a2b588dfcd68640b6ee69f8fcce5e9
     internalID: 0
     vertices: []
     indices: 
@@ -233,16 +233,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Lightning Strike_0: -1818846914
-      Lightning Strike_1: -961398661
-      Lightning Strike_2: 1842902438
-      Lightning Strike_3: -2020467675
-      Lightning Strike_4: 1223165945
-      Lightning Strike_5: -517883764
-      Lightning Strike_6: -1179632579
-      Lightning Strike_7: -116254253
-      Lightning Strike_8: 1943632769
-      Lightning Strike_9: 639346424
+      CyclopeWalkSpriteSheet_0: 1736606907
+      CyclopeWalkSpriteSheet_1: 2117092689
+      CyclopeWalkSpriteSheet_2: -1471383335
+      CyclopeWalkSpriteSheet_3: 1887344915
+      CyclopeWalkSpriteSheet_4: -2088835957
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
