@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 7359844151393371129, guid: f5d8a3b5003b80c4092adc2c5a4402f7, type: 3}
   defaultMovementSpeed: 10
-  defaultDamage: 73.63281
-  defaultAoeRadius: 12
+  defaultDamage: 20
+  defaultAoeRadius: 3
   defaultSlowValue: 0
   defaultTimeSlowed: 0
   defaultTowerType: 2
@@ -23,8 +23,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   movementSpeed: 10
-  damage: 5
-  aoeRadius: 12
+  damage: 20
+  aoeRadius: 3
   slowValue: 0
   timeSlowed: 0
   towerType: 2

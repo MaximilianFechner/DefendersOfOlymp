@@ -161,8 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9c941f6f5e824408b6b040a69f9316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buffDamageValue: 20
-  _buffAttackSpeedValue: 50
+  _buffDamageValue: 10
+  _buffAttackSpeedValue: 30
   _buffedTowers: []
   _towerSO: {fileID: 11400000, guid: 574e757cecd5cf24aa4e13661fbce331, type: 2}
 --- !u!95 &-7902435757129618146

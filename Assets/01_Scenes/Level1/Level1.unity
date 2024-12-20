@@ -2334,15 +2334,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1040459522354727499, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: firstWaveEnemies
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1040459522354727499, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: _playerStartLives
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1040459522354727499, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: addExtraEnemiesEveryWave
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1127305501548914579, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: boltPrefab

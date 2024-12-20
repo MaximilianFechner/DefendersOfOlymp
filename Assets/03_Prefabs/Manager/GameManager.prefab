@@ -166,6 +166,7 @@ MonoBehaviour:
   _playerStartLives: 1
   _waveSpawnDelay: 1
   firstWaveEnemies: 2
+  addExtraEnemiesEveryWave: 1
   _cardsToDraw: 1
   enemyPrefabs:
   - {fileID: 6555997334480401726, guid: 1ab0ce8dc0e33d84ca9a5347963a0e40, type: 3}
@@ -253,7 +254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85af347b82110ce4fbeb736753cb8503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightningPrefab: {fileID: 4534022219956502573, guid: 1cd725ecce7cb3749a10f22a2ebc8417, type: 3}
+  boltPrefab: {fileID: 0}
+  boltPreview: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
