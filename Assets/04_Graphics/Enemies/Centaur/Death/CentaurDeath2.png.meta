@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e0325a95b0b21584085c7fa3c49d8f5e
+guid: d3f26c408b17ca646b1dfcb526b61443
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CentaurDeath_0
+      name: CentaurDeath2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,21 +118,21 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edafa862db404db46b0074e5afb046ab
-      internalID: 649418895
+      spriteID: f78526bd9a747bc4696428c52d8e67b3
+      internalID: 59329254
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CentaurDeath_1
+      name: CentaurDeath2_1
       rect:
         serializedVersion: 2
         x: 1000
@@ -140,21 +140,21 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bdabfe4fb6ec9af46be72b13ae97701b
-      internalID: -1500370624
+      spriteID: 07b239ec018eee746a7b5fc0e0e31bf2
+      internalID: 422559936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CentaurDeath_2
+      name: CentaurDeath2_2
       rect:
         serializedVersion: 2
         x: 2000
@@ -162,21 +162,21 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97ae3fd3a9f2d784ea81a89e352b6dc1
-      internalID: -590532182
+      spriteID: 41a6f4da021f9524a907600fed8498a2
+      internalID: 838003496
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CentaurDeath_3
+      name: CentaurDeath2_3
       rect:
         serializedVersion: 2
         x: 3000
@@ -184,21 +184,21 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 653263eebb15d7a458e3f4bedee195ad
-      internalID: -1659607367
+      spriteID: a69f8af9069086745976e3100203c303
+      internalID: 1136919011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CentaurDeath_4
+      name: CentaurDeath2_4
       rect:
         serializedVersion: 2
         x: 4000
@@ -206,21 +206,21 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8289d6d03121fec429dce99e497a501b
-      internalID: -504266499
+      spriteID: 86d5af9e2b06ad3458edec79d2963363
+      internalID: -1898091162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CentaurDeath_5
+      name: CentaurDeath2_5
       rect:
         serializedVersion: 2
         x: 0
@@ -228,21 +228,21 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f76d4b19d93583459e9452c3775900b
-      internalID: -1105116023
+      spriteID: 5ff81178933862f408252fa4c574cf7f
+      internalID: 1037286100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CentaurDeath_6
+      name: CentaurDeath2_6
       rect:
         serializedVersion: 2
         x: 1000
@@ -250,21 +250,21 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ad361baa5f49664aa26fd27f53687f0
-      internalID: -568204086
+      spriteID: 91bfc2dce7abf9243babe09e31e5eb75
+      internalID: -1569638961
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CentaurDeath_7
+      name: CentaurDeath2_7
       rect:
         serializedVersion: 2
         x: 2000
@@ -272,21 +272,21 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 784b364d1ac0ef542b681a893fea6fd1
-      internalID: -1411909389
+      spriteID: 2b0abe1998760ac46a3a0bac0777aff2
+      internalID: 855802493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CentaurDeath_8
+      name: CentaurDeath2_8
       rect:
         serializedVersion: 2
         x: 3000
@@ -294,21 +294,21 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5976a2c1dd517014cb1f49e84327fe1e
-      internalID: -789599404
+      spriteID: 682d94adfecb9cb459f73515385a37ae
+      internalID: 1039157723
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CentaurDeath_9
+      name: CentaurDeath2_9
       rect:
         serializedVersion: 2
         x: 4000
@@ -316,21 +316,21 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d00bd78bf41a80d4b80c938d2c83ba1e
-      internalID: 851118627
+      spriteID: 4270f58f434395549a87138bde0678d7
+      internalID: 2109494360
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CentaurDeath_10
+      name: CentaurDeath2_10
       rect:
         serializedVersion: 2
         x: 0
@@ -338,21 +338,21 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e082b92abfc63d4479120a4260ea1557
-      internalID: -1023920928
+      spriteID: c8a2cd14fef7d594694bacd5a95047ce
+      internalID: -635168425
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CentaurDeath_11
+      name: CentaurDeath2_11
       rect:
         serializedVersion: 2
         x: 1000
@@ -360,15 +360,15 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e42960852dbe3ab41b2264c947955367
-      internalID: 1590168533
+      spriteID: 0dc4c9cadd1adc640bef71ea92439278
+      internalID: 116498604
       vertices: []
       indices: 
       edges: []
@@ -377,7 +377,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ddb0974e7c58ec443830b35276074a58
+    spriteID: 8b7422af3477c7a4e9f5d4a90a6d022a
     internalID: 0
     vertices: []
     indices: 
@@ -387,19 +387,19 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      CentaurDeath_0: 649418895
-      CentaurDeath_1: -1500370624
-      CentaurDeath_10: -1023920928
-      CentaurDeath_11: 1590168533
-      CentaurDeath_12: -355356184
-      CentaurDeath_2: -590532182
-      CentaurDeath_3: -1659607367
-      CentaurDeath_4: -504266499
-      CentaurDeath_5: -1105116023
-      CentaurDeath_6: -568204086
-      CentaurDeath_7: -1411909389
-      CentaurDeath_8: -789599404
-      CentaurDeath_9: 851118627
+      CentaurDeath2_0: 59329254
+      CentaurDeath2_1: 422559936
+      CentaurDeath2_10: -635168425
+      CentaurDeath2_11: 116498604
+      CentaurDeath2_12: -1142363364
+      CentaurDeath2_2: 838003496
+      CentaurDeath2_3: 1136919011
+      CentaurDeath2_4: -1898091162
+      CentaurDeath2_5: 1037286100
+      CentaurDeath2_6: -1569638961
+      CentaurDeath2_7: 855802493
+      CentaurDeath2_8: 1039157723
+      CentaurDeath2_9: 2109494360
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

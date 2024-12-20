@@ -52,7 +52,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CyclopWalking
-  m_Speed: 0.6
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -64,7 +64,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c06727072033ccb42a710c1f43cae59e, type: 2}
+  m_Motion: {fileID: 7400000, guid: a0fc662f9ac2b7e439f33f874358e4f3, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
