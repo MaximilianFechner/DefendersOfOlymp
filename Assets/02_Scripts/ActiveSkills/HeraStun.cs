@@ -104,7 +104,7 @@ public class HeraStun : MonoBehaviour
 
         GameObject stun = Instantiate(stunPrefab, worldPosition, Quaternion.identity);
         stun.transform.localScale = new Vector3(1 * (_skillRadius / 5), 1 * (_skillRadius / 5), 1 * (_skillRadius / 5));
-        Destroy(stun, 0.5f);
+        Destroy(stun, 0.74f);
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(worldPosition, _skillRadius, enemyLayer);
 
