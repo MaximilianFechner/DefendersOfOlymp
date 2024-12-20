@@ -43,7 +43,6 @@ public abstract class BaseProjectile : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.tag.Equals("Enemy") && collider.gameObject.Equals(targetEnemy)) {
-            Debug.Log("Falsches OnTrigger aktiv");
             DamageCalculation(collider.gameObject);
             Destroy(gameObject);
         }
