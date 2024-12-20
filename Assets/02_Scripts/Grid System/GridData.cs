@@ -23,16 +23,27 @@ public class GridData
 
     private List<Vector3Int> _calculatePositions(Vector3Int gridPosition, Vector2Int objectSize)
     {
-        throw new NotImplementedException();
         List<Vector3Int> returnVal = new();
         for (int x = 0; x < objectSize.x; x++)
         {
-            for (int i = 0; i < objectSize.y; i++)
+            for (int y = 0; y < objectSize.y; y++)
             {
-                
+                returnVal.Add(gridPosition + new Vector3Int(x, 0, y));
             }
             
         }
+        return returnVal;
+    }
+
+    public bool CanPlaceObjectAt(Vector3Int gridPosition, Vector2Int objectSize)
+    {
+        List<Vector3Int> positionToOccupy = _calculatePositions(gridPosition, objectSize);
+        foreach (var pos in positionToOccupy)
+        {
+            if (_placedObjects.ContainsKey(pos))
+                return false;
+        }
+        return true;
     }
 }
 
