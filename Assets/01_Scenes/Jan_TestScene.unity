@@ -782,6 +782,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PoseidonTower
       objectReference: {fileID: 0}
+    - target: {fileID: 5225003605191494454, guid: e607f517af798464f9111ce99e5cc7ec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8844577905314880619, guid: e607f517af798464f9111ce99e5cc7ec, type: 3}
       propertyPath: m_LocalPosition.x
       value: -39.94423
@@ -1006,6 +1010,10 @@ PrefabInstance:
     - target: {fileID: 5225003605191494454, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
       propertyPath: m_Name
       value: HephaistosTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 5225003605191494454, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8844577905314880619, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1356,6 +1364,10 @@ PrefabInstance:
     - target: {fileID: 5225003605191494454, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
       propertyPath: m_Name
       value: Hera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5225003605191494454, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8844577905314880619, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2149,6 +2161,14 @@ PrefabInstance:
     - target: {fileID: 5225003605191494454, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
       propertyPath: m_Name
       value: ZeusTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204586654887780968, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: attackSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204586654887780968, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: maxDamageJump
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8844577905314880619, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2967,6 +2987,10 @@ PrefabInstance:
       propertyPath: drawCardButton
       value: 
       objectReference: {fileID: 1936498712}
+    - target: {fileID: 1040459522354727499, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: firstWaveEnemies
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1040459522354727499, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: _playerStartLives
       value: 6

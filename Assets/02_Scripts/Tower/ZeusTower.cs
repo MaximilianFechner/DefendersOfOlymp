@@ -26,5 +26,7 @@ public class ZeusTower : BaseTower
         baseProjectile.enemyLayerMask = enemyLayerMask;
         baseProjectile.damage = damage;
         baseProjectile.movementSpeed = movementSpeed;
+        baseProjectile.maxDamageJump = maxDamageJump;
+        baseProjectile.aoeRadius = attackRadius;
     }
 }

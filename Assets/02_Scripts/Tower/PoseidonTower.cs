@@ -26,5 +26,6 @@ public class PoseidonTower : BaseTower
         baseProjectile.enemyLayerMask = enemyLayerMask;
         baseProjectile.damage = damage;
         baseProjectile.movementSpeed = movementSpeed;
+        baseProjectile.aoeRadius = aoeRadius;
     }
 }

@@ -51,6 +51,10 @@ public class BaseTower : MonoBehaviour
     [Tooltip("The base time in seconds for the slow effect")]
     [SerializeField] public float timeSlowed;
 
+    [Tooltip("The max value for the damage jump counter")]
+    [Min(0)]
+    [SerializeField] public int maxDamageJump;
+
     [Space(10)]
 
     //TOWER
@@ -62,6 +66,7 @@ public class BaseTower : MonoBehaviour
     [SerializeField] public GameObject rangeVisual;
     [SerializeField] public GameObject towerMenu;
     [SerializeField] public Animator animator;
+    [SerializeField] public int towerLevel = 1;
 
     //PROJECTILE
     [Space(5)]

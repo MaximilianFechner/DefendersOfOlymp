@@ -10,6 +10,7 @@ TagManager:
   - EnemyGoal
   - EnemyTarget
   - Tower
+  - Interactable
   layers:
   - Default
   - TransparentFX

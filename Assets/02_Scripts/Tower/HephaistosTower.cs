@@ -35,14 +35,14 @@ public class HephaistosTower : BaseTower
             if (enemyCollider.gameObject.CompareTag("Enemy")) {
                 EnemyManager enemy = enemyCollider.gameObject.GetComponent<EnemyManager>();
                 enemy.TakeDamage(damage);
-            } else if (GetComponent<Collider>().gameObject.CompareTag("Tower")) {
-                if (_buffedTowers.Contains(GetComponent<Collider>().gameObject)) {
+            } else if (enemyCollider.gameObject.CompareTag("Tower")) {
+                if (_buffedTowers.Contains(enemyCollider.gameObject)) {
                     return;
                 } else {
-                    BaseTower unbuffedTower = GetComponent<Collider>().gameObject.GetComponent<BaseTower>();
+                    BaseTower unbuffedTower = enemyCollider.gameObject.GetComponent<BaseTower>();
                     unbuffedTower.AddBonusToAttackDamage(CalculatePercentage(_buffDamageValue, true));
                     unbuffedTower.AddBonusToAttackSpeed(CalculatePercentage(_buffAttackSpeedValue, false));
-                    _buffedTowers.Add(GetComponent<Collider>().gameObject);
+                    _buffedTowers.Add(enemyCollider.gameObject);
                 }
 
             }

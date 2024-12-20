@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b755468701b9b314dae82591416c687c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 0.5
+  attackSpeed: 1
   attackRadius: 16
   targetType: 0
   movementSpeed: 10
@@ -112,6 +112,7 @@ MonoBehaviour:
   aoeRadius: 0
   slowValue: 0
   timeSlowed: 0
+  maxDamageJump: 2
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -121,6 +122,7 @@ MonoBehaviour:
   rangeVisual: {fileID: 6583868184036047370}
   towerMenu: {fileID: 8201886165173611775}
   animator: {fileID: 0}
+  towerLevel: 1
   projectilePrefab: {fileID: 7359844151393371129, guid: 3e01c33f800cfaf47b27bbdf1c838472, type: 3}
 --- !u!61 &8730636701950960048
 BoxCollider2D:
@@ -353,6 +355,10 @@ PrefabInstance:
     - target: {fileID: 4082658510292304687, guid: 4d2c18ba845a4cc488143a8ed8681865, type: 3}
       propertyPath: m_Name
       value: TowerMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4082658510292304687, guid: 4d2c18ba845a4cc488143a8ed8681865, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6127764266160713902, guid: 4d2c18ba845a4cc488143a8ed8681865, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
