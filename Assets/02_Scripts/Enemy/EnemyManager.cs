@@ -71,6 +71,7 @@ public class EnemyManager : MonoBehaviour
     private float nextSoundAvailable = 0f;
 
     public GameObject deathPrefab;
+    public GameObject bloodParticlePrefab;
 
     void Start()
     {
@@ -111,6 +112,7 @@ public class EnemyManager : MonoBehaviour
         _currentHP -= damage;
         HitAndDieSound();
         UpdateHealthBar();
+        Instantiate(bloodParticlePrefab, this.transform.position, Quaternion.identity);
         if (_currentHP <= 0 && _isAlive)
         {
             Die();
