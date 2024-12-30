@@ -53,7 +53,42 @@ public class BaseTower : MonoBehaviour
 
     [Tooltip("The max value for the damage jump counter")]
     [Min(0)]
-    [SerializeField] public int maxDamageJump;
+    [SerializeField] public float maxDamageJump;
+
+    [Space(10)]
+
+
+    //TOWER
+    [Header("Game Design Values: Tower Upgrade")]
+    [Tooltip("The base upgrade value for the tower attack speed")]
+    [SerializeField] public float upgradeAttackSpeed;
+
+    [Tooltip("The base upgrade value for the tower attack radius")]
+    [SerializeField] public float upgradeAttackRadius;
+
+
+    [Space(5)]
+
+    //PROJECTILE
+
+    [Header("Game Design Values: Projectile Upgrade")]
+    [Tooltip("The base upgrade value for the projectile attack speed")]
+    [SerializeField] public float upgradeMovementSpeed;
+
+    [Tooltip("The base upgrade value for the projectile attack damage")]
+    [SerializeField] public float upgradeDamage;
+
+    [Tooltip("The base upgrade value for the projectile aoe radius")]
+    [SerializeField] public float upgradeAoeRadius;
+
+    [Tooltip("The base upgrade value for the projectile slow Value")]
+    [SerializeField] public float upgradeSlowValue;
+
+    [Tooltip("The base upgrade value for the time slowed in seconds")]
+    [SerializeField] public float upgradeTimeSlowed;
+
+    [Tooltip("The upgrade value for the projectile damage jump counter")]
+    [SerializeField] public float upgradeMaxDamageJump;
 
     [Space(10)]
 
@@ -118,6 +153,30 @@ public class BaseTower : MonoBehaviour
             targetEnemy = targetEnemyManager.gameObject;
         }
         return targetEnemy;
+    }
+
+    public void UpgradeTower() {
+        attackSpeed += attackSpeed * upgradeAttackSpeed;
+        attackRadius += attackRadius * upgradeAttackRadius;
+        movementSpeed += movementSpeed * upgradeMovementSpeed;
+        damage += damage * upgradeDamage;
+        aoeRadius += aoeRadius * upgradeAoeRadius;
+        slowValue += slowValue * upgradeSlowValue;
+        timeSlowed += timeSlowed * upgradeTimeSlowed;
+        maxDamageJump += maxDamageJump * upgradeMaxDamageJump;
+        towerLevel += 1;
+    }
+
+    public void DowngradeTower() {
+        attackSpeed -= attackSpeed * upgradeAttackSpeed;
+        attackRadius -= attackRadius * upgradeAttackRadius;
+        movementSpeed -= movementSpeed * upgradeMovementSpeed;
+        damage -= damage * upgradeDamage;
+        aoeRadius -= aoeRadius * upgradeAoeRadius;
+        slowValue -= slowValue * upgradeSlowValue;
+        timeSlowed -= timeSlowed * upgradeTimeSlowed;
+        maxDamageJump -= maxDamageJump * upgradeMaxDamageJump;
+        towerLevel -= 1;
     }
 
     public void AddBonusToAttackDamage(float amount) {
