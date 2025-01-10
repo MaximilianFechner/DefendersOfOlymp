@@ -116,13 +116,13 @@ public class GameManager : MonoBehaviour
     public void AddRemainingEnemy(int enemies)
     {
         RemainingEnemies += enemies;
-        UIManager.Instance.remainingEnemiesText.text = $"Remaining Enemies: {RemainingEnemies.ToString()}";
+        UIManager.Instance.remainingEnemiesText.text = $"{RemainingEnemies.ToString()}";
     }
 
     public void SubRemainingEnemy()
     {
         RemainingEnemies--;
-        UIManager.Instance.remainingEnemiesText.text = $"Remaining Enemies: {RemainingEnemies.ToString()}";
+        UIManager.Instance.remainingEnemiesText.text = $"{RemainingEnemies.ToString()}";
 
         if (RemainingEnemies == 0 && RemainingLives > 0)
         {

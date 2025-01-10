@@ -66,7 +66,7 @@ public class UIManager : MonoBehaviour
     {
         waveNumberText.text = $"{GameManager.Instance.waveNumber.ToString()}";
         enemiesKilledText.text = $"{GameManager.Instance.TotalEnemiesKilled.ToString()}";
-        remainingEnemiesText.text = $"Remaining Enemies: {GameManager.Instance.RemainingEnemies.ToString()}";
+        remainingEnemiesText.text = $"{GameManager.Instance.RemainingEnemies.ToString()}";
     }
 
     public void ShowEndResults()
