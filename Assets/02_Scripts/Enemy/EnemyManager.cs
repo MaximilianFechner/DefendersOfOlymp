@@ -4,6 +4,7 @@ using UnityEngine.AI;
 public class EnemyManager : MonoBehaviour
 {
     private EnemyHealthBar enemyHealthBar;
+    private NavMeshAgent navMeshAgent;
 
     [Header("Game Design Values")]
     [Tooltip("The maximum hp for the enemy")]
@@ -20,6 +21,17 @@ public class EnemyManager : MonoBehaviour
     [Min(0)]
     [SerializeField]
     private float prozentualHPIncreaseWave = 0f;
+
+
+    [Tooltip("Add extra absolute Speed for this enemy for every wave")]
+    [Min(0)]
+    [SerializeField]
+    private float absoluteSpeedIncreaseWave = 0f;
+
+    [Tooltip("Add extra prozentual Speed for this enemy for every wave")]
+    [Min(0)]
+    [SerializeField]
+    private float prozentualSpeedIncreaseWave = 0f;
 
     [Tooltip("The damage the enemy did on the player when he reached the target/goal")]
     [Min(1)]
@@ -71,6 +83,17 @@ public class EnemyManager : MonoBehaviour
     private float nextSoundAvailable = 0f;
 
     public GameObject deathPrefab;
+    public GameObject bloodParticlePrefab;
+
+    private void Awake()
+    {
+        navMeshAgent = GetComponent<NavMeshAgent>();
+
+        // Speed Increase per Wave
+        prozentualSpeedIncreaseWave = ((navMeshAgent.speed / 100) * prozentualSpeedIncreaseWave) * GameManager.Instance.waveNumber;
+        absoluteSpeedIncreaseWave *= GameManager.Instance.waveNumber;
+        navMeshAgent.speed += (absoluteSpeedIncreaseWave + prozentualSpeedIncreaseWave);
+    }
 
     void Start()
     {
@@ -80,9 +103,9 @@ public class EnemyManager : MonoBehaviour
             return;
         }
 
+        // HP Increase per Wave
         prozentualHPIncreaseWave = ((_maxHP / 100) * prozentualHPIncreaseWave) * GameManager.Instance.waveNumber;
         absoluteHPIncreaseWave *= GameManager.Instance.waveNumber;
-
         _maxHP += (absoluteHPIncreaseWave + prozentualHPIncreaseWave);
         _currentHP = _maxHP;
 
@@ -111,6 +134,7 @@ public class EnemyManager : MonoBehaviour
         _currentHP -= damage;
         HitAndDieSound();
         UpdateHealthBar();
+        Instantiate(bloodParticlePrefab, this.transform.position, Quaternion.identity);
         if (_currentHP <= 0 && _isAlive)
         {
             Die();

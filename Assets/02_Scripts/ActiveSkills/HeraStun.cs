@@ -48,7 +48,7 @@ public class HeraStun : MonoBehaviour
 
     private void Update()
     {
-        if (Time.timeScale != 1) return;
+        if (Time.timeScale == 0) return;
 
         if (UIManager.Instance.heraSkillCooldown != null)
         {
@@ -79,7 +79,7 @@ public class HeraStun : MonoBehaviour
 
     public void ActivateHeraSkill()
     {
-        if (Time.timeScale != 1) return;
+        if (Time.timeScale == 0) return;
         if (Time.time >= lastUseTime + _cooldownTime)
         {
             isReady = true;
@@ -104,7 +104,7 @@ public class HeraStun : MonoBehaviour
 
         GameObject stun = Instantiate(stunPrefab, worldPosition, Quaternion.identity);
         stun.transform.localScale = new Vector3(1 * (_skillRadius / 5), 1 * (_skillRadius / 5), 1 * (_skillRadius / 5));
-        Destroy(stun, 0.5f);
+        Destroy(stun, 0.74f);
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(worldPosition, _skillRadius, enemyLayer);
 
@@ -145,15 +145,5 @@ public class HeraStun : MonoBehaviour
         }
 
         currentPreview.transform.position = worldPosition;
-    }
-
-    private void OnDrawGizmos()
-    {
-        Vector3 mousePosition = Input.mousePosition;
-        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
-        worldPosition.z = 0;
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(worldPosition, _skillRadius);
     }
 }

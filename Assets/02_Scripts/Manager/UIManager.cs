@@ -11,8 +11,10 @@ public class UIManager : MonoBehaviour
     public Text enemiesKilledText;
     public Text waveNumberText;
     public Text remainingEnemiesText;
+    public Text timeScaleText;
     public Button nextWaveButton;
     public Button drawCardButton;
+    public Button timeScaleButton;
     public Transform PlayerLife;
     public GameObject heartPrefab;
 
@@ -66,7 +68,7 @@ public class UIManager : MonoBehaviour
     {
         waveNumberText.text = $"{GameManager.Instance.waveNumber.ToString()}";
         enemiesKilledText.text = $"{GameManager.Instance.TotalEnemiesKilled.ToString()}";
-        remainingEnemiesText.text = $"Remaining Enemies: {GameManager.Instance.RemainingEnemies.ToString()}";
+        remainingEnemiesText.text = $"{GameManager.Instance.RemainingEnemies.ToString()}";
     }
 
     public void ShowEndResults()

@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyHealthBar : MonoBehaviour
 {
     public GameObject healtbarOutlines;
+    public GameObject healtbarBackground;
     private float scaleX;
     private float scaleY;
 
@@ -21,5 +22,6 @@ public class EnemyHealthBar : MonoBehaviour
     {
         this.gameObject.SetActive(isVisible);
         healtbarOutlines.SetActive(isVisible);
+        healtbarBackground.SetActive(isVisible);
     }
 }

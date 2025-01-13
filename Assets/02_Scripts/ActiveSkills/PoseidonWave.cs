@@ -47,7 +47,7 @@ public class PoseidonWave : MonoBehaviour
 
     private void Update()
     {
-        if (Time.timeScale != 1) return;
+        if (Time.timeScale == 0) return;
 
         if (UIManager.Instance.poseidonSkillCooldown != null)
         {
@@ -78,7 +78,7 @@ public class PoseidonWave : MonoBehaviour
 
     public void ActivatePoseidonSkill()
     {
-        if (Time.timeScale != 1) return;
+        if (Time.timeScale == 0) return;
         if (Time.time >= lastUseTime + _cooldownTime)
         {
             isReady = true;
