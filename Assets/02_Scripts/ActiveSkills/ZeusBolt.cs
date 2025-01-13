@@ -39,7 +39,7 @@ public class ZeusBolt : MonoBehaviour
 
     private void Update()
     {
-        if (Time.timeScale != 1) return;
+        if (Time.timeScale == 0) return;
         if (UIManager.Instance.zeusSkillCooldown != null)
         {
             float remainingTime = Mathf.Max(0, lastUseTime + cooldownTime - Time.time);

@@ -61,7 +61,7 @@ public class HephaistosQuake : MonoBehaviour
 
     private void Update()
     {
-        if (Time.timeScale != 1) return;
+        if (Time.timeScale == 0) return;
 
         if (UIManager.Instance.hephaistosSkillCooldown != null)
         {

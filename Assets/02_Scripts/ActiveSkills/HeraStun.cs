@@ -48,7 +48,7 @@ public class HeraStun : MonoBehaviour
 
     private void Update()
     {
-        if (Time.timeScale != 1) return;
+        if (Time.timeScale == 0) return;
 
         if (UIManager.Instance.heraSkillCooldown != null)
         {
@@ -79,7 +79,7 @@ public class HeraStun : MonoBehaviour
 
     public void ActivateHeraSkill()
     {
-        if (Time.timeScale != 1) return;
+        if (Time.timeScale == 0) return;
         if (Time.time >= lastUseTime + _cooldownTime)
         {
             isReady = true;

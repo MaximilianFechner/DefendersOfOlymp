@@ -374,8 +374,8 @@ MonoBehaviour:
   _maxHP: 70
   absoluteHPIncreaseWave: 0
   prozentualHPIncreaseWave: 5
-  absoluteSpeedIncreaseWave: 0
-  prozentualSpeedIncreaseWave: 1
+  absoluteSpeedIncreaseWave: 0.02
+  prozentualSpeedIncreaseWave: 1.02
   _playerDamage: 1
   _chanceToPlaySound: 20
   soundCooldown: 3
