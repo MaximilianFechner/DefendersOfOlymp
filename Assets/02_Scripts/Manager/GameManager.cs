@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         ResetStats();
         UIManager.Instance.UpdateUITexts();
         AudioManager.Instance.PlayLevelBackgroundMusic();
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
     }
 
     public void NewGame()
@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
         ResetStats();
         UIManager.Instance.UpdateUITexts();
         AudioManager.Instance.PlayLevelBackgroundMusic();
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
     }
 
     public void CloseGame()
