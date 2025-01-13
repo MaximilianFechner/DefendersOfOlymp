@@ -10,8 +10,9 @@ public abstract class BaseProjectile : MonoBehaviour
     [SerializeField] public float damage { get; set; }
     [SerializeField] public float aoeRadius { get; set; }
     [SerializeField] public float slowValue { get; set; }
-    [SerializeField] public int maxDamageJump { get; set; }
+    [SerializeField] public float maxDamageJump { get; set; }
     [SerializeField] public float timeSlowed { get; set; }
+    [SerializeField] public int towerLevel { get; set; }
     [SerializeField] public TowerType towerType { get; set; }
     [SerializeField] public LayerMask enemyLayerMask { get; set; }
     [SerializeField] public Dictionary<GameObject, float> enemyBonusMalusTable { get; set; }
@@ -43,7 +44,6 @@ public abstract class BaseProjectile : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.tag.Equals("Enemy") && collider.gameObject.Equals(targetEnemy)) {
-            Debug.Log("Falsches OnTrigger aktiv");
             DamageCalculation(collider.gameObject);
             Destroy(gameObject);
         }

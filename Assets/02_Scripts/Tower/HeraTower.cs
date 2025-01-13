@@ -23,6 +23,7 @@ public class HeraTower : BaseTower
         GameObject projectile = Instantiate(projectilePrefab, spawnPoint);
         projectile.transform.SetParent(null);
         BaseProjectile baseProjectile = projectile.GetComponent<BaseProjectile>();
+        baseProjectile.towerLevel = towerLevel;
         baseProjectile.towerType = towerType;
         baseProjectile.targetEnemy = targetEnemy;
         baseProjectile.enemyLayerMask = enemyLayerMask;
