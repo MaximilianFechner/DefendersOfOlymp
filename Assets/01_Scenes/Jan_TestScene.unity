@@ -766,6 +766,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &665253131 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8204586654887780968, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+  m_PrefabInstance: {fileID: 2017365680}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b755468701b9b314dae82591416c687c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &700142345
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -784,7 +795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5225003605191494454, guid: e607f517af798464f9111ce99e5cc7ec, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8844577905314880619, guid: e607f517af798464f9111ce99e5cc7ec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1013,7 +1024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5225003605191494454, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8844577905314880619, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1368,6 +1379,18 @@ PrefabInstance:
     - target: {fileID: 5225003605191494454, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967709363670462979, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
+      propertyPath: slowValue
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967709363670462979, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
+      propertyPath: towerLevel
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967709363670462979, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
+      propertyPath: attackSpeed
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8844577905314880619, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2162,13 +2185,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZeusTower
       objectReference: {fileID: 0}
+    - target: {fileID: 5225003605191494454, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8204586654887780968, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
       propertyPath: attackSpeed
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8204586654887780968, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
       propertyPath: maxDamageJump
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204586654887780968, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: upgradeDamage
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204586654887780968, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: upgradeAttackSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204586654887780968, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: upgradeAttackRadius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204586654887780968, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: upgradeMaxDamageJump
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204586654887780968, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: upgradeMovementSpeed
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8844577905314880619, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2209,6 +2256,34 @@ PrefabInstance:
     - target: {fileID: 8844577905314880619, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916082820040012398, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916082820040012398, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916082820040012398, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 665253131}
+    - target: {fileID: 8916082820040012398, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916082820040012398, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpgradeTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916082820040012398, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BaseTower, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916082820040012398, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

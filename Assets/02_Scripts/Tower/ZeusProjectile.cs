@@ -29,7 +29,7 @@ public class ZeusProjectile : BaseProjectile
 
     private void GetNextTargetEnemy() {
         List<GameObject> enemiesGameObjects = new List<GameObject>();
-        if (indexAttackedEnemies <= maxDamageJump) {
+        if (indexAttackedEnemies <= Mathf.RoundToInt(maxDamageJump)) {
             Collider2D[] enemiesColliders = Physics2D.OverlapCircleAll(transform.position, aoeRadius);
 
             if (enemiesColliders.Length > 0) {
