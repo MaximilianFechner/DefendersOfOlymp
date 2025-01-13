@@ -61,7 +61,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         firstWaveEnemiesText.text = $"Enemies in the first wave: {GameManager.Instance.firstWaveEnemies + (GameManager.Instance.waveNumber + 1) + GameManager.Instance.addExtraEnemiesEveryWave}";
-        prepareFirstWavePanel.SetActive(true);
+        //prepareFirstWavePanel.SetActive(true);
         InitializeLives(GameManager.Instance.ReturnLives());
     }
     public void UpdateUITexts()

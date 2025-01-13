@@ -45,15 +45,34 @@ public class PoseidonWave : MonoBehaviour
     private float lastUseTime = -Mathf.Infinity;
     private bool isReady = false;
 
+    private float remainingCooldownTime = 0f;
+
     private void Update()
     {
         if (Time.timeScale == 0) return;
 
-        if (UIManager.Instance.poseidonSkillCooldown != null)
+        if (GameManager.Instance.isInWave)
         {
-            float remainingTime = Mathf.Max(0, lastUseTime + _cooldownTime - Time.time);
-            UIManager.Instance.poseidonSkillCooldown.text = remainingTime > 0 ? $"{remainingTime:F1}s" : "Wave";
+            if (remainingCooldownTime > 0)
+            {
+                remainingCooldownTime -= Time.deltaTime;
+                if (remainingCooldownTime <= 0)
+                {
+                    remainingCooldownTime = 0;
+                    UIManager.Instance.poseidonSkillCooldown.text = "Wave";
+                }
+                else
+                {
+                    UIManager.Instance.poseidonSkillCooldown.text = $"{remainingCooldownTime:F1}s";
+                }
+            }
         }
+
+        //if (UIManager.Instance.poseidonSkillCooldown != null)
+        //{
+        //    float remainingTime = Mathf.Max(0, lastUseTime + _cooldownTime - Time.time);
+        //    UIManager.Instance.poseidonSkillCooldown.text = remainingTime > 0 ? $"{remainingTime:F1}s" : "Wave";
+        //}
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -79,7 +98,7 @@ public class PoseidonWave : MonoBehaviour
     public void ActivatePoseidonSkill()
     {
         if (Time.timeScale == 0) return;
-        if (Time.time >= lastUseTime + _cooldownTime)
+        if (remainingCooldownTime <= 0 && GameManager.Instance.isInWave) //if (Time.time >= lastUseTime + _cooldownTime)
         {
             isReady = true;
 
@@ -102,6 +121,7 @@ public class PoseidonWave : MonoBehaviour
         StartCoroutine(PoseidonWaveDamageOverTime(wave.transform.position));
         Destroy(wave, _waveDuration);
 
+        remainingCooldownTime = _cooldownTime;
         lastUseTime = Time.time;
         isReady = false;
 

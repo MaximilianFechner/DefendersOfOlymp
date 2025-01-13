@@ -52,6 +52,8 @@ public class HephaistosQuake : MonoBehaviour
     private float lastUseTime = -Mathf.Infinity;
     private bool isReady = false;
 
+    private float remainingCooldownTime = 0f;
+
     private CameraShake _cameraShake;
 
     private void Awake()
@@ -63,13 +65,30 @@ public class HephaistosQuake : MonoBehaviour
     {
         if (Time.timeScale == 0) return;
 
-        if (UIManager.Instance.hephaistosSkillCooldown != null)
+        if (GameManager.Instance.isInWave)
         {
-            float remainingTime = Mathf.Max(0, lastUseTime + _cooldownTime - Time.time);
-            UIManager.Instance.hephaistosSkillCooldown.text = remainingTime > 0 ? $"{remainingTime:F1}s" : "Quake";
+            if (remainingCooldownTime > 0)
+            {
+                remainingCooldownTime -= Time.deltaTime;
+                if (remainingCooldownTime <= 0)
+                {
+                    remainingCooldownTime = 0;
+                    UIManager.Instance.hephaistosSkillCooldown.text = "Quake";
+                }
+                else
+                {
+                    UIManager.Instance.hephaistosSkillCooldown.text = $"{remainingCooldownTime:F1}s";
+                }
+            }
         }
 
-        if (isReady)
+        //if (UIManager.Instance.hephaistosSkillCooldown != null)
+        //{
+        //    float remainingTime = Mathf.Max(0, lastUseTime + _cooldownTime - Time.time);
+        //    UIManager.Instance.hephaistosSkillCooldown.text = remainingTime > 0 ? $"{remainingTime:F1}s" : "Quake";
+        //}
+
+        if (isReady && GameManager.Instance.isInWave)
         {
             if (Input.GetKeyDown(KeyCode.Alpha4))
             {
@@ -77,7 +96,7 @@ public class HephaistosQuake : MonoBehaviour
             }
         }
 
-        if (Time.time >= lastUseTime + _cooldownTime)
+        if (remainingCooldownTime <= 0 && GameManager.Instance.isInWave) //if (Time.time >= lastUseTime + _cooldownTime)
         {
             isReady = true;
         }
@@ -94,6 +113,7 @@ public class HephaistosQuake : MonoBehaviour
 
         StartCoroutine(HephaitosQuakeDamageOverTime());
 
+        remainingCooldownTime = _cooldownTime;
         lastUseTime = Time.time;
         isReady = false;
     }

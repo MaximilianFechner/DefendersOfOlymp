@@ -37,14 +37,34 @@ public class ZeusBolt : MonoBehaviour
     private float lastUseTime = -Mathf.Infinity;
     private bool isReady = false;
 
+    private float remainingCooldownTime = 0f;
+
     private void Update()
     {
         if (Time.timeScale == 0) return;
-        if (UIManager.Instance.zeusSkillCooldown != null)
+
+        if (GameManager.Instance.isInWave)
         {
-            float remainingTime = Mathf.Max(0, lastUseTime + cooldownTime - Time.time);
-            UIManager.Instance.zeusSkillCooldown.text = remainingTime > 0 ? $"{remainingTime:F1}s" : "Bolt";
+            if (remainingCooldownTime > 0)
+            {
+                remainingCooldownTime -= Time.deltaTime;
+                if (remainingCooldownTime <= 0)
+                {
+                    remainingCooldownTime = 0;
+                    UIManager.Instance.zeusSkillCooldown.text = "Bolt";
+                }
+                else
+                {
+                    UIManager.Instance.zeusSkillCooldown.text = $"{remainingCooldownTime:F1}s";
+                }
+            }
         }
+
+        //if (UIManager.Instance.zeusSkillCooldown != null)
+        //{
+        //    float remainingTime = Mathf.Max(0, lastUseTime + cooldownTime - Time.time);
+        //    UIManager.Instance.zeusSkillCooldown.text = remainingTime > 0 ? $"{remainingTime:F1}s" : "Bolt";
+        //}
 
         if (Input.GetKeyUp(KeyCode.Alpha1))
         {
@@ -68,7 +88,7 @@ public class ZeusBolt : MonoBehaviour
 
     public void ActivateZeusSkill()
     {
-        if (Time.time >= lastUseTime + cooldownTime)
+        if (remainingCooldownTime <= 0 && GameManager.Instance.isInWave) //if (Time.time >= lastUseTime + cooldownTime)
         {
             isReady = true;
 
@@ -94,6 +114,7 @@ public class ZeusBolt : MonoBehaviour
 
             targetEnemy.GetComponent<EnemyManager>().TakeDamage(damage);
 
+            remainingCooldownTime = cooldownTime; // here
             lastUseTime = Time.time;
             isReady = false;
 

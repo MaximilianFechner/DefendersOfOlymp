@@ -46,15 +46,34 @@ public class HeraStun : MonoBehaviour
     private float lastUseTime = -Mathf.Infinity;
     private bool isReady = false;
 
+    private float remainingCooldownTime = 0f;
+
     private void Update()
     {
         if (Time.timeScale == 0) return;
 
-        if (UIManager.Instance.heraSkillCooldown != null)
+        if (GameManager.Instance.isInWave)
         {
-            float remainingTime = Mathf.Max(0, lastUseTime + _cooldownTime - Time.time);
-            UIManager.Instance.heraSkillCooldown.text = remainingTime > 0 ? $"{remainingTime:F1}s" : "Stun";
+            if (remainingCooldownTime > 0)
+            {
+                remainingCooldownTime -= Time.deltaTime;
+                if (remainingCooldownTime <= 0)
+                {
+                    remainingCooldownTime = 0;
+                    UIManager.Instance.heraSkillCooldown.text = "Stun";
+                }
+                else
+                {
+                    UIManager.Instance.heraSkillCooldown.text = $"{remainingCooldownTime:F1}s";
+                }
+            }
         }
+
+        //if (UIManager.Instance.heraSkillCooldown != null)
+        //{
+        //    float remainingTime = Mathf.Max(0, lastUseTime + _cooldownTime - Time.time);
+        //    UIManager.Instance.heraSkillCooldown.text = remainingTime > 0 ? $"{remainingTime:F1}s" : "Stun";
+        //}
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
@@ -80,7 +99,7 @@ public class HeraStun : MonoBehaviour
     public void ActivateHeraSkill()
     {
         if (Time.timeScale == 0) return;
-        if (Time.time >= lastUseTime + _cooldownTime)
+        if (remainingCooldownTime <= 0 && GameManager.Instance.isInWave) //if (Time.time >= lastUseTime + _cooldownTime)
         {
             isReady = true;
 
@@ -121,6 +140,7 @@ public class HeraStun : MonoBehaviour
             }
         }
 
+        remainingCooldownTime = _cooldownTime;
         lastUseTime = Time.time;
         isReady = false;
 
