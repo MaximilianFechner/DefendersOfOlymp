@@ -12,6 +12,7 @@ public abstract class BaseProjectile : MonoBehaviour
     [SerializeField] public float slowValue { get; set; }
     [SerializeField] public float maxDamageJump { get; set; }
     [SerializeField] public float timeSlowed { get; set; }
+    [SerializeField] public int towerLevel { get; set; }
     [SerializeField] public TowerType towerType { get; set; }
     [SerializeField] public LayerMask enemyLayerMask { get; set; }
     [SerializeField] public Dictionary<GameObject, float> enemyBonusMalusTable { get; set; }
