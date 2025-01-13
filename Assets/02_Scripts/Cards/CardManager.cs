@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class CardManager : MonoBehaviour
@@ -12,12 +14,25 @@ public class CardManager : MonoBehaviour
     public Image CardDisplay;
     public Button drawCardButton;
 
+    public GameObject towerPreview;
+    private GameObject currentPreview;
+
     private void Update()
     {
+        if (currentPreview != null)
+        {
+            Vector3 mousePosition = Input.mousePosition;
+            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
+            worldPosition.z = 0;
+            currentPreview.transform.position = worldPosition;
+        }
+
+
         if (Input.GetMouseButtonDown(0))
         {
             if (GetCurrentCard() != null)
             {
+                if (EventSystem.current.IsPointerOverGameObject()) return;
                 PlaceTower();
             }
         }
@@ -28,8 +43,8 @@ public class CardManager : MonoBehaviour
             if (hit.collider != null) {
                 GameObject tower = hit.collider.gameObject;
                 if (tower.tag.Equals("Tower")) {
-                    EnemyDetection enemyDetection = tower.GetComponent<EnemyDetection>();
-                    enemyDetection.SetRangeVisual();
+                    BaseTower baseTower = tower.GetComponent<BaseTower>();
+                    baseTower.SetTowerMenu();
                 }
             }
         }
@@ -45,6 +60,9 @@ public class CardManager : MonoBehaviour
         CardDisplay.gameObject.SetActive(true);
         drawCardButton.gameObject.SetActive(false);
         UIManager.Instance.waveFinPanel.SetActive(false);
+
+        Cards previewTower = GetCurrentCard();
+        PlacementPreview(previewTower);
 
         if (!UIManager.Instance.prepareFirstWavePanel) return;
         UIManager.Instance.prepareFirstWavePanel.SetActive(false);
@@ -71,7 +89,31 @@ public class CardManager : MonoBehaviour
         Cards selectedCard = GetCurrentCard();
         Instantiate(selectedCard.TowerPrefab, mousePosition, Quaternion.identity);
 
+        if (currentPreview != null)
+        {
+            Destroy(currentPreview);
+            currentPreview = null;
+        }
+
         ClearCard();
+    }
+
+    private void PlacementPreview(Cards currentCard)
+    {
+        if (currentCard == null) return;
+
+        if (currentPreview == null)
+        {
+            currentPreview = Instantiate(currentCard.TowerPrefab);
+            currentPreview.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+
+            // deactivate the ability of the preview to attack the enemies as preview tower
+            MonoBehaviour[] scripts = currentPreview.GetComponents<MonoBehaviour>();
+            foreach (MonoBehaviour script in scripts)
+            {
+                script.enabled = false;
+            }
+        }
     }
 }
 

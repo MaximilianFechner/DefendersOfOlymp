@@ -45,6 +45,7 @@ public class EnemyPathfinding : MonoBehaviour
 
     public void SlowMovement(float slowValue, float timeSlowed) {
         _timeSlowed = timeSlowed;
+
         if (_isSlowed) {
             //SlowValue is already added to the agent speed
             return;

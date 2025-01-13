@@ -39,11 +39,11 @@ public class ZeusBolt : MonoBehaviour
 
     private void Update()
     {
-        if (Time.timeScale != 1) return;
+        if (Time.timeScale == 0) return;
         if (UIManager.Instance.zeusSkillCooldown != null)
         {
             float remainingTime = Mathf.Max(0, lastUseTime + cooldownTime - Time.time);
-            UIManager.Instance.zeusSkillCooldown.text = remainingTime > 0 ? $"{remainingTime:F1}s" : "Ready";
+            UIManager.Instance.zeusSkillCooldown.text = remainingTime > 0 ? $"{remainingTime:F1}s" : "Bolt";
         }
 
         if (Input.GetKeyUp(KeyCode.Alpha1))
