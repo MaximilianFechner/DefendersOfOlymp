@@ -1385,6 +1385,10 @@ PrefabInstance:
       value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 7967709363670462979, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
+      propertyPath: towerLevel
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967709363670462979, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
       propertyPath: attackSpeed
       value: 1.5
       objectReference: {fileID: 0}
