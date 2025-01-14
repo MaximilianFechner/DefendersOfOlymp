@@ -146,6 +146,11 @@ public class EnemyManager : MonoBehaviour
         if (_isAlive)
         {
             _isAlive = false;
+
+            if (this.gameObject.name == "Centaur(Clone)") GameManager.Instance.centaurKills++;
+            if (this.gameObject.name == "Cerberus(Clone)") GameManager.Instance.cerberusKills++;
+            if (this.gameObject.name == "Cyclop(Clone)") GameManager.Instance.cyclopKills++;
+
             GameManager.Instance.AddEnemyKilled();
             GameManager.Instance.SubRemainingEnemy();
 

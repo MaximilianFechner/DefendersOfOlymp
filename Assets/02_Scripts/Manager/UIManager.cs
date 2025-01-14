@@ -8,13 +8,25 @@ public class UIManager : MonoBehaviour
 
     [Space(10)]
     [Header("UI Elements: Ingame")]
+    public Text score;
+    public Text totalScore;
+    public Text enemyScore;
+    public Text waveScore;
+    public Text healthScore;
+
     public Text enemiesKilledText;
+    public Text cerberusKilledText;
+    public Text centaurKilledText;
+    public Text cyclopKilledText;
+
     public Text waveNumberText;
     public Text remainingEnemiesText;
     public Text timeScaleText;
+
     public Button nextWaveButton;
     public Button drawCardButton;
     public Button timeScaleButton;
+
     public Transform PlayerLife;
     public GameObject heartPrefab;
 
@@ -69,6 +81,7 @@ public class UIManager : MonoBehaviour
         waveNumberText.text = $"{GameManager.Instance.waveNumber.ToString()}";
         enemiesKilledText.text = $"{GameManager.Instance.TotalEnemiesKilled.ToString()}";
         remainingEnemiesText.text = $"{GameManager.Instance.RemainingEnemies.ToString()}";
+        score.text = $"{GameManager.Instance.score.ToString()}";
     }
 
     public void ShowEndResults()
@@ -84,6 +97,23 @@ public class UIManager : MonoBehaviour
         waveEnemiesKilledText.text = $"Enemies killed this wave: {GameManager.Instance.WaveEnemiesKilled}";
         waveDurationText.text = $"Time needed for this wave:\n{GameManager.Instance.thisWaveDuration:F1} seconds";
         waveFinPanel.SetActive(true);
+    }
+
+    public void UpdateKilledEnemies()
+    {
+        enemiesKilledText.text = GameManager.Instance.TotalEnemiesKilled.ToString();
+        cyclopKilledText.text = GameManager.Instance.cyclopKills.ToString();
+        cerberusKilledText.text = GameManager.Instance.cerberusKills.ToString();
+        centaurKilledText.text = GameManager.Instance.centaurKills.ToString();
+    }
+
+    public void UpdateScoreCalculating()
+    {
+        score.text = GameManager.Instance.score.ToString();
+        totalScore.text = GameManager.Instance.score.ToString();
+        enemyScore.text = GameManager.Instance.enemyScore.ToString();
+        waveScore.text = GameManager.Instance.waveScore.ToString();
+        healthScore.text = GameManager.Instance.healthScore.ToString();
     }
 
     // Player Life Methods ++

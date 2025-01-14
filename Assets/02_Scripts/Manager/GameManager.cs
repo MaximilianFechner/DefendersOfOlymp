@@ -51,6 +51,15 @@ public class GameManager : MonoBehaviour
 
     public float gameSpeed = 1f; // default time/game speed
     public bool isInWave = false;
+    
+    [HideInInspector] public int score = 0;
+    [HideInInspector] public int cerberusKills = 0;
+    [HideInInspector] public int cyclopKills = 0;
+    [HideInInspector] public int centaurKills = 0;
+
+    [HideInInspector] public int enemyScore = 0;
+    [HideInInspector] public int waveScore = 0;
+    [HideInInspector] public int healthScore = 0;
 
     private void Awake()
     {
@@ -101,7 +110,10 @@ public class GameManager : MonoBehaviour
     public void LoseLife(int damage)
     {
         RemainingLives -= damage;
+        healthScore--;
+        score--;
         UIManager.Instance.UpdateLives(RemainingLives);
+        UIManager.Instance.UpdateScoreCalculating();
 
         if (RemainingLives == 0)
         {
@@ -111,9 +123,14 @@ public class GameManager : MonoBehaviour
 
     public void AddEnemyKilled()
     {
+        enemyScore++;
+        score++;
         TotalEnemiesKilled++;
         WaveEnemiesKilled++;
-        UIManager.Instance.enemiesKilledText.text = $"{TotalEnemiesKilled.ToString()}";
+
+        UIManager.Instance.UpdateKilledEnemies();
+        //UIManager.Instance.enemiesKilledText.text = $"{TotalEnemiesKilled.ToString()}";
+        UIManager.Instance.UpdateScoreCalculating();
     }
 
     public void AddRemainingEnemy(int enemies)
@@ -145,6 +162,7 @@ public class GameManager : MonoBehaviour
         TotalEnemiesKilled = 0;
         RemainingLives = _playerStartLives;
         waveNumber = 0;
+        score = 0;
     }
 
     private void GameOver()
@@ -161,6 +179,11 @@ public class GameManager : MonoBehaviour
         _waveEndTime = Time.time;
         thisWaveDuration = _waveEndTime - _waveStartTime;
         totalWaveDurations += thisWaveDuration;
+
+        waveScore += waveNumber;
+        score += waveNumber;
+
+        UIManager.Instance.UpdateScoreCalculating();
 
         //Time.timeScale = 0;
 
