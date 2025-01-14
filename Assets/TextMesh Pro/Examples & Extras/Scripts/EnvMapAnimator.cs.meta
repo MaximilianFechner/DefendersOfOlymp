@@ -1,5 +1,6 @@
 fileFormatVersion: 2
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 guid: a4b6f99e8bc54541bbd149b014ff441c
 timeCreated: 1449025325
 licenseType: Pro
@@ -11,6 +12,9 @@ MonoImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+=======
+guid: a4b6f99e8bc54541bbd149b014ff441c
+>>>>>>> Stashed changes
 =======
 guid: a4b6f99e8bc54541bbd149b014ff441c
 >>>>>>> Stashed changes

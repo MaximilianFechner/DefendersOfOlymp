@@ -2,6 +2,7 @@ fileFormatVersion: 2
 guid: 6eb184de103d4b3f812b38561065192f
 TextureImporter:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
@@ -12,6 +13,8 @@ TextureImporter:
     fadeOut: 0
     borderMipMap: 0
 =======
+=======
+>>>>>>> Stashed changes
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
@@ -24,12 +27,16 @@ TextureImporter:
     borderMipMap: 0
     mipMapsPreserveCoverage: 0
     alphaTestReferenceValue: 0.5
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     heightScale: .25
     normalMapFilter: 0
@@ -51,6 +58,8 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
 =======
+=======
+>>>>>>> Stashed changes
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
@@ -75,12 +84,16 @@ TextureImporter:
     wrapW: 0
   nPOTScale: 1
   lightmap: 0
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   compressionQuality: 50
   spriteMode: 0
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -92,6 +105,8 @@ TextureImporter:
     sprites: []
   spritePackingTag: 
 =======
+=======
+>>>>>>> Stashed changes
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -157,6 +172,9 @@ TextureImporter:
     nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   userData: 
   assetBundleName: 
