@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/03_Prefabs/ActiveSkills/LightningBolt.prefab.meta
 guid: 1cd725ecce7cb3749a10f22a2ebc8417
+========
+guid: 7410c346e66ffab4c8b91251d5cbf6f8
+>>>>>>>> Stashed changes:Assets/03_Prefabs/Cyclop.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

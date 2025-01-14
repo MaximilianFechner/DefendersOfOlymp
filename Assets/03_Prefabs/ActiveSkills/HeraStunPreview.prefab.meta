@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/03_Prefabs/ActiveSkills/HeraStunPreview.prefab.meta
 guid: ce6adf8ef073cab4b8370d18ad2041c8
+========
+guid: 20d83b7d27f780340a894e4651c1a6bd
+>>>>>>>> Stashed changes:Assets/03_Prefabs/Cerberus.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

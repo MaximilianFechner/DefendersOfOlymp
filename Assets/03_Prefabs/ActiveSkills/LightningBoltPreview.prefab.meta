@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/03_Prefabs/ActiveSkills/LightningBoltPreview.prefab.meta
 guid: 5f30cd47a282aed40ae99320c9c7cecc
+========
+guid: a316ba221b3459a429c653594f526be2
+>>>>>>>> Stashed changes:Assets/03_Prefabs/HephaistosProjectile.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

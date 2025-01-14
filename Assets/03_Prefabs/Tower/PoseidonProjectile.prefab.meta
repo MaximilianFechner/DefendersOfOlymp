@@ -1,6 +1,14 @@
 fileFormatVersion: 2
 <<<<<<< Updated upstream
+<<<<<<<< Updated upstream:Assets/03_Prefabs/Tower/PoseidonProjectile.prefab.meta
+<<<<<<< Updated upstream
 guid: 3501a5f5c8719c242b71f782547b744c
+=======
+guid: f5d8a3b5003b80c4092adc2c5a4402f7
+>>>>>>> Stashed changes
+========
+guid: 3501a5f5c8719c242b71f782547b744c
+>>>>>>>> Stashed changes:Assets/03_Prefabs/PoseidonProjectile.prefab.meta
 =======
 guid: f5d8a3b5003b80c4092adc2c5a4402f7
 >>>>>>> Stashed changes

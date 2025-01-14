@@ -3,6 +3,7 @@ guid: 6eb184de103d4b3f812b38561065192f
 TextureImporter:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
@@ -13,6 +14,8 @@ TextureImporter:
     fadeOut: 0
     borderMipMap: 0
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   internalIDToNameTable: []
@@ -28,6 +31,9 @@ TextureImporter:
     mipMapsPreserveCoverage: 0
     alphaTestReferenceValue: 0.5
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -36,6 +42,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     heightScale: .25
@@ -58,6 +65,8 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     heightScale: 0.25
@@ -85,6 +94,9 @@ TextureImporter:
   nPOTScale: 1
   lightmap: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -93,6 +105,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
   spritePivot: {x: .5, y: .5}
@@ -105,6 +118,8 @@ TextureImporter:
     sprites: []
   spritePackingTag: 
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   spritePivot: {x: 0.5, y: 0.5}
@@ -173,6 +188,9 @@ TextureImporter:
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

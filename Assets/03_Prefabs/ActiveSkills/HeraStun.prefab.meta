@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/03_Prefabs/ActiveSkills/HeraStun.prefab.meta
 guid: 1f0855698561e6940b98546a107f1831
+========
+guid: e733122908d3cdb4799f08866ae65941
+>>>>>>>> Stashed changes:Assets/03_Prefabs/Centaur.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

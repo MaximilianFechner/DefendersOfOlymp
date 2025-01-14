@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/04_Graphics/Tower/Zeus2.png.meta
 guid: 28288ca2ec46b434c877bd666ac6419c
+========
+guid: 7288d314f6ba24644b7457f8e27a8324
+>>>>>>>> Stashed changes:Assets/04_Graphics/Tower/WhoIsThis.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
