@@ -212,4 +212,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeOutDuration: 3
-  fadeOutstart: 0.6
+  fadeOutstart: 0.8

@@ -37,6 +37,30 @@ public class HeraStun : MonoBehaviour
     [SerializeField]
     private float _cooldownTime = 30f;
 
+    [Space(10)]
+
+    [Tooltip("Minimum volume for the enemy sounds")]
+    [Range(0, 1)]
+    [SerializeField]
+    private float minVolumeSounds = 0.1f;
+
+    [Tooltip("Maximum volume for the enemy sounds")]
+    [Range(0, 1)]
+    [SerializeField]
+    private float maxVolumeSounds = 0.35f;
+
+    [Tooltip("Minimum pitch for the enemy sounds")]
+    [Range(-3, 3)]
+    [SerializeField]
+    private float minPitchSounds = 0.8f;
+
+    [Tooltip("Maximum pitch for the enemy sounds")]
+    [Range(-3, 3)]
+    [SerializeField]
+    private float maxPitchSounds = 1f;
+
+    public AudioClip skillSound;
+
     //private int skillLevel;
     //private float levelModifikatorDamage;
     //private float levelModifikatorRadius;
@@ -124,6 +148,7 @@ public class HeraStun : MonoBehaviour
         GameObject stun = Instantiate(stunPrefab, worldPosition, Quaternion.identity);
         stun.transform.localScale = new Vector3(1 * (_skillRadius / 5), 1 * (_skillRadius / 5), 1 * (_skillRadius / 5));
         Destroy(stun, 0.74f);
+        PlaySoundOnTempGameObject(skillSound);
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(worldPosition, _skillRadius, enemyLayer);
 
@@ -165,5 +190,20 @@ public class HeraStun : MonoBehaviour
         }
 
         currentPreview.transform.position = worldPosition;
+    }
+
+    private void PlaySoundOnTempGameObject(AudioClip clip)
+    {
+        GameObject soundObject = new GameObject("StunSound");
+        AudioSource tempAudioSource = soundObject.AddComponent<AudioSource>();
+
+        tempAudioSource.clip = clip;
+        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.volume = Random.Range(minVolumeSounds, maxVolumeSounds);
+        tempAudioSource.pitch = Random.Range(minPitchSounds, maxPitchSounds);
+
+        tempAudioSource.Play();
+
+        Destroy(soundObject, clip.length);
     }
 }

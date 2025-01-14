@@ -212,5 +212,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeOutDuration: 3
-  fadeOutstart: 0.6
-  shadow: {fileID: 463835728280956383}
+  fadeOutstart: 0.8

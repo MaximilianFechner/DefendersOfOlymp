@@ -30,6 +30,30 @@ public class ZeusBolt : MonoBehaviour
     [SerializeField]
     private float cooldownTime = 20f;
 
+    [Space(10)]
+
+    [Tooltip("Minimum volume for the enemy sounds")]
+    [Range(0, 1)]
+    [SerializeField]
+    private float minVolumeSounds = 0.1f;
+
+    [Tooltip("Maximum volume for the enemy sounds")]
+    [Range(0, 1)]
+    [SerializeField]
+    private float maxVolumeSounds = 0.35f;
+
+    [Tooltip("Minimum pitch for the enemy sounds")]
+    [Range(-3, 3)]
+    [SerializeField]
+    private float minPitchSounds = 0.8f;
+
+    [Tooltip("Maximum pitch for the enemy sounds")]
+    [Range(-3, 3)]
+    [SerializeField]
+    private float maxPitchSounds = 1f;
+
+    public AudioClip skillSound;
+
     //private int skillLevel;
     //private float levelModifikatorDamage;
     //private float levelModifikatorCooldown;
@@ -110,6 +134,7 @@ public class ZeusBolt : MonoBehaviour
         if (targetEnemy != null)
         {
             GameObject bolt = Instantiate(boltPrefab, new Vector3(worldPosition.x, worldPosition.y + 10, 0), Quaternion.identity);
+            PlaySoundOnTempGameObject(skillSound);
             Destroy(bolt, lightningDuration);
 
             targetEnemy.GetComponent<EnemyManager>().TakeDamage(damage);
@@ -139,5 +164,20 @@ public class ZeusBolt : MonoBehaviour
         }
 
         currentPreview.transform.position = worldPosition;
+    }
+
+    private void PlaySoundOnTempGameObject(AudioClip clip)
+    {
+        GameObject soundObject = new GameObject("BoltSound");
+        AudioSource tempAudioSource = soundObject.AddComponent<AudioSource>();
+
+        tempAudioSource.clip = clip;
+        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.volume = Random.Range(minVolumeSounds, maxVolumeSounds);
+        tempAudioSource.pitch = Random.Range(minPitchSounds, maxPitchSounds);
+
+        tempAudioSource.Play();
+
+        Destroy(soundObject, clip.length);
     }
 }

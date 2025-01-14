@@ -36,6 +36,30 @@ public class PoseidonWave : MonoBehaviour
     [SerializeField]
     private float _cooldownTime = 30f;
 
+    [Space(10)]
+
+    [Tooltip("Minimum volume for the enemy sounds")]
+    [Range(0, 1)]
+    [SerializeField]
+    private float minVolumeSounds = 0.1f;
+
+    [Tooltip("Maximum volume for the enemy sounds")]
+    [Range(0, 1)]
+    [SerializeField]
+    private float maxVolumeSounds = 0.35f;
+
+    [Tooltip("Minimum pitch for the enemy sounds")]
+    [Range(-3, 3)]
+    [SerializeField]
+    private float minPitchSounds = 0.8f;
+
+    [Tooltip("Maximum pitch for the enemy sounds")]
+    [Range(-3, 3)]
+    [SerializeField]
+    private float maxPitchSounds = 1f;
+
+    public AudioClip skillSound;
+
     //private int skillLevel;
     //private float levelModifikatorDamage;
     //private float levelModifikatorRadius;
@@ -120,6 +144,7 @@ public class PoseidonWave : MonoBehaviour
         wave.transform.localScale = new Vector3(1 * (_waveRadius / 4), 1 * (_waveRadius / 4), 1 * (_waveRadius / 4));
         StartCoroutine(PoseidonWaveDamageOverTime(wave.transform.position));
         Destroy(wave, _waveDuration);
+        PlaySoundOnTempGameObject(skillSound);
 
         remainingCooldownTime = _cooldownTime;
         lastUseTime = Time.time;
@@ -165,6 +190,21 @@ public class PoseidonWave : MonoBehaviour
         }
 
         currentPreview.transform.position = worldPosition;
+    }
+
+    private void PlaySoundOnTempGameObject(AudioClip clip)
+    {
+        GameObject soundObject = new GameObject("WaveSound");
+        AudioSource tempAudioSource = soundObject.AddComponent<AudioSource>();
+
+        tempAudioSource.clip = clip;
+        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.volume = Random.Range(minVolumeSounds, maxVolumeSounds);
+        tempAudioSource.pitch = Random.Range(minPitchSounds, maxPitchSounds);
+
+        tempAudioSource.Play();
+
+        Destroy(soundObject, clip.length);
     }
 
 }

@@ -209,9 +209,18 @@ MonoBehaviour:
   maxVolumeSounds: 0.2
   minPitchSounds: 0.8
   maxPitchSounds: 1
+  bloodSpawnChance: 0.2
+  minBloodScale: 0.6
+  maxBloodScale: 1
   enemySounds:
   - {fileID: 8300000, guid: 1ef95a7e9e9560d429e1901d47dfbbb7, type: 3}
   - {fileID: 8300000, guid: a5a7887439b29ef41bc65e56e72c4fcb, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: f28931fa7cbc9834fa79b3ab1a915632, type: 3}
+  - {fileID: 8300000, guid: d97adde395254e346b42a852f01d7b67, type: 3}
+  bloodPrefabs:
+  - {fileID: 5709202978143487871, guid: ae5e2189176a9c0478973dc2c4d6c706, type: 3}
+  - {fileID: 1756570301262041340, guid: a8b6bc71949c6c4439e25e2a1cf815f0, type: 3}
   _currentHP: 0
   deathPrefab: {fileID: 6555997334480401726, guid: 59bd3323f7e8ba84aada906ba1c477b4, type: 3}
   bloodParticlePrefab: {fileID: 3722948830147621180, guid: 394713cc275bbfe43a3863de26e9de10, type: 3}
