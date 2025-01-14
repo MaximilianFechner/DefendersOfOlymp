@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6186527600433012005}
   - component: {fileID: 8204586654887780968}
   - component: {fileID: 8730636701950960048}
+  - component: {fileID: -8705781296074210665}
   m_Layer: 0
   m_Name: ZeusTower
   m_TagString: Tower
@@ -114,6 +115,14 @@ MonoBehaviour:
   slowValue: 0
   timeSlowed: 0
   maxDamageJump: 2
+  upgradeAttackSpeed: 0
+  upgradeAttackRadius: 0
+  upgradeMovementSpeed: 0
+  upgradeDamage: 0
+  upgradeAoeRadius: 0
+  upgradeSlowValue: 0
+  upgradeTimeSlowed: 0
+  upgradeMaxDamageJump: 0
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -171,6 +180,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5.0888653, y: 7.8125}
   m_EdgeRadius: 0
+--- !u!95 &-8705781296074210665
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5225003605191494454}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b03301667b401f949933328af4b0f973, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6583868184036047370
 GameObject:
   m_ObjectHideFlags: 0
