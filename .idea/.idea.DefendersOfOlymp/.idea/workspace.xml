@@ -9,7 +9,7 @@
       <change afterPath="$PROJECT_DIR$/Assets/08_Misc/Settings/Build Profiles.meta" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/08_Misc/Test Stuff/Elija.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DefendersOfOlymp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DefendersOfOlymp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Grid System/GridData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Grid System/GridData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_Scenes/Develop/Jens_Dev_Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Scenes/Develop/Jens_Dev_Scene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Grid System/PlacementSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Grid System/PlacementSystem.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +41,9 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/Grid System/GridData.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02_Scripts/Grid System/GridData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/Grid System/PlacementSystem.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -139,7 +141,9 @@
       <workItem from="1734428551124" duration="2235000" />
       <workItem from="1734523072369" duration="6843000" />
       <workItem from="1734601892952" duration="622000" />
-      <workItem from="1734687173354" duration="5332000" />
+      <workItem from="1734687173354" duration="7070000" />
+      <workItem from="1736769447070" duration="658000" />
+      <workItem from="1736935015426" duration="3531000" />
     </task>
     <task id="LOCAL-00001" summary="+ Default Stuff">
       <option name="closed" value="true" />
@@ -197,7 +201,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734535277119</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add GridData and Edit PlacementSystem">
+      <option name="closed" value="true" />
+      <created>1734705984493</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1734705984493</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,6 +256,7 @@
     <MESSAGE value="Edit InputManager and PlacementSystem to place towers" />
     <MESSAGE value="Push it to the Limit!" />
     <MESSAGE value="Push it to the Limit!&#10;+ Grid and Placement System files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Push it to the Limit!&#10;+ Grid and Placement System files" />
+    <MESSAGE value="Add GridData and Edit PlacementSystem" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add GridData and Edit PlacementSystem" />
   </component>
 </project>
