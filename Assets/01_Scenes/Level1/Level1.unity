@@ -2309,6 +2309,10 @@ PrefabInstance:
       value: AudioManager
       objectReference: {fileID: 0}
     - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
+      propertyPath: cardSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 4035ca6c48069954ba8c4ae48f9daa33, type: 3}
+    - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
       propertyPath: waveEndMusic
       value: 
       objectReference: {fileID: 8300000, guid: 13151bf8b427a93458c9548e84cf48ce, type: 3}
@@ -2316,6 +2320,18 @@ PrefabInstance:
       propertyPath: levelAmbienteSFX
       value: 
       objectReference: {fileID: 8300000, guid: 1396ecd1a2386134194b65c1b7730b78, type: 3}
+    - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
+      propertyPath: lostLifeSFX.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
+      propertyPath: 'lostLifeSFX.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 09bee012489a42246868805263335219, type: 3}
+    - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
+      propertyPath: 'lostLifeSFX.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ce3335805c226304fb0679a598247045, type: 3}
     - target: {fileID: 5530621683758067520, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

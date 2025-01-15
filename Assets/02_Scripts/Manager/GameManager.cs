@@ -116,6 +116,7 @@ public class GameManager : MonoBehaviour
         score--;
         UIManager.Instance.UpdateLives(RemainingLives);
         UIManager.Instance.UpdateScoreCalculating();
+        AudioManager.Instance.PlayLostLifeSFX();
 
         if (RemainingLives == 0)
         {
