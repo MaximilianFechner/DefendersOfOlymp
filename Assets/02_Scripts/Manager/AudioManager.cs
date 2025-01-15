@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip levelBackgroundMusic;
     public AudioClip levelAmbienteSFX;
     public AudioClip waveEndMusic;
+    public AudioClip[] lostLifeSFX;
+    public AudioClip cardSFX;
 
     private void Awake()
     {
@@ -49,7 +51,7 @@ public class AudioManager : MonoBehaviour
 
         tempAudioSource.Play();
 
-        StartCoroutine(FadeInVolume(tempAudioSource, 0.01f, 10f));
+        StartCoroutine(FadeInVolume(tempAudioSource, 0.015f, 10f));
     }
 
     private IEnumerator FadeInVolume(AudioSource audioSource, float targetVolume, float duration)
@@ -78,6 +80,33 @@ public class AudioManager : MonoBehaviour
         tempAudioSource.Play();
 
         Destroy(waveSoundObject, waveEndMusic.length);
+    }
+
+    public void PlayLostLifeSFX()
+    {
+        GameObject lifeSoundObject = new GameObject("LostLifeSFX");
+        AudioSource tempAudioSource = lifeSoundObject.AddComponent<AudioSource>();
+
+        tempAudioSource.clip = lostLifeSFX[Random.Range(0, lostLifeSFX.Length)];
+        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.volume = 0.4f;
+        tempAudioSource.Play();
+
+        Destroy(lifeSoundObject, tempAudioSource.clip.length);
+    }
+
+    public void PlayCardSFX()
+    {
+        GameObject cardSoundObject = new GameObject("CardSFX");
+        AudioSource tempAudioSource = cardSoundObject.AddComponent<AudioSource>();
+
+        tempAudioSource.clip = cardSFX;
+        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.volume = Random.Range(0.2f, 0.4f);
+        tempAudioSource.pitch = Random.Range(0.9f, 1.1f);
+        tempAudioSource.Play();
+
+        Destroy(cardSoundObject, cardSFX.length);
     }
 
 }
