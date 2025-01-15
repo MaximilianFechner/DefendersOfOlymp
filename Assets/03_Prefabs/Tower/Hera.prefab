@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 600628415600433162}
   - component: {fileID: 7967709363670462979}
   - component: {fileID: 1476117845675445998}
+  - component: {fileID: 8926259322951541389}
   m_Layer: 0
   m_Name: Hera
   m_TagString: Tower
@@ -376,6 +377,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8926259322951541389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5225003605191494454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5308da20d84ce7b4db577e163d4e07c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6844670136081900507
 GameObject:
   m_ObjectHideFlags: 0
