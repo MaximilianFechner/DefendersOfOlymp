@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: aeae64c7da5fa004f8638cafe23c6c23
+guid: dc376f525ebe5c141a24dfbbdea1bd34
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HeraTower_Attack_0
+      name: PoseidonTowerIdle_0
       rect:
         serializedVersion: 2
-        x: 120
-        y: 1117
-        width: 710
-        height: 870
+        x: 56
+        y: 21
+        width: 797
+        height: 975
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,20 +138,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e776df708a04aa4aace1795d07a3abd
-      internalID: 471178715
+      spriteID: e56f5590e6378c2498c152c8a8fa3c40
+      internalID: 1108963847
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeraTower_Attack_1
+      name: PoseidonTowerIdle_1
       rect:
         serializedVersion: 2
-        x: 1208
-        y: 1149
-        width: 860
-        height: 870
+        x: 1059
+        y: 0
+        width: 795
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +160,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e5b26f1da3e4334ebaa42fe56f28a17
-      internalID: -908988541
+      spriteID: 5097e8f62aada4e45b9a4692c6b62d84
+      internalID: -858253082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeraTower_Attack_2
+      name: PoseidonTowerIdle_2
       rect:
         serializedVersion: 2
-        x: 2237
-        y: 1149
-        width: 728
-        height: 870
+        x: 2038
+        y: 0
+        width: 817
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8e43711206c21e41a3e84e9fd8973fe
-      internalID: 1491146423
+      spriteID: b10a12412b9cd7f46a32fd84aa831b47
+      internalID: 1942071753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeraTower_Attack_3
+      name: PoseidonTowerIdle_3
       rect:
         serializedVersion: 2
-        x: 3244
-        y: 1149
-        width: 710
-        height: 870
+        x: 3055
+        y: 0
+        width: 799
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,74 +204,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7dbc88a9e3ae0b8408815138e19460f9
-      internalID: 382995331
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HeraTower_Attack_4
-      rect:
-        serializedVersion: 2
-        x: 4280
-        y: 1149
-        width: 710
-        height: 870
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1bf587cf1df46b14a825bdfc35b4d614
-      internalID: 1445720813
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HeraTower_Attack_5
-      rect:
-        serializedVersion: 2
-        x: 168
-        y: 124
-        width: 710
-        height: 870
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 85245516aedc821419d6cedd2ac0aa05
-      internalID: 979108253
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HeraTower_Attack_6
-      rect:
-        serializedVersion: 2
-        x: 1146
-        y: 94
-        width: 710
-        height: 870
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ccac846fe2ad33e4eb5667f292c24edf
-      internalID: -1692594995
+      spriteID: 1e69dcdda03aa6348a462e495d816408
+      internalID: -756859358
       vertices: []
       indices: 
       edges: []
@@ -280,7 +214,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3a4d5029acb7b0748a9acb378db30087
+    spriteID: f901622466f1f624ca07c6d4e87ee916
     internalID: 0
     vertices: []
     indices: 
@@ -290,13 +224,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      HeraTower_Attack_0: 471178715
-      HeraTower_Attack_1: -908988541
-      HeraTower_Attack_2: 1491146423
-      HeraTower_Attack_3: 382995331
-      HeraTower_Attack_4: 1445720813
-      HeraTower_Attack_5: 979108253
-      HeraTower_Attack_6: -1692594995
+      PoseidonTowerIdle_0: 1108963847
+      PoseidonTowerIdle_1: -858253082
+      PoseidonTowerIdle_2: 1942071753
+      PoseidonTowerIdle_3: -756859358
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
