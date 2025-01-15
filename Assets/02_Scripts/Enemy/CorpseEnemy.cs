@@ -10,15 +10,12 @@ public class CorpseEnemy : MonoBehaviour
     [Tooltip("How fast/slow the corpse fade out when the max corpses value is reached")]
     [Min(1)]
     [SerializeField]
-    private float fadeOutDuration = 3f;
+    private float fadeOutDuration = 10f;
 
     [Tooltip("Transparency for the laying corpse after the death animation")]
     [Min(0)]
     [SerializeField]
-    private float fadeOutstart = 0.6f;
-
-
-    private SpriteRenderer shadow;
+    private float fadeOutstart = 0.9f;
 
     private void Awake()
     {

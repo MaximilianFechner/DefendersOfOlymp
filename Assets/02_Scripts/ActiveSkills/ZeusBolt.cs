@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using System.Collections;
 
 public class ZeusBolt : MonoBehaviour
 {
@@ -30,6 +32,30 @@ public class ZeusBolt : MonoBehaviour
     [SerializeField]
     private float cooldownTime = 20f;
 
+    [Space(10)]
+
+    [Tooltip("Minimum volume for the enemy sounds")]
+    [Range(0, 1)]
+    [SerializeField]
+    private float minVolumeSounds = 0.1f;
+
+    [Tooltip("Maximum volume for the enemy sounds")]
+    [Range(0, 1)]
+    [SerializeField]
+    private float maxVolumeSounds = 0.35f;
+
+    [Tooltip("Minimum pitch for the enemy sounds")]
+    [Range(-3, 3)]
+    [SerializeField]
+    private float minPitchSounds = 0.8f;
+
+    [Tooltip("Maximum pitch for the enemy sounds")]
+    [Range(-3, 3)]
+    [SerializeField]
+    private float maxPitchSounds = 1f;
+
+    public AudioClip skillSound;
+
     //private int skillLevel;
     //private float levelModifikatorDamage;
     //private float levelModifikatorCooldown;
@@ -37,13 +63,46 @@ public class ZeusBolt : MonoBehaviour
     private float lastUseTime = -Mathf.Infinity;
     private bool isReady = false;
 
+    private float remainingCooldownTime = 0f;
+
+    private Vector2 buttonOriginalPosition; //BTN CD MOVE TEST
+    public Button skillButton; //BTN CD MOVE TEST
+    public Animator animation; //BTN CD MOVE TEST
+    public Image image; //BTN CD MOVE TEST
+
+    //BTN CD MOVE TEST
+    private void Start()
+    {
+        buttonOriginalPosition = skillButton.GetComponent<RectTransform>().anchoredPosition;
+        animation = animation.GetComponent<Animator>();
+        image = image.GetComponent<Image>();
+    }
+    //
+
     private void Update()
     {
         if (Time.timeScale == 0) return;
-        if (UIManager.Instance.zeusSkillCooldown != null)
+
+        if (GameManager.Instance.isInWave)
         {
-            float remainingTime = Mathf.Max(0, lastUseTime + cooldownTime - Time.time);
-            UIManager.Instance.zeusSkillCooldown.text = remainingTime > 0 ? $"{remainingTime:F1}s" : "Bolt";
+            if (remainingCooldownTime > 0)
+            {
+                remainingCooldownTime -= Time.deltaTime;
+                if (remainingCooldownTime <= 0)
+                {
+                    remainingCooldownTime = 0;
+
+                    StartCoroutine(MoveButton(skillButton.GetComponent<RectTransform>(), 
+                        buttonOriginalPosition, new Color(0.73f, 0.73f, 0.73f), Color.white)); //BTN CD MOVE TEST
+                    skillButton.interactable = true; //BTN CD MOVE TEST
+
+                    UIManager.Instance.zeusSkillCooldown.text = "READY";
+                }
+                else
+                {
+                    UIManager.Instance.zeusSkillCooldown.text = $"{remainingCooldownTime:F1}s";
+                }
+            }
         }
 
         if (Input.GetKeyUp(KeyCode.Alpha1))
@@ -68,7 +127,7 @@ public class ZeusBolt : MonoBehaviour
 
     public void ActivateZeusSkill()
     {
-        if (Time.time >= lastUseTime + cooldownTime)
+        if (remainingCooldownTime <= 0 && GameManager.Instance.isInWave) //if (Time.time >= lastUseTime + cooldownTime)
         {
             isReady = true;
 
@@ -90,10 +149,12 @@ public class ZeusBolt : MonoBehaviour
         if (targetEnemy != null)
         {
             GameObject bolt = Instantiate(boltPrefab, new Vector3(worldPosition.x, worldPosition.y + 10, 0), Quaternion.identity);
+            PlaySoundOnTempGameObject(skillSound);
             Destroy(bolt, lightningDuration);
 
             targetEnemy.GetComponent<EnemyManager>().TakeDamage(damage);
 
+            remainingCooldownTime = cooldownTime;
             lastUseTime = Time.time;
             isReady = false;
 
@@ -102,6 +163,11 @@ public class ZeusBolt : MonoBehaviour
                 Destroy(currentPreview);
                 currentPreview = null;
             }
+
+            RectTransform buttonRect = skillButton.GetComponent<RectTransform>();
+            Vector2 targetPosition = buttonOriginalPosition + new Vector2(0, -50);
+            StartCoroutine(MoveButton(buttonRect, targetPosition, Color.white, new Color(0.73f, 0.73f, 0.73f)));
+            skillButton.interactable = false;
         }
     }
 
@@ -118,5 +184,64 @@ public class ZeusBolt : MonoBehaviour
         }
 
         currentPreview.transform.position = worldPosition;
+    }
+
+    private void PlaySoundOnTempGameObject(AudioClip clip)
+    {
+        GameObject soundObject = new GameObject("BoltSound");
+        AudioSource tempAudioSource = soundObject.AddComponent<AudioSource>();
+
+        tempAudioSource.clip = clip;
+        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.volume = Random.Range(minVolumeSounds, maxVolumeSounds);
+        tempAudioSource.pitch = Random.Range(minPitchSounds, maxPitchSounds);
+
+        tempAudioSource.Play();
+
+        Destroy(soundObject, clip.length);
+    }
+
+    private IEnumerator MoveButton(RectTransform buttonRect, Vector2 targetPosition, Color startColor, Color targetColor)
+    {
+        float duration = 1f;
+        Vector2 startPosition = buttonRect.anchoredPosition;
+        float elapsedTime = 0f;
+
+        float startSpeed = 1f;
+        float targetSpeed = 0.5f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+
+            t = t * t * (3f - 2f * t); // smoothes Movement des Buttons
+
+            buttonRect.anchoredPosition = Vector2.Lerp(startPosition, targetPosition, t);
+
+            if (image != null)
+            {
+                image.color = Color.Lerp(startColor, targetColor, t);
+            }
+
+            if (animation != null)
+            {
+                animation.speed = Mathf.Lerp(startSpeed, targetSpeed, t);
+            }
+
+            yield return null;
+        }
+
+        buttonRect.anchoredPosition = targetPosition;
+
+        if (image != null)
+        {
+            image.color = targetColor;
+        }
+
+        if (animation != null)
+        {
+            animation.speed = targetSpeed;
+        }
     }
 }
