@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -59,14 +60,14 @@ public class CardManager : MonoBehaviour
         CardDisplay.sprite = currentCard.CardSprite;
         CardDisplay.gameObject.SetActive(true);
         drawCardButton.gameObject.SetActive(false);
-        UIManager.Instance.waveFinPanel.SetActive(false);
+        //UIManager.Instance.waveFinPanel.SetActive(false);
 
         Cards previewTower = GetCurrentCard();
         PlacementPreview(previewTower);
 
-        if (!UIManager.Instance.prepareFirstWavePanel) return;
-        UIManager.Instance.prepareFirstWavePanel.SetActive(false);
-
+        //if (!UIManager.Instance.prepareFirstWavePanel) return;
+        //UIManager.Instance.prepareFirstWavePanel.SetActive(false);
+        //drawCardButton.interactable = false;
     }
 
     public Cards GetCurrentCard()
@@ -81,7 +82,7 @@ public class CardManager : MonoBehaviour
     }
 
 
-    void PlaceTower()
+    private void PlaceTower()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0; // Z-Achse auf 0 setzen für 2D
@@ -96,6 +97,7 @@ public class CardManager : MonoBehaviour
         }
 
         ClearCard();
+        GameManager.Instance.StartNextWave();
     }
 
     private void PlacementPreview(Cards currentCard)

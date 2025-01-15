@@ -15,10 +15,7 @@ public class CorpseEnemy : MonoBehaviour
     [Tooltip("Transparency for the laying corpse after the death animation")]
     [Min(0)]
     [SerializeField]
-    private float fadeOutstart = 0.6f;
-
-
-    private SpriteRenderer shadow;
+    private float fadeOutstart = 0.9f;
 
     private void Awake()
     {
