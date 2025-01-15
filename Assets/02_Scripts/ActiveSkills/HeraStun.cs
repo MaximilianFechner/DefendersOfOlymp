@@ -37,6 +37,30 @@ public class HeraStun : MonoBehaviour
     [SerializeField]
     private float _cooldownTime = 30f;
 
+    [Space(10)]
+
+    [Tooltip("Minimum volume for the enemy sounds")]
+    [Range(0, 1)]
+    [SerializeField]
+    private float minVolumeSounds = 0.1f;
+
+    [Tooltip("Maximum volume for the enemy sounds")]
+    [Range(0, 1)]
+    [SerializeField]
+    private float maxVolumeSounds = 0.35f;
+
+    [Tooltip("Minimum pitch for the enemy sounds")]
+    [Range(-3, 3)]
+    [SerializeField]
+    private float minPitchSounds = 0.8f;
+
+    [Tooltip("Maximum pitch for the enemy sounds")]
+    [Range(-3, 3)]
+    [SerializeField]
+    private float maxPitchSounds = 1f;
+
+    public AudioClip skillSound;
+
     //private int skillLevel;
     //private float levelModifikatorDamage;
     //private float levelModifikatorRadius;
@@ -46,15 +70,34 @@ public class HeraStun : MonoBehaviour
     private float lastUseTime = -Mathf.Infinity;
     private bool isReady = false;
 
+    private float remainingCooldownTime = 0f;
+
     private void Update()
     {
-        if (Time.timeScale != 1) return;
+        if (Time.timeScale == 0) return;
 
-        if (UIManager.Instance.heraSkillCooldown != null)
+        if (GameManager.Instance.isInWave)
         {
-            float remainingTime = Mathf.Max(0, lastUseTime + _cooldownTime - Time.time);
-            UIManager.Instance.heraSkillCooldown.text = remainingTime > 0 ? $"{remainingTime:F1}s" : "Ready";
+            if (remainingCooldownTime > 0)
+            {
+                remainingCooldownTime -= Time.deltaTime;
+                if (remainingCooldownTime <= 0)
+                {
+                    remainingCooldownTime = 0;
+                    UIManager.Instance.heraSkillCooldown.text = "Stun";
+                }
+                else
+                {
+                    UIManager.Instance.heraSkillCooldown.text = $"{remainingCooldownTime:F1}s";
+                }
+            }
         }
+
+        //if (UIManager.Instance.heraSkillCooldown != null)
+        //{
+        //    float remainingTime = Mathf.Max(0, lastUseTime + _cooldownTime - Time.time);
+        //    UIManager.Instance.heraSkillCooldown.text = remainingTime > 0 ? $"{remainingTime:F1}s" : "Stun";
+        //}
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
@@ -79,15 +122,19 @@ public class HeraStun : MonoBehaviour
 
     public void ActivateHeraSkill()
     {
-        if (Time.timeScale != 1) return;
-        if (Time.time >= lastUseTime + _cooldownTime)
+        if (Time.timeScale == 0) return;
+        if (remainingCooldownTime <= 0 && GameManager.Instance.isInWave) //if (Time.time >= lastUseTime + _cooldownTime)
         {
             isReady = true;
 
             if (currentPreview == null)
             {
+                Vector3 mousePosition = Input.mousePosition;
+                Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
+                worldPosition.z = 0;
+
                 currentPreview = Instantiate(stunPreview);
-                currentPreview.transform.localScale = new Vector3(_skillRadius, _skillRadius, _skillRadius);
+                currentPreview.transform.localScale = new Vector3(1 * (_skillRadius / 5), 1 * (_skillRadius / 5), 1 * (_skillRadius / 5));
             }
         }
     }
@@ -99,8 +146,9 @@ public class HeraStun : MonoBehaviour
         worldPosition.z = 0;
 
         GameObject stun = Instantiate(stunPrefab, worldPosition, Quaternion.identity);
-        stun.transform.localScale = new Vector3(_skillRadius, _skillRadius, _skillRadius);
-        Destroy(stun, 0.5f);
+        stun.transform.localScale = new Vector3(1 * (_skillRadius / 5), 1 * (_skillRadius / 5), 1 * (_skillRadius / 5));
+        Destroy(stun, 0.74f);
+        PlaySoundOnTempGameObject(skillSound);
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(worldPosition, _skillRadius, enemyLayer);
 
@@ -117,6 +165,7 @@ public class HeraStun : MonoBehaviour
             }
         }
 
+        remainingCooldownTime = _cooldownTime;
         lastUseTime = Time.time;
         isReady = false;
 
@@ -136,9 +185,25 @@ public class HeraStun : MonoBehaviour
         if (currentPreview == null)
         {
             currentPreview = Instantiate(stunPreview);
-            currentPreview.transform.localScale = new Vector3(_skillRadius, _skillRadius, _skillRadius);
+            currentPreview.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 10, 0);
+            currentPreview.transform.localScale = new Vector3(1 * (_skillRadius / 5), 1 * (_skillRadius / 5), 1 * (_skillRadius / 5));
         }
 
         currentPreview.transform.position = worldPosition;
+    }
+
+    private void PlaySoundOnTempGameObject(AudioClip clip)
+    {
+        GameObject soundObject = new GameObject("StunSound");
+        AudioSource tempAudioSource = soundObject.AddComponent<AudioSource>();
+
+        tempAudioSource.clip = clip;
+        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.volume = Random.Range(minVolumeSounds, maxVolumeSounds);
+        tempAudioSource.pitch = Random.Range(minPitchSounds, maxPitchSounds);
+
+        tempAudioSource.Play();
+
+        Destroy(soundObject, clip.length);
     }
 }

@@ -82,6 +82,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cc8ad04a283b23241a6e8ecefe5ff65d, type: 2}
   CardDisplay: {fileID: 0}
   drawCardButton: {fileID: 0}
+  towerPreview: {fileID: 0}
 --- !u!1 &2693015221082794404
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,6 +114,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4452418663944235855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2984384523175071560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 602487168437656087}
+  - component: {fileID: 4912539960677098131}
+  m_Layer: 0
+  m_Name: CorpseManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &602487168437656087
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2984384523175071560}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4452418663944235855}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4912539960677098131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2984384523175071560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50e5ab7666221944f9c826f3ec4a13d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxCorpses: 50
 --- !u!1 &5531189581490499665
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,6 +195,8 @@ Transform:
   - {fileID: 2173289993822171754}
   - {fileID: 2493237333980179373}
   - {fileID: 7495358504422723217}
+  - {fileID: 602487168437656087}
+  - {fileID: 5945192234979757678}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1040459522354727499
@@ -163,10 +211,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5825af1e3f8e640a1eab4d2752d8d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerStartLives: 1
+  _playerStartLives: 6
   _waveSpawnDelay: 1
   firstWaveEnemies: 2
-  addExtraEnemiesEveryWave: 1
+  addExtraEnemiesEveryWave: 0
   _cardsToDraw: 1
   enemyPrefabs:
   - {fileID: 6555997334480401726, guid: 1ab0ce8dc0e33d84ca9a5347963a0e40, type: 3}
@@ -179,6 +227,15 @@ MonoBehaviour:
   - {fileID: 5386483436519254115}
   thisWaveDuration: 0
   totalWaveDurations: 0
+  gameSpeed: 1
+  isInWave: 0
+  score: 0
+  cerberusKills: 0
+  cyclopKills: 0
+  centaurKills: 0
+  enemyScore: 0
+  waveScore: 0
+  healthScore: 0
 --- !u!1 &6099512726099247288
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,6 +277,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7495358504422723217}
   - component: {fileID: 1127305501548914579}
+  - component: {fileID: 1297022462861125603}
+  - component: {fileID: 445532231495864091}
+  - component: {fileID: 6072449750005525643}
   m_Layer: 0
   m_Name: ActiveSkills
   m_TagString: Untagged
@@ -254,8 +314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85af347b82110ce4fbeb736753cb8503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boltPrefab: {fileID: 0}
-  boltPreview: {fileID: 0}
+  boltPrefab: {fileID: 4534022219956502573, guid: 1cd725ecce7cb3749a10f22a2ebc8417, type: 3}
+  boltPreview: {fileID: 4534022219956502573, guid: 5f30cd47a282aed40ae99320c9c7cecc, type: 3}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -263,6 +323,92 @@ MonoBehaviour:
   lightningDuration: 0.5
   attackRadius: 1
   cooldownTime: 20
+  minVolumeSounds: 0.2
+  maxVolumeSounds: 0.4
+  minPitchSounds: 0.8
+  maxPitchSounds: 1.2
+  skillSound: {fileID: 8300000, guid: 4c53aa74ebe54d94f96ccc9101b8f502, type: 3}
+--- !u!114 &1297022462861125603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6173109287454674010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f85022cb21527c43b1e5d5715a426a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wavePrefab: {fileID: 1422252865915524416, guid: 594c1fcc1f97c794b9bf25cc22d53633, type: 3}
+  wavePreview: {fileID: 1422252865915524416, guid: 6993d10ed232d0842ad24db6255ca2d3, type: 3}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _damagePerInterval: 2.5
+  _damageIntervalSeconds: 0.5
+  _waveDuration: 10
+  _waveRadius: 4
+  _cooldownTime: 20
+  minVolumeSounds: 0.05
+  maxVolumeSounds: 0.1
+  minPitchSounds: 0.8
+  maxPitchSounds: 1
+  skillSound: {fileID: 8300000, guid: c2e9e34ef4a586e4986b64cb5b3d1b8e, type: 3}
+--- !u!114 &445532231495864091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6173109287454674010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b7ebb0a516a154c92f080118affa45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunPrefab: {fileID: 1422252865915524416, guid: 1f0855698561e6940b98546a107f1831, type: 3}
+  stunPreview: {fileID: 1422252865915524416, guid: ce6adf8ef073cab4b8370d18ad2041c8, type: 3}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _damageOnUse: 15
+  _slowPercentage: 0.1
+  _slowDuration: 3
+  _skillRadius: 5
+  _cooldownTime: 30
+  minVolumeSounds: 0.25
+  maxVolumeSounds: 0.4
+  minPitchSounds: 0.8
+  maxPitchSounds: 1
+  skillSound: {fileID: 8300000, guid: 318098b74e714c2458eb63bc9229b6ba, type: 3}
+--- !u!114 &6072449750005525643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6173109287454674010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6d6cb66067fba4e8d669c2404f66e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _damagePerInterval: 3
+  _damageIntervalSeconds: 1
+  _slowPercentage: 0.5
+  _quakeDuration: 5
+  _quakeRadius: 100
+  _cooldownTime: 20
+  _cameraShakeMagnitude: 0.125
+  minVolumeSounds: 0.1
+  maxVolumeSounds: 0.2
+  minPitchSounds: 0.8
+  maxPitchSounds: 1
+  skillSound: {fileID: 8300000, guid: 7c2bc87ae3b9d704db70131b3423500f, type: 3}
 --- !u!1 &6713246097400252300
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,3 +440,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4452418663944235855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7380496886089761537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5945192234979757678}
+  - component: {fileID: 4024925145364036649}
+  m_Layer: 0
+  m_Name: BloodManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5945192234979757678
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7380496886089761537}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4452418663944235855}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4024925145364036649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7380496886089761537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19d4825de72db6d4191ad68663a34c6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxBloodPools: 100

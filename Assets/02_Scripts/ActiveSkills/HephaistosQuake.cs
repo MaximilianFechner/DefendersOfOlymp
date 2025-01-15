@@ -43,6 +43,30 @@ public class HephaistosQuake : MonoBehaviour
     [SerializeField]
     private float _cameraShakeMagnitude = 0.1f;
 
+    [Space(10)]
+
+    [Tooltip("Minimum volume for the enemy sounds")]
+    [Range(0, 1)]
+    [SerializeField]
+    private float minVolumeSounds = 0.1f;
+
+    [Tooltip("Maximum volume for the enemy sounds")]
+    [Range(0, 1)]
+    [SerializeField]
+    private float maxVolumeSounds = 0.35f;
+
+    [Tooltip("Minimum pitch for the enemy sounds")]
+    [Range(-3, 3)]
+    [SerializeField]
+    private float minPitchSounds = 0.8f;
+
+    [Tooltip("Maximum pitch for the enemy sounds")]
+    [Range(-3, 3)]
+    [SerializeField]
+    private float maxPitchSounds = 1f;
+
+    public AudioClip skillSound;
+
     //private int skillLevel;
     //private float levelModifikatorDamage;
     //private float levelModifikatorRadius;
@@ -51,6 +75,8 @@ public class HephaistosQuake : MonoBehaviour
 
     private float lastUseTime = -Mathf.Infinity;
     private bool isReady = false;
+
+    private float remainingCooldownTime = 0f;
 
     private CameraShake _cameraShake;
 
@@ -61,15 +87,32 @@ public class HephaistosQuake : MonoBehaviour
 
     private void Update()
     {
-        if (Time.timeScale != 1) return;
+        if (Time.timeScale == 0) return;
 
-        if (UIManager.Instance.hephaistosSkillCooldown != null)
+        if (GameManager.Instance.isInWave)
         {
-            float remainingTime = Mathf.Max(0, lastUseTime + _cooldownTime - Time.time);
-            UIManager.Instance.hephaistosSkillCooldown.text = remainingTime > 0 ? $"{remainingTime:F1}s" : "Ready";
+            if (remainingCooldownTime > 0)
+            {
+                remainingCooldownTime -= Time.deltaTime;
+                if (remainingCooldownTime <= 0)
+                {
+                    remainingCooldownTime = 0;
+                    UIManager.Instance.hephaistosSkillCooldown.text = "Quake";
+                }
+                else
+                {
+                    UIManager.Instance.hephaistosSkillCooldown.text = $"{remainingCooldownTime:F1}s";
+                }
+            }
         }
 
-        if (isReady)
+        //if (UIManager.Instance.hephaistosSkillCooldown != null)
+        //{
+        //    float remainingTime = Mathf.Max(0, lastUseTime + _cooldownTime - Time.time);
+        //    UIManager.Instance.hephaistosSkillCooldown.text = remainingTime > 0 ? $"{remainingTime:F1}s" : "Quake";
+        //}
+
+        if (isReady && GameManager.Instance.isInWave)
         {
             if (Input.GetKeyDown(KeyCode.Alpha4))
             {
@@ -77,7 +120,7 @@ public class HephaistosQuake : MonoBehaviour
             }
         }
 
-        if (Time.time >= lastUseTime + _cooldownTime)
+        if (remainingCooldownTime <= 0 && GameManager.Instance.isInWave) //if (Time.time >= lastUseTime + _cooldownTime)
         {
             isReady = true;
         }
@@ -93,7 +136,9 @@ public class HephaistosQuake : MonoBehaviour
         }
 
         StartCoroutine(HephaitosQuakeDamageOverTime());
+        PlaySoundOnTempGameObject(skillSound);
 
+        remainingCooldownTime = _cooldownTime;
         lastUseTime = Time.time;
         isReady = false;
     }
@@ -121,5 +166,20 @@ public class HephaistosQuake : MonoBehaviour
             elapsedTime += _damageIntervalSeconds;
             yield return new WaitForSeconds(_damageIntervalSeconds);
         }
+    }
+
+    private void PlaySoundOnTempGameObject(AudioClip clip)
+    {
+        GameObject soundObject = new GameObject("QuakeSound");
+        AudioSource tempAudioSource = soundObject.AddComponent<AudioSource>();
+
+        tempAudioSource.clip = clip;
+        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.volume = Random.Range(minVolumeSounds, maxVolumeSounds);
+        tempAudioSource.pitch = Random.Range(minPitchSounds, maxPitchSounds);
+
+        tempAudioSource.Play();
+
+        Destroy(soundObject, clip.length);
     }
 }

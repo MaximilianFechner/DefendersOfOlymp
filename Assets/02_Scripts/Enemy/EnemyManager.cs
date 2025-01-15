@@ -1,9 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyManager : MonoBehaviour
 {
     private EnemyHealthBar enemyHealthBar;
+    private NavMeshAgent navMeshAgent;
 
     [Header("Game Design Values")]
     [Tooltip("The maximum hp for the enemy")]
@@ -20,6 +22,17 @@ public class EnemyManager : MonoBehaviour
     [Min(0)]
     [SerializeField]
     private float prozentualHPIncreaseWave = 0f;
+
+
+    [Tooltip("Add extra absolute Speed for this enemy for every wave")]
+    [Min(0)]
+    [SerializeField]
+    private float absoluteSpeedIncreaseWave = 0f;
+
+    [Tooltip("Add extra prozentual Speed for this enemy for every wave")]
+    [Min(0)]
+    [SerializeField]
+    private float prozentualSpeedIncreaseWave = 0f;
 
     [Tooltip("The damage the enemy did on the player when he reached the target/goal")]
     [Min(1)]
@@ -57,10 +70,32 @@ public class EnemyManager : MonoBehaviour
     [SerializeField]
     private float maxPitchSounds = 1f;
 
+    [Space(10)]
+    [Tooltip("Chance to spawn blood on enemies hit")]
+    [Range(0, 1)]
+    [SerializeField]
+    private float bloodSpawnChance = 0.1f;
+
+    [Tooltip("Minimum scale for spawned blood")]
+    [Min(0)]
+    [SerializeField]
+    private float minBloodScale = 0.8f;
+
+    [Tooltip("Maximum scale for spawned blood")]
+    [Min(0)]
+    [SerializeField]
+    private float maxBloodScale = 1f;
+
+    private float bloodSpawnRadius = 1.5f;
+
     private AudioSource audioSource;
 
     [Space(10)]
     public AudioClip[] enemySounds;
+    public AudioClip[] deathSounds;
+
+    [Space(10)]
+    public GameObject[] bloodPrefabs;
 
     [Header("TESTING - DONT CHANGE")]
     [SerializeField]
@@ -70,6 +105,19 @@ public class EnemyManager : MonoBehaviour
     private bool _isAlive = true;
     private float nextSoundAvailable = 0f;
 
+    public GameObject deathPrefab;
+    public GameObject bloodParticlePrefab;
+
+    private void Awake()
+    {
+        navMeshAgent = GetComponent<NavMeshAgent>();
+
+        // Speed Increase per Wave
+        prozentualSpeedIncreaseWave = ((navMeshAgent.speed / 100) * prozentualSpeedIncreaseWave) * GameManager.Instance.waveNumber;
+        absoluteSpeedIncreaseWave *= GameManager.Instance.waveNumber;
+        navMeshAgent.speed += (absoluteSpeedIncreaseWave + prozentualSpeedIncreaseWave);
+    }
+
     void Start()
     {
         enemyHealthBar = GetComponentInChildren<EnemyHealthBar>();
@@ -78,9 +126,9 @@ public class EnemyManager : MonoBehaviour
             return;
         }
 
+        // HP Increase per Wave
         prozentualHPIncreaseWave = ((_maxHP / 100) * prozentualHPIncreaseWave) * GameManager.Instance.waveNumber;
         absoluteHPIncreaseWave *= GameManager.Instance.waveNumber;
-
         _maxHP += (absoluteHPIncreaseWave + prozentualHPIncreaseWave);
         _currentHP = _maxHP;
 
@@ -107,8 +155,16 @@ public class EnemyManager : MonoBehaviour
     {
         if (!_isAlive) return; // avoid damage on dead enemies
         _currentHP -= damage;
-        HitAndDieSound();
+
+        if (Random.value <= bloodSpawnChance)
+        {
+            SpawnBlood();
+        }
+
+        HitSound();
         UpdateHealthBar();
+        Instantiate(bloodParticlePrefab, this.transform.position, Quaternion.identity);
+
         if (_currentHP <= 0 && _isAlive)
         {
             Die();
@@ -120,9 +176,23 @@ public class EnemyManager : MonoBehaviour
         if (_isAlive)
         {
             _isAlive = false;
+
+            if (this.gameObject.name == "Centaur(Clone)") GameManager.Instance.centaurKills++;
+            if (this.gameObject.name == "Cerberus(Clone)") GameManager.Instance.cerberusKills++;
+            if (this.gameObject.name == "Cyclop(Clone)") GameManager.Instance.cyclopKills++;
+
             GameManager.Instance.AddEnemyKilled();
             GameManager.Instance.SubRemainingEnemy();
+            DieSound();
+
+            if (deathPrefab != null)
+            {
+                Instantiate(deathPrefab, this.gameObject.transform.position, Quaternion.identity);
+                SpawnBloodPool();
+            }
+
             Destroy(this.gameObject);
+
         }
     }
 
@@ -136,7 +206,7 @@ public class EnemyManager : MonoBehaviour
         return _currentHP; 
     }
 
-    private void HitAndDieSound()
+    private void HitSound()
     {
         int randomNumber = Random.Range(1, 100);
         if (randomNumber > _chanceToPlaySound) return;
@@ -146,6 +216,10 @@ public class EnemyManager : MonoBehaviour
             PlaySoundOnTempGameObject(enemySounds[Random.Range(0, enemySounds.Length)]);
             nextSoundAvailable = Time.time + soundCooldown;
         }
+    }
+    private void DieSound()
+    {
+            PlaySoundOnTempGameObject(deathSounds[Random.Range(0, enemySounds.Length)]);
     }
 
     private void PlaySoundOnTempGameObject(AudioClip clip)
@@ -161,6 +235,48 @@ public class EnemyManager : MonoBehaviour
         tempAudioSource.Play();
 
         Destroy(soundObject, clip.length);
+    }
+
+    private void SpawnBlood()
+    {
+        Vector2 randomPosition = (Vector2)transform.position + Random.insideUnitCircle * bloodSpawnRadius;
+        GameObject blood = Instantiate(bloodPrefabs[Random.Range(0, bloodPrefabs.Length)], 
+            randomPosition, Quaternion.Euler(0, 0, Random.Range(-25f, 25f)));
+        blood.transform.localScale = new Vector2(Random.Range(minBloodScale, maxBloodScale), Random.Range(minBloodScale, maxBloodScale));
+    }
+    public void SpawnBloodPool()
+    {
+        if (this.gameObject.name == "Centaur(Clone)")
+        {
+            GameObject bloodPool = Instantiate(bloodPrefabs[1],
+                new Vector3(this.transform.position.x, this.transform.position.y - 2f, 0), Quaternion.Euler(0, 0, Random.Range(-25f, 25f)));
+
+            bloodPool.transform.localScale = new Vector2(0.3f, 0.3f);
+            bloodPool.AddComponent<BloodPoolGrowth>().Initialize(new Vector2(0.3f, 0.3f),
+                new Vector2(Random.Range(1.65f, 1.9f), Random.Range(1.65f, 1.9f)), Random.Range(5f, 10f));
+        }
+
+        else if (this.gameObject.name == "Cerberus(Clone)")
+        {
+            GameObject bloodPool = Instantiate(bloodPrefabs[1],
+                new Vector3(this.transform.position.x, this.transform.position.y - 2f, 0), Quaternion.Euler(0, 0, Random.Range(-25f, 25f)));
+
+            bloodPool.transform.localScale = new Vector2(0.3f, 0.3f);
+            bloodPool.AddComponent<BloodPoolGrowth>().Initialize(new Vector2(0.3f, 0.3f), 
+                new Vector2(Random.Range(1.45f, 1.7f), Random.Range(1.45f, 1.7f)), Random.Range(5f, 10f));
+        }
+
+        else
+        {
+            GameObject bloodPool = Instantiate(bloodPrefabs[1],
+                new Vector3(this.transform.position.x, this.transform.position.y - 2.5f, 0), Quaternion.Euler(0, 0, Random.Range(-25f, 25f)));
+
+            bloodPool.transform.localScale = new Vector2(0.3f, 0.3f);
+            bloodPool.AddComponent<BloodPoolGrowth>().Initialize(new Vector2(0.3f, 0.3f), 
+                new Vector2(Random.Range(1.9f, 2.3f), Random.Range(1.9f, 2.3f)), Random.Range(5f, 10f));
+        }
+
+        //Instantiate(bloodPrefabs[Random.Range(0, bloodPrefabs.Length)]
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

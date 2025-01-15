@@ -1,0 +1,32 @@
+using UnityEngine;
+
+public class HeraProjectile : BaseProjectile
+{
+
+    [SerializeField] private GameObject slowCirclePrefab;
+    [SerializeField] private int projectileUpgradeByTowerLevel;
+
+    void FixedUpdate() {
+        Move();
+    }
+
+    public override void DamageCalculation(GameObject enemy) {
+        if (enemy != null) {
+            EnemyManager enemyManager = enemy.GetComponent<EnemyManager>();
+            enemyManager.TakeDamage(damage);
+            EnemyPathfinding enemyPathfinding = enemy.GetComponent<EnemyPathfinding>();
+            float calculatedSlowValue = (100 - slowValue) / 100;
+            enemyPathfinding.SlowMovement(calculatedSlowValue, timeSlowed);
+            if (towerLevel >= projectileUpgradeByTowerLevel) {
+                GameObject slowCircle = Instantiate(slowCirclePrefab, enemy.transform);
+                slowCircle.transform.SetParent(null);
+                HeraSlowCircle heraSlowCircle = slowCircle.GetComponent<HeraSlowCircle>();
+                heraSlowCircle.slowValue = calculatedSlowValue;
+                heraSlowCircle.timeSlowed = timeSlowed;
+            }
+        } else {
+            Debug.Log("Enemy is null!");
+        }
+    }
+
+}
