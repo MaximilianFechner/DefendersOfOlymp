@@ -114,6 +114,14 @@ MonoBehaviour:
   slowValue: 0
   timeSlowed: 0
   maxDamageJump: 0
+  upgradeAttackSpeed: 0
+  upgradeAttackRadius: 0
+  upgradeMovementSpeed: 0
+  upgradeDamage: 0
+  upgradeAoeRadius: 0
+  upgradeSlowValue: 0
+  upgradeTimeSlowed: 0
+  upgradeMaxDamageJump: 0
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -124,7 +132,7 @@ MonoBehaviour:
   towerMenu: {fileID: 7647211449658687782}
   animator: {fileID: 0}
   towerLevel: 1
-  projectilePrefab: {fileID: 7359844151393371129, guid: 61fbda69a02c5524eac6c0acf49c7c97, type: 3}
+  projectilePrefab: {fileID: 7359844151393371129, guid: a316ba221b3459a429c653594f526be2, type: 3}
   _buffDamageValue: 20
   _buffAttackSpeedValue: 50
   _buffedTowers: []

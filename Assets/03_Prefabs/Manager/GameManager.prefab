@@ -208,23 +208,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 5531189581490499665}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b5825af1e3f8e640a1eab4d2752d8d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 4034949de5fec714b96a63abcd9f4d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerStartLives: 6
+  _playerStartLives: 5
   _waveSpawnDelay: 1
   firstWaveEnemies: 2
   addExtraEnemiesEveryWave: 0
   _cardsToDraw: 1
   enemyPrefabs:
-  - {fileID: 6555997334480401726, guid: 1ab0ce8dc0e33d84ca9a5347963a0e40, type: 3}
-  - {fileID: 6555997334480401726, guid: 7c6dc4b456947de429724b6e1ebc11d7, type: 3}
-  - {fileID: 6555997334480401726, guid: e180e641ecba17046aa1d125abdfc92c, type: 3}
+  - {fileID: 6555997334480401726, guid: e733122908d3cdb4799f08866ae65941, type: 3}
+  - {fileID: 6555997334480401726, guid: 20d83b7d27f780340a894e4651c1a6bd, type: 3}
+  - {fileID: 6555997334480401726, guid: 7410c346e66ffab4c8b91251d5cbf6f8, type: 3}
   spawnPoints:
   - {fileID: 5080878103022767934}
+  - {fileID: 5386483436519254115}
   - {fileID: 3454330816914757420}
   - {fileID: 2173289993822171754}
-  - {fileID: 5386483436519254115}
   thisWaveDuration: 0
   totalWaveDurations: 0
   gameSpeed: 1
@@ -328,6 +328,9 @@ MonoBehaviour:
   minPitchSounds: 0.8
   maxPitchSounds: 1.2
   skillSound: {fileID: 8300000, guid: 4c53aa74ebe54d94f96ccc9101b8f502, type: 3}
+  skillButton: {fileID: 0}
+  animation: {fileID: 0}
+  image: {fileID: 0}
 --- !u!114 &1297022462861125603
 MonoBehaviour:
   m_ObjectHideFlags: 0

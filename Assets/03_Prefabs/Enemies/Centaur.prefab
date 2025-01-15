@@ -348,12 +348,12 @@ SpriteRenderer:
   m_SortingLayerID: -1264353881
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9b0c90d153d57ad45916fcd37d5f9491, type: 3}
+  m_Sprite: {fileID: 298964941, guid: 380c40165d48ec146af84701e7506a0a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.14, y: 0.15}
+  m_Size: {x: 4.71, y: 5.004883}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -368,23 +368,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 6555997334480401726}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c553cf6bfd4ac5248ac2caca4256537d, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b09ab8384e0a064b8b353b7e5b5112b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHP: 70
+  _maxHP: 50
   absoluteHPIncreaseWave: 0
-  prozentualHPIncreaseWave: 5
-  absoluteSpeedIncreaseWave: 0.02
-  prozentualSpeedIncreaseWave: 1.02
+  prozentualHPIncreaseWave: 0
+  absoluteSpeedIncreaseWave: 0
+  prozentualSpeedIncreaseWave: 0
   _playerDamage: 1
   _chanceToPlaySound: 20
   soundCooldown: 3
   minVolumeSounds: 0.1
-  maxVolumeSounds: 0.2
+  maxVolumeSounds: 0.35
   minPitchSounds: 0.8
   maxPitchSounds: 1
-  bloodSpawnChance: 0.2
-  minBloodScale: 0.6
+  bloodSpawnChance: 0.1
+  minBloodScale: 0.8
   maxBloodScale: 1
   enemySounds:
   - {fileID: 8300000, guid: cedb5cde337b73d4286ed8932af6db8d, type: 3}
@@ -407,7 +407,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6555997334480401726}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64f2fb265d7c97b4b956f408a71a61e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b254d565d7065a4fba27c627a83a4fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultSpeed: 0
@@ -715,7 +715,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7579876076775379316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a0c7f5838e999e43a3f64c1c278ea04, type: 3}
+  m_Script: {fileID: 11500000, guid: 25090a33128ffe94584cd361ddadb61a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healtbarOutlines: {fileID: 484233977698514591}

@@ -353,7 +353,7 @@ MonoBehaviour:
   towerMenu: {fileID: 3122149805104369559}
   animator: {fileID: 0}
   towerLevel: 1
-  projectilePrefab: {fileID: 7359844151393371129, guid: 44b782209fc6e8a47bdbb863d6e12fc5, type: 3}
+  projectilePrefab: {fileID: 7359844151393371129, guid: 04867d1c20b021041b6e4b79d83236ca, type: 3}
 --- !u!95 &1476117845675445998
 Animator:
   serializedVersion: 7
