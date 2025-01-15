@@ -103,11 +103,10 @@ public class AudioManager : MonoBehaviour
         tempAudioSource.clip = cardSFX;
         tempAudioSource.ignoreListenerPause = true;
         tempAudioSource.volume = Random.Range(0.2f, 0.4f);
+        tempAudioSource.pitch = Random.Range(0.9f, 1.1f);
         tempAudioSource.Play();
-        tempAudioSource.volume = Random.Range(minVolumeSounds, maxVolumeSounds);
-        tempAudioSource.pitch = Random.Range(minPitchSounds, maxPitchSounds);
 
-        Destroy(cardSoundObject, tempAudioSource.clip.length);
+        Destroy(cardSoundObject, cardSFX.length);
     }
 
 }
