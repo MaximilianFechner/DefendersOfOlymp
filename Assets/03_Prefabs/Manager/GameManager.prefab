@@ -82,6 +82,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cc8ad04a283b23241a6e8ecefe5ff65d, type: 2}
   CardDisplay: {fileID: 0}
   drawCardButton: {fileID: 0}
+  towerPreview: {fileID: 0}
 --- !u!1 &2693015221082794404
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50e5ab7666221944f9c826f3ec4a13d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCorpses: 20
+  maxCorpses: 50
 --- !u!1 &5531189581490499665
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,6 +196,7 @@ Transform:
   - {fileID: 2493237333980179373}
   - {fileID: 7495358504422723217}
   - {fileID: 602487168437656087}
+  - {fileID: 5945192234979757678}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1040459522354727499
@@ -225,6 +227,15 @@ MonoBehaviour:
   - {fileID: 5386483436519254115}
   thisWaveDuration: 0
   totalWaveDurations: 0
+  gameSpeed: 1
+  isInWave: 0
+  score: 0
+  cerberusKills: 0
+  cyclopKills: 0
+  centaurKills: 0
+  enemyScore: 0
+  waveScore: 0
+  healthScore: 0
 --- !u!1 &6099512726099247288
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,6 +323,11 @@ MonoBehaviour:
   lightningDuration: 0.5
   attackRadius: 1
   cooldownTime: 20
+  minVolumeSounds: 0.2
+  maxVolumeSounds: 0.4
+  minPitchSounds: 0.8
+  maxPitchSounds: 1.2
+  skillSound: {fileID: 8300000, guid: 4c53aa74ebe54d94f96ccc9101b8f502, type: 3}
 --- !u!114 &1297022462861125603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,6 +350,11 @@ MonoBehaviour:
   _waveDuration: 10
   _waveRadius: 4
   _cooldownTime: 20
+  minVolumeSounds: 0.05
+  maxVolumeSounds: 0.1
+  minPitchSounds: 0.8
+  maxPitchSounds: 1
+  skillSound: {fileID: 8300000, guid: c2e9e34ef4a586e4986b64cb5b3d1b8e, type: 3}
 --- !u!114 &445532231495864091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,6 +377,11 @@ MonoBehaviour:
   _slowDuration: 3
   _skillRadius: 5
   _cooldownTime: 30
+  minVolumeSounds: 0.25
+  maxVolumeSounds: 0.4
+  minPitchSounds: 0.8
+  maxPitchSounds: 1
+  skillSound: {fileID: 8300000, guid: 318098b74e714c2458eb63bc9229b6ba, type: 3}
 --- !u!114 &6072449750005525643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,6 +404,11 @@ MonoBehaviour:
   _quakeRadius: 100
   _cooldownTime: 20
   _cameraShakeMagnitude: 0.125
+  minVolumeSounds: 0.1
+  maxVolumeSounds: 0.2
+  minPitchSounds: 0.8
+  maxPitchSounds: 1
+  skillSound: {fileID: 8300000, guid: 7c2bc87ae3b9d704db70131b3423500f, type: 3}
 --- !u!1 &6713246097400252300
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,3 +440,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4452418663944235855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7380496886089761537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5945192234979757678}
+  - component: {fileID: 4024925145364036649}
+  m_Layer: 0
+  m_Name: BloodManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5945192234979757678
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7380496886089761537}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4452418663944235855}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4024925145364036649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7380496886089761537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19d4825de72db6d4191ad68663a34c6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxBloodPools: 100

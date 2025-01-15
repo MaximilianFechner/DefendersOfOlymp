@@ -2843,18 +2843,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
-      propertyPath: skillSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 318098b74e714c2458eb63bc9229b6ba, type: 3}
-    - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
-      propertyPath: maxVolumeSounds
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
-      propertyPath: minVolumeSounds
-      value: 0.25
-      objectReference: {fileID: 0}
     - target: {fileID: 563932065624218141, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: CardDisplay
       value: 
@@ -2863,38 +2851,6 @@ PrefabInstance:
       propertyPath: drawCardButton
       value: 
       objectReference: {fileID: 1936498712}
-    - target: {fileID: 1127305501548914579, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
-      propertyPath: skillSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 4c53aa74ebe54d94f96ccc9101b8f502, type: 3}
-    - target: {fileID: 1127305501548914579, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
-      propertyPath: maxPitchSounds
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1127305501548914579, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
-      propertyPath: minPitchSounds
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1127305501548914579, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
-      propertyPath: maxVolumeSounds
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1127305501548914579, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
-      propertyPath: minVolumeSounds
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
-      propertyPath: skillSound
-      value: 
-      objectReference: {fileID: 8300000, guid: c2e9e34ef4a586e4986b64cb5b3d1b8e, type: 3}
-    - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
-      propertyPath: maxVolumeSounds
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
-      propertyPath: minVolumeSounds
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 4452418663944235855, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2935,25 +2891,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4912539960677098131, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
-      propertyPath: maxCorpses
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 5531189581490499665, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 6072449750005525643, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
-      propertyPath: skillSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 7c2bc87ae3b9d704db70131b3423500f, type: 3}
-    - target: {fileID: 6072449750005525643, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
-      propertyPath: _quakeDuration
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6072449750005525643, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
-      propertyPath: maxVolumeSounds
-      value: 0.2
+    - target: {fileID: 7380496886089761537, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: m_Name
+      value: BloodPoolManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
