@@ -49,7 +49,17 @@ public class GameManager : MonoBehaviour
     private float _waveStartTime;
     private float _waveEndTime;
 
-    private float gameSpeed = 1f; // default time/game speed
+    public float gameSpeed = 1f; // default time/game speed
+    public bool isInWave = false;
+    
+    [HideInInspector] public int score = 0;
+    [HideInInspector] public int cerberusKills = 0;
+    [HideInInspector] public int cyclopKills = 0;
+    [HideInInspector] public int centaurKills = 0;
+
+    [HideInInspector] public int enemyScore = 0;
+    [HideInInspector] public int waveScore = 0;
+    [HideInInspector] public int healthScore = 0;
 
     private void Awake()
     {
@@ -69,7 +79,8 @@ public class GameManager : MonoBehaviour
         ResetStats();
         UIManager.Instance.UpdateUITexts();
         AudioManager.Instance.PlayLevelBackgroundMusic();
-        Time.timeScale = 0;
+        AudioManager.Instance.PlayLevelAmbienteSFX();
+        //Time.timeScale = 0;
     }
 
     public void NewGame()
@@ -77,7 +88,8 @@ public class GameManager : MonoBehaviour
         ResetStats();
         UIManager.Instance.UpdateUITexts();
         AudioManager.Instance.PlayLevelBackgroundMusic();
-        Time.timeScale = 0;
+        AudioManager.Instance.PlayLevelAmbienteSFX();
+        //Time.timeScale = 0;
     }
 
     public void CloseGame()
@@ -93,14 +105,17 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.UpdateUITexts();
         UIManager.Instance.gameOverPanel.SetActive(false);
         UIManager.Instance.waveFinPanel.SetActive(false);
-        UIManager.Instance.prepareFirstWavePanel.SetActive(true);
+        //UIManager.Instance.prepareFirstWavePanel.SetActive(true);
         SceneManager.LoadScene(0);
     }
 
     public void LoseLife(int damage)
     {
         RemainingLives -= damage;
+        healthScore--;
+        score--;
         UIManager.Instance.UpdateLives(RemainingLives);
+        UIManager.Instance.UpdateScoreCalculating();
 
         if (RemainingLives == 0)
         {
@@ -110,9 +125,14 @@ public class GameManager : MonoBehaviour
 
     public void AddEnemyKilled()
     {
+        enemyScore++;
+        score++;
         TotalEnemiesKilled++;
         WaveEnemiesKilled++;
-        UIManager.Instance.enemiesKilledText.text = $"{TotalEnemiesKilled.ToString()}";
+
+        UIManager.Instance.UpdateKilledEnemies();
+        //UIManager.Instance.enemiesKilledText.text = $"{TotalEnemiesKilled.ToString()}";
+        UIManager.Instance.UpdateScoreCalculating();
     }
 
     public void AddRemainingEnemy(int enemies)
@@ -144,6 +164,7 @@ public class GameManager : MonoBehaviour
         TotalEnemiesKilled = 0;
         RemainingLives = _playerStartLives;
         waveNumber = 0;
+        score = 0;
     }
 
     private void GameOver()
@@ -161,19 +182,25 @@ public class GameManager : MonoBehaviour
         thisWaveDuration = _waveEndTime - _waveStartTime;
         totalWaveDurations += thisWaveDuration;
 
-        Time.timeScale = 0;
+        waveScore += waveNumber;
+        score += waveNumber;
+
+        UIManager.Instance.UpdateScoreCalculating();
+
+        //Time.timeScale = 0;
 
         AudioManager.Instance.PlayWaveEndMusic();
-        UIManager.Instance.ShowWaveResults();
 
-        UIManager.Instance.nextWaveButton.gameObject.SetActive(true);
+        //UIManager.Instance.ShowWaveResults();
+        //UIManager.Instance.nextWaveButton.gameObject.SetActive(true);
+
         if (remainingCardsToDraw > 0)
         {
             UIManager.Instance.drawCardButton.gameObject.SetActive(true);
             remainingCardsToDraw--;
         }
 
-
+        isInWave = false;
     }
 
     // Enemy Wave Spawn Methods ++
@@ -191,6 +218,8 @@ public class GameManager : MonoBehaviour
             UIManager.Instance.nextWaveButton.gameObject.SetActive(false);
 
             Time.timeScale = gameSpeed;
+
+            isInWave = true;
         }
     }
 
@@ -236,7 +265,6 @@ public class GameManager : MonoBehaviour
             UIManager.Instance.timeScaleText.text = "x1";
         }
     }
-
 
     public int ReturnLives()
     {
