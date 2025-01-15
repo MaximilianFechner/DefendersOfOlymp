@@ -14,10 +14,8 @@ public class GridData
         foreach (var pos in positionToOccupy)
         {
             if (_placedObjects.ContainsKey(pos))
-            {
                 throw new Exception($"Dictionary already contains this cell Position {pos}");
-                _placedObjects[pos] = data;
-            }
+            _placedObjects[pos] = data;
         }
     }
 
@@ -44,6 +42,21 @@ public class GridData
                 return false;
         }
         return true;
+    }
+
+    internal int GetRepresentationIndex(Vector3Int gridPosition)
+    {
+        if (_placedObjects.ContainsKey(gridPosition) == false)
+            return -1;
+        return _placedObjects[gridPosition].PlacedObjectIndex;
+    }
+
+    public void RemovedObjectAt(Vector3Int gridPosition)
+    {
+        foreach (var pos in _placedObjects[gridPosition].occupiedPositions)
+        {
+            _placedObjects.Remove(pos);
+        }
     }
 }
 

@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5c2b25d-1da6-43e0-9be8-ccd5b961fa75" name="Changes" comment="Update Grid System">
-      <change afterPath="$PROJECT_DIR$/Assets/02_Scripts/Grid System/IBuildingState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/02_Scripts/Grid System/IBuildingState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/08_Misc/Samples/Universal RP/17.0.3/URP Package Samples/SharedAssets/VolumeProfiles.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/08_Misc/Settings/Build Profiles.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/08_Misc/Test Stuff/Elija.meta" afterDir="false" />
+    <list default="true" id="f5c2b25d-1da6-43e0-9be8-ccd5b961fa75" name="Changes" comment="Update GridSystem &amp; Refactor Code">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DefendersOfOlymp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DefendersOfOlymp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Scenes/Develop/Jens_Dev_Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Scenes/Develop/Jens_Dev_Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Grid System/GridData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Grid System/GridData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Grid System/ObjectPlacer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Grid System/ObjectPlacer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Grid System/PlacementSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Grid System/PlacementSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Grid System/PreviewSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Grid System/PreviewSystem.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +42,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/02_Scripts/Grid System/GridData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02_Scripts/Grid System/ObjectPlacer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/02_Scripts/Grid System/RemovingState.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -144,7 +142,7 @@
       <workItem from="1734601892952" duration="622000" />
       <workItem from="1734687173354" duration="7070000" />
       <workItem from="1736769447070" duration="658000" />
-      <workItem from="1736935015426" duration="7259000" />
+      <workItem from="1736935015426" duration="9955000" />
     </task>
     <task id="LOCAL-00001" summary="+ Default Stuff">
       <option name="closed" value="true" />
@@ -218,7 +216,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736944056357</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Update GridSystem &amp; Refactor Code">
+      <option name="closed" value="true" />
+      <created>1736949308071</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1736949308071</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,6 +261,7 @@
     <MESSAGE value="Push it to the Limit!&#10;+ Grid and Placement System files" />
     <MESSAGE value="Add GridData and Edit PlacementSystem" />
     <MESSAGE value="Update Grid System" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Grid System" />
+    <MESSAGE value="Update GridSystem &amp; Refactor Code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update GridSystem &amp; Refactor Code" />
   </component>
 </project>

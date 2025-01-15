@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data.Common;
 using UnityEngine;
 
 public class PreviewSystem : MonoBehaviour
@@ -49,7 +45,7 @@ public class PreviewSystem : MonoBehaviour
         foreach (Renderer renderer in renderers)
         {
             Material[] materials = renderer.materials;
-            for (int i = 0; i < materials.Length; i++)
+            for (var i = 0; i < materials.Length; i++)
             {
                 materials[i] = _previewMaterialInstance;
             }
@@ -60,22 +56,36 @@ public class PreviewSystem : MonoBehaviour
     public void StopShowingPreview()
     {
         _cellIndicator.SetActive(false);
-        Destroy(_previewObject);
+        if (_previewObject != null)
+        {
+            Destroy(_previewObject);
+        }
     }
 
     public void UpdatePosition(Vector3 position, bool validity)
     {
-        MovePreview(position);
+        if (_previewObject != null)
+        {
+            MovePreview(position);
+            ApplyFeedbackToPreview(validity);
+        }
         MoveCursor(position);
-        ApplyFeedback(validity);
+        ApplyFeedbackToCursor(validity);
     }
 
-    private void ApplyFeedback(bool validity)
+    private void ApplyFeedbackToPreview(bool validity)
     {
         Color c = validity ? Color.white : Color.red;
         c.a = 0.5f;
         _cellIndicatorRenderer.material.color = c;
         _previewMaterialInstance.color = c;
+    }
+    
+    private void ApplyFeedbackToCursor(bool validity)
+    {
+        Color c = validity ? Color.white : Color.red;
+        c.a = 0.5f;
+        _cellIndicatorRenderer.material.color = c;
     }
 
     private void MoveCursor(Vector3 position)
@@ -87,5 +97,12 @@ public class PreviewSystem : MonoBehaviour
     private void MovePreview(Vector3 position)
     {
         _previewObject.transform.position = new Vector3(position.x, position.y + _previewYOffset, position.z);
+    }
+
+    public void StartShowingRemovingPreview()
+    {
+        _cellIndicator.SetActive(true);
+        PrepareCursor(Vector2Int.one);
+        ApplyFeedbackToCursor(false);
     }
 }
