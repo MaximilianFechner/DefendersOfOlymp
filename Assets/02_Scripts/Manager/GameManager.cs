@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour //IDataPersistence
     private float _waveEndTime;
 
     private float gameSpeed = 1f; // default time/game speed
+    public bool isInWave = false;
 
     private void Awake()
     {
