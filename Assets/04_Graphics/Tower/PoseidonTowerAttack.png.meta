@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 13ed4d63e4da1f3498c9337106849181
+guid: 0d66dbcb204101943aa9ac0dcae216c2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PoseidonTower_Idle_0
+      name: PoseidonTowerAttack_0
       rect:
         serializedVersion: 2
-        x: 184
-        y: 0
-        width: 671
-        height: 1000
+        x: 127
+        y: 1022
+        width: 726
+        height: 974
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,20 +138,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75a1b76e095caa247a39bb888b93a228
-      internalID: -987053952
+      spriteID: 19d843e4dd1d1db4f8729b5a89e1cd4d
+      internalID: 2098409051
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PoseidonTower_Idle_1
+      name: PoseidonTowerAttack_1
       rect:
         serializedVersion: 2
-        x: 1183
-        y: 0
-        width: 671
-        height: 1000
+        x: 1057
+        y: 1022
+        width: 875
+        height: 974
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +160,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ffbeb5b7ba1d5144bf43eeaf27907a2
-      internalID: -291951194
+      spriteID: 86c1b83f6da007241823073d1562c3f8
+      internalID: -1522701046
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PoseidonTower_Idle_2
+      name: PoseidonTowerAttack_2
       rect:
         serializedVersion: 2
-        x: 2184
-        y: 0
-        width: 671
-        height: 1000
+        x: 2009
+        y: 1022
+        width: 968
+        height: 967
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,8 +182,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6b2cf896c97c934dabbbe9c468ffe37
-      internalID: 1580157367
+      spriteID: 97cba85b2b3c94a4385fa561f95371fc
+      internalID: -1477259881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoseidonTowerAttack_3
+      rect:
+        serializedVersion: 2
+        x: 3004
+        y: 1022
+        width: 974
+        height: 967
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cf8d9587fd3a0b40bf7e9c8d1af7a0f
+      internalID: -921314918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoseidonTowerAttack_4
+      rect:
+        serializedVersion: 2
+        x: 3998
+        y: 1022
+        width: 996
+        height: 957
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efca27af2d5250e48b5c4545899773e5
+      internalID: 1057187316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoseidonTowerAttack_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 21
+        width: 1002
+        height: 989
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 229860d8c15549642a30b9d33f6da702
+      internalID: -1334025041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoseidonTowerAttack_6
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 21
+        width: 882
+        height: 949
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95294980b4040d247badaa2bd0e87ce7
+      internalID: 840465600
       vertices: []
       indices: 
       edges: []
@@ -192,7 +280,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5590cfe0dbf297e409d1e073dfe8f5d4
+    spriteID: 07cb12513a4894a4bad9beb069ce2ff7
     internalID: 0
     vertices: []
     indices: 
@@ -202,9 +290,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PoseidonTower_Idle_0: -987053952
-      PoseidonTower_Idle_1: -291951194
-      PoseidonTower_Idle_2: 1580157367
+      PoseidonTowerAttack_0: 2098409051
+      PoseidonTowerAttack_1: -1522701046
+      PoseidonTowerAttack_2: -1477259881
+      PoseidonTowerAttack_3: -921314918
+      PoseidonTowerAttack_4: 1057187316
+      PoseidonTowerAttack_5: -1334025041
+      PoseidonTowerAttack_6: 840465600
+      PoseidonTowerAttack_7: 1728518560
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
