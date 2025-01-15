@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
+//using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class HeraStun : MonoBehaviour
 {
@@ -72,6 +73,20 @@ public class HeraStun : MonoBehaviour
 
     private float remainingCooldownTime = 0f;
 
+    private Vector2 buttonOriginalPosition; //BTN CD MOVE TEST
+    public Button skillButton; //BTN CD MOVE TEST
+    public Animator uiAnimation; //BTN CD MOVE TEST
+    public Image image; //BTN CD MOVE TEST
+
+    //BTN CD MOVE TEST
+    private void Start()
+    {
+        buttonOriginalPosition = skillButton.GetComponent<RectTransform>().anchoredPosition;
+        uiAnimation = uiAnimation.GetComponent<Animator>();
+        image = image.GetComponent<Image>();
+    }
+    //
+
     private void Update()
     {
         if (Time.timeScale == 0) return;
@@ -84,7 +99,11 @@ public class HeraStun : MonoBehaviour
                 if (remainingCooldownTime <= 0)
                 {
                     remainingCooldownTime = 0;
-                    UIManager.Instance.heraSkillCooldown.text = "Stun";
+                    UIManager.Instance.heraSkillCooldown.text = "READY";
+
+                    StartCoroutine(MoveButton(skillButton.GetComponent<RectTransform>(),
+                        buttonOriginalPosition, new Color(0.73f, 0.73f, 0.73f), Color.white)); //BTN CD MOVE TEST
+                    skillButton.interactable = true; //BTN CD MOVE TEST
                 }
                 else
                 {
@@ -92,12 +111,6 @@ public class HeraStun : MonoBehaviour
                 }
             }
         }
-
-        //if (UIManager.Instance.heraSkillCooldown != null)
-        //{
-        //    float remainingTime = Mathf.Max(0, lastUseTime + _cooldownTime - Time.time);
-        //    UIManager.Instance.heraSkillCooldown.text = remainingTime > 0 ? $"{remainingTime:F1}s" : "Stun";
-        //}
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
@@ -174,6 +187,11 @@ public class HeraStun : MonoBehaviour
             Destroy(currentPreview);
             currentPreview = null;
         }
+
+        RectTransform buttonRect = skillButton.GetComponent<RectTransform>();
+        Vector2 targetPosition = buttonOriginalPosition + new Vector2(0, -50);
+        StartCoroutine(MoveButton(buttonRect, targetPosition, Color.white, new Color(0.73f, 0.73f, 0.73f)));
+        skillButton.interactable = false;
     }
 
     private void PlacementPreview()
@@ -205,5 +223,49 @@ public class HeraStun : MonoBehaviour
         tempAudioSource.Play();
 
         Destroy(soundObject, clip.length);
+    }
+
+    private IEnumerator MoveButton(RectTransform buttonRect, Vector2 targetPosition, Color startColor, Color targetColor)
+    {
+        float duration = 1f;
+        Vector2 startPosition = buttonRect.anchoredPosition;
+        float elapsedTime = 0f;
+
+        float startSpeed = 1f;
+        float targetSpeed = 0.5f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+
+            t = t * t * (3f - 2f * t); // smoothes Movement des Buttons
+
+            buttonRect.anchoredPosition = Vector2.Lerp(startPosition, targetPosition, t);
+
+            if (image != null)
+            {
+                image.color = Color.Lerp(startColor, targetColor, t);
+            }
+
+            if (uiAnimation != null)
+            {
+                uiAnimation.speed = Mathf.Lerp(startSpeed, targetSpeed, t);
+            }
+
+            yield return null;
+        }
+
+        buttonRect.anchoredPosition = targetPosition;
+
+        if (image != null)
+        {
+            image.color = targetColor;
+        }
+
+        if (uiAnimation != null)
+        {
+            uiAnimation.speed = targetSpeed;
+        }
     }
 }

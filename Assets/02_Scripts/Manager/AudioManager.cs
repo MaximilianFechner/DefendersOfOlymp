@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip waveEndMusic;
     public AudioClip[] lostLifeSFX;
     public AudioClip cardSFX;
+    public AudioClip buttonSFX;
 
     private void Awake()
     {
@@ -102,11 +103,25 @@ public class AudioManager : MonoBehaviour
 
         tempAudioSource.clip = cardSFX;
         tempAudioSource.ignoreListenerPause = true;
-        tempAudioSource.volume = Random.Range(0.2f, 0.4f);
+        tempAudioSource.volume = Random.Range(0.1f, 0.2f);
         tempAudioSource.pitch = Random.Range(0.9f, 1.1f);
         tempAudioSource.Play();
 
         Destroy(cardSoundObject, cardSFX.length);
+    }
+
+    public void PlayButtonSFX()
+    {
+        GameObject buttonSoundObject = new GameObject("ButtonSFX");
+        AudioSource tempAudioSource = buttonSoundObject.AddComponent<AudioSource>();
+
+        tempAudioSource.clip = buttonSFX;
+        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.volume = Random.Range(0.2f, 0.3f);
+        tempAudioSource.pitch = Random.Range(0.9f, 1.1f);
+        tempAudioSource.Play();
+
+        Destroy(buttonSoundObject, buttonSFX.length);
     }
 
 }

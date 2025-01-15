@@ -64,6 +64,7 @@ public class CardManager : MonoBehaviour
 
         Cards previewTower = GetCurrentCard();
         PlacementPreview(previewTower);
+        AudioManager.Instance.PlayCardSFX();
 
         //if (!UIManager.Instance.prepareFirstWavePanel) return;
         //UIManager.Instance.prepareFirstWavePanel.SetActive(false);
@@ -97,6 +98,7 @@ public class CardManager : MonoBehaviour
         }
 
         ClearCard();
+        AudioManager.Instance.PlayButtonSFX();
         GameManager.Instance.StartNextWave();
     }
 
