@@ -126,12 +126,12 @@ TextureImporter:
       name: zeusSkillBtnAnim_0
       rect:
         serializedVersion: 2
-        x: 70
-        y: 795
-        width: 450
-        height: 400
+        x: 75
+        y: 800
+        width: 440
+        height: 380
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -148,19 +148,19 @@ TextureImporter:
       name: zeusSkillBtnAnim_1
       rect:
         serializedVersion: 2
-        x: 710
-        y: 795
-        width: 450
-        height: 400
+        x: 715
+        y: 800
+        width: 440
+        height: 380
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39f1213b14ccdc749abc4cfad1814dd2
+      spriteID: 3f8493567f6697d408382dc434a207ce
       internalID: -1482973898
       vertices: []
       indices: 
@@ -170,19 +170,19 @@ TextureImporter:
       name: zeusSkillBtnAnim_2
       rect:
         serializedVersion: 2
-        x: 1350
-        y: 795
-        width: 450
-        height: 400
+        x: 1355
+        y: 800
+        width: 440
+        height: 380
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65b6461c2589b64439b84b622b5f4eef
+      spriteID: 8d2322ca7ac18344f8d4ee72d659cb95
       internalID: 593866225
       vertices: []
       indices: 
@@ -192,19 +192,19 @@ TextureImporter:
       name: zeusSkillBtnAnim_3
       rect:
         serializedVersion: 2
-        x: 1990
-        y: 795
-        width: 450
-        height: 400
+        x: 1995
+        y: 800
+        width: 440
+        height: 380
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84036f309a8c40047b291df44e24ab9b
+      spriteID: f9be08fba4a73b241b47e0c344f812b2
       internalID: -1735639786
       vertices: []
       indices: 
@@ -214,19 +214,19 @@ TextureImporter:
       name: zeusSkillBtnAnim_4
       rect:
         serializedVersion: 2
-        x: 2630
-        y: 795
-        width: 450
-        height: 400
+        x: 2635
+        y: 800
+        width: 440
+        height: 380
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 559ac1e50907b7043a71283c482af7dd
+      spriteID: 92a02d12c20013b448a9b66c91980af6
       internalID: -1320121582
       vertices: []
       indices: 
@@ -236,19 +236,19 @@ TextureImporter:
       name: zeusSkillBtnAnim_5
       rect:
         serializedVersion: 2
-        x: 70
-        y: 145
-        width: 450
-        height: 400
+        x: 75
+        y: 160
+        width: 440
+        height: 380
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5abc7c6aa3b69d44a9e0c414f34e4686
+      spriteID: 53ae77fe75bb23a4c84f0bdd0bb2f3c2
       internalID: -1633346050
       vertices: []
       indices: 
@@ -258,19 +258,19 @@ TextureImporter:
       name: zeusSkillBtnAnim_6
       rect:
         serializedVersion: 2
-        x: 710
-        y: 145
-        width: 450
-        height: 400
+        x: 715
+        y: 160
+        width: 440
+        height: 380
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ab12166cab7f2442ad80b22a2b46d58
+      spriteID: ad87e81fed4851b43ab47ea5fe505743
       internalID: 471614258
       vertices: []
       indices: 
@@ -280,19 +280,19 @@ TextureImporter:
       name: zeusSkillBtnAnim_7
       rect:
         serializedVersion: 2
-        x: 1350
-        y: 145
-        width: 450
-        height: 400
+        x: 1355
+        y: 160
+        width: 440
+        height: 380
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2917f38cb0eb3e4c87ab4fbb7a99e41
+      spriteID: b1f6a0647383aae46b864dacaf5fbc57
       internalID: 1988989049
       vertices: []
       indices: 
