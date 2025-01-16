@@ -26,12 +26,19 @@ public abstract class BaseProjectile : MonoBehaviour
     }
 
     public void Move() {
-        if (targetEnemy != null) {
+        if (targetEnemy != null)
+        {
             Vector2 direction = (targetEnemy.transform.position - rb2D.transform.position).normalized;
+
             rb2D.MovePosition(rb2D.position + direction * movementSpeed * Time.fixedDeltaTime);
-        } else {
-            //TODO Diese Lösung ist nur temporär und muss entfernt werden,
-            //wenn Tower erkennt, dass keine Projektile mehr gespawned werden sollen, wenn Life unter 0
+
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            rb2D.transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
+        else
+        {
+            //TODO: Diese Lösung ist nur temporär und muss entfernt werden,
+            //wenn der Tower erkennt, dass keine Projektile mehr gespawned werden sollen, wenn Life unter 0
             Destroy(gameObject);
         }
     }
