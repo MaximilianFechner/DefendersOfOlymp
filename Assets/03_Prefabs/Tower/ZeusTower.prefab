@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6186527600433012005}
   - component: {fileID: 8204586654887780968}
   - component: {fileID: 8730636701950960048}
+  - component: {fileID: -8705781296074210665}
+  - component: {fileID: 1242383798808225238}
   m_Layer: 0
   m_Name: ZeusTower
   m_TagString: Tower
@@ -82,12 +84,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 28288ca2ec46b434c877bd666ac6419c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3fa9c62a808b7f04c89271c048abf403, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 7.8125, y: 7.8125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -114,6 +116,14 @@ MonoBehaviour:
   slowValue: 0
   timeSlowed: 0
   maxDamageJump: 2
+  upgradeAttackSpeed: 0
+  upgradeAttackRadius: 0
+  upgradeMovementSpeed: 0
+  upgradeDamage: 0
+  upgradeAoeRadius: 0
+  upgradeSlowValue: 0
+  upgradeTimeSlowed: 0
+  upgradeMaxDamageJump: 0
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -164,13 +174,48 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 7.8125, y: 7.8125}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 7.8125, y: 7.8125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 5.0888653, y: 7.8125}
   m_EdgeRadius: 0
+--- !u!95 &-8705781296074210665
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5225003605191494454}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b03301667b401f949933328af4b0f973, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1242383798808225238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5225003605191494454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5308da20d84ce7b4db577e163d4e07c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placedObjectTypeSO: {fileID: 11400000, guid: c245257420f4d184f92e038a3c029f2b, type: 2}
 --- !u!1 &6583868184036047370
 GameObject:
   m_ObjectHideFlags: 0

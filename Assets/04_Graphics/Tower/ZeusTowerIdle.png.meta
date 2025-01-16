@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 13ed4d63e4da1f3498c9337106849181
+guid: 1aa52aa6a6c7a714792c70729fa9b29d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PoseidonTower_Idle_0
+      name: Singletarget_Tower_Idle_2-ezgif.com-gif-to-sprite-converter_0
       rect:
         serializedVersion: 2
-        x: 184
-        y: 0
-        width: 671
-        height: 1000
+        x: 145
+        y: 28
+        width: 694
+        height: 859
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,20 +138,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75a1b76e095caa247a39bb888b93a228
-      internalID: -987053952
+      spriteID: a37264d36bbc35b4685d67a97bec9cae
+      internalID: 1080509181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PoseidonTower_Idle_1
+      name: Singletarget_Tower_Idle_2-ezgif.com-gif-to-sprite-converter_1
       rect:
         serializedVersion: 2
-        x: 1183
-        y: 0
-        width: 671
-        height: 1000
+        x: 1152
+        y: 28
+        width: 678
+        height: 873
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +160,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ffbeb5b7ba1d5144bf43eeaf27907a2
-      internalID: -291951194
+      spriteID: 608016216b7edfa4ba561fa259b4f1b2
+      internalID: 654132610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PoseidonTower_Idle_2
+      name: Singletarget_Tower_Idle_2-ezgif.com-gif-to-sprite-converter_2
       rect:
         serializedVersion: 2
-        x: 2184
-        y: 0
-        width: 671
-        height: 1000
+        x: 2147
+        y: 28
+        width: 684
+        height: 866
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6b2cf896c97c934dabbbe9c468ffe37
-      internalID: 1580157367
+      spriteID: ed628cbd91969dd41a5c41defb53d3fe
+      internalID: -953664523
       vertices: []
       indices: 
       edges: []
@@ -192,7 +192,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5590cfe0dbf297e409d1e073dfe8f5d4
+    spriteID: 2d84e5f183e73524186187c246bb04c6
     internalID: 0
     vertices: []
     indices: 
@@ -202,9 +202,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PoseidonTower_Idle_0: -987053952
-      PoseidonTower_Idle_1: -291951194
-      PoseidonTower_Idle_2: 1580157367
+      Singletarget_Tower_Idle_2-ezgif.com-gif-to-sprite-converter_0: 1080509181
+      Singletarget_Tower_Idle_2-ezgif.com-gif-to-sprite-converter_1: 654132610
+      Singletarget_Tower_Idle_2-ezgif.com-gif-to-sprite-converter_2: -953664523
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
