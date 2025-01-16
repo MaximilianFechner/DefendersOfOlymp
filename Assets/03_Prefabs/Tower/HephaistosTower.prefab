@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 572989423193425501}
   - component: {fileID: -7902435757129618146}
   - component: {fileID: 486129539923532465}
+  - component: {fileID: 8595991805639740109}
   m_Layer: 0
   m_Name: HephaistosTower
   m_TagString: Tower
@@ -114,6 +115,14 @@ MonoBehaviour:
   slowValue: 0
   timeSlowed: 0
   maxDamageJump: 0
+  upgradeAttackSpeed: 0
+  upgradeAttackRadius: 0
+  upgradeMovementSpeed: 0
+  upgradeDamage: 0
+  upgradeAoeRadius: 0
+  upgradeSlowValue: 0
+  upgradeTimeSlowed: 0
+  upgradeMaxDamageJump: 0
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -196,6 +205,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5.2062645, y: 7.3671875}
   m_EdgeRadius: 0
+--- !u!114 &8595991805639740109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5225003605191494454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5308da20d84ce7b4db577e163d4e07c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placedObjectTypeSO: {fileID: 11400000, guid: a409cba431ad90542b46cbd16a142aea, type: 2}
 --- !u!1 &6501918954586205008
 GameObject:
   m_ObjectHideFlags: 0
