@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     private float _waveStartTime;
     private float _waveEndTime;
 
-    public float gameSpeed = 1f; // default time/game speed
+    public float gameSpeed = 1f;
     public bool isInWave = false;
     
     [HideInInspector] public int score = 0;
@@ -245,27 +245,6 @@ public class GameManager : MonoBehaviour
         Instantiate(enemyPrefab, spawnPoints[randomSpawnerIndex].position, Quaternion.identity);
     }
     // Enemy Wave Spawn Methods --
-
-    public void ChangeGameSpeed()
-    {
-        if (Time.timeScale == 0) return;
-
-        if (Time.timeScale == 1)
-        {
-            //Debug.Log("Speed changed to 2");
-            gameSpeed = 2;
-            Time.timeScale = gameSpeed;
-            UIManager.Instance.timeScaleText.text = "x2";
-        }
-
-        else if (Time.timeScale == 2)
-        {
-            //Debug.Log("Speed changed to 1");
-            gameSpeed = 1;
-            Time.timeScale = gameSpeed;
-            UIManager.Instance.timeScaleText.text = "x1";
-        }
-    }
 
     public int ReturnLives()
     {
