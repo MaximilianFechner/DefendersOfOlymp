@@ -30,19 +30,19 @@ public class HephaistosTower : BaseTower
         if (animator != null) {
             animator.SetTrigger("attackTrigger");
         }
-        Collider2D[] enemiesColliders = Physics2D.OverlapCircleAll(transform.position, attackRadius);
-        foreach (Collider2D enemyCollider in enemiesColliders) {
-            if (enemyCollider.gameObject.CompareTag("Enemy")) {
-                EnemyManager enemy = enemyCollider.gameObject.GetComponent<EnemyManager>();
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, attackRadius);
+        foreach (Collider2D collider in colliders) {
+            if (collider.gameObject.CompareTag("Enemy")) {
+                EnemyManager enemy = collider.gameObject.GetComponent<EnemyManager>();
                 enemy.TakeDamage(damage);
-            } else if (enemyCollider.gameObject.CompareTag("Tower")) {
-                if (_buffedTowers.Contains(enemyCollider.gameObject)) {
+            } else if (collider.gameObject.CompareTag("Tower")) {
+                if (_buffedTowers.Contains(collider.gameObject)) {
                     return;
                 } else {
-                    BaseTower unbuffedTower = enemyCollider.gameObject.GetComponent<BaseTower>();
+                    BaseTower unbuffedTower = collider.gameObject.GetComponent<BaseTower>();
                     unbuffedTower.AddBonusToAttackDamage(CalculatePercentage(_buffDamageValue, true));
                     unbuffedTower.AddBonusToAttackSpeed(CalculatePercentage(_buffAttackSpeedValue, false));
-                    _buffedTowers.Add(enemyCollider.gameObject);
+                    _buffedTowers.Add(collider.gameObject);
                 }
 
             }
