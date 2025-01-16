@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
 {
     public InputField inputFPS;
     public Text selectedFPS;
-    
+
 
 
     public AudioSource AudioSource;
@@ -36,7 +36,7 @@ public class MainMenu : MonoBehaviour
 
     public int targetFPS; //int.Parse(selectedFPS.text);
 
-    
+
 
     void Start()
     {
@@ -47,7 +47,7 @@ public class MainMenu : MonoBehaviour
 
         _resolutionDropdown.ClearOptions();
 
-     //Resolution Dropdown
+        //Resolution Dropdown
 
         var options = new List<string>();
         _resolutions = Screen.resolutions;
@@ -66,7 +66,7 @@ public class MainMenu : MonoBehaviour
         _resolutionDropdown.RefreshShownValue();
         LoadSettings(currentResolutionIndex);
 
-        
+
     }
 
     void Update()
@@ -85,7 +85,7 @@ public class MainMenu : MonoBehaviour
         else
         {
             targetFPS = 60; // Default FPS
-            
+
         }
 
         QualitySettings.vSyncCount = 0;
@@ -98,7 +98,7 @@ public class MainMenu : MonoBehaviour
     {
         if (_resolutions == null || _resolutions.Length == 0)
         {
-         
+
             return;
         }
 
@@ -112,6 +112,14 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadSceneAsync(1);
     }
 
+    //Interactive Manual
+
+    public void PlayManual()
+    {
+        SceneManager.LoadSceneAsync(2);
+    }
+
+    //Return to Main Menu
     public void LeaveGame()
     {
         SceneManager.LoadSceneAsync(0);
@@ -151,7 +159,7 @@ public class MainMenu : MonoBehaviour
         _musicVolume = volume;
     }
 
- 
+
 
 
 }
