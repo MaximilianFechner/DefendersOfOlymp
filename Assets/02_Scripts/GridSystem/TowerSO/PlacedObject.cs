@@ -14,7 +14,7 @@ public class PlacedObject : MonoBehaviour
         return placedObject;
     }
 
-    private PlacedObjectTypeSO placedObjectTypeSO;
+    [SerializeField] private PlacedObjectTypeSO placedObjectTypeSO;
     private Vector2Int origin;
     private PlacedObjectTypeSO.Dir dir;
 
@@ -24,6 +24,10 @@ public class PlacedObject : MonoBehaviour
 
     public void DestroySelf() {
         Destroy(gameObject);
+    }
+
+    public PlacedObjectTypeSO GetPlacedObjectTypeSO() {
+        return placedObjectTypeSO;
     }
 
 }

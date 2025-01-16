@@ -66,82 +66,41 @@ public class GridBuildingSystem : MonoBehaviour
         }
     }
 
-    private void Update() {
-        if (Input.GetMouseButtonDown(0) && placedObjectTypeSO != null) {
-            grid.GetXY(GetMouseWorldPosition(), out int x, out int z);
+    public void PlaceTower() {
+        grid.GetXY(GetMouseWorldPosition(), out int x, out int z);
 
-            Vector2Int placedObjectOrigin = new Vector2Int(x, z);
-            
-            List<Vector2Int> gridPositionList = placedObjectTypeSO.GetGridPositionList(placedObjectOrigin, dir);
+        Vector2Int placedObjectOrigin = new Vector2Int(x, z);
 
-            bool canBuild = true;
+        List<Vector2Int> gridPositionList = placedObjectTypeSO.GetGridPositionList(placedObjectOrigin, dir);
+
+        bool canBuild = true;
+        foreach (Vector2Int gridPosition in gridPositionList) {
+            if (!grid.GetGridObject(gridPosition.x, gridPosition.y).CanBuild()) {
+                //Cannot build here
+                canBuild = false;
+                break;
+            }
+        }
+
+
+        if (canBuild) {
+            Vector2Int rotationOffset = placedObjectTypeSO.GetRotationOffset(dir);
+            Vector3 placedObjectWorldPosition = grid.GetWorldPosition(x, z) +
+                new Vector3(rotationOffset.x, rotationOffset.y) * grid.GetCellSize();
+
+            PlacedObject placedObject = PlacedObject.Create(placedObjectWorldPosition, placedObjectOrigin, dir, placedObjectTypeSO);
+            placedObject.transform.rotation = Quaternion.Euler(0, 0, -placedObjectTypeSO.GetRotationAngle(dir));
+
             foreach (Vector2Int gridPosition in gridPositionList) {
-                if (!grid.GetGridObject(gridPosition.x, gridPosition.y).CanBuild()) {
-                    //Cannot build here
-                    canBuild = false; 
-                    break;
-                }
+                grid.GetGridObject(gridPosition.x, gridPosition.y).SetPlacedObject(placedObject);
             }
-            
-            
-            if (canBuild) {
-                Vector2Int rotationOffset = placedObjectTypeSO.GetRotationOffset(dir);
-                Vector3 placedObjectWorldPosition = grid.GetWorldPosition(x, z) +
-                    new Vector3(rotationOffset.x, rotationOffset.y) * grid.GetCellSize();
-                
-                PlacedObject placedObject = PlacedObject.Create(placedObjectWorldPosition, placedObjectOrigin, dir, placedObjectTypeSO);
-                placedObject.transform.rotation = Quaternion.Euler(0, 0, - placedObjectTypeSO.GetRotationAngle(dir));
-
-                foreach (Vector2Int gridPosition in gridPositionList) {
-                    grid.GetGridObject(gridPosition.x, gridPosition.y).SetPlacedObject(placedObject);
-                }
-
-                OnObjectPlaced?.Invoke(this, EventArgs.Empty);
-
-            } else {
-                Debug.Log("Cant build! Transform not null");
-            }
-        }
-
-        if (Input.GetMouseButtonDown(1)) {
-            GridObject gridObject = grid.GetGridObject(GetMouseWorldPosition());
-            PlacedObject placedObject = gridObject.GetPlacedObject();
-
-            if (placedObject != null) {
-                //Demolish
-                placedObject.DestroySelf();
-
-                List<Vector2Int> gridPositionList = placedObject.GetGridPositionList();
-                foreach (Vector2Int gridPosition in gridPositionList) {
-                    grid.GetGridObject(gridPosition.x, gridPosition.y).ClearPlacedObject();
-                }
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.R)) {
-            dir = PlacedObjectTypeSO.GetNextDir(dir);
-        }
-
-        if (Input.GetKeyDown(KeyCode.H)) {
-            placedObjectTypeSO = placedObjectTypeSOList[0];
-            RefreshSelectedObjectType();
-        }
-
-        if (Input.GetKeyDown(KeyCode.J)) {
-            placedObjectTypeSO = placedObjectTypeSOList[1];
-            RefreshSelectedObjectType();
-        }
-
-        if (Input.GetKeyDown(KeyCode.K)) {
-            placedObjectTypeSO = placedObjectTypeSOList[2];
-            RefreshSelectedObjectType();
-        }
-
-        if (Input.GetKeyDown(KeyCode.D)) {
             DeselectObjectType();
+            OnObjectPlaced?.Invoke(this, EventArgs.Empty);
+
+        } else {
+            Debug.Log("Cant build! Transform not null");
         }
     }
-
 
     public static Vector3 GetMouseWorldPosition() {
         Vector3 vec = GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);
@@ -168,13 +127,21 @@ public class GridBuildingSystem : MonoBehaviour
         }
     }
 
-    private void RefreshSelectedObjectType() {
-        OnSelectedChanged?.Invoke(this, EventArgs.Empty);
+    public void RefreshSelectedObjectType(PlacedObjectTypeSO selectedTower) {
+        for (int i = 0;i < placedObjectTypeSOList.Count;i++) {
+            if (selectedTower.nameString.Equals(placedObjectTypeSOList[i].nameString)) {
+                placedObjectTypeSO = placedObjectTypeSOList[i];
+                OnSelectedChanged?.Invoke(this, EventArgs.Empty);
+            }
+        }
+        if (placedObjectTypeSO == null) {
+            Debug.LogError($"Selected Tower {selectedTower.ToString()} not found in PlacedObjectTypeSOList {placedObjectTypeSOList.ToString()}.");
+        }
     }
 
-    private void DeselectObjectType() {
+    public void DeselectObjectType() {
         placedObjectTypeSO = null;
-        RefreshSelectedObjectType();
+        OnSelectedChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public Quaternion GetPlacedObjectRotation() {

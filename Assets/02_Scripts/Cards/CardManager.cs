@@ -62,8 +62,15 @@ public class CardManager : MonoBehaviour
         drawCardButton.gameObject.SetActive(false);
         //UIManager.Instance.waveFinPanel.SetActive(false);
 
+        //TODO Der PreviewTower aka BuildingGhost, darf nicht angreifen. 
         Cards previewTower = GetCurrentCard();
-        PlacementPreview(previewTower);
+        PlacedObject placedObjectPreviewTower = previewTower.TowerPrefab.GetComponent<PlacedObject>();
+        if (placedObjectPreviewTower != null) {
+            GridBuildingSystem.Instance.RefreshSelectedObjectType(placedObjectPreviewTower.GetPlacedObjectTypeSO());
+        } else {
+            Debug.LogError($"Cannot GetComponent<PlacedObject>() from previewTower {previewTower.ToString()}");
+        }
+
 
         //if (!UIManager.Instance.prepareFirstWavePanel) return;
         //UIManager.Instance.prepareFirstWavePanel.SetActive(false);
@@ -84,38 +91,11 @@ public class CardManager : MonoBehaviour
 
     private void PlaceTower()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0; // Z-Achse auf 0 setzen für 2D
-
-        Cards selectedCard = GetCurrentCard();
-        Instantiate(selectedCard.TowerPrefab, mousePosition, Quaternion.identity);
-
-        if (currentPreview != null)
-        {
-            Destroy(currentPreview);
-            currentPreview = null;
-        }
-
+        GridBuildingSystem.Instance.PlaceTower();
+        currentPreview = null;
         ClearCard();
         GameManager.Instance.StartNextWave();
     }
 
-    private void PlacementPreview(Cards currentCard)
-    {
-        if (currentCard == null) return;
-
-        if (currentPreview == null)
-        {
-            currentPreview = Instantiate(currentCard.TowerPrefab);
-            currentPreview.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
-
-            // deactivate the ability of the preview to attack the enemies as preview tower
-            MonoBehaviour[] scripts = currentPreview.GetComponents<MonoBehaviour>();
-            foreach (MonoBehaviour script in scripts)
-            {
-                script.enabled = false;
-            }
-        }
-    }
 }
 
