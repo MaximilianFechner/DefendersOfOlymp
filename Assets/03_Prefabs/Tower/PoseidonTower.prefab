@@ -107,9 +107,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 1
   attackRadius: 16
-  targetType: 0
+  targetType: 1
   movementSpeed: 8
-  damage: 5
+  damage: 9
   aoeRadius: 7
   slowValue: 0
   timeSlowed: 0

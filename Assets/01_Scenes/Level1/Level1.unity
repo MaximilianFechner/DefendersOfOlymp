@@ -2638,6 +2638,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _damageOnUse
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _skillRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _cooldownTime
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _slowDuration
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 563932065624218141, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: CardDisplay
       value: 
@@ -2651,6 +2667,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 409121942}
     - target: {fileID: 1127305501548914579, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damage
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127305501548914579, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: animation
       value: 
       objectReference: {fileID: 409121941}
@@ -2662,6 +2682,22 @@ PrefabInstance:
       propertyPath: skillButton
       value: 
       objectReference: {fileID: 1146862296}
+    - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _waveRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _cooldownTime
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _waveDuration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _damagePerInterval
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4452418663944235855, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2705,6 +2741,18 @@ PrefabInstance:
     - target: {fileID: 5531189581490499665, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072449750005525643, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _cooldownTime
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072449750005525643, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _quakeDuration
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072449750005525643, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _damagePerInterval
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7380496886089761537, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: m_Name
