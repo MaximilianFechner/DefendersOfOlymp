@@ -88,6 +88,10 @@ public class GridBuildingSystem : MonoBehaviour
             Vector3 placedObjectWorldPosition = grid.GetWorldPosition(x, z) +
                 new Vector3(rotationOffset.x, rotationOffset.y) * grid.GetCellSize();
 
+            if (!placedObjectTypeSO.prefab.gameObject.GetComponent<BaseTower>().enabled) {
+                placedObjectTypeSO.prefab.gameObject.GetComponent<BaseTower>().enabled = true;
+            }
+
             PlacedObject placedObject = PlacedObject.Create(placedObjectWorldPosition, placedObjectOrigin, dir, placedObjectTypeSO);
             placedObject.transform.rotation = Quaternion.Euler(0, 0, -placedObjectTypeSO.GetRotationAngle(dir));
 

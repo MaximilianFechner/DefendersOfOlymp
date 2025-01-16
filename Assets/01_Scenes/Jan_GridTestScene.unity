@@ -2923,6 +2923,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 125520608471001202, guid: 889f7bd5262c54640a390401f0968019, type: 3}
+      propertyPath: placedObjectTypeSOList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 125520608471001202, guid: 889f7bd5262c54640a390401f0968019, type: 3}
+      propertyPath: 'placedObjectTypeSOList.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a53929890399f2b4599bd36d76930891, type: 2}
     - target: {fileID: 4432569428322874509, guid: 889f7bd5262c54640a390401f0968019, type: 3}
       propertyPath: m_Name
       value: GridBuildingSystem_MidBlock

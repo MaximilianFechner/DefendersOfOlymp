@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BuildingGhost : MonoBehaviour
@@ -38,6 +39,10 @@ public class BuildingGhost : MonoBehaviour
             visual.parent = transform;
             visual.localPosition = Vector3.zero;
             visual.localEulerAngles = Vector3.zero;
+
+            if (placedObjectTypeSO.prefab.gameObject.GetComponent<BaseTower>().enabled) {
+                placedObjectTypeSO.prefab.gameObject.GetComponent<BaseTower>().enabled = false;
+            }
         }
 
     }
