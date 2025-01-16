@@ -1666,6 +1666,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1744623361 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2947600097916976808, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+  m_PrefabInstance: {fileID: 1507989259852378251}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1755081241 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1040459522354727499, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
@@ -2597,6 +2608,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
+      propertyPath: hitImpactSFX.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
       propertyPath: 'lostLifeSFX.Array.data[0]'
       value: 
       objectReference: {fileID: 8300000, guid: 09bee012489a42246868805263335219, type: 3}
@@ -2604,6 +2619,42 @@ PrefabInstance:
       propertyPath: 'lostLifeSFX.Array.data[1]'
       value: 
       objectReference: {fileID: 8300000, guid: ce3335805c226304fb0679a598247045, type: 3}
+    - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
+      propertyPath: 'hitImpactSFX.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: f86b9cb670b563e469f61c3365bd926d, type: 3}
+    - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
+      propertyPath: 'hitImpactSFX.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: d1dc188d4e82c2d43a3a5c3f22b87ef6, type: 3}
+    - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
+      propertyPath: 'hitImpactSFX.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 5e011d68a7dd0504e938ce4bad82b1b3, type: 3}
+    - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
+      propertyPath: 'hitImpactSFX.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ecccade480ec7c24abe18e95521d8fbb, type: 3}
+    - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
+      propertyPath: towerPlacementSFX.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
+      propertyPath: 'towerPlacementSFX.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7de84e45eb031af4a9f4c749d9b767f9, type: 3}
+    - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
+      propertyPath: 'towerPlacementSFX.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 6914f9051359a5f40801ad5b0c8e14f0, type: 3}
+    - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
+      propertyPath: 'towerPlacementSFX.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 4b828e5bc32b0ea4a9451e514d4566f7, type: 3}
+    - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
+      propertyPath: 'towerPlacementSFX.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: cb4f43cc118470340b52c5bb282061bc, type: 3}
     - target: {fileID: 5530621683758067520, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2746,9 +2797,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 575723617470120247}
     - target: {fileID: 3776431016061551521, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
-      propertyPath: timeScaleText
+      propertyPath: highscore
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1744623361}
     - target: {fileID: 4067185540345730313, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2841,6 +2892,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1898595611454031963}
+    - target: {fileID: 6011943110839853553, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6377782925950251365, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_Name
       value: UI
@@ -2850,18 +2905,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 414738697}
     - target: {fileID: 7012968655721769340, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1898595611454031967}
-    - target: {fileID: 7012968655721769340, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ActivateHeraSkill
-      objectReference: {fileID: 0}
-    - target: {fileID: 7012968655721769340, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: HeraStun, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 9136432028019618692, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1898595611454031967}

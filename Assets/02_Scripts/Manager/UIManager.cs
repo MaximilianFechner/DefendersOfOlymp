@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     [Space(10)]
     [Header("UI Elements: Ingame")]
     public Text score;
+    public Text highscore;
     public Text totalScore;
     public Text enemyScore;
     public Text waveScore;
@@ -108,6 +109,7 @@ public class UIManager : MonoBehaviour
     public void UpdateScoreCalculating()
     {
         score.text = GameManager.Instance.score.ToString();
+        highscore.text = GameManager.Instance.highscore.ToString();
         totalScore.text = GameManager.Instance.score.ToString();
         enemyScore.text = GameManager.Instance.enemyScore.ToString();
         waveScore.text = GameManager.Instance.waveScore.ToString();

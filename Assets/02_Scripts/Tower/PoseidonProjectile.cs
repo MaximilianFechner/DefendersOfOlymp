@@ -27,6 +27,7 @@ public class PoseidonProjectile : BaseProjectile
     private void OnDestroy()
     {
         Instantiate(hitPS, this.transform.position, Quaternion.identity);
+        AudioManager.Instance.PlayHitImpactSFX(1);
     }
 
 }

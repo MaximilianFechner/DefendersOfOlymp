@@ -91,6 +91,11 @@ public class CardManager : MonoBehaviour
         Cards selectedCard = GetCurrentCard();
         Instantiate(selectedCard.TowerPrefab, mousePosition, Quaternion.identity);
 
+        if (currentCard.TowerName.Contains("Zeus")) AudioManager.Instance.PlayTowerPlacementSFX(0);
+        else if (currentCard.TowerName.Contains("Poseidon")) AudioManager.Instance.PlayTowerPlacementSFX(1);
+        else if (currentCard.TowerName.Contains("Hera")) AudioManager.Instance.PlayTowerPlacementSFX(2);
+        else if (currentCard.TowerName.Contains("Hephaistos")) AudioManager.Instance.PlayTowerPlacementSFX(3);
+
         if (currentPreview != null)
         {
             Destroy(currentPreview);
@@ -98,7 +103,7 @@ public class CardManager : MonoBehaviour
         }
 
         ClearCard();
-        AudioManager.Instance.PlayButtonSFX();
+
         GameManager.Instance.StartNextWave();
     }
 

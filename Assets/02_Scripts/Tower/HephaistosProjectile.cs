@@ -16,4 +16,9 @@ public class HephaistosProjectile : BaseProjectile
         }
     }
 
+    private void OnDestroy()
+    {
+        AudioManager.Instance.PlayHitImpactSFX(3);
+    }
+
 }

@@ -125,6 +125,7 @@ public class ZeusProjectile : BaseProjectile
     private void OnDestroy()
     {
         Instantiate(hitPS, this.transform.position, Quaternion.identity);
+        AudioManager.Instance.PlayHitImpactSFX(0);
     }
 
 }

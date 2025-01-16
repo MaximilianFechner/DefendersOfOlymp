@@ -14,6 +14,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip cardSFX;
     public AudioClip buttonSFX;
     public AudioClip stoneSFX;
+    public AudioClip[] towerPlacementSFX;
+    public AudioClip[] hitImpactSFX;
 
     private void Awake()
     {
@@ -137,6 +139,33 @@ public class AudioManager : MonoBehaviour
         tempAudioSource.Play();
 
         Destroy(stoneSoundObject, stoneSFX.length);
+    }
+
+    public void PlayTowerPlacementSFX(int god)
+    {
+        GameObject towerPlacementSoundObject = new GameObject("TowerPlacementSFX");
+        AudioSource tempAudioSource = towerPlacementSoundObject.AddComponent<AudioSource>();
+
+        tempAudioSource.clip = towerPlacementSFX[god];
+        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.volume = Random.Range(0.1f, 0.2f);
+        tempAudioSource.pitch = Random.Range(0.9f, 1.1f);
+        tempAudioSource.Play();
+
+        Destroy(towerPlacementSoundObject, towerPlacementSFX[god].length);
+    }
+    public void PlayHitImpactSFX(int god)
+    {
+        GameObject hitImpactSoundObject = new GameObject("HitImpactSFX");
+        AudioSource tempAudioSource = hitImpactSoundObject.AddComponent<AudioSource>();
+
+        tempAudioSource.clip = hitImpactSFX[god];
+        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.volume = Random.Range(0.025f, 0.04f);
+        tempAudioSource.pitch = Random.Range(0.9f, 1.1f);
+        tempAudioSource.Play();
+
+        Destroy(hitImpactSoundObject, hitImpactSFX[god].length);
     }
 
 }

@@ -41,10 +41,8 @@ public class GameManager : MonoBehaviour
     public Transform[] spawnPoints;
     private bool isSpawning = false;
 
-    [HideInInspector]
-    public float thisWaveDuration;
-    [HideInInspector]
-    public float totalWaveDurations;
+    [HideInInspector] public float thisWaveDuration;
+    [HideInInspector] public float totalWaveDurations;
 
     private float _waveStartTime;
     private float _waveEndTime;
@@ -53,6 +51,8 @@ public class GameManager : MonoBehaviour
     public bool isInWave = false;
     
     [HideInInspector] public int score = 0;
+    [HideInInspector] public int highscore = 0;
+
     [HideInInspector] public int cerberusKills = 0;
     [HideInInspector] public int cyclopKills = 0;
     [HideInInspector] public int centaurKills = 0;
@@ -80,7 +80,11 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.UpdateUITexts();
         AudioManager.Instance.PlayLevelBackgroundMusic();
         AudioManager.Instance.PlayLevelAmbienteSFX();
-        //Time.timeScale = 0;
+
+        highscore = PlayerPrefs.GetInt("highscore", 0);
+
+        if (highscore == 0) return;
+        UIManager.Instance.highscore.text = highscore.ToString();
     }
 
     public void NewGame()
@@ -89,7 +93,11 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.UpdateUITexts();
         AudioManager.Instance.PlayLevelBackgroundMusic();
         AudioManager.Instance.PlayLevelAmbienteSFX();
-        //Time.timeScale = 0;
+
+        highscore = PlayerPrefs.GetInt("highscore", 0);
+
+        if (highscore == 0) return;
+        UIManager.Instance.highscore.text = highscore.ToString();
     }
 
     public void CloseGame()
@@ -113,7 +121,15 @@ public class GameManager : MonoBehaviour
     {
         RemainingLives -= damage;
         healthScore--;
+        
         score--;
+        if (score > highscore)
+        {
+            highscore = score;
+            PlayerPrefs.SetInt("highscore", highscore);
+            PlayerPrefs.Save();
+        }
+
         UIManager.Instance.UpdateLives(RemainingLives);
         UIManager.Instance.UpdateScoreCalculating();
         AudioManager.Instance.PlayLostLifeSFX();
@@ -127,12 +143,19 @@ public class GameManager : MonoBehaviour
     public void AddEnemyKilled()
     {
         enemyScore++;
+
         score++;
+        if (score > highscore)
+        {
+            highscore = score;
+            PlayerPrefs.SetInt("highscore", highscore);
+            PlayerPrefs.Save();
+        }
+
         TotalEnemiesKilled++;
         WaveEnemiesKilled++;
 
         UIManager.Instance.UpdateKilledEnemies();
-        //UIManager.Instance.enemiesKilledText.text = $"{TotalEnemiesKilled.ToString()}";
         UIManager.Instance.UpdateScoreCalculating();
     }
 
@@ -185,6 +208,12 @@ public class GameManager : MonoBehaviour
 
         waveScore += waveNumber;
         score += waveNumber;
+        if (score > highscore)
+        {
+            highscore = score;
+            PlayerPrefs.SetInt("highscore", highscore);
+            PlayerPrefs.Save();
+        }
 
         UIManager.Instance.UpdateScoreCalculating();
 
@@ -212,8 +241,6 @@ public class GameManager : MonoBehaviour
             _waveStartTime = Time.time;
 
             UIManager.Instance.nextWaveButton.gameObject.SetActive(false);
-
-            //Time.timeScale = gameSpeed;
 
             isInWave = true;
         }
