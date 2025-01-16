@@ -61,6 +61,8 @@ public class HeraStun : MonoBehaviour
     private float maxPitchSounds = 1f;
 
     public AudioClip skillSound;
+    public AudioClip preSkillSound;
+    private GameObject preStunSoundObject;
 
     //private int skillLevel;
     //private float levelModifikatorDamage;
@@ -148,6 +150,7 @@ public class HeraStun : MonoBehaviour
 
                 currentPreview = Instantiate(stunPreview);
                 currentPreview.transform.localScale = new Vector3(1 * (_skillRadius / 5), 1 * (_skillRadius / 5), 1 * (_skillRadius / 5));
+                PlayPreStunSFX(preSkillSound);
             }
         }
     }
@@ -188,6 +191,12 @@ public class HeraStun : MonoBehaviour
             currentPreview = null;
         }
 
+        if (preStunSoundObject != null)
+        {
+            Destroy(preStunSoundObject);
+            preStunSoundObject = null;
+        }
+
         RectTransform buttonRect = skillButton.GetComponent<RectTransform>();
         Vector2 targetPosition = buttonOriginalPosition + new Vector2(0, -50);
         StartCoroutine(MoveButton(buttonRect, targetPosition, Color.white, new Color(0.73f, 0.73f, 0.73f)));
@@ -223,6 +232,20 @@ public class HeraStun : MonoBehaviour
         tempAudioSource.Play();
 
         Destroy(soundObject, clip.length);
+    }
+
+    private void PlayPreStunSFX(AudioClip clip)
+    {
+        preStunSoundObject = new GameObject("PreStunSound");
+        AudioSource tempAudioSource = preStunSoundObject.AddComponent<AudioSource>();
+
+        tempAudioSource.clip = clip;
+        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.loop = true;
+        tempAudioSource.volume = Random.Range(minVolumeSounds, maxVolumeSounds);
+        tempAudioSource.pitch = Random.Range(minPitchSounds, maxPitchSounds);
+
+        tempAudioSource.Play();
     }
 
     private IEnumerator MoveButton(RectTransform buttonRect, Vector2 targetPosition, Color startColor, Color targetColor)

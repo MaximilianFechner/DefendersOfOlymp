@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip[] lostLifeSFX;
     public AudioClip cardSFX;
     public AudioClip buttonSFX;
+    public AudioClip stoneSFX;
 
     private void Awake()
     {
@@ -122,6 +123,20 @@ public class AudioManager : MonoBehaviour
         tempAudioSource.Play();
 
         Destroy(buttonSoundObject, buttonSFX.length);
+    }
+
+    public void PlayStoneSFX()
+    {
+        GameObject stoneSoundObject = new GameObject("StoneSFX");
+        AudioSource tempAudioSource = stoneSoundObject.AddComponent<AudioSource>();
+
+        tempAudioSource.clip = stoneSFX;
+        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.volume = Random.Range(0.1f, 0.2f);
+        tempAudioSource.pitch = Random.Range(0.9f, 1.1f);
+        tempAudioSource.Play();
+
+        Destroy(stoneSoundObject, stoneSFX.length);
     }
 
 }

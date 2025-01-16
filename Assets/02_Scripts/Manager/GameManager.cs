@@ -188,12 +188,7 @@ public class GameManager : MonoBehaviour
 
         UIManager.Instance.UpdateScoreCalculating();
 
-        //Time.timeScale = 0;
-
         AudioManager.Instance.PlayWaveEndMusic();
-
-        //UIManager.Instance.ShowWaveResults();
-        //UIManager.Instance.nextWaveButton.gameObject.SetActive(true);
 
         if (remainingCardsToDraw > 0)
         {
@@ -218,7 +213,7 @@ public class GameManager : MonoBehaviour
 
             UIManager.Instance.nextWaveButton.gameObject.SetActive(false);
 
-            Time.timeScale = gameSpeed;
+            //Time.timeScale = gameSpeed;
 
             isInWave = true;
         }

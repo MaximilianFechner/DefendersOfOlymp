@@ -2577,6 +2577,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 64a8e130faaa1d14fa370d40eca5f7e3, type: 3}
     - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
+      propertyPath: stoneSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: c855f11382bdbf04ea1091669ce7d381, type: 3}
+    - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
       propertyPath: buttonSFX
       value: 
       objectReference: {fileID: 8300000, guid: d0acd4cb711d0854aa2361a2248efbdd, type: 3}
@@ -2886,6 +2890,10 @@ PrefabInstance:
       propertyPath: uiAnimation
       value: 
       objectReference: {fileID: 1108071275}
+    - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: preSkillSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d71acb77780312469afdbe44669f2d1, type: 3}
     - target: {fileID: 563932065624218141, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: CardDisplay
       value: 
