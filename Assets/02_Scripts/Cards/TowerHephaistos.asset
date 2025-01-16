@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TowerHephaistos
   m_EditorClassIdentifier: 
   TowerName: Hephaistos
-  CardSprite: {fileID: 21300000, guid: 3bb9ea7bc3fdafb4f9bba091ebb52297, type: 3}
+  CardSprite: {fileID: 21300000, guid: 51a1dcb83d4d3464aa99aea62bd2b22a, type: 3}
   TowerPrefab: {fileID: 5225003605191494454, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
