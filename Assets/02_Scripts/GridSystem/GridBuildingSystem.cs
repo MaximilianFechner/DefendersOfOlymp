@@ -88,8 +88,8 @@ public class GridBuildingSystem : MonoBehaviour
             Vector3 placedObjectWorldPosition = grid.GetWorldPosition(x, z) +
                 new Vector3(rotationOffset.x, rotationOffset.y) * grid.GetCellSize();
 
-            if (!placedObjectTypeSO.prefab.gameObject.GetComponent<BaseTower>().enabled) {
-                placedObjectTypeSO.prefab.gameObject.GetComponent<BaseTower>().enabled = true;
+            if (!placedObjectTypeSO.prefab.gameObject.GetComponentInChildren<BaseTower>().enabled) {
+                placedObjectTypeSO.prefab.gameObject.GetComponentInChildren<BaseTower>().enabled = true;
             }
 
             PlacedObject placedObject = PlacedObject.Create(placedObjectWorldPosition, placedObjectOrigin, dir, placedObjectTypeSO);

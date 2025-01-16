@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HeraTower
   m_EditorClassIdentifier: 
   nameString: HeraTower
-  prefab: {fileID: 8844577905314880619, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
-  visual: {fileID: 8844577905314880619, guid: 5aef19075154fdc4f9ddfd989d3f71b9, type: 3}
+  prefab: {fileID: 5364546954765906432, guid: df4954743583e0f47b5d23681783779b, type: 3}
+  visual: {fileID: 5364546954765906432, guid: df4954743583e0f47b5d23681783779b, type: 3}
   width: 1
   height: 1

@@ -40,8 +40,8 @@ public class BuildingGhost : MonoBehaviour
             visual.localPosition = Vector3.zero;
             visual.localEulerAngles = Vector3.zero;
 
-            if (placedObjectTypeSO.prefab.gameObject.GetComponent<BaseTower>().enabled) {
-                placedObjectTypeSO.prefab.gameObject.GetComponent<BaseTower>().enabled = false;
+            if (placedObjectTypeSO.prefab.gameObject.GetComponentInChildren<BaseTower>().enabled) {
+                placedObjectTypeSO.prefab.gameObject.GetComponentInChildren<BaseTower>().enabled = false;
             }
         }
 
