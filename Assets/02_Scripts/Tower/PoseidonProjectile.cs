@@ -1,7 +1,10 @@
 using UnityEngine;
+using static System.Net.WebRequestMethods;
 
 public class PoseidonProjectile : BaseProjectile
 {
+
+    public GameObject hitPS; 
 
     void FixedUpdate() {
         Move();
@@ -19,6 +22,11 @@ public class PoseidonProjectile : BaseProjectile
         } else {
             Debug.Log("Enemy is null!");
         }
+    }
+
+    private void OnDestroy()
+    {
+        Instantiate(hitPS, this.transform.position, Quaternion.identity);
     }
 
 }

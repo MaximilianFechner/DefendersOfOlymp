@@ -271,6 +271,7 @@ MonoBehaviour:
   prefab: {fileID: 0}
   rb2D: {fileID: 0}
   projectilePrefab: {fileID: 7359844151393371129}
+  hitPS: {fileID: 3722948830147621180, guid: 2e87f4e2903eea941b7e95aeb637c450, type: 3}
 --- !u!1 &7403906961330979618
 GameObject:
   m_ObjectHideFlags: 0

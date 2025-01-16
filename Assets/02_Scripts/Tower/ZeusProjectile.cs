@@ -8,6 +8,8 @@ public class ZeusProjectile : BaseProjectile
     private GameObject lastEnemyAttacked;
     [SerializeField] private GameObject projectilePrefab;
 
+    public GameObject hitPS; //Particle-System for hits
+
     private void Start() {
         lastEnemyAttacked = targetEnemy;
     }
@@ -120,5 +122,9 @@ public class ZeusProjectile : BaseProjectile
         }
     }
 
+    private void OnDestroy()
+    {
+        Instantiate(hitPS, this.transform.position, Quaternion.identity);
+    }
 
 }

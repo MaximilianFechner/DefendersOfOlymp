@@ -28,15 +28,12 @@ public abstract class BaseProjectile : MonoBehaviour
     public void Move() {
         if (targetEnemy != null)
         {
-            // Richtung zum Ziel berechnen
             Vector2 direction = (targetEnemy.transform.position - rb2D.transform.position).normalized;
 
-            // Bewegung ausführen
             rb2D.MovePosition(rb2D.position + direction * movementSpeed * Time.fixedDeltaTime);
 
-            // Rotation des Projektils anpassen
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; // Winkel berechnen
-            rb2D.transform.rotation = Quaternion.Euler(0, 0, angle); // Rotation setzen
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            rb2D.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
         else
         {

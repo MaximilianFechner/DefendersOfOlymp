@@ -6,6 +6,8 @@ public class HeraProjectile : BaseProjectile
     [SerializeField] private GameObject slowCirclePrefab;
     [SerializeField] private int projectileUpgradeByTowerLevel;
 
+    public GameObject hitPS; //Particle-System for hits
+
     void FixedUpdate() {
         Move();
     }
@@ -27,6 +29,11 @@ public class HeraProjectile : BaseProjectile
         } else {
             Debug.Log("Enemy is null!");
         }
+    }
+
+    private void OnDestroy()
+    {
+        Instantiate(hitPS, this.transform.position, Quaternion.identity);
     }
 
 }
