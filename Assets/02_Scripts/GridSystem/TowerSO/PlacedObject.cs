@@ -7,7 +7,7 @@ public class PlacedObject : MonoBehaviour
     public static PlacedObject Create(Vector3 worldPosition, Vector2Int origin, PlacedObjectTypeSO.Dir dir, PlacedObjectTypeSO placedObjectTypeSO) {
         Transform placedObjectTransform = Instantiate(placedObjectTypeSO.prefab, worldPosition, Quaternion.Euler(0, 0, placedObjectTypeSO.GetRotationAngle(dir))); //TODO Vielleicht muss es auf y und z auf 0
 
-        PlacedObject placedObject = placedObjectTransform.GetComponent<PlacedObject>();
+        PlacedObject placedObject = placedObjectTransform.GetComponentInChildren<PlacedObject>();
         placedObject.placedObjectTypeSO = placedObjectTypeSO;
         placedObject.origin = origin;
         placedObject.dir = dir;
