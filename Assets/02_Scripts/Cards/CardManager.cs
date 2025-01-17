@@ -65,7 +65,7 @@ public class CardManager : MonoBehaviour
         //TODO Der PreviewTower aka BuildingGhost, darf nicht angreifen. 
         Cards previewTower = GetCurrentCard();
         
-        PlacementPreview(previewTower);
+        //PlacementPreview(previewTower);
         AudioManager.Instance.PlayCardSFX();
 
         PlacedObject placedObjectPreviewTower = previewTower.TowerPrefab.GetComponent<PlacedObject>();
