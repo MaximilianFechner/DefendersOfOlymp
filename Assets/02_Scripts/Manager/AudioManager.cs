@@ -12,6 +12,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip waveEndMusic;
     public AudioClip[] lostLifeSFX;
     public AudioClip cardSFX;
+    public AudioClip buttonSFX;
+    public AudioClip stoneSFX;
+    public AudioClip[] towerPlacementSFX;
+    public AudioClip[] hitImpactSFX;
 
     private void Awake()
     {
@@ -102,11 +106,66 @@ public class AudioManager : MonoBehaviour
 
         tempAudioSource.clip = cardSFX;
         tempAudioSource.ignoreListenerPause = true;
-        tempAudioSource.volume = Random.Range(0.2f, 0.4f);
+        tempAudioSource.volume = Random.Range(0.1f, 0.2f);
         tempAudioSource.pitch = Random.Range(0.9f, 1.1f);
         tempAudioSource.Play();
 
         Destroy(cardSoundObject, cardSFX.length);
+    }
+
+    public void PlayButtonSFX()
+    {
+        GameObject buttonSoundObject = new GameObject("ButtonSFX");
+        AudioSource tempAudioSource = buttonSoundObject.AddComponent<AudioSource>();
+
+        tempAudioSource.clip = buttonSFX;
+        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.volume = Random.Range(0.2f, 0.3f);
+        tempAudioSource.pitch = Random.Range(0.9f, 1.1f);
+        tempAudioSource.Play();
+
+        Destroy(buttonSoundObject, buttonSFX.length);
+    }
+
+    public void PlayStoneSFX()
+    {
+        GameObject stoneSoundObject = new GameObject("StoneSFX");
+        AudioSource tempAudioSource = stoneSoundObject.AddComponent<AudioSource>();
+
+        tempAudioSource.clip = stoneSFX;
+        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.volume = Random.Range(0.1f, 0.2f);
+        tempAudioSource.pitch = Random.Range(0.9f, 1.1f);
+        tempAudioSource.Play();
+
+        Destroy(stoneSoundObject, stoneSFX.length);
+    }
+
+    public void PlayTowerPlacementSFX(int god)
+    {
+        GameObject towerPlacementSoundObject = new GameObject("TowerPlacementSFX");
+        AudioSource tempAudioSource = towerPlacementSoundObject.AddComponent<AudioSource>();
+
+        tempAudioSource.clip = towerPlacementSFX[god];
+        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.volume = Random.Range(0.1f, 0.2f);
+        tempAudioSource.pitch = Random.Range(0.9f, 1.1f);
+        tempAudioSource.Play();
+
+        Destroy(towerPlacementSoundObject, towerPlacementSFX[god].length);
+    }
+    public void PlayHitImpactSFX(int god)
+    {
+        GameObject hitImpactSoundObject = new GameObject("HitImpactSFX");
+        AudioSource tempAudioSource = hitImpactSoundObject.AddComponent<AudioSource>();
+
+        tempAudioSource.clip = hitImpactSFX[god];
+        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.volume = Random.Range(0.025f, 0.04f);
+        tempAudioSource.pitch = Random.Range(0.9f, 1.1f);
+        tempAudioSource.Play();
+
+        Destroy(hitImpactSoundObject, hitImpactSFX[god].length);
     }
 
 }

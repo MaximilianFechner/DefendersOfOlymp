@@ -71,10 +71,6 @@ public class CardManager : MonoBehaviour
             Debug.LogError($"Cannot GetComponent<PlacedObject>() from previewTower {previewTower.ToString()}");
         }
 
-
-        //if (!UIManager.Instance.prepareFirstWavePanel) return;
-        //UIManager.Instance.prepareFirstWavePanel.SetActive(false);
-        //drawCardButton.interactable = false;
     }
 
     public Cards GetCurrentCard()
@@ -91,9 +87,28 @@ public class CardManager : MonoBehaviour
 
     private void PlaceTower()
     {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0; // Z-Achse auf 0 setzen f�r 2D
+
+        Cards selectedCard = GetCurrentCard();
+        Instantiate(selectedCard.TowerPrefab, mousePosition, Quaternion.identity);
+
+        if (currentCard.TowerName.Contains("Zeus")) AudioManager.Instance.PlayTowerPlacementSFX(0);
+        else if (currentCard.TowerName.Contains("Poseidon")) AudioManager.Instance.PlayTowerPlacementSFX(1);
+        else if (currentCard.TowerName.Contains("Hera")) AudioManager.Instance.PlayTowerPlacementSFX(2);
+        else if (currentCard.TowerName.Contains("Hephaistos")) AudioManager.Instance.PlayTowerPlacementSFX(3);
+
+        if (currentPreview != null)
+        {
+            Destroy(currentPreview);
+            currentPreview = null;
+        }
+
         GridBuildingSystem.Instance.PlaceTower();
         currentPreview = null;
+        
         ClearCard();
+
         GameManager.Instance.StartNextWave();
     }
 
