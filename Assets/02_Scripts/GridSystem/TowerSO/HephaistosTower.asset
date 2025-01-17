@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HephaistosTower
   m_EditorClassIdentifier: 
   nameString: HephaistosTower
-  prefab: {fileID: 8844577905314880619, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
-  visual: {fileID: 8844577905314880619, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
+  prefab: {fileID: 2974377190482328709, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
+  visual: {fileID: 2974377190482328709, guid: 9c0ee9f193ece694bb8a0693ff60a871, type: 3}
   width: 1
   height: 1

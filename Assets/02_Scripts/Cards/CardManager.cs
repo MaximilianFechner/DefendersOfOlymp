@@ -64,11 +64,9 @@ public class CardManager : MonoBehaviour
 
         //TODO Der PreviewTower aka BuildingGhost, darf nicht angreifen. 
         Cards previewTower = GetCurrentCard();
-        
-        //PlacementPreview(previewTower);
-        AudioManager.Instance.PlayCardSFX();
 
-        PlacedObject placedObjectPreviewTower = previewTower.TowerPrefab.GetComponent<PlacedObject>();
+        PlacedObject placedObjectPreviewTower = previewTower.TowerPrefab.GetComponentInChildren<PlacedObject>();
+
         if (placedObjectPreviewTower != null) {
             GridBuildingSystem.Instance.RefreshSelectedObjectType(placedObjectPreviewTower.GetPlacedObjectTypeSO());
         } else {
@@ -91,22 +89,10 @@ public class CardManager : MonoBehaviour
 
     private void PlaceTower()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0; // Z-Achse auf 0 setzen f�r 2D
-
-        Cards selectedCard = GetCurrentCard();
-        Instantiate(selectedCard.TowerPrefab, mousePosition, Quaternion.identity);
-
         if (currentCard.TowerName.Contains("Zeus")) AudioManager.Instance.PlayTowerPlacementSFX(0);
         else if (currentCard.TowerName.Contains("Poseidon")) AudioManager.Instance.PlayTowerPlacementSFX(1);
         else if (currentCard.TowerName.Contains("Hera")) AudioManager.Instance.PlayTowerPlacementSFX(2);
         else if (currentCard.TowerName.Contains("Hephaistos")) AudioManager.Instance.PlayTowerPlacementSFX(3);
-
-        if (currentPreview != null)
-        {
-            Destroy(currentPreview);
-            currentPreview = null;
-        }
 
         GridBuildingSystem.Instance.PlaceTower();
         currentPreview = null;
