@@ -17,7 +17,7 @@ public class Grid<TGridObject> {
     private Vector3 originPosition;
     private TGridObject[,] gridArray;
 
-    [SerializeField] private bool debugMode = true;
+    [SerializeField] private bool debugMode = false;
 
     public Grid(int width, int height, float cellSize, Vector3 originPosition, Func<Grid<TGridObject>, int, int, TGridObject> createGridObject) {
 
