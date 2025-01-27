@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843dc1c2019eff549b99d9ce58a9bb47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 1
+  attackSpeed: 0.95
   attackRadius: 16
   targetType: 1
   movementSpeed: 8
@@ -114,11 +114,11 @@ MonoBehaviour:
   slowValue: 0
   timeSlowed: 0
   maxDamageJump: 0
-  upgradeAttackSpeed: 0
-  upgradeAttackRadius: 0
+  upgradeAttackSpeed: 0.85
+  upgradeAttackRadius: 1
   upgradeMovementSpeed: 0
-  upgradeDamage: 0
-  upgradeAoeRadius: 0
+  upgradeDamage: 3
+  upgradeAoeRadius: 1
   upgradeSlowValue: 0
   upgradeTimeSlowed: 0
   upgradeMaxDamageJump: 0

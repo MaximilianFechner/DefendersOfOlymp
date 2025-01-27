@@ -110,19 +110,19 @@ MonoBehaviour:
   attackRadius: 16
   targetType: 0
   movementSpeed: 8
-  damage: 4
+  damage: 4.5
   aoeRadius: 0
   slowValue: 0
   timeSlowed: 0
   maxDamageJump: 2
-  upgradeAttackSpeed: 0
+  upgradeAttackSpeed: 0.4
   upgradeAttackRadius: 0
   upgradeMovementSpeed: 0
-  upgradeDamage: 0
+  upgradeDamage: 1.5
   upgradeAoeRadius: 0
   upgradeSlowValue: 0
   upgradeTimeSlowed: 0
-  upgradeMaxDamageJump: 0
+  upgradeMaxDamageJump: 4
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 64

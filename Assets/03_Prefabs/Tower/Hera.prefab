@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4abec0f5468925489ee2d63d64f9583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 1
+  attackSpeed: 0.9
   attackRadius: 16
   targetType: 1
   movementSpeed: 8
@@ -335,13 +335,13 @@ MonoBehaviour:
   slowValue: 5
   timeSlowed: 1.5
   maxDamageJump: 0
-  upgradeAttackSpeed: 0
-  upgradeAttackRadius: 0
+  upgradeAttackSpeed: 0.7
+  upgradeAttackRadius: 1
   upgradeMovementSpeed: 0
-  upgradeDamage: 0
+  upgradeDamage: 0.5
   upgradeAoeRadius: 0
-  upgradeSlowValue: 0
-  upgradeTimeSlowed: 0
+  upgradeSlowValue: 1
+  upgradeTimeSlowed: 0.5
   upgradeMaxDamageJump: 0
   enemyLayerMask:
     serializedVersion: 2

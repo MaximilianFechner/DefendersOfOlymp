@@ -114,11 +114,11 @@ MonoBehaviour:
   slowValue: 0
   timeSlowed: 0
   maxDamageJump: 0
-  upgradeAttackSpeed: 0
+  upgradeAttackSpeed: 0.5
   upgradeAttackRadius: 0
   upgradeMovementSpeed: 0
   upgradeDamage: 0
-  upgradeAoeRadius: 0
+  upgradeAoeRadius: 1
   upgradeSlowValue: 0
   upgradeTimeSlowed: 0
   upgradeMaxDamageJump: 0
