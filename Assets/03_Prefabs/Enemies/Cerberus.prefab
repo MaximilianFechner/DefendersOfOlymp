@@ -224,6 +224,7 @@ MonoBehaviour:
   _currentHP: 0
   deathPrefab: {fileID: 6555997334480401726, guid: 59bd3323f7e8ba84aada906ba1c477b4, type: 3}
   bloodParticlePrefab: {fileID: 3722948830147621180, guid: 394713cc275bbfe43a3863de26e9de10, type: 3}
+  damageTextPrefab: {fileID: 8891703432907291767, guid: 817e71aa649dd764f958c8500888b914, type: 3}
 --- !u!114 &1173280012366497405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -706,9 +707,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1264353881
+  m_SortingLayer: 1
+  m_SortingOrder: -1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
   m_FlipX: 0

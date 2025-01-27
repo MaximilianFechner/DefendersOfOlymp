@@ -38,15 +38,12 @@ public class CardManager : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(1))
-        {
+        if (Input.GetMouseButtonDown(1)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
-            if (hit.collider != null)
-            {
+            if (hit.collider != null) {
                 GameObject tower = hit.collider.gameObject;
-                if (tower.tag.Equals("Tower"))
-                {
+                if (tower.tag.Equals("Tower")) {
                     BaseTower baseTower = tower.GetComponent<BaseTower>();
                     baseTower.SetTowerMenu();
                 }
@@ -63,21 +60,17 @@ public class CardManager : MonoBehaviour
         CardDisplay.sprite = currentCard.CardSprite;
         CardDisplay.gameObject.SetActive(true);
         drawCardButton.gameObject.SetActive(false);
-        //UIManager.Instance.waveFinPanel.SetActive(false);
+
+        AudioManager.Instance.PlayCardSFX();
 
         //TODO Der PreviewTower aka BuildingGhost, darf nicht angreifen. 
         Cards previewTower = GetCurrentCard();
 
-        PlacementPreview(previewTower);
-        AudioManager.Instance.PlayCardSFX();
+        PlacedObject placedObjectPreviewTower = previewTower.TowerPrefab.GetComponentInChildren<PlacedObject>();
 
-        PlacedObject placedObjectPreviewTower = previewTower.TowerPrefab.GetComponent<PlacedObject>();
-        if (placedObjectPreviewTower != null)
-        {
+        if (placedObjectPreviewTower != null) {
             GridBuildingSystem.Instance.RefreshSelectedObjectType(placedObjectPreviewTower.GetPlacedObjectTypeSO());
-        }
-        else
-        {
+        } else {
             Debug.LogError($"Cannot GetComponent<PlacedObject>() from previewTower {previewTower.ToString()}");
         }
 
@@ -97,49 +90,18 @@ public class CardManager : MonoBehaviour
 
     private void PlaceTower()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0; // Z-Achse auf 0 setzen f�r 2D
-
-        Cards selectedCard = GetCurrentCard();
-        Instantiate(selectedCard.TowerPrefab, mousePosition, Quaternion.identity);
-
-        /*
         if (currentCard.TowerName.Contains("Zeus")) AudioManager.Instance.PlayTowerPlacementSFX(0);
         else if (currentCard.TowerName.Contains("Poseidon")) AudioManager.Instance.PlayTowerPlacementSFX(1);
         else if (currentCard.TowerName.Contains("Hera")) AudioManager.Instance.PlayTowerPlacementSFX(2);
         else if (currentCard.TowerName.Contains("Hephaistos")) AudioManager.Instance.PlayTowerPlacementSFX(3);
-        */
-
-        if (currentPreview != null)
-        {
-            Destroy(currentPreview);
-            currentPreview = null;
-        }
 
         GridBuildingSystem.Instance.PlaceTower();
         currentPreview = null;
-
+        
         ClearCard();
 
         GameManager.Instance.StartNextWave();
     }
 
-    private void PlacementPreview(Cards currentCard)
-    {
-        if (currentCard == null) return;
-
-        if (currentPreview == null)
-        {
-            currentPreview = Instantiate(currentCard.TowerPrefab);
-            currentPreview.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
-
-            // deactivate the ability of the preview to attack the enemies as preview tower
-            MonoBehaviour[] scripts = currentPreview.GetComponents<MonoBehaviour>();
-            foreach (MonoBehaviour script in scripts)
-            {
-                script.enabled = false;
-            }
-        }
-    }
 }
 
