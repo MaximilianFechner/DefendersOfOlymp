@@ -159,9 +159,17 @@ public class EnemyManager : MonoBehaviour
     public void TakeDamage(float damage)
     {
         if (!_isAlive) return; // avoid damage on dead enemies
+
+        bool isCrit = Random.Range(0,100) <= GameManager.Instance.critChance;
+
+        if (isCrit)
+        {
+            damage *= 2;
+        }
+
         _currentHP -= damage;
 
-        if (GameManager.Instance.showDamageNumbers) ShowDamageText(damage);
+        if (GameManager.Instance.showDamageNumbers) ShowDamageText(damage, isCrit);
 
         if (Random.value <= bloodSpawnChance)
         {
@@ -296,7 +304,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    private void ShowDamageText(float damage)
+    private void ShowDamageText(float damage, bool isCrit)
     {
         float randomXOffset = Random.Range(-1f, 1f);
         float randomYOffset = Random.Range(0.3f, 0.6f);
@@ -307,5 +315,11 @@ public class EnemyManager : MonoBehaviour
 
         Text textComponent = damageTextInstance.GetComponent<Text>();
         textComponent.text = damage.ToString();
+
+        if (isCrit)
+        {
+            textComponent.color = new Color(255f / 255f, 130f / 255f, 0f / 255f);
+            textComponent.fontSize += 3;
+        }
     }
 }

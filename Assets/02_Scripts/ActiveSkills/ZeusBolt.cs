@@ -287,4 +287,29 @@ public class ZeusBolt : MonoBehaviour
             uiAnimation.speed = targetSpeed;
         }
     }
+
+    public void ResetCooldown()
+    {
+        remainingCooldownTime = 0f;
+        isReady = false;
+
+        UIManager.Instance.zeusSkillCooldown.text = "READY";
+
+        RectTransform buttonRect = skillButton.GetComponent<RectTransform>();
+        StartCoroutine(MoveButton(buttonRect, buttonOriginalPosition, new Color(0.73f, 0.73f, 0.73f), Color.white));
+
+        skillButton.interactable = true;
+
+        if (currentPreview != null)
+        {
+            Destroy(currentPreview);
+            currentPreview = null;
+        }
+
+        if (preBoltSoundObject != null)
+        {
+            Destroy(preBoltSoundObject);
+            preBoltSoundObject = null;
+        }
+    }
 }

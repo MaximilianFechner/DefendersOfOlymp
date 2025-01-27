@@ -81,6 +81,13 @@ public class UIManager : MonoBehaviour
         enemiesKilledText.text = $"{GameManager.Instance.TotalEnemiesKilled.ToString()}";
         remainingEnemiesText.text = $"{GameManager.Instance.RemainingEnemies.ToString()}";
         score.text = $"{GameManager.Instance.score.ToString()}";
+        cerberusKilledText.text = $"{GameManager.Instance.cerberusKills.ToString()}";
+        centaurKilledText.text = $"{GameManager.Instance.centaurKills.ToString()}";
+        cyclopKilledText.text = $"{GameManager.Instance.cyclopKills.ToString()}";
+        enemyScore.text = $"{GameManager.Instance.enemyScore.ToString()}";
+        waveScore.text = $"{GameManager.Instance.waveScore.ToString()}";
+        healthScore.text = $"{GameManager.Instance.healthScore.ToString()}";
+        totalScore.text = $"{GameManager.Instance.score.ToString()}";
     }
 
     public void ShowEndResults()

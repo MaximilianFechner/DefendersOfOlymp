@@ -167,5 +167,4 @@ public class AudioManager : MonoBehaviour
 
         Destroy(hitImpactSoundObject, hitImpactSFX[god].length);
     }
-
 }

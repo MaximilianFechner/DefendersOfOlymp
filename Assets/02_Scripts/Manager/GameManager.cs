@@ -35,6 +35,10 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int _cardsToDraw = 1;
 
+    [Tooltip("Chance to crit: 2x damage")]
+    [Min(0)]
+    public float critChance = 5;
+
     [Space(10)]
     [Header("Wave Management")]
     public GameObject[] enemyPrefabs;
@@ -63,6 +67,10 @@ public class GameManager : MonoBehaviour
 
     public bool showDamageNumbers = true; //default activated
 
+
+    public ZeusBolt zeusBolt;
+    public PoseidonWave poseidonWave;
+    public HeraStun heraStun;
 
     private void Awake()
     {
@@ -116,7 +124,11 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.UpdateUITexts();
         UIManager.Instance.gameOverPanel.SetActive(false);
         UIManager.Instance.waveFinPanel.SetActive(false);
-        //UIManager.Instance.prepareFirstWavePanel.SetActive(true);
+
+        if (zeusBolt != null) zeusBolt.ResetCooldown();
+        if (poseidonWave != null) poseidonWave.ResetCooldown();
+        if (heraStun != null) heraStun.ResetCooldown();
+
         SceneManager.LoadScene(0);
     }
 
@@ -192,6 +204,12 @@ public class GameManager : MonoBehaviour
         RemainingLives = _playerStartLives;
         waveNumber = 0;
         score = 0;
+        cerberusKills = 0;
+        cyclopKills = 0;
+        centaurKills = 0;
+        enemyScore = 0;
+        waveScore = 0;
+        healthScore = 0;
     }
 
     private void GameOver()

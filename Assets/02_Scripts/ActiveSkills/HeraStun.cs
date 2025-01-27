@@ -75,12 +75,12 @@ public class HeraStun : MonoBehaviour
 
     private float remainingCooldownTime = 0f;
 
-    private Vector2 buttonOriginalPosition; //BTN CD MOVE TEST
-    public Button skillButton; //BTN CD MOVE TEST
-    public Animator uiAnimation; //BTN CD MOVE TEST
-    public Image image; //BTN CD MOVE TEST
+    private Vector2 buttonOriginalPosition; //BTN CD MOVE
+    public Button skillButton; //BTN CD MOVE
+    public Animator uiAnimation; //BTN CD MOVE
+    public Image image; //BTN CD MOVE
 
-    //BTN CD MOVE TEST
+    //BTN CD MOVE
     private void Start()
     {
         buttonOriginalPosition = skillButton.GetComponent<RectTransform>().anchoredPosition;
@@ -104,8 +104,8 @@ public class HeraStun : MonoBehaviour
                     UIManager.Instance.heraSkillCooldown.text = "READY";
 
                     StartCoroutine(MoveButton(skillButton.GetComponent<RectTransform>(),
-                        buttonOriginalPosition, new Color(0.73f, 0.73f, 0.73f), Color.white)); //BTN CD MOVE TEST
-                    skillButton.interactable = true; //BTN CD MOVE TEST
+                        buttonOriginalPosition, new Color(0.73f, 0.73f, 0.73f), Color.white)); //BTN CD MOVE
+                    skillButton.interactable = true; //BTN CD MOVE
                 }
                 else
                 {
@@ -289,6 +289,31 @@ public class HeraStun : MonoBehaviour
         if (uiAnimation != null)
         {
             uiAnimation.speed = targetSpeed;
+        }
+    }
+
+    public void ResetCooldown()
+    {
+        remainingCooldownTime = 0f;
+        isReady = false;
+
+        UIManager.Instance.heraSkillCooldown.text = "READY";
+
+        RectTransform buttonRect = skillButton.GetComponent<RectTransform>();
+        StartCoroutine(MoveButton(buttonRect, buttonOriginalPosition, new Color(0.73f, 0.73f, 0.73f), Color.white));
+
+        skillButton.interactable = true;
+
+        if (currentPreview != null)
+        {
+            Destroy(currentPreview);
+            currentPreview = null;
+        }
+
+        if (preStunSoundObject != null)
+        {
+            Destroy(preStunSoundObject);
+            preStunSoundObject = null;
         }
     }
 }
