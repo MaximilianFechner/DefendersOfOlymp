@@ -398,6 +398,7 @@ MonoBehaviour:
   _currentHP: 0
   deathPrefab: {fileID: 6555997334480401726, guid: d918406c680754e4cbb6b8c237934745, type: 3}
   bloodParticlePrefab: {fileID: 3722948830147621180, guid: 394713cc275bbfe43a3863de26e9de10, type: 3}
+  damageTextPrefab: {fileID: 8891703432907291767, guid: 817e71aa649dd764f958c8500888b914, type: 3}
 --- !u!114 &1173280012366497405
 MonoBehaviour:
   m_ObjectHideFlags: 0

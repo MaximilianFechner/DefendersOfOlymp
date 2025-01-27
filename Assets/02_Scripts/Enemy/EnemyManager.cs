@@ -1,6 +1,9 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
+using System.Collections;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -70,7 +73,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField]
     private float maxPitchSounds = 1f;
 
-    [Space(10)]
+    [Header("Game Design Values: Blood")]
     [Tooltip("Chance to spawn blood on enemies hit")]
     [Range(0, 1)]
     [SerializeField]
@@ -107,6 +110,8 @@ public class EnemyManager : MonoBehaviour
 
     public GameObject deathPrefab;
     public GameObject bloodParticlePrefab;
+
+    public GameObject damageTextPrefab;
 
     private void Awake()
     {
@@ -155,6 +160,8 @@ public class EnemyManager : MonoBehaviour
     {
         if (!_isAlive) return; // avoid damage on dead enemies
         _currentHP -= damage;
+
+        if (GameManager.Instance.showDamageNumbers) ShowDamageText(damage);
 
         if (Random.value <= bloodSpawnChance)
         {
@@ -219,7 +226,7 @@ public class EnemyManager : MonoBehaviour
     }
     private void DieSound()
     {
-            PlaySoundOnTempGameObject(deathSounds[Random.Range(0, enemySounds.Length)]);
+        PlaySoundOnTempGameObject(deathSounds[Random.Range(0, enemySounds.Length)]);
     }
 
     private void PlaySoundOnTempGameObject(AudioClip clip)
@@ -287,5 +294,18 @@ public class EnemyManager : MonoBehaviour
             GameManager.Instance.SubRemainingEnemy();
             Destroy(this.gameObject, 3f);
         }
+    }
+
+    private void ShowDamageText(float damage)
+    {
+        float randomXOffset = Random.Range(-1f, 1f);
+        float randomYOffset = Random.Range(0.3f, 0.6f);
+
+        Vector3 spawnPosition = transform.position + new Vector3(randomXOffset, 1.5f + randomYOffset, 0);
+
+        GameObject damageTextInstance = Instantiate(damageTextPrefab, spawnPosition, Quaternion.identity);
+
+        Text textComponent = damageTextInstance.GetComponent<Text>();
+        textComponent.text = damage.ToString();
     }
 }

@@ -61,6 +61,9 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int waveScore = 0;
     [HideInInspector] public int healthScore = 0;
 
+    public bool showDamageNumbers = true; //default activated
+
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -271,5 +274,10 @@ public class GameManager : MonoBehaviour
     public int ReturnLives()
     {
         return _playerStartLives;
+    }
+
+    public void ToggleDamageNumbers()
+    {
+        showDamageNumbers = !showDamageNumbers;
     }
 }
