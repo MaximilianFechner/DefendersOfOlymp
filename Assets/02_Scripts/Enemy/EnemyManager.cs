@@ -318,8 +318,8 @@ public class EnemyManager : MonoBehaviour
 
         if (isCrit)
         {
-            textComponent.color = new Color(255f / 255f, 130f / 255f, 0f / 255f);
-            textComponent.fontSize += 3;
+            textComponent.color = new Color(255f / 255f, 210f / 255f, 0f / 255f);
+            textComponent.fontSize += 4;
         }
     }
 }

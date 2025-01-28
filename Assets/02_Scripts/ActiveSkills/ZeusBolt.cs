@@ -193,11 +193,11 @@ public class ZeusBolt : MonoBehaviour
             Vector2 targetPosition = buttonOriginalPosition + new Vector2(0, -50);
             StartCoroutine(MoveButton(buttonRect, targetPosition, Color.white, new Color(0.73f, 0.73f, 0.73f)));
             skillButton.interactable = false;
-        }
 
-        if (_cameraShake != null)
-        {
-            StartCoroutine(_cameraShake.Shake(_cameraShakeDuration, _cameraShakeMagnitude));
+            if (_cameraShake != null)
+            {
+                StartCoroutine(_cameraShake.Shake(_cameraShakeDuration, _cameraShakeMagnitude));
+            }
         }
     }
 
