@@ -110,7 +110,7 @@ MonoBehaviour:
   attackRadius: 16
   targetType: 0
   movementSpeed: 8
-  damage: 4.5
+  damage: 4
   aoeRadius: 0
   slowValue: 0
   timeSlowed: 0

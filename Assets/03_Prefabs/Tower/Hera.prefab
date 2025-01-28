@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSpeed: 0.9
-  attackRadius: 16
+  attackRadius: 13
   targetType: 1
   movementSpeed: 8
   damage: 7

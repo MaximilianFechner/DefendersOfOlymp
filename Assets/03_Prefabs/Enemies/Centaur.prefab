@@ -371,9 +371,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b09ab8384e0a064b8b353b7e5b5112b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHP: 35
-  absoluteHPIncreaseWave: 1
-  prozentualHPIncreaseWave: 1
+  _maxHP: 50
+  absoluteHPIncreaseWave: 4
+  prozentualHPIncreaseWave: 2
   absoluteSpeedIncreaseWave: 0
   prozentualSpeedIncreaseWave: 3
   _playerDamage: 1

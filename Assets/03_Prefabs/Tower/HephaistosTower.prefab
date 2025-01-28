@@ -110,15 +110,15 @@ MonoBehaviour:
   targetType: 0
   movementSpeed: 8
   damage: 7
-  aoeRadius: 16
+  aoeRadius: 10
   slowValue: 0
   timeSlowed: 0
   maxDamageJump: 0
   upgradeAttackSpeed: 0.5
-  upgradeAttackRadius: 0
+  upgradeAttackRadius: 1
   upgradeMovementSpeed: 0
-  upgradeDamage: 0
-  upgradeAoeRadius: 1
+  upgradeDamage: 1
+  upgradeAoeRadius: 0
   upgradeSlowValue: 0
   upgradeTimeSlowed: 0
   upgradeMaxDamageJump: 0
