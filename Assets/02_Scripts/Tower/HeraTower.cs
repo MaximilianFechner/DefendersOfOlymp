@@ -28,6 +28,8 @@ public class HeraTower : BaseTower
         baseProjectile.targetEnemy = targetEnemy;
         baseProjectile.enemyLayerMask = enemyLayerMask;
         baseProjectile.damage = damage;
+        baseProjectile.damageUpperLimit = damageUpperLimit;
+        baseProjectile.damageLowerLimit = damageLowerLimit;
         baseProjectile.movementSpeed = movementSpeed;
         baseProjectile.slowValue = slowValue;
         baseProjectile.timeSlowed = timeSlowed;

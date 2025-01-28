@@ -12,10 +12,20 @@ public class ZeusBolt : MonoBehaviour
 
     [Space(10)]
     [Header("Game Design Values")]
-    [Tooltip("The damage dealt by the skill")]
+    //[Tooltip("The damage dealt by the skill")]
+    //[Min(0)]
+    //[SerializeField]
+    //private float damage = 100f;
+
+    [Tooltip("The minimum damage the ability does")]
     [Min(0)]
     [SerializeField]
-    private float damage = 100f;
+    private float damageLowerLimit = 90f;
+
+    [Tooltip("The maximum damage the ability does")]
+    [Min(0)]
+    [SerializeField]
+    private float damageUpperLimit = 110f;
 
     [Tooltip("Animationtime, it doesnt change the damage")]
     [Min(0)]
@@ -85,6 +95,11 @@ public class ZeusBolt : MonoBehaviour
     public Animator uiAnimation; //BTN CD MOVE
     public Image image; //BTN CD MOVE
 
+    // for cancel other skills on activation
+    public PoseidonWave poseidonWave;
+    public HeraStun heraStun;
+    public HephaistosQuake hephaistosQuake;
+
     private void Awake()
     {
         _cameraShake = Camera.main.GetComponent<CameraShake>();
@@ -95,7 +110,6 @@ public class ZeusBolt : MonoBehaviour
         uiAnimation = uiAnimation.GetComponent<Animator>();
         image = image.GetComponent<Image>();
     }
-    //
 
     private void Update()
     {
@@ -125,7 +139,16 @@ public class ZeusBolt : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            ActivateZeusSkill();
+            if (isReady)
+            {
+                CancelZeusSkill(); // when active -> deactivate
+            }
+            else
+            {
+                ActivateZeusSkill(); // when not active -> activate
+                poseidonWave.CancelPoseidonSkill();
+                heraStun.CancelHeraSkill();
+            }
         }
 
         if (isReady)
@@ -134,25 +157,38 @@ public class ZeusBolt : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                if (EventSystem.current.IsPointerOverGameObject()) return;
+                if (EventSystem.current.IsPointerOverGameObject()) return; // avoid clicks on ui-elements
 
                 TriggerLightning();
-                Destroy(currentPreview);
-                currentPreview = null;
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                CancelZeusSkill();
             }
         }
     }
 
-    public void ActivateZeusSkill()
+    public void ActivateZeusSkill() //set isReady on true, activate the preview and the pre-sound
     {
-        if (remainingCooldownTime <= 0 && GameManager.Instance.isInWave) //if (Time.time >= lastUseTime + cooldownTime)
+        if (remainingCooldownTime <= 0 && GameManager.Instance.isInWave)
         {
-            isReady = true;
-
-            if (currentPreview == null)
+            if (isReady)
             {
-                currentPreview = Instantiate(boltPreview);
-                PlayPreBoltSFX(preSkillSound);
+                CancelZeusSkill();
+            }
+            else
+            {
+                isReady = true;
+                GameManager.Instance.isASkillSelected = true;
+                if (currentPreview == null)
+                {
+                    currentPreview = Instantiate(boltPreview);
+                    PlayPreBoltSFX(preSkillSound);
+                }
+
+                poseidonWave.CancelPoseidonSkill();
+                heraStun.CancelHeraSkill();
             }
         }
     }
@@ -171,11 +207,12 @@ public class ZeusBolt : MonoBehaviour
             PlayBoltSFX(skillSound);
             Destroy(bolt, lightningDuration);
 
-            targetEnemy.GetComponent<EnemyManager>().TakeDamage(damage);
+            targetEnemy.GetComponent<EnemyManager>().TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit)));
 
             remainingCooldownTime = cooldownTime;
             lastUseTime = Time.time;
             isReady = false;
+            GameManager.Instance.isASkillSelected = false;
 
             if (currentPreview != null)
             {
@@ -214,6 +251,27 @@ public class ZeusBolt : MonoBehaviour
         }
 
         currentPreview.transform.position = worldPosition;
+    }
+
+    public void CancelZeusSkill()
+    {
+        isReady = false;
+        GameManager.Instance.isASkillSelected = false;
+
+        if (currentPreview != null)
+        {
+            Destroy(currentPreview);
+            currentPreview = null;
+        }
+
+        if (preBoltSoundObject != null)
+        {
+            Destroy(preBoltSoundObject);
+            preBoltSoundObject = null;
+        }
+
+        skillButton.interactable = true;
+        UIManager.Instance.zeusSkillCooldown.text = remainingCooldownTime <= 0 ? "READY" : $"{remainingCooldownTime:F1}s";
     }
 
     private void PlayBoltSFX(AudioClip clip)

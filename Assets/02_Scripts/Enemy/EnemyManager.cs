@@ -306,8 +306,8 @@ public class EnemyManager : MonoBehaviour
 
     private void ShowDamageText(float damage, bool isCrit)
     {
-        float randomXOffset = Random.Range(-1f, 1f);
-        float randomYOffset = Random.Range(0.3f, 0.6f);
+        float randomXOffset = Random.Range(-1.5f, 1.5f);
+        float randomYOffset = Random.Range(0.2f, 0.8f);
 
         Vector3 spawnPosition = transform.position + new Vector3(randomXOffset, 1.5f + randomYOffset, 0);
 

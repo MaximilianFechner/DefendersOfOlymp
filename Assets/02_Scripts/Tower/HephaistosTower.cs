@@ -34,7 +34,7 @@ public class HephaistosTower : BaseTower
         foreach (Collider2D collider in colliders) {
             if (collider.gameObject.CompareTag("Enemy")) {
                 EnemyManager enemy = collider.gameObject.GetComponent<EnemyManager>();
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit)));
             } else if (collider.gameObject.CompareTag("Tower")) {
                 if (_buffedTowers.Contains(collider.gameObject)) {
                     return;

@@ -12,10 +12,20 @@ public class PoseidonWave : MonoBehaviour
 
     [Space(10)]
     [Header("Game Design Values")]
-    [Tooltip("The damage per tick in every interval")]
+    //[Tooltip("The damage per tick in every interval")]
+    //[Min(0)]
+    //[SerializeField]
+    //private float _damagePerInterval = 10f;
+
+    [Tooltip("The minimum damage the ability does per interval")]
     [Min(0)]
     [SerializeField]
-    private float _damagePerInterval = 10f;
+    private float damageLowerLimitPerInterval = 8f;
+
+    [Tooltip("The maximum damage the ability does per interval")]
+    [Min(0)]
+    [SerializeField]
+    private float damageUpperLimitPerInterval = 12f;
 
     [Tooltip("The time between the damage ticks")]
     [Min(0)]
@@ -79,6 +89,11 @@ public class PoseidonWave : MonoBehaviour
     public Animator uiAnimation; //BTN CD MOVE
     public Image image; //BTN CD MOVE
 
+    // for cancel other skills on activation
+    public ZeusBolt zeusBolt;
+    public HeraStun heraStun;
+    public HephaistosQuake hephaistosQuake;
+
     //BTN CD MOVE
     private void Start()
     {
@@ -115,7 +130,16 @@ private void Update()
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            ActivatePoseidonSkill();
+            if (isReady)
+            {
+                CancelPoseidonSkill();
+            }
+            else
+            {
+                ActivatePoseidonSkill();
+                zeusBolt.CancelZeusSkill();
+                heraStun.CancelHeraSkill();
+            }
         }
 
         if (isReady)
@@ -130,22 +154,36 @@ private void Update()
                 Destroy(currentPreview);
                 currentPreview = null;
             }
-        }
 
+            if (Input.GetMouseButtonDown(1))
+            {
+                CancelPoseidonSkill();
+            }
+        }
     }
 
-    public void ActivatePoseidonSkill()
+    public void ActivatePoseidonSkill() //set isReady on true, activate the preview and the pre-sound
     {
         if (Time.timeScale == 0) return;
         if (remainingCooldownTime <= 0 && GameManager.Instance.isInWave) //if (Time.time >= lastUseTime + _cooldownTime)
         {
-            isReady = true;
-
-            if (currentPreview == null)
+            if (isReady)
             {
-                currentPreview = Instantiate(wavePreview);
-                currentPreview.transform.localScale = new Vector3(1 * (_waveRadius / 4), 1 * (_waveRadius / 4), 1 * (_waveRadius / 4));
-                PlayPreWaveSFX(preSkillSound);
+                CancelPoseidonSkill();
+            }
+            else
+            {
+                isReady = true;
+
+                if (currentPreview == null)
+                {
+                    currentPreview = Instantiate(wavePreview);
+                    currentPreview.transform.localScale = new Vector3(1 * (_waveRadius / 4), 1 * (_waveRadius / 4), 1 * (_waveRadius / 4));
+                    PlayPreWaveSFX(preSkillSound);
+                }
+
+                zeusBolt.CancelZeusSkill();
+                heraStun.CancelHeraSkill();
             }
         }
     }
@@ -195,7 +233,7 @@ private void Update()
             {
                 if (enemy.TryGetComponent(out EnemyManager enemyManager))
                 {
-                    enemyManager.TakeDamage(_damagePerInterval);
+                    enemyManager.TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimitPerInterval, damageUpperLimitPerInterval)));
                 }
             }
 
@@ -217,6 +255,27 @@ private void Update()
         }
 
         currentPreview.transform.position = worldPosition;
+    }
+
+    public void CancelPoseidonSkill()
+    {
+        isReady = false;
+        GameManager.Instance.isASkillSelected = false;
+
+        if (currentPreview != null)
+        {
+            Destroy(currentPreview);
+            currentPreview = null;
+        }
+
+        if (preWaveSoundObject != null)
+        {
+            Destroy(preWaveSoundObject);
+            preWaveSoundObject = null;
+        }
+
+        skillButton.interactable = true;
+        UIManager.Instance.poseidonSkillCooldown.text = remainingCooldownTime <= 0 ? "READY" : $"{remainingCooldownTime:F1}s";
     }
 
     private void PlaySoundOnTempGameObject(AudioClip clip)

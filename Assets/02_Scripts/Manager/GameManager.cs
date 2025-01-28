@@ -51,8 +51,8 @@ public class GameManager : MonoBehaviour
     private float _waveStartTime;
     private float _waveEndTime;
 
-    public float gameSpeed = 1f;
-    public bool isInWave = false;
+    //public float gameSpeed = 1f;
+    [HideInInspector] public bool isInWave = false;
     
     [HideInInspector] public int score = 0;
     [HideInInspector] public int highscore = 0;
@@ -65,7 +65,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int waveScore = 0;
     [HideInInspector] public int healthScore = 0;
 
-    public bool showDamageNumbers = true; //default activated
+    [HideInInspector] public bool showDamageNumbers = true; //default activated, change for show damageNumbers or to disable them
+    [HideInInspector] public bool isASkillSelected = false; //checks global if any active skill is selected to avoid multiple activation of skills
 
 
     public ZeusBolt zeusBolt;

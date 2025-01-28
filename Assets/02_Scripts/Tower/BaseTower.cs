@@ -42,6 +42,14 @@ public class BaseTower : MonoBehaviour
     [Min(1)]
     [SerializeField] public float damage;
 
+    [Tooltip("The minimum damage the ability does")]
+    [Min(0)]
+    [SerializeField] public float damageLowerLimit;
+
+    [Tooltip("The maximum damage the ability does")]
+    [Min(0)]
+    [SerializeField] public float damageUpperLimit;
+
     [Tooltip("The base aoe radius for the projectile")]
     [SerializeField] public float aoeRadius;
 
@@ -181,6 +189,8 @@ public class BaseTower : MonoBehaviour
 
     public void AddBonusToAttackDamage(float amount) {
         this.damage *= amount;
+        this.damageUpperLimit *= amount;
+        this.damageLowerLimit *= amount;
     }
 
     public void AddBonusToAttackSpeed(float amount) {
