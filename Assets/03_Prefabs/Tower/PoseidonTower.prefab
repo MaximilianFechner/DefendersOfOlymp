@@ -680,7 +680,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6603521257935481352}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 843dc1c2019eff549b99d9ce58a9bb47, type: 3}
   m_Name: 
@@ -688,8 +688,10 @@ MonoBehaviour:
   attackSpeed: 1
   attackRadius: 16
   targetType: 0
-  movementSpeed: 10
+  movementSpeed: 12
   damage: 3
+  damageLowerLimit: 2
+  damageUpperLimit: 4
   aoeRadius: 5
   slowValue: 0
   timeSlowed: 0

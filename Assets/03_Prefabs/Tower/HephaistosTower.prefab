@@ -224,6 +224,8 @@ MonoBehaviour:
   targetType: 0
   movementSpeed: 10
   damage: 5
+  damageLowerLimit: 3
+  damageUpperLimit: 5
   aoeRadius: 16
   slowValue: 0
   timeSlowed: 0
@@ -247,8 +249,8 @@ MonoBehaviour:
   animator: {fileID: 0}
   towerLevel: 1
   projectilePrefab: {fileID: 7359844151393371129, guid: 61fbda69a02c5524eac6c0acf49c7c97, type: 3}
-  _buffDamageValue: 20
-  _buffAttackSpeedValue: 50
+  _buffDamageValue: 5
+  _buffAttackSpeedValue: 5
   _buffedTowers: []
 --- !u!95 &8266162181526408809
 Animator:

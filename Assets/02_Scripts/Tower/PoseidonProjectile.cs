@@ -16,7 +16,7 @@ public class PoseidonProjectile : BaseProjectile
             foreach (Collider2D enemyCollider in enemiesColliders) {
                 if (enemyCollider.gameObject.CompareTag("Enemy")) {
                     EnemyManager enemyManager = enemyCollider.gameObject.GetComponent<EnemyManager>();
-                    enemyManager.TakeDamage(damage);
+                    enemyManager.TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit)));
                 }
             }
         } else {

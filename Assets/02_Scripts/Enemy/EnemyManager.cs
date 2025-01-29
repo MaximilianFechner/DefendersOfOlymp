@@ -1,6 +1,9 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
+using System.Collections;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -11,7 +14,7 @@ public class EnemyManager : MonoBehaviour
     [Tooltip("The maximum hp for the enemy")]
     [Min(1)]
     [SerializeField] 
-    private float _maxHP = 50f; // default value
+    public float _maxHP = 50f; // default value
 
     [Tooltip("Add extra absolute HP for this enemy for every wave")]
     [Min(0)]
@@ -70,7 +73,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField]
     private float maxPitchSounds = 1f;
 
-    [Space(10)]
+    [Header("Game Design Values: Blood")]
     [Tooltip("Chance to spawn blood on enemies hit")]
     [Range(0, 1)]
     [SerializeField]
@@ -97,16 +100,16 @@ public class EnemyManager : MonoBehaviour
     [Space(10)]
     public GameObject[] bloodPrefabs;
 
-    [Header("TESTING - DONT CHANGE")]
-    [SerializeField]
-    [Tooltip("Only displayed in the inspector for testing purposes - DONT change the values here")]
-    private float _currentHP;
+
+    [HideInInspector] public float _currentHP;
 
     private bool _isAlive = true;
     private float nextSoundAvailable = 0f;
 
     public GameObject deathPrefab;
     public GameObject bloodParticlePrefab;
+
+    public GameObject damageTextPrefab;
 
     private void Awake()
     {
@@ -154,7 +157,17 @@ public class EnemyManager : MonoBehaviour
     public void TakeDamage(float damage)
     {
         if (!_isAlive) return; // avoid damage on dead enemies
+
+        bool isCrit = Random.Range(0,100) <= GameManager.Instance.critChance;
+
+        if (isCrit)
+        {
+            damage *= 2;
+        }
+
         _currentHP -= damage;
+
+        if (GameManager.Instance.showDamageNumbers) ShowDamageText(damage, isCrit);
 
         if (Random.value <= bloodSpawnChance)
         {
@@ -219,7 +232,7 @@ public class EnemyManager : MonoBehaviour
     }
     private void DieSound()
     {
-            PlaySoundOnTempGameObject(deathSounds[Random.Range(0, enemySounds.Length)]);
+        PlaySoundOnTempGameObject(deathSounds[Random.Range(0, enemySounds.Length)]);
     }
 
     private void PlaySoundOnTempGameObject(AudioClip clip)
@@ -286,6 +299,25 @@ public class EnemyManager : MonoBehaviour
             GameManager.Instance.LoseLife(_playerDamage);
             GameManager.Instance.SubRemainingEnemy();
             Destroy(this.gameObject, 3f);
+        }
+    }
+
+    private void ShowDamageText(float damage, bool isCrit)
+    {
+        float randomXOffset = Random.Range(-1.5f, 1.5f);
+        float randomYOffset = Random.Range(0.2f, 0.8f);
+
+        Vector3 spawnPosition = transform.position + new Vector3(randomXOffset, 1.5f + randomYOffset, 0);
+
+        GameObject damageTextInstance = Instantiate(damageTextPrefab, spawnPosition, Quaternion.identity);
+
+        Text textComponent = damageTextInstance.GetComponent<Text>();
+        textComponent.text = damage.ToString();
+
+        if (isCrit)
+        {
+            textComponent.color = new Color(255f / 255f, 210f / 255f, 0f / 255f);
+            textComponent.fontSize += 4;
         }
     }
 }

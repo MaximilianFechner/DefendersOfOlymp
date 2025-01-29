@@ -12,10 +12,20 @@ public class ZeusBolt : MonoBehaviour
 
     [Space(10)]
     [Header("Game Design Values")]
-    [Tooltip("The damage dealt by the skill")]
+    //[Tooltip("The damage dealt by the skill")]
+    //[Min(0)]
+    //[SerializeField]
+    //private float damage = 100f;
+
+    [Tooltip("The minimum damage the ability does")]
     [Min(0)]
     [SerializeField]
-    private float damage = 100f;
+    private float damageLowerLimit = 90f;
+
+    [Tooltip("The maximum damage the ability does")]
+    [Min(0)]
+    [SerializeField]
+    private float damageUpperLimit = 110f;
 
     [Tooltip("Animationtime, it doesnt change the damage")]
     [Min(0)]
@@ -54,9 +64,22 @@ public class ZeusBolt : MonoBehaviour
     [SerializeField]
     private float maxPitchSounds = 1f;
 
+    [Space(10)]
+    [Tooltip("The intensity of the camera shake")]
+    [Min(0)]
+    [SerializeField]
+    private float _cameraShakeMagnitude = 0.1f;
+
+    [Tooltip("The duration of the camera shake")]
+    [Min(0)]
+    [SerializeField]
+    private float _cameraShakeDuration = 1f;
+
     public AudioClip skillSound;
     public AudioClip preSkillSound;
     private GameObject preBoltSoundObject;
+
+    private CameraShake _cameraShake;
 
     //private int skillLevel;
     //private float levelModifikatorDamage;
@@ -67,19 +90,26 @@ public class ZeusBolt : MonoBehaviour
 
     private float remainingCooldownTime = 0f;
 
-    private Vector2 buttonOriginalPosition; //BTN CD MOVE TEST
-    public Button skillButton; //BTN CD MOVE TEST
-    public Animator uiAnimation; //BTN CD MOVE TEST
-    public Image image; //BTN CD MOVE TEST
+    private Vector2 buttonOriginalPosition; //BTN CD MOVE
+    public Button skillButton; //BTN CD MOVE
+    public Animator uiAnimation; //BTN CD MOVE
+    public Image image; //BTN CD MOVE
 
-    //BTN CD MOVE TEST
+    // for cancel other skills on activation
+    public PoseidonWave poseidonWave;
+    public HeraStun heraStun;
+    public HephaistosQuake hephaistosQuake;
+
+    private void Awake()
+    {
+        _cameraShake = Camera.main.GetComponent<CameraShake>();
+    }
     private void Start()
     {
         buttonOriginalPosition = skillButton.GetComponent<RectTransform>().anchoredPosition;
         uiAnimation = uiAnimation.GetComponent<Animator>();
         image = image.GetComponent<Image>();
     }
-    //
 
     private void Update()
     {
@@ -95,8 +125,8 @@ public class ZeusBolt : MonoBehaviour
                     remainingCooldownTime = 0;
 
                     StartCoroutine(MoveButton(skillButton.GetComponent<RectTransform>(), 
-                        buttonOriginalPosition, new Color(0.73f, 0.73f, 0.73f), Color.white)); //BTN CD MOVE TEST
-                    skillButton.interactable = true; //BTN CD MOVE TEST
+                        buttonOriginalPosition, new Color(0.73f, 0.73f, 0.73f), Color.white)); //BTN CD MOVE
+                    skillButton.interactable = true; //BTN CD MOVE
 
                     UIManager.Instance.zeusSkillCooldown.text = "READY";
                 }
@@ -109,7 +139,16 @@ public class ZeusBolt : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            ActivateZeusSkill();
+            if (isReady)
+            {
+                CancelZeusSkill(); // when active -> deactivate
+            }
+            else
+            {
+                ActivateZeusSkill(); // when not active -> activate
+                poseidonWave.CancelPoseidonSkill();
+                heraStun.CancelHeraSkill();
+            }
         }
 
         if (isReady)
@@ -118,25 +157,37 @@ public class ZeusBolt : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                if (EventSystem.current.IsPointerOverGameObject()) return;
+                if (EventSystem.current.IsPointerOverGameObject()) return; // avoid clicks on ui-elements
 
                 TriggerLightning();
-                Destroy(currentPreview);
-                currentPreview = null;
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                CancelZeusSkill();
             }
         }
     }
 
-    public void ActivateZeusSkill()
+    public void ActivateZeusSkill() //set isReady on true, activate the preview and the pre-sound
     {
-        if (remainingCooldownTime <= 0 && GameManager.Instance.isInWave) //if (Time.time >= lastUseTime + cooldownTime)
+        if (remainingCooldownTime <= 0 && GameManager.Instance.isInWave)
         {
-            isReady = true;
-
-            if (currentPreview == null)
+            if (isReady)
             {
-                currentPreview = Instantiate(boltPreview);
-                PlayPreBoltSFX(preSkillSound);
+                CancelZeusSkill();
+            }
+            else
+            {
+                isReady = true;
+                if (currentPreview == null)
+                {
+                    currentPreview = Instantiate(boltPreview);
+                    PlayPreBoltSFX(preSkillSound);
+                }
+
+                poseidonWave.CancelPoseidonSkill();
+                heraStun.CancelHeraSkill();
             }
         }
     }
@@ -155,7 +206,7 @@ public class ZeusBolt : MonoBehaviour
             PlayBoltSFX(skillSound);
             Destroy(bolt, lightningDuration);
 
-            targetEnemy.GetComponent<EnemyManager>().TakeDamage(damage);
+            targetEnemy.GetComponent<EnemyManager>().TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit)));
 
             remainingCooldownTime = cooldownTime;
             lastUseTime = Time.time;
@@ -177,6 +228,11 @@ public class ZeusBolt : MonoBehaviour
             Vector2 targetPosition = buttonOriginalPosition + new Vector2(0, -50);
             StartCoroutine(MoveButton(buttonRect, targetPosition, Color.white, new Color(0.73f, 0.73f, 0.73f)));
             skillButton.interactable = false;
+
+            if (_cameraShake != null)
+            {
+                StartCoroutine(_cameraShake.Shake(_cameraShakeDuration, _cameraShakeMagnitude));
+            }
         }
     }
 
@@ -185,7 +241,7 @@ public class ZeusBolt : MonoBehaviour
         Vector3 mousePosition = Input.mousePosition;
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
         worldPosition.z = 0;
-        worldPosition.y += 10; //only for positioning for the placeholder asset
+        worldPosition.y += 10;
 
         if (currentPreview == null)
         {
@@ -193,6 +249,26 @@ public class ZeusBolt : MonoBehaviour
         }
 
         currentPreview.transform.position = worldPosition;
+    }
+
+    public void CancelZeusSkill()
+    {
+        isReady = false;
+
+        if (currentPreview != null)
+        {
+            Destroy(currentPreview);
+            currentPreview = null;
+        }
+
+        if (preBoltSoundObject != null)
+        {
+            Destroy(preBoltSoundObject);
+            preBoltSoundObject = null;
+        }
+
+        skillButton.interactable = true;
+        UIManager.Instance.zeusSkillCooldown.text = remainingCooldownTime <= 0 ? "READY" : $"{remainingCooldownTime:F1}s";
     }
 
     private void PlayBoltSFX(AudioClip clip)
@@ -264,6 +340,31 @@ public class ZeusBolt : MonoBehaviour
         if (uiAnimation != null)
         {
             uiAnimation.speed = targetSpeed;
+        }
+    }
+
+    public void ResetCooldown()
+    {
+        remainingCooldownTime = 0f;
+        isReady = false;
+
+        UIManager.Instance.zeusSkillCooldown.text = "READY";
+
+        RectTransform buttonRect = skillButton.GetComponent<RectTransform>();
+        StartCoroutine(MoveButton(buttonRect, buttonOriginalPosition, new Color(0.73f, 0.73f, 0.73f), Color.white));
+
+        skillButton.interactable = true;
+
+        if (currentPreview != null)
+        {
+            Destroy(currentPreview);
+            currentPreview = null;
+        }
+
+        if (preBoltSoundObject != null)
+        {
+            Destroy(preBoltSoundObject);
+            preBoltSoundObject = null;
         }
     }
 }

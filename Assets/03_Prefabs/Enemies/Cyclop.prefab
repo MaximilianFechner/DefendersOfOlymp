@@ -379,7 +379,9 @@ GameObject:
   - component: {fileID: 1823426431447677399}
   - component: {fileID: 4541607706830667457}
   - component: {fileID: 5387716398352039282}
+  - component: {fileID: 2397494157646913868}
   - component: {fileID: 4987758780538990284}
+  - component: {fileID: 3638971523539733602}
   m_Layer: 6
   m_Name: Cyclop
   m_TagString: Enemy
@@ -500,6 +502,7 @@ MonoBehaviour:
   _currentHP: 0
   deathPrefab: {fileID: 6555997334480401726, guid: bef2b922bd07d724fb877b72bf6404bb, type: 3}
   bloodParticlePrefab: {fileID: 3722948830147621180, guid: 394713cc275bbfe43a3863de26e9de10, type: 3}
+  damageTextPrefab: {fileID: 8891703432907291767, guid: 817e71aa649dd764f958c8500888b914, type: 3}
 --- !u!114 &1173280012366497405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,6 +626,42 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 3, y: 3}
   m_Direction: 0
+--- !u!58 &2397494157646913868
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6555997334480401726}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 3.125
 --- !u!82 &4987758780538990284
 AudioSource:
   m_ObjectHideFlags: 0
@@ -720,3 +759,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3638971523539733602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6555997334480401726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a9ddacbb965e1340a444a2c6981ba7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

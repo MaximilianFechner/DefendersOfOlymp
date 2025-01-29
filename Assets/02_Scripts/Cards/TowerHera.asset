@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TowerHera
   m_EditorClassIdentifier: 
   TowerName: Hera
-  CardSprite: {fileID: 21300000, guid: 72f9900ee61aed44d907017cc60cecd4, type: 3}
+  CardSprite: {fileID: 21300000, guid: e6ead1f4495f251409e547d28daecc34, type: 3}
   TowerPrefab: {fileID: 3891187829167590039, guid: df4954743583e0f47b5d23681783779b, type: 3}

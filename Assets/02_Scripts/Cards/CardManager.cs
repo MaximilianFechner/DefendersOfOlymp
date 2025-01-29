@@ -60,7 +60,8 @@ public class CardManager : MonoBehaviour
         CardDisplay.sprite = currentCard.CardSprite;
         CardDisplay.gameObject.SetActive(true);
         drawCardButton.gameObject.SetActive(false);
-        //UIManager.Instance.waveFinPanel.SetActive(false);
+
+        AudioManager.Instance.PlayCardSFX();
 
         //TODO Der PreviewTower aka BuildingGhost, darf nicht angreifen. 
         Cards previewTower = GetCurrentCard();

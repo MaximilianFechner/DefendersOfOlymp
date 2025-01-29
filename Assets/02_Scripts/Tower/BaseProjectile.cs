@@ -8,6 +8,8 @@ public abstract class BaseProjectile : MonoBehaviour
 
     [SerializeField] public float movementSpeed { get; set; }
     [SerializeField] public float damage { get; set; }
+    [SerializeField] public float damageLowerLimit { get; set; }
+    [SerializeField] public float damageUpperLimit { get; set; }
     [SerializeField] public float aoeRadius { get; set; }
     [SerializeField] public float slowValue { get; set; }
     [SerializeField] public float maxDamageJump { get; set; }

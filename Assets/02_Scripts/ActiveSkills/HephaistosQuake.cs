@@ -8,10 +8,20 @@ public class HephaistosQuake : MonoBehaviour
 
     [Space(10)]
     [Header("Game Design Values")]
-    [Tooltip("The damage per tick in every interval")]
+    //[Tooltip("The damage per tick in every interval")]
+    //[Min(0)]
+    //[SerializeField]
+    //private float _damagePerInterval = 1f;
+
+    [Tooltip("The minimum damage the ability does per interval")]
     [Min(0)]
     [SerializeField]
-    private float _damagePerInterval = 1f;
+    private float damageLowerLimitPerInterval = 1f;
+
+    [Tooltip("The maximum damage the ability does per interval")]
+    [Min(0)]
+    [SerializeField]
+    private float damageUpperLimitPerInterval = 5f;
 
     [Tooltip("The time between the damage ticks")]
     [Min(0)]
@@ -154,7 +164,7 @@ public class HephaistosQuake : MonoBehaviour
             {
                 if (enemy.TryGetComponent(out EnemyManager enemyManager))
                 {
-                    enemyManager.TakeDamage(_damagePerInterval);
+                    enemyManager.TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimitPerInterval, damageUpperLimitPerInterval)));
                 }
 
                 if (enemy.TryGetComponent(out EnemyPathfinding enemyPathfinding))

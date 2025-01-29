@@ -25,6 +25,8 @@ public class PoseidonTower : BaseTower
         baseProjectile.targetEnemy = targetEnemy;
         baseProjectile.enemyLayerMask = enemyLayerMask;
         baseProjectile.damage = damage;
+        baseProjectile.damageLowerLimit = damageLowerLimit;
+        baseProjectile.damageUpperLimit = damageUpperLimit;
         baseProjectile.movementSpeed = movementSpeed;
         baseProjectile.aoeRadius = aoeRadius;
     }

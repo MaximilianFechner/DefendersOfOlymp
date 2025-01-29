@@ -102,8 +102,10 @@ GameObject:
   - component: {fileID: 5577367278272065987}
   - component: {fileID: 3321934652041787679}
   - component: {fileID: 7224210104022581091}
+  - component: {fileID: 6924332537899537154}
   - component: {fileID: 1779880037861196585}
   - component: {fileID: -2308643651009798217}
+  - component: {fileID: 1643613467292046086}
   m_Layer: 6
   m_Name: Cerberus
   m_TagString: Enemy
@@ -224,6 +226,7 @@ MonoBehaviour:
   _currentHP: 0
   deathPrefab: {fileID: 6555997334480401726, guid: 59bd3323f7e8ba84aada906ba1c477b4, type: 3}
   bloodParticlePrefab: {fileID: 3722948830147621180, guid: 394713cc275bbfe43a3863de26e9de10, type: 3}
+  damageTextPrefab: {fileID: 8891703432907291767, guid: 817e71aa649dd764f958c8500888b914, type: 3}
 --- !u!114 &1173280012366497405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,6 +328,42 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 4, y: 4}
   m_Direction: 0
+--- !u!58 &6924332537899537154
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6555997334480401726}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 2.5
 --- !u!82 &1779880037861196585
 AudioSource:
   m_ObjectHideFlags: 0
@@ -444,6 +483,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1643613467292046086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6555997334480401726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a9ddacbb965e1340a444a2c6981ba7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7834774227153223153
 GameObject:
   m_ObjectHideFlags: 0

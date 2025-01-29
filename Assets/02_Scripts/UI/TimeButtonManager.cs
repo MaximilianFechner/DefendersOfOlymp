@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TimeButtonManager : MonoBehaviour
 {
@@ -6,6 +7,24 @@ public class TimeButtonManager : MonoBehaviour
     public TimeButton defaultButton;
 
     private void Start()
+    {
+        if (defaultButton != null)
+        {
+            SetActiveButton(defaultButton);
+        }
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (defaultButton != null)
         {
