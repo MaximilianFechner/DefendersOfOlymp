@@ -260,7 +260,7 @@ public class HeraStun : MonoBehaviour
     public void CancelHeraSkill()
     {
         isReady = false;
-        GameManager.Instance.isASkillSelected = false;
+        //GameManager.Instance.isASkillSelected = false;
 
         if (currentPreview != null)
         {

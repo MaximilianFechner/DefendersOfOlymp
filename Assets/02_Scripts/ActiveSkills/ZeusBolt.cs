@@ -180,7 +180,6 @@ public class ZeusBolt : MonoBehaviour
             else
             {
                 isReady = true;
-                GameManager.Instance.isASkillSelected = true;
                 if (currentPreview == null)
                 {
                     currentPreview = Instantiate(boltPreview);
@@ -212,7 +211,6 @@ public class ZeusBolt : MonoBehaviour
             remainingCooldownTime = cooldownTime;
             lastUseTime = Time.time;
             isReady = false;
-            GameManager.Instance.isASkillSelected = false;
 
             if (currentPreview != null)
             {
@@ -256,7 +254,6 @@ public class ZeusBolt : MonoBehaviour
     public void CancelZeusSkill()
     {
         isReady = false;
-        GameManager.Instance.isASkillSelected = false;
 
         if (currentPreview != null)
         {

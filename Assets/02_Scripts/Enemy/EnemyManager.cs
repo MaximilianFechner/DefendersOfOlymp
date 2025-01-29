@@ -14,7 +14,7 @@ public class EnemyManager : MonoBehaviour
     [Tooltip("The maximum hp for the enemy")]
     [Min(1)]
     [SerializeField] 
-    private float _maxHP = 50f; // default value
+    public float _maxHP = 50f; // default value
 
     [Tooltip("Add extra absolute HP for this enemy for every wave")]
     [Min(0)]
@@ -100,10 +100,8 @@ public class EnemyManager : MonoBehaviour
     [Space(10)]
     public GameObject[] bloodPrefabs;
 
-    [Header("TESTING - DONT CHANGE")]
-    [SerializeField]
-    [Tooltip("Only displayed in the inspector for testing purposes - DONT change the values here")]
-    private float _currentHP;
+
+    [HideInInspector] public float _currentHP;
 
     private bool _isAlive = true;
     private float nextSoundAvailable = 0f;

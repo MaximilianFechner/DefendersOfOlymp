@@ -260,7 +260,7 @@ private void Update()
     public void CancelPoseidonSkill()
     {
         isReady = false;
-        GameManager.Instance.isASkillSelected = false;
+        //GameManager.Instance.isASkillSelected = false;
 
         if (currentPreview != null)
         {

@@ -66,7 +66,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int healthScore = 0;
 
     [HideInInspector] public bool showDamageNumbers = true; //default activated, change for show damageNumbers or to disable them
-    [HideInInspector] public bool isASkillSelected = false; //checks global if any active skill is selected to avoid multiple activation of skills
+    [HideInInspector] public bool showTooltips = true; //default activated, change for show Tooltips of Enemies and Tower or to disable them
+    //[HideInInspector] public bool isASkillSelected = false; //checks global if any active skill is selected to avoid multiple activation of skills
 
 
     public ZeusBolt zeusBolt;
