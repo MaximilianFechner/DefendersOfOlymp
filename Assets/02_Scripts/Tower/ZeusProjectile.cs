@@ -86,7 +86,7 @@ public class ZeusProjectile : BaseProjectile
     public override void DamageCalculation(GameObject enemy) {
         if (enemy != null) {
             EnemyManager enemyManager = enemy.GetComponent<EnemyManager>();
-            enemyManager.TakeDamage(damage);
+            enemyManager.TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit)));
         } else {
             Debug.Log("Enemy is null!");
         }
@@ -100,6 +100,8 @@ public class ZeusProjectile : BaseProjectile
         baseProjectile.targetEnemy = targetEnemy;
         baseProjectile.enemyLayerMask = enemyLayerMask;
         baseProjectile.damage = damage;
+        baseProjectile.damageLowerLimit = damageLowerLimit;
+        baseProjectile.damageUpperLimit = damageUpperLimit;
         baseProjectile.movementSpeed = movementSpeed;
         baseProjectile.maxDamageJump = maxDamageJump;
         baseProjectile.aoeRadius = aoeRadius;

@@ -13,10 +13,20 @@ public class HeraStun : MonoBehaviour
 
     [Space(10)]
     [Header("Game Design Values")]
-    [Tooltip("The damage per tick in every interval")]
+    //[Tooltip("The damage per tick in every interval")]
+    //[Min(0)]
+    //[SerializeField]
+    //private float _damageOnUse = 15f;
+
+    [Tooltip("The minimum damage the ability does")]
     [Min(0)]
     [SerializeField]
-    private float _damageOnUse = 15f;
+    private float damageLowerLimit = 12f;
+
+    [Tooltip("The maximum damage the ability does")]
+    [Min(0)]
+    [SerializeField]
+    private float damageUpperLimit = 18f;
 
     [Tooltip("The Percentage for the default movement speed")]
     [Min(0)]
@@ -75,12 +85,16 @@ public class HeraStun : MonoBehaviour
 
     private float remainingCooldownTime = 0f;
 
-    private Vector2 buttonOriginalPosition; //BTN CD MOVE TEST
-    public Button skillButton; //BTN CD MOVE TEST
-    public Animator uiAnimation; //BTN CD MOVE TEST
-    public Image image; //BTN CD MOVE TEST
+    private Vector2 buttonOriginalPosition; //BTN CD MOVE
+    public Button skillButton; //BTN CD MOVE
+    public Animator uiAnimation; //BTN CD MOVE
+    public Image image; //BTN CD MOVE
 
-    //BTN CD MOVE TEST
+    public ZeusBolt zeusBolt;
+    public PoseidonWave poseidonWave;
+    public HephaistosQuake hephaistosQuake;
+
+    //BTN CD MOVE
     private void Start()
     {
         buttonOriginalPosition = skillButton.GetComponent<RectTransform>().anchoredPosition;
@@ -104,8 +118,8 @@ public class HeraStun : MonoBehaviour
                     UIManager.Instance.heraSkillCooldown.text = "READY";
 
                     StartCoroutine(MoveButton(skillButton.GetComponent<RectTransform>(),
-                        buttonOriginalPosition, new Color(0.73f, 0.73f, 0.73f), Color.white)); //BTN CD MOVE TEST
-                    skillButton.interactable = true; //BTN CD MOVE TEST
+                        buttonOriginalPosition, new Color(0.73f, 0.73f, 0.73f), Color.white)); //BTN CD MOVE
+                    skillButton.interactable = true; //BTN CD MOVE
                 }
                 else
                 {
@@ -116,7 +130,16 @@ public class HeraStun : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            ActivateHeraSkill();
+            if (isReady)
+            {
+                CancelHeraSkill();
+            }
+            else
+            {
+                ActivateHeraSkill();
+                zeusBolt.CancelZeusSkill();
+                poseidonWave.CancelPoseidonSkill();
+            }
         }
 
         if (isReady)
@@ -131,6 +154,11 @@ public class HeraStun : MonoBehaviour
                 Destroy(currentPreview);
                 currentPreview = null;
             }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                CancelHeraSkill();
+            }
         }
 
     }
@@ -140,17 +168,27 @@ public class HeraStun : MonoBehaviour
         if (Time.timeScale == 0) return;
         if (remainingCooldownTime <= 0 && GameManager.Instance.isInWave) //if (Time.time >= lastUseTime + _cooldownTime)
         {
-            isReady = true;
-
-            if (currentPreview == null)
+            if (isReady)
             {
-                Vector3 mousePosition = Input.mousePosition;
-                Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
-                worldPosition.z = 0;
+                CancelHeraSkill();
+            }
+            else
+            {
+                isReady = true;
 
-                currentPreview = Instantiate(stunPreview);
-                currentPreview.transform.localScale = new Vector3(1 * (_skillRadius / 5), 1 * (_skillRadius / 5), 1 * (_skillRadius / 5));
-                PlayPreStunSFX(preSkillSound);
+                if (currentPreview == null)
+                {
+                    Vector3 mousePosition = Input.mousePosition;
+                    Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
+                    worldPosition.z = 0;
+
+                    currentPreview = Instantiate(stunPreview);
+                    currentPreview.transform.localScale = new Vector3(1 * (_skillRadius / 5), 1 * (_skillRadius / 5), 1 * (_skillRadius / 5));
+                    PlayPreStunSFX(preSkillSound);
+                }
+
+                zeusBolt.CancelZeusSkill();
+                poseidonWave.CancelPoseidonSkill();
             }
         }
     }
@@ -172,7 +210,7 @@ public class HeraStun : MonoBehaviour
         {
             if (enemy.TryGetComponent(out EnemyManager enemyManager))
             {
-                enemyManager.TakeDamage(_damageOnUse);
+                enemyManager.TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit)));
             }
 
             if (enemy.TryGetComponent(out EnemyPathfinding enemyPathfinding))
@@ -217,6 +255,27 @@ public class HeraStun : MonoBehaviour
         }
 
         currentPreview.transform.position = worldPosition;
+    }
+
+    public void CancelHeraSkill()
+    {
+        isReady = false;
+        //GameManager.Instance.isASkillSelected = false;
+
+        if (currentPreview != null)
+        {
+            Destroy(currentPreview);
+            currentPreview = null;
+        }
+
+        if (preStunSoundObject != null)
+        {
+            Destroy(preStunSoundObject);
+            preStunSoundObject = null;
+        }
+
+        skillButton.interactable = true;
+        UIManager.Instance.poseidonSkillCooldown.text = remainingCooldownTime <= 0 ? "READY" : $"{remainingCooldownTime:F1}s";
     }
 
     private void PlaySoundOnTempGameObject(AudioClip clip)
@@ -289,6 +348,31 @@ public class HeraStun : MonoBehaviour
         if (uiAnimation != null)
         {
             uiAnimation.speed = targetSpeed;
+        }
+    }
+
+    public void ResetCooldown()
+    {
+        remainingCooldownTime = 0f;
+        isReady = false;
+
+        UIManager.Instance.heraSkillCooldown.text = "READY";
+
+        RectTransform buttonRect = skillButton.GetComponent<RectTransform>();
+        StartCoroutine(MoveButton(buttonRect, buttonOriginalPosition, new Color(0.73f, 0.73f, 0.73f), Color.white));
+
+        skillButton.interactable = true;
+
+        if (currentPreview != null)
+        {
+            Destroy(currentPreview);
+            currentPreview = null;
+        }
+
+        if (preStunSoundObject != null)
+        {
+            Destroy(preStunSoundObject);
+            preStunSoundObject = null;
         }
     }
 }

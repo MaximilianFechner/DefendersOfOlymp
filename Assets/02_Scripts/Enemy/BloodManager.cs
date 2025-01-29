@@ -21,7 +21,7 @@ public class BloodManager : MonoBehaviour
         {
             fadeOut.StartFadeAndDestroy();
         }
-        else
+        else if (oldestBlood != null)
         {
             Destroy(oldestBlood);
         }

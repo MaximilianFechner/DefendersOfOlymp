@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -166,6 +167,6 @@ public class AudioManager : MonoBehaviour
         tempAudioSource.Play();
 
         Destroy(hitImpactSoundObject, hitImpactSFX[god].length);
-    }
 
+    }
 }

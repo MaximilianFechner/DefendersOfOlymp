@@ -35,6 +35,10 @@ public class GameManager : MonoBehaviour //IDataPersistence
     [SerializeField]
     private int _cardsToDraw = 1;
 
+    [Tooltip("Chance to crit: 2x damage")]
+    [Min(0)]
+    public float critChance = 5;
+
     [Space(10)]
     [Header("Wave Management")]
     public GameObject[] enemyPrefabs;
@@ -47,8 +51,8 @@ public class GameManager : MonoBehaviour //IDataPersistence
     private float _waveStartTime;
     private float _waveEndTime;
 
-    public float gameSpeed = 1f;
-    public bool isInWave = false;
+    //public float gameSpeed = 1f;
+    [HideInInspector] public bool isInWave = false;
     
     [HideInInspector] public int score = 0;
     [HideInInspector] public int highscore = 0;
@@ -61,8 +65,14 @@ public class GameManager : MonoBehaviour //IDataPersistence
     [HideInInspector] public int waveScore = 0;
     [HideInInspector] public int healthScore = 0;
 
-    public bool showDamageNumbers = true; //default activated
+    [HideInInspector] public bool showDamageNumbers = true; //default activated, change for show damageNumbers or to disable them
+    [HideInInspector] public bool showTooltips = true; //default activated, change for show Tooltips of Enemies and Tower or to disable them
+    //[HideInInspector] public bool isASkillSelected = false; //checks global if any active skill is selected to avoid multiple activation of skills
 
+
+    public ZeusBolt zeusBolt;
+    public PoseidonWave poseidonWave;
+    public HeraStun heraStun;
 
     private void Awake()
     {
@@ -116,7 +126,11 @@ public class GameManager : MonoBehaviour //IDataPersistence
         UIManager.Instance.UpdateUITexts();
         UIManager.Instance.gameOverPanel.SetActive(false);
         UIManager.Instance.waveFinPanel.SetActive(false);
-        //UIManager.Instance.prepareFirstWavePanel.SetActive(true);
+
+        if (zeusBolt != null) zeusBolt.ResetCooldown();
+        if (poseidonWave != null) poseidonWave.ResetCooldown();
+        if (heraStun != null) heraStun.ResetCooldown();
+
         SceneManager.LoadScene(0);
     }
 
@@ -205,6 +219,12 @@ public class GameManager : MonoBehaviour //IDataPersistence
         RemainingLives = _playerStartLives;
         waveNumber = 0;
         score = 0;
+        cerberusKills = 0;
+        cyclopKills = 0;
+        centaurKills = 0;
+        enemyScore = 0;
+        waveScore = 0;
+        healthScore = 0;
     }
 
     private void GameOver()

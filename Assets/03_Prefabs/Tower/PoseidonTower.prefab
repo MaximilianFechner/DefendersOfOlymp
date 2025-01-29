@@ -690,6 +690,8 @@ MonoBehaviour:
   targetType: 0
   movementSpeed: 12
   damage: 3
+  damageLowerLimit: 2
+  damageUpperLimit: 4
   aoeRadius: 5
   slowValue: 0
   timeSlowed: 0

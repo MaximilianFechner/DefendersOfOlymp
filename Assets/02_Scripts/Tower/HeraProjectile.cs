@@ -15,7 +15,7 @@ public class HeraProjectile : BaseProjectile
     public override void DamageCalculation(GameObject enemy) {
         if (enemy != null) {
             EnemyManager enemyManager = enemy.GetComponent<EnemyManager>();
-            enemyManager.TakeDamage(damage);
+            enemyManager.TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit)));
             EnemyPathfinding enemyPathfinding = enemy.GetComponent<EnemyPathfinding>();
             float calculatedSlowValue = (100 - slowValue) / 100;
             enemyPathfinding.SlowMovement(calculatedSlowValue, timeSlowed);
