@@ -389,6 +389,7 @@ GameObject:
   - component: {fileID: 3816654135511686208}
   - component: {fileID: 8412726586177157277}
   - component: {fileID: 9097006072233675848}
+  - component: {fileID: 19948177193768979}
   m_Layer: 0
   m_Name: ZeusTower
   m_TagString: Tower
@@ -482,10 +483,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b755468701b9b314dae82591416c687c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerName: Zeus
   attackSpeed: 0.5
   attackRadius: 16
   targetType: 0
-  movementSpeed: 20
+  movementSpeed: 25
   damage: 4
   damageLowerLimit: 3
   damageUpperLimit: 5
@@ -593,6 +595,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placedObjectTypeSO: {fileID: 11400000, guid: a53929890399f2b4599bd36d76930891, type: 2}
+--- !u!114 &19948177193768979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4229367091254677781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a9ddacbb965e1340a444a2c6981ba7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4923145105461597751
 GameObject:
   m_ObjectHideFlags: 0

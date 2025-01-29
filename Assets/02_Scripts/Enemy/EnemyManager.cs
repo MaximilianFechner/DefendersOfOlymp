@@ -22,23 +22,23 @@ public class EnemyManager : MonoBehaviour
     [Tooltip("Add extra absolute HP for this enemy for every wave")]
     [Min(0)]
     [SerializeField]
-    private float absoluteHPIncreaseWave = 0f;
+    public float absoluteHPIncreaseWave = 0f;
 
     [Tooltip("Add extra prozentual HP for this enemy for every wave")]
     [Min(0)]
     [SerializeField]
-    private float prozentualHPIncreaseWave = 0f;
+    public float prozentualHPIncreaseWave = 0f;
 
 
     [Tooltip("Add extra absolute Speed for this enemy for every wave")]
     [Min(0)]
     [SerializeField]
-    private float absoluteSpeedIncreaseWave = 0f;
+    public float absoluteSpeedIncreaseWave = 0f;
 
     [Tooltip("Add extra prozentual Speed for this enemy for every wave")]
     [Min(0)]
     [SerializeField]
-    private float prozentualSpeedIncreaseWave = 0f;
+    public float prozentualSpeedIncreaseWave = 0f;
 
     [Tooltip("The damage the enemy did on the player when he reached the target/goal")]
     [Min(1)]
@@ -113,6 +113,8 @@ public class EnemyManager : MonoBehaviour
     public GameObject bloodParticlePrefab;
 
     public GameObject damageTextPrefab;
+
+    public bool alreadyDamagedPlayer = false;
 
     private void Awake()
     {
@@ -297,11 +299,12 @@ public class EnemyManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "EnemyTarget")
+        if (collision.tag == "EnemyTarget" && (!alreadyDamagedPlayer))
         {
             GameManager.Instance.LoseLife(_playerDamage);
             GameManager.Instance.SubRemainingEnemy();
             Destroy(this.gameObject, 3f);
+            alreadyDamagedPlayer = true;
         }
     }
 

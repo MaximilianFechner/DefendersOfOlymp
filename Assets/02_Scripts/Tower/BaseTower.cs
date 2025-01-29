@@ -18,6 +18,10 @@ public class BaseTower : MonoBehaviour
 
     //TOWER
     [Header("Game Design Values: Tower")]
+
+    [Tooltip("The name of the tower")]
+    public string towerName;
+
     [Tooltip("The base attack speed for the tower")]
     [SerializeField] public float attackSpeed;
 

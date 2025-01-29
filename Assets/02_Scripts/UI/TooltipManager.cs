@@ -7,6 +7,7 @@ public class TooltipManager : MonoBehaviour
 
     public RectTransform tooltipPanel;
     public Text tooltipText;
+    public Text tooltipData;
     public Canvas canvas;
 
     private Vector2 defaultOffset = new Vector2(170, 65); //offset for 1920x1080
@@ -37,6 +38,13 @@ public class TooltipManager : MonoBehaviour
     public void ShowTooltip(string text)
     {
         tooltipText.text = text;
+        tooltipPanel.gameObject.SetActive(true);
+        UpdateTooltipPosition(Input.mousePosition);
+    }
+
+    public void ShowTooltipData(string text)
+    {
+        tooltipData.text = text;
         tooltipPanel.gameObject.SetActive(true);
         UpdateTooltipPosition(Input.mousePosition);
     }

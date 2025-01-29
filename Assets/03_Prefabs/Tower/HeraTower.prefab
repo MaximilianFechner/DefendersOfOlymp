@@ -887,6 +887,7 @@ GameObject:
   - component: {fileID: 8533560975264284148}
   - component: {fileID: 2110380871339719525}
   - component: {fileID: 4389071988503214860}
+  - component: {fileID: 1506159888815544401}
   m_Layer: 0
   m_Name: Hera
   m_TagString: Tower
@@ -1021,11 +1022,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6320939753738652261}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4abec0f5468925489ee2d63d64f9583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerName: Hera
   attackSpeed: 0.9
   attackRadius: 13
   targetType: 1
@@ -1091,6 +1093,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placedObjectTypeSO: {fileID: 11400000, guid: b5422e6e4e2f9d841a7ec1c379e78e76, type: 2}
+--- !u!114 &1506159888815544401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6320939753738652261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a9ddacbb965e1340a444a2c6981ba7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6801131489527644206
 GameObject:
   m_ObjectHideFlags: 0

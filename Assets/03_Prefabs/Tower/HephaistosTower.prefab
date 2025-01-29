@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 8266162181526408809}
   - component: {fileID: 1397061392969638395}
   - component: {fileID: 1248638956366909382}
+  - component: {fileID: 2808121392970882153}
   m_Layer: 0
   m_Name: HephaistosTower
   m_TagString: Tower
@@ -214,11 +215,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2111673281706987370}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d9c941f6f5e824408b6b040a69f9316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerName: Hephaistos
   attackSpeed: 1.5
   attackRadius: 10
   targetType: 0
@@ -333,6 +335,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placedObjectTypeSO: {fileID: 11400000, guid: a409cba431ad90542b46cbd16a142aea, type: 2}
+--- !u!114 &2808121392970882153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111673281706987370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a9ddacbb965e1340a444a2c6981ba7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3022095118195350741
 GameObject:
   m_ObjectHideFlags: 0

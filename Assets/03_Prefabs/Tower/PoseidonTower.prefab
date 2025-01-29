@@ -580,6 +580,7 @@ GameObject:
   - component: {fileID: 1416615419630000320}
   - component: {fileID: 3768394004557224431}
   - component: {fileID: 5333439944391101383}
+  - component: {fileID: 1446702795187822947}
   m_Layer: 0
   m_Name: PoseidonTower
   m_TagString: Tower
@@ -685,6 +686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843dc1c2019eff549b99d9ce58a9bb47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerName: Poseidon
   attackSpeed: 0.95
   attackRadius: 13
   targetType: 1
@@ -783,6 +785,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 7.862198, y: 10}
   m_EdgeRadius: 0
+--- !u!114 &1446702795187822947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603521257935481352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a9ddacbb965e1340a444a2c6981ba7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6699771477392586032
 GameObject:
   m_ObjectHideFlags: 0
