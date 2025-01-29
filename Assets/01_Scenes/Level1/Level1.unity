@@ -3208,9 +3208,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1108071275}
     - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _skillRadius
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: poseidonWave
       value: 
       objectReference: {fileID: 839597698752409530}
+    - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _cooldownTime
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _slowDuration
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: preSkillSound
       value: 
@@ -3221,11 +3233,11 @@ PrefabInstance:
       objectReference: {fileID: 5628521491133392082}
     - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: damageLowerLimit
-      value: 8
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: damageUpperLimit
-      value: 12
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 563932065624218141, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: CardDisplay
@@ -3249,7 +3261,7 @@ PrefabInstance:
       objectReference: {fileID: 1584656598389747658}
     - target: {fileID: 1040459522354727499, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: critChance
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1040459522354727499, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: poseidonWave
@@ -3257,7 +3269,7 @@ PrefabInstance:
       objectReference: {fileID: 839597698752409530}
     - target: {fileID: 1040459522354727499, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: _playerStartLives
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1040459522354727499, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: showDamageNumbers
@@ -3288,6 +3300,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 409121941}
     - target: {fileID: 1127305501548914579, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: cooldownTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127305501548914579, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: poseidonWave
       value: 
       objectReference: {fileID: 839597698752409530}
@@ -3301,11 +3317,11 @@ PrefabInstance:
       objectReference: {fileID: 5628521491133392082}
     - target: {fileID: 1127305501548914579, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: damageLowerLimit
-      value: 40
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 1127305501548914579, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: damageUpperLimit
-      value: 60
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 1127305501548914579, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: _cameraShakeDuration
@@ -3340,6 +3356,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 597842270}
     - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _cooldownTime
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _waveDuration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: preSkillSound
       value: 
       objectReference: {fileID: 8300000, guid: 60aed156806e6064392c660da845793d, type: 3}
@@ -3353,11 +3377,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: _damageIntervalSeconds
-      value: 1
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageLowerLimitPerInterval
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: damageUpperLimitPerInterval
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4452418663944235855, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3404,8 +3432,16 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 6072449750005525643, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _cooldownTime
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072449750005525643, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageLowerLimitPerInterval
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072449750005525643, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: damageUpperLimitPerInterval
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7380496886089761537, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: m_Name

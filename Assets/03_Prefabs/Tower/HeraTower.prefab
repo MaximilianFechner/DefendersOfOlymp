@@ -1021,21 +1021,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6320939753738652261}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4abec0f5468925489ee2d63d64f9583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 1.2
-  attackRadius: 16
-  targetType: 0
+  attackSpeed: 0.9
+  attackRadius: 13
+  targetType: 1
   movementSpeed: 15
-  damage: 8
-  damageLowerLimit: 4
-  damageUpperLimit: 6
+  damage: 7
+  damageLowerLimit: 6
+  damageUpperLimit: 8
   aoeRadius: 0
-  slowValue: 20
-  timeSlowed: 2
+  slowValue: 5
+  timeSlowed: 1.5
   maxDamageJump: 0
   upgradeAttackSpeed: 0
   upgradeAttackRadius: 0

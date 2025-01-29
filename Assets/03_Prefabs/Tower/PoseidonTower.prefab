@@ -685,14 +685,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843dc1c2019eff549b99d9ce58a9bb47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 1
-  attackRadius: 16
-  targetType: 0
+  attackSpeed: 0.95
+  attackRadius: 13
+  targetType: 1
   movementSpeed: 12
-  damage: 3
-  damageLowerLimit: 2
-  damageUpperLimit: 4
-  aoeRadius: 5
+  damage: 9
+  damageLowerLimit: 8
+  damageUpperLimit: 10
+  aoeRadius: 7
   slowValue: 0
   timeSlowed: 0
   maxDamageJump: 0
