@@ -200,7 +200,7 @@ public class ZeusBolt : MonoBehaviour
 
         Collider2D targetEnemy = Physics2D.OverlapCircle(new Vector2(worldPosition.x, worldPosition.y), attackRadius, enemyLayer);
 
-        if (targetEnemy != null)
+        if (targetEnemy != null && targetEnemy.isTrigger)
         {
             GameObject bolt = Instantiate(boltPrefab, new Vector3(worldPosition.x, worldPosition.y + 10, 0), Quaternion.identity);
             PlayBoltSFX(skillSound);

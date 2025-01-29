@@ -9,7 +9,7 @@ public class Hoverable : MonoBehaviour
     private void Update()
     {
         if (this == null) return;
-        
+
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Collider2D hit = Physics2D.OverlapPoint(mousePosition);
 
@@ -31,7 +31,7 @@ public class Hoverable : MonoBehaviour
     {
         if (TryGetComponent(out EnemyManager enemy))
         {
-            tooltipInfo = $"{enemy.gameObject.name}\nHealth: {enemy._currentHP}/{enemy._maxHP}";
+            tooltipInfo = $"{enemy.enemyName}\nHealth: {enemy._currentHP}/{enemy._maxHP}";
         }
         //else if (TryGetComponent(out TowerManager tower))
         //{

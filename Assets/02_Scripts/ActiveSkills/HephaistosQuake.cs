@@ -156,21 +156,26 @@ public class HephaistosQuake : MonoBehaviour
     private IEnumerator HephaitosQuakeDamageOverTime()
     {
         float elapsedTime = 0f;
+
         while (elapsedTime <= _quakeDuration)
         {
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(Vector3.zero, _quakeRadius, enemyLayer);
 
             foreach (Collider2D enemy in hitEnemies)
             {
-                if (enemy.TryGetComponent(out EnemyManager enemyManager))
+                if (enemy.isTrigger)
                 {
-                    enemyManager.TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimitPerInterval, damageUpperLimitPerInterval)));
+                    if (enemy.TryGetComponent(out EnemyManager enemyManager))
+                    {
+                        enemyManager.TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimitPerInterval, damageUpperLimitPerInterval)));
+                    }
+
+                    if (enemy.TryGetComponent(out EnemyPathfinding enemyPathfinding))
+                    {
+                        enemyPathfinding.SlowMovement(_slowPercentage, _damageIntervalSeconds);
+                    }
                 }
 
-                if (enemy.TryGetComponent(out EnemyPathfinding enemyPathfinding))
-                {
-                    enemyPathfinding.SlowMovement(_slowPercentage, _damageIntervalSeconds);
-                }
             }
 
             elapsedTime += _damageIntervalSeconds;

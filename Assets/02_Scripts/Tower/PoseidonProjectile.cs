@@ -11,15 +11,23 @@ public class PoseidonProjectile : BaseProjectile
     }
 
     public override void DamageCalculation(GameObject enemy) {
-        if (enemy != null) {
+        if (enemy != null) 
+        {
             Collider2D[] enemiesColliders = Physics2D.OverlapCircleAll(transform.position, aoeRadius);
-            foreach (Collider2D enemyCollider in enemiesColliders) {
-                if (enemyCollider.gameObject.CompareTag("Enemy")) {
-                    EnemyManager enemyManager = enemyCollider.gameObject.GetComponent<EnemyManager>();
-                    enemyManager.TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit)));
+            foreach (Collider2D enemyCollider in enemiesColliders) 
+            {
+                if (enemyCollider.isTrigger)
+                {
+                    if (enemyCollider.gameObject.CompareTag("Enemy"))
+                    {
+                        EnemyManager enemyManager = enemyCollider.gameObject.GetComponent<EnemyManager>();
+                        enemyManager.TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit)));
+                    }
                 }
             }
-        } else {
+        } 
+        else 
+        {
             Debug.Log("Enemy is null!");
         }
     }

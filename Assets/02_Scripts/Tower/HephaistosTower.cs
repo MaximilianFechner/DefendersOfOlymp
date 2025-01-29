@@ -31,21 +31,31 @@ public class HephaistosTower : BaseTower
             animator.SetTrigger("attackTrigger");
         }
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, attackRadius);
-        foreach (Collider2D collider in colliders) {
-            if (collider.gameObject.CompareTag("Enemy")) {
-                EnemyManager enemy = collider.gameObject.GetComponent<EnemyManager>();
-                enemy.TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit)));
-            } else if (collider.gameObject.CompareTag("Tower")) {
-                if (_buffedTowers.Contains(collider.gameObject)) {
-                    return;
-                } else {
-                    BaseTower unbuffedTower = collider.gameObject.GetComponent<BaseTower>();
-                    unbuffedTower.AddBonusToAttackDamage(CalculatePercentage(_buffDamageValue, true));
-                    unbuffedTower.AddBonusToAttackSpeed(CalculatePercentage(_buffAttackSpeedValue, false));
-                    _buffedTowers.Add(collider.gameObject);
+        foreach (Collider2D collider in colliders) 
+        {
+            if (collider.isTrigger)
+            {
+                if (collider.gameObject.CompareTag("Enemy"))
+                {
+                    EnemyManager enemy = collider.gameObject.GetComponent<EnemyManager>();
+                    enemy.TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit)));
                 }
-
+                else if (collider.gameObject.CompareTag("Tower"))
+                {
+                    if (_buffedTowers.Contains(collider.gameObject))
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        BaseTower unbuffedTower = collider.gameObject.GetComponent<BaseTower>();
+                        unbuffedTower.AddBonusToAttackDamage(CalculatePercentage(_buffDamageValue, true));
+                        unbuffedTower.AddBonusToAttackSpeed(CalculatePercentage(_buffAttackSpeedValue, false));
+                        _buffedTowers.Add(collider.gameObject);
+                    }
+                }
             }
+
         }
     }
 

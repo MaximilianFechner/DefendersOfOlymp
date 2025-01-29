@@ -373,6 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c553cf6bfd4ac5248ac2caca4256537d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyName: Centaur
   _maxHP: 70
   absoluteHPIncreaseWave: 0
   prozentualHPIncreaseWave: 5

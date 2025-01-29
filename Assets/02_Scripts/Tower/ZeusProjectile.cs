@@ -22,8 +22,10 @@ public class ZeusProjectile : BaseProjectile
         Move();
     }
 
-    private void OnTriggerEnter2D(Collider2D collider) {
-        if (collider.gameObject.tag.Equals("Enemy") && collider.gameObject.Equals(targetEnemy)) {
+    private void OnTriggerEnter2D(Collider2D collider) 
+    {
+        if (collider.gameObject.tag.Equals("Enemy") && collider.gameObject.Equals(targetEnemy) && collider.isTrigger) 
+        {
             DamageCalculation(collider.gameObject);
             GetNextTargetEnemy();
         }
@@ -34,10 +36,16 @@ public class ZeusProjectile : BaseProjectile
         if (indexAttackedEnemies <= Mathf.RoundToInt(maxDamageJump)) {
             Collider2D[] enemiesColliders = Physics2D.OverlapCircleAll(transform.position, aoeRadius);
 
-            if (enemiesColliders.Length > 0) {
-                foreach (Collider2D enemyCollider in enemiesColliders) {
-                    if (enemyCollider.gameObject.CompareTag("Enemy")) {
-                        enemiesGameObjects.Add(enemyCollider.gameObject);
+            if (enemiesColliders.Length > 0) 
+            {
+                foreach (Collider2D enemyCollider in enemiesColliders) 
+                {
+                    if (enemyCollider.isTrigger)
+                    {
+                        if (enemyCollider.gameObject.CompareTag("Enemy"))
+                        {
+                            enemiesGameObjects.Add(enemyCollider.gameObject);
+                        }
                     }
                 }
                 if (enemiesGameObjects.Count == 1) {

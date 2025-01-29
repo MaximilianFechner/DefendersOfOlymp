@@ -208,14 +208,17 @@ public class HeraStun : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            if (enemy.TryGetComponent(out EnemyManager enemyManager))
+            if (enemy.isTrigger)
             {
-                enemyManager.TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit)));
-            }
+                if (enemy.TryGetComponent(out EnemyManager enemyManager))
+                {
+                    enemyManager.TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit)));
+                }
 
-            if (enemy.TryGetComponent(out EnemyPathfinding enemyPathfinding))
-            {
-                enemyPathfinding.SlowMovement(_slowPercentage, _slowDuration);
+                if (enemy.TryGetComponent(out EnemyPathfinding enemyPathfinding))
+                {
+                    enemyPathfinding.SlowMovement(_slowPercentage, _slowDuration);
+                }
             }
         }
 

@@ -8,10 +8,13 @@ public class HephaistosProjectile : BaseProjectile
     }
 
     public override void DamageCalculation(GameObject enemy) {
-        if (enemy != null) {
+        if (enemy != null) 
+        {
             EnemyManager enemyManager = enemy.GetComponent<EnemyManager>();
             enemyManager.TakeDamage(damage);
-        } else {
+        } 
+        else 
+        {
             Debug.Log("Enemy is null!");
         }
     }

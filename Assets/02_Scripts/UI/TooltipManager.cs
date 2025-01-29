@@ -58,7 +58,7 @@ public class TooltipManager : MonoBehaviour
             newPosition.y = mousePosition.y + currentOffset.y;
         }
 
-        // Rechnet Bildschirmkoordinaten in Canvaskoordinaten um
+        // für die Umrechnugn von Bildschirmkoordinaten in Canvaskoordinaten
         Vector2 localPosition;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             canvas.transform as RectTransform,

@@ -231,9 +231,12 @@ private void Update()
 
             foreach (Collider2D enemy in hitEnemies)
             {
-                if (enemy.TryGetComponent(out EnemyManager enemyManager))
+                if (enemy.isTrigger)
                 {
-                    enemyManager.TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimitPerInterval, damageUpperLimitPerInterval)));
+                    if (enemy.TryGetComponent(out EnemyManager enemyManager))
+                    {
+                        enemyManager.TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimitPerInterval, damageUpperLimitPerInterval)));
+                    }
                 }
             }
 

@@ -11,9 +11,12 @@ public class EnemyManager : MonoBehaviour
     private NavMeshAgent navMeshAgent;
 
     [Header("Game Design Values")]
+    [Tooltip("name of the enemy")]
+    public string enemyName;
+
     [Tooltip("The maximum hp for the enemy")]
     [Min(1)]
-    [SerializeField] 
+    [SerializeField]
     public float _maxHP = 50f; // default value
 
     [Tooltip("Add extra absolute HP for this enemy for every wave")]
@@ -132,7 +135,7 @@ public class EnemyManager : MonoBehaviour
         // HP Increase per Wave
         prozentualHPIncreaseWave = ((_maxHP / 100) * prozentualHPIncreaseWave) * GameManager.Instance.waveNumber;
         absoluteHPIncreaseWave *= GameManager.Instance.waveNumber;
-        _maxHP += (absoluteHPIncreaseWave + prozentualHPIncreaseWave);
+        _maxHP += Mathf.RoundToInt(absoluteHPIncreaseWave + prozentualHPIncreaseWave); //auf eine Ganzzahl runden
         _currentHP = _maxHP;
 
         audioSource = GetComponent<AudioSource>();
