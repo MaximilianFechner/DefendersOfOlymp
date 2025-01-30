@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class HephaistosQuake : MonoBehaviour
 {
@@ -90,9 +91,24 @@ public class HephaistosQuake : MonoBehaviour
 
     private CameraShake _cameraShake;
 
-    private void Awake()
+    private void Start()
     {
+        AssignCameraShake();
         _cameraShake = Camera.main.GetComponent<CameraShake>();
+        //_cameraShake = FindFirstObjectByType<CameraShake>();
+    }
+
+    private void AssignCameraShake()
+    {
+        if (_cameraShake == null)
+        {
+            _cameraShake = FindFirstObjectByType<CameraShake>();
+
+            if (_cameraShake == null)
+            {
+                Debug.LogError("CameraShake not found in the scene!");
+            }
+        }
     }
 
     private void Update()
@@ -136,13 +152,23 @@ public class HephaistosQuake : MonoBehaviour
         }
     }
 
+
     public void ActivateQuake()
     {
         if (!isReady) return;
 
+        if (_cameraShake == null)
+        {
+            _cameraShake = FindFirstObjectByType<CameraShake>();
+        }
+
         if (_cameraShake != null)
         {
             StartCoroutine(_cameraShake.Shake(_quakeDuration, _cameraShakeMagnitude));
+        }
+        else
+        {
+            Debug.LogError("CameraShake is NULL!");
         }
 
         StartCoroutine(HephaitosQuakeDamageOverTime());

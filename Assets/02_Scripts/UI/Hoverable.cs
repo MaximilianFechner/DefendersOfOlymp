@@ -19,14 +19,22 @@ public class Hoverable : MonoBehaviour
         {
             isHovered = true;
             UpdateTooltipText();
-            TooltipManager.Instance.ShowTooltip(tooltipInfo);
-            TooltipManager.Instance.ShowTooltipData(tooltipData);
-            TooltipManager.Instance.UpdateTooltipPosition(Input.mousePosition);
+
+            if (TooltipManager.Instance != null)
+            {
+                TooltipManager.Instance.ShowTooltip(tooltipInfo);
+                TooltipManager.Instance.ShowTooltipData(tooltipData);
+                TooltipManager.Instance.UpdateTooltipPosition(Input.mousePosition);
+            }
         }
         else if (isHovered)
         {
             isHovered = false;
-            TooltipManager.Instance.HideTooltip();
+
+            if (TooltipManager.Instance != null)
+            {
+                TooltipManager.Instance.HideTooltip();
+            }
         }
     }
 
@@ -108,7 +116,7 @@ public class Hoverable : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (isHovered)
+        if (TooltipManager.Instance != null)
         {
             TooltipManager.Instance.HideTooltip();
         }

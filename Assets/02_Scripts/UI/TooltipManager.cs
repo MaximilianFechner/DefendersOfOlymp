@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TooltipManager : MonoBehaviour
@@ -17,7 +18,9 @@ public class TooltipManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        SceneManager.sceneLoaded += OnSceneLoaded;
         HideTooltip();
+        
     }
 
     private void Start()
@@ -56,7 +59,7 @@ public class TooltipManager : MonoBehaviour
 
         Vector2 newPosition = mousePosition + currentOffset;
 
-        if (newPosition.x + tooltipSize.x * 0.75f > screenSize.x)
+        if (newPosition.x + tooltipSize.x > screenSize.x)
         {
             newPosition.x = mousePosition.x - currentOffset.x;
         }
@@ -88,6 +91,21 @@ public class TooltipManager : MonoBehaviour
 
     public void HideTooltip()
     {
+        if (tooltipPanel == null) return;
         tooltipPanel.gameObject.SetActive(false);
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (tooltipPanel == null)
+        {
+            tooltipPanel = GameObject.Find("TooltipPanel")?.GetComponent<RectTransform>();
+        }
+
+        HideTooltip();
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }

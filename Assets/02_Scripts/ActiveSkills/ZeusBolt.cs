@@ -229,6 +229,11 @@ public class ZeusBolt : MonoBehaviour
             StartCoroutine(MoveButton(buttonRect, targetPosition, Color.white, new Color(0.73f, 0.73f, 0.73f)));
             skillButton.interactable = false;
 
+            if (_cameraShake == null)
+            {
+                _cameraShake = FindFirstObjectByType<CameraShake>();
+            }
+
             if (_cameraShake != null)
             {
                 StartCoroutine(_cameraShake.Shake(_cameraShakeDuration, _cameraShakeMagnitude));
