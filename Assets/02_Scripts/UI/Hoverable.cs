@@ -7,11 +7,13 @@ public class Hoverable : MonoBehaviour
     private string tooltipInfo;
     private string tooltipData;
     private bool isHovered = false;
+    private string hoveredElement;
 
     private void Start()
     {
         tooltipInfo = "";
         tooltipData = "";
+        hoveredElement = "";
     }
 
     private void Update()
@@ -28,7 +30,7 @@ public class Hoverable : MonoBehaviour
 
             if (TooltipManager.Instance != null)
             {
-                TooltipManager.Instance.ShowTooltip(tooltipInfo);
+                TooltipManager.Instance.ShowTooltip(tooltipInfo, hoveredElement);
                 TooltipManager.Instance.ShowTooltipData(tooltipData);
                 TooltipManager.Instance.UpdateTooltipPosition(Input.mousePosition);
             }
@@ -44,6 +46,7 @@ public class Hoverable : MonoBehaviour
 
             tooltipInfo = "";
             tooltipData = "";
+            hoveredElement = "";
 
             if (TryGetComponent(out ZeusTower zeus))
             {
@@ -68,6 +71,8 @@ public class Hoverable : MonoBehaviour
     {
         if (TryGetComponent(out EnemyManager zeus))
         {
+            hoveredElement = "enemy";
+
             if (zeus.TryGetComponent(out NavMeshAgent navAgent))
             {
                 tooltipInfo = $"{zeus.enemyName}\n" +
@@ -80,6 +85,8 @@ public class Hoverable : MonoBehaviour
         }
         else if (TryGetComponent(out ZeusTower zeusSkill))
         {
+            hoveredElement = "tower";
+
             tooltipInfo = $"{zeusSkill.towerName}\n" +
                 $"Damage:\n" +
                 $"Damage/Bounce:\n" +
@@ -100,6 +107,8 @@ public class Hoverable : MonoBehaviour
         }
         else if (TryGetComponent(out PoseidonTower poseidon))
         {
+            hoveredElement = "tower";
+
             tooltipInfo = $"{poseidon.towerName}\n" +
                 $"Damage:\n" +
                 $"Damage Area:\n" +
@@ -116,6 +125,8 @@ public class Hoverable : MonoBehaviour
         }
         else if (TryGetComponent(out HeraTower hera))
         {
+            hoveredElement = "tower";
+
             tooltipInfo = $"{hera.towerName}\n" +
                 $"Damage:\n" +
                 $"Slow Value:\n" +
@@ -132,6 +143,8 @@ public class Hoverable : MonoBehaviour
         }
         else if (TryGetComponent(out HephaistosTower heph))
         {
+            hoveredElement = "tower";
+
             tooltipInfo = $"{heph.towerName}\n" +
                 $"Damage:\n" +
                 $"Damage/Speed Buff Value:\n" +
@@ -146,29 +159,13 @@ public class Hoverable : MonoBehaviour
 
             heph.rangeVisual.SetActive(true);
         }
-        else if (gameObject.name == "BTNZeusSkill")
-        {
-            if (TryGetComponent(out ZeusBolt bolt))
-            {
-                tooltipInfo = $"{bolt.name}\n" +
-                    $"Damage:\n" +
-                    $"Damage/Speed Buff Value:\n" +
-                    $"Crit Chance:\n" +
-                    $"Attacks/Second:";
-
-                //tooltipData = $"Level: \n" +
-                //    //$"{bolt.} - {heph.damageUpperLimit}\n" +
-                //    //$"5%\n" +
-                //    //$"{GameManager.Instance.critChance}%\n" +
-                //    //$"{1 / heph.attackSpeed:F2}";
-            }
-        }
     }
 
     private void OnDestroy()
     {
         tooltipInfo = "";
         tooltipData = "";
+        hoveredElement = "";
 
         if (TooltipManager.Instance != null)
         {

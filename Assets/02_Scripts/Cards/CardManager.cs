@@ -38,17 +38,17 @@ public class CardManager : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(1)) {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
-            if (hit.collider != null) {
-                GameObject tower = hit.collider.gameObject;
-                if (tower.tag.Equals("Tower")) {
-                    BaseTower baseTower = tower.GetComponent<BaseTower>();
-                    baseTower.SetTowerMenu();
-                }
-            }
-        }
+        //if (Input.GetMouseButtonDown(1)) {
+        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //    RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+        //    if (hit.collider != null) {
+        //        GameObject tower = hit.collider.gameObject;
+        //        if (tower.tag.Equals("Tower")) {
+        //            BaseTower baseTower = tower.GetComponent<BaseTower>();
+        //            baseTower.SetTowerMenu();
+        //        }
+        //    }
+        //}
     }
 
     public void DrawCard()
@@ -96,11 +96,10 @@ public class CardManager : MonoBehaviour
 
         GridBuildingSystem.Instance.PlaceTower();
         currentPreview = null;
-        
+
         ClearCard();
 
         GameManager.Instance.StartNextWave();
     }
-
 }
 

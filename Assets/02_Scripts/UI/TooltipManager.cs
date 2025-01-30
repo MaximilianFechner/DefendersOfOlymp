@@ -72,7 +72,7 @@ public class TooltipManager : MonoBehaviour
         }
     }
 
-    public void ShowTooltip(string text)
+    public void ShowTooltip(string text, string hoveredElement)
     {
         if (tooltipPanel == null)
         {
@@ -81,6 +81,26 @@ public class TooltipManager : MonoBehaviour
 
         tooltipText.text = text;
         tooltipPanel.gameObject.SetActive(true);
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(tooltipPanel);
+
+        if (hoveredElement == "enemy")
+        {
+            SetTooltipHeight(-65);
+        }
+        else if (hoveredElement == "tower")
+        {
+            SetTooltipHeight(-20);
+        }
+        else if (hoveredElement == "zeusSkill")
+        {
+            SetTooltipHeight(-20);
+        }
+        else if (hoveredElement == "skill")
+        {
+            SetTooltipHeight(0);
+        }
+
         UpdateTooltipPosition(Input.mousePosition);
     }
 
@@ -150,6 +170,16 @@ public class TooltipManager : MonoBehaviour
             {
                 Debug.LogError("TooltipPanel nicht gefunden!");
             }
+        }
+    }
+
+    private void SetTooltipHeight(float height)
+    {
+        if (tooltipPanel != null)
+        {
+            Vector2 size = tooltipPanel.sizeDelta;
+            size.y = height;
+            tooltipPanel.sizeDelta = size;
         }
     }
 

@@ -13,11 +13,13 @@ public class UIHoverable : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public HephaistosQuake quake;
 
     private bool isHovering = false;
+    private string hoveredElement;
 
     private void Start()
     {
         tooltipInfo = "";
         tooltipData = "";
+        hoveredElement = "";
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -27,7 +29,7 @@ public class UIHoverable : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         if (TooltipManager.Instance != null)
         {
-            TooltipManager.Instance.ShowTooltip(tooltipInfo);
+            TooltipManager.Instance.ShowTooltip(tooltipInfo, hoveredElement);
             TooltipManager.Instance.ShowTooltipData(tooltipData);
             TooltipManager.Instance.UpdateTooltipPosition(eventData.position);
         }
@@ -44,6 +46,7 @@ public class UIHoverable : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         tooltipInfo = "";
         tooltipData = "";
+        hoveredElement = "";
     }
 
     private void Update()
@@ -59,6 +62,8 @@ public class UIHoverable : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         if (gameObject.name == "BTNZeusSkill")
         {
+            hoveredElement = "zeusSkill";
+
             if (bolt != null)
             {
                 tooltipInfo = $"Lightning Strike\n" +
@@ -76,6 +81,8 @@ public class UIHoverable : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
         else if (gameObject.name == "BTNPoseidonSkill")
         {
+            hoveredElement = "skill";
+
             if (wave != null)
             {
                 tooltipInfo = $"Holy Wave\n" +
@@ -95,6 +102,8 @@ public class UIHoverable : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
         else if (gameObject.name == "BTNHeraSkill")
         {
+            hoveredElement = "skill";
+
             if (stun != null)
             {
                 tooltipInfo = $"Toxic Binding\n" +
@@ -114,6 +123,8 @@ public class UIHoverable : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
         else if (gameObject.name == "BTNHephaistosSkill")
         {
+            hoveredElement = "skill";
+
             if (quake != null)
             {
                 tooltipInfo = $"Earths Anger\n" +
@@ -137,6 +148,7 @@ public class UIHoverable : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         tooltipInfo = "";
         tooltipData = "";
+        hoveredElement = "";
 
         if (TooltipManager.Instance != null)
         {
