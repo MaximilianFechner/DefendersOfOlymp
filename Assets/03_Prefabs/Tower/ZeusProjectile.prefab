@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: 63a790e823538054d8406e5bff1fa9d6, type: 3}
   m_Color: {r: 0.22203623, g: 0.8093382, b: 0.87169814, a: 0.19607843}
   m_FlipX: 0
@@ -168,7 +168,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: 271cf3fb1026af444b86cce9da587a06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -271,7 +271,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
   rb2D: {fileID: 0}
-  projectilePrefab: {fileID: 7359844151393371129}
   hitPS: {fileID: 3722948830147621180, guid: 2e87f4e2903eea941b7e95aeb637c450, type: 3}
 --- !u!82 &9169640171357083019
 AudioSource:
@@ -5170,7 +5169,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 8
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
