@@ -141,6 +141,12 @@ public class EnemyManager : MonoBehaviour
         _currentHP = _maxHP;
 
         audioSource = GetComponent<AudioSource>();
+
+        if (audioSource != null)
+        {
+            audioSource.ignoreListenerPause = false;
+            audioSource.pitch = Random.Range(minPitchSounds, maxPitchSounds);
+        }
     }
 
     void Update()
@@ -157,6 +163,21 @@ public class EnemyManager : MonoBehaviour
         else
         {
             enemyHealthBar.SetVisible(true);
+        }
+
+        if (Time.timeScale == 0)
+        {
+            if (audioSource.isPlaying)
+            {
+                audioSource.Pause();
+            }
+        }
+        else
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.UnPause();
+            }
         }
     }
     public void TakeDamage(float damage)

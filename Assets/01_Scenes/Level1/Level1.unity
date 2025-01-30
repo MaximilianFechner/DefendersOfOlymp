@@ -2728,11 +2728,11 @@ PrefabInstance:
     - target: {fileID: 1817887635198218660, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: d47f493841e9d69488cbb163bb377369, type: 3}
+      objectReference: {fileID: 8300000, guid: ed2d3278327293a4c9e2acf2e6b0724d, type: 3}
     - target: {fileID: 1817887635198218660, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: d47f493841e9d69488cbb163bb377369, type: 3}
+      objectReference: {fileID: 8300000, guid: ed2d3278327293a4c9e2acf2e6b0724d, type: 3}
     - target: {fileID: 1817887635198218660, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
       propertyPath: m_PlayOnAwake
       value: 1
@@ -2761,6 +2761,10 @@ PrefabInstance:
       propertyPath: levelAmbienteSFX
       value: 
       objectReference: {fileID: 8300000, guid: 1396ecd1a2386134194b65c1b7730b78, type: 3}
+    - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
+      propertyPath: levelBackgroundMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: ed2d3278327293a4c9e2acf2e6b0724d, type: 3}
     - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
       propertyPath: lostLifeSFX.Array.size
       value: 2
