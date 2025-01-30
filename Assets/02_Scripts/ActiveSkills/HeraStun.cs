@@ -280,7 +280,7 @@ public class HeraStun : MonoBehaviour
         }
 
         skillButton.interactable = true;
-        UIManager.Instance.poseidonSkillCooldown.text = remainingCooldownTime <= 0 ? "READY" : $"{remainingCooldownTime:F1}s";
+        UIManager.Instance.heraSkillCooldown.text = remainingCooldownTime <= 0 ? "READY" : $"{remainingCooldownTime:F1}s";
     }
 
     private void PlaySoundOnTempGameObject(AudioClip clip)

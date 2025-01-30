@@ -192,9 +192,16 @@ public class BaseTower : MonoBehaviour
     }
 
     public void AddBonusToAttackDamage(float amount) {
-        this.damage *= amount;
+        //this.damage *= amount;
         this.damageUpperLimit *= amount;
         this.damageLowerLimit *= amount;
+    }
+
+    public void AddBonusToAttackDamageAbsolute(int amount)
+    {
+        //this.damage *= amount;
+        this.damageUpperLimit += amount;
+        this.damageLowerLimit += amount;
     }
 
     public void AddBonusToAttackSpeed(float amount) {
@@ -205,8 +212,8 @@ public class BaseTower : MonoBehaviour
         rangeVisual.SetActive(!rangeVisual.activeSelf);
     }
 
-    public void SetTowerMenu() {
-        towerMenu.SetActive(!towerMenu.activeSelf);
-    }
+    //public void SetTowerMenu() {
+    //    towerMenu.SetActive(!towerMenu.activeSelf);
+    //}
 
 }
