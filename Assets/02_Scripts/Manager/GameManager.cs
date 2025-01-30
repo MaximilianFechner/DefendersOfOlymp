@@ -304,4 +304,9 @@ public class GameManager : MonoBehaviour
     {
         showDamageNumbers = !showDamageNumbers;
     }
+
+    public void ToggleTooltips()
+    {
+        showTooltips = !showTooltips;
+    }
 }

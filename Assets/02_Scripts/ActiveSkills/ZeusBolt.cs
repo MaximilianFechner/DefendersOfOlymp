@@ -173,6 +173,8 @@ public class ZeusBolt : MonoBehaviour
 
     public void ActivateZeusSkill() //set isReady on true, activate the preview and the pre-sound
     {
+        if (Time.timeScale == 0) return;
+
         if (remainingCooldownTime <= 0 && GameManager.Instance.isInWave)
         {
             if (isReady)
@@ -284,7 +286,7 @@ public class ZeusBolt : MonoBehaviour
         AudioSource tempAudioSource = soundObject.AddComponent<AudioSource>();
 
         tempAudioSource.clip = clip;
-        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.ignoreListenerPause = false;
         tempAudioSource.volume = Random.Range(minVolumeSounds, maxVolumeSounds);
         tempAudioSource.pitch = Random.Range(minPitchSounds, maxPitchSounds);
 
@@ -298,7 +300,7 @@ public class ZeusBolt : MonoBehaviour
         AudioSource tempAudioSource = preBoltSoundObject.AddComponent<AudioSource>();
 
         tempAudioSource.clip = clip;
-        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.ignoreListenerPause = false;
         tempAudioSource.loop = true;
         tempAudioSource.volume = Random.Range(minVolumeSounds, maxVolumeSounds);
         tempAudioSource.pitch = Random.Range(minPitchSounds, maxPitchSounds);

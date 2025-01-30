@@ -74,6 +74,7 @@ public class TooltipManager : MonoBehaviour
 
     public void ShowTooltip(string text, string hoveredElement)
     {
+        if (!GameManager.Instance.showTooltips) return;
         if (tooltipPanel == null)
         {
             tooltipPanel = GameObject.Find("PNLTooltip")?.GetComponent<RectTransform>();
@@ -106,6 +107,7 @@ public class TooltipManager : MonoBehaviour
 
     public void ShowTooltipData(string text)
     {
+        if (!GameManager.Instance.showTooltips) return;
         if (tooltipPanel == null)
         {
             tooltipPanel = GameObject.Find("PNLTooltip")?.GetComponent<RectTransform>();

@@ -157,6 +157,7 @@ public class HephaistosQuake : MonoBehaviour
 
     public void ActivateQuake()
     {
+        if (Time.timeScale == 0) return;
         if (!isReady) return;
 
         if (_cameraShake == null)
