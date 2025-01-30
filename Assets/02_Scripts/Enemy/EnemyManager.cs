@@ -20,7 +20,7 @@ public class EnemyManager : MonoBehaviour
     [Min(0)]
     [SerializeField]
     private float absoluteHPIncreaseWave = 0f;
-
+   
     [Tooltip("Add extra prozentual HP for this enemy for every wave")]
     [Min(0)]
     [SerializeField]
