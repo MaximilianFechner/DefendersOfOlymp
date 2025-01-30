@@ -20,12 +20,12 @@ public class ZeusBolt : MonoBehaviour
     [Tooltip("The minimum damage the ability does")]
     [Min(0)]
     [SerializeField]
-    private float damageLowerLimit = 90f;
+    public float damageLowerLimit = 90f;
 
     [Tooltip("The maximum damage the ability does")]
     [Min(0)]
     [SerializeField]
-    private float damageUpperLimit = 110f;
+    public float damageUpperLimit = 110f;
 
     [Tooltip("Animationtime, it doesnt change the damage")]
     [Min(0)]
@@ -40,7 +40,7 @@ public class ZeusBolt : MonoBehaviour
     [Tooltip("The time you have to wait before you can use the skill again")]
     [Min(0)]
     [SerializeField]
-    private float cooldownTime = 20f;
+    public float cooldownTime = 20f;
 
     [Space(10)]
 
@@ -74,6 +74,8 @@ public class ZeusBolt : MonoBehaviour
     [Min(0)]
     [SerializeField]
     private float _cameraShakeDuration = 1f;
+
+    [HideInInspector] public int zeusSkillLevel = 1;
 
     public AudioClip skillSound;
     public AudioClip preSkillSound;

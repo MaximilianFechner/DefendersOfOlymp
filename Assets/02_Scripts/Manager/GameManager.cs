@@ -223,6 +223,10 @@ public class GameManager : MonoBehaviour
 
     private void EndOfWave()
     {
+        zeusBolt.CancelZeusSkill();
+        poseidonWave.CancelPoseidonSkill();
+        heraStun.CancelHeraSkill();
+
         int remainingCardsToDraw = _cardsToDraw;
 
         _waveEndTime = Time.time;

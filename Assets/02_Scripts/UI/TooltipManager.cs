@@ -17,19 +17,21 @@ public class TooltipManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        //HideTooltip();
-        
-    }
-
-    private void Start()
-    {
         if (Instance == null)
         {
             Instance = this;
         }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
 
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void Start()
+    {
         lastScreenResolution = new Vector2(Screen.width, Screen.height);
         UpdateOffset();
 
@@ -39,9 +41,6 @@ public class TooltipManager : MonoBehaviour
 
     private void OnEnable()
     {
-
-        UpdateOffset();
-
         if (tooltipPanel == null)
         {
             tooltipPanel = GameObject.Find("PNLTooltip")?.GetComponent<RectTransform>();

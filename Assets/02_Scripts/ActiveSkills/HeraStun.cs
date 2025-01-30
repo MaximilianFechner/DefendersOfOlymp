@@ -21,22 +21,22 @@ public class HeraStun : MonoBehaviour
     [Tooltip("The minimum damage the ability does")]
     [Min(0)]
     [SerializeField]
-    private float damageLowerLimit = 12f;
+    public float damageLowerLimit = 12f;
 
     [Tooltip("The maximum damage the ability does")]
     [Min(0)]
     [SerializeField]
-    private float damageUpperLimit = 18f;
+    public float damageUpperLimit = 18f;
 
     [Tooltip("The Percentage for the default movement speed")]
     [Min(0)]
     [SerializeField]
-    private float _slowPercentage = 0.1f;
+    public float _slowPercentage = 0.1f;
 
     [Tooltip("The time how long the skill is active")]
     [Min(0)]
     [SerializeField]
-    private float _slowDuration = 3f;
+    public float _slowDuration = 3f;
 
     [Tooltip("The radius for the skill")]
     [Min(0)]
@@ -46,7 +46,7 @@ public class HeraStun : MonoBehaviour
     [Tooltip("The time you have to wait before you can use the skill again")]
     [Min(0)]
     [SerializeField]
-    private float _cooldownTime = 30f;
+    public float _cooldownTime = 30f;
 
     [Space(10)]
 
@@ -93,6 +93,8 @@ public class HeraStun : MonoBehaviour
     public ZeusBolt zeusBolt;
     public PoseidonWave poseidonWave;
     public HephaistosQuake hephaistosQuake;
+
+    [HideInInspector] public int heraSkillLevel = 1;
 
     //BTN CD MOVE
     private void Start()

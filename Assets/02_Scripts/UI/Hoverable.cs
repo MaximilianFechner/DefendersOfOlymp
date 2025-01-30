@@ -13,6 +13,7 @@ public class Hoverable : MonoBehaviour
         tooltipInfo = "";
         tooltipData = "";
     }
+
     private void Update()
     {
         if (this == null) return;
@@ -43,40 +44,59 @@ public class Hoverable : MonoBehaviour
 
             tooltipInfo = "";
             tooltipData = "";
+
+            if (TryGetComponent(out ZeusTower zeus))
+            {
+                zeus.rangeVisual.SetActive(false);
+            }
+            else if (TryGetComponent(out PoseidonTower poseidon))
+            {
+                poseidon.rangeVisual.SetActive(false);
+            }
+            else if (TryGetComponent(out HeraTower hera))
+            {
+                hera.rangeVisual.SetActive(false);
+            }
+            else if (TryGetComponent(out HephaistosTower heph))
+            {
+                heph.rangeVisual.SetActive(false);
+            }
         }
     }
 
     private void UpdateTooltipText()
     {
-        if (TryGetComponent(out EnemyManager enemy))
+        if (TryGetComponent(out EnemyManager zeus))
         {
-            if (enemy.TryGetComponent(out NavMeshAgent navAgent))
+            if (zeus.TryGetComponent(out NavMeshAgent navAgent))
             {
-                tooltipInfo = $"{enemy.enemyName}\n" +
+                tooltipInfo = $"{zeus.enemyName}\n" +
                     $"Health:\n" +
-                    $"Health+/Wave\n" +
-                    $"Speed:\n" +
-                    $"Speed+/Wave";
+                    $"Speed:\n";
 
-                tooltipData = $"\n{enemy._currentHP}/{enemy._maxHP}\n" +
-                    $"{enemy.absoluteHPIncreaseWave + enemy.prozentualHPIncreaseWave}\n" +
-                    $"{navAgent.speed}\n" +
-                    $"{enemy.absoluteSpeedIncreaseWave + enemy.prozentualSpeedIncreaseWave}";
+                tooltipData = $"\n{zeus._currentHP}/{zeus._maxHP}\n" +
+                    $"{navAgent.speed}\n";
             }
         }
-        else if (TryGetComponent(out ZeusTower zeus))
+        else if (TryGetComponent(out ZeusTower zeusSkill))
         {
-            tooltipInfo = $"{zeus.towerName}\n" +
+            tooltipInfo = $"{zeusSkill.towerName}\n" +
                 $"Damage:\n" +
                 $"Damage/Bounce:\n" +
                 $"Crit Chance:\n" +
                 $"Attacks/Second:";
 
-            tooltipData = $"Level: {zeus.towerLevel}\n" +
-                $"{zeus.damageLowerLimit} - {zeus.damageUpperLimit}\n" +
+            tooltipData = $"Level: {zeusSkill.towerLevel}\n" +
+                $"{zeusSkill.damageLowerLimit} - {zeusSkill.damageUpperLimit}\n" +
                 $"-20%/Bounce\n" +
                 $"{GameManager.Instance.critChance}%\n" +
-                $"{1 / zeus.attackSpeed:F2}";
+                $"{1 / zeusSkill.attackSpeed:F2}";
+
+            if (isHovered)
+            {
+                zeusSkill.rangeVisual.SetActive(true);
+            }
+
         }
         else if (TryGetComponent(out PoseidonTower poseidon))
         {
@@ -91,6 +111,8 @@ public class Hoverable : MonoBehaviour
                 $"{poseidon.aoeRadius}\n" +
                 $"{GameManager.Instance.critChance}%\n" +
                 $"{1 / poseidon.attackSpeed:F2}";
+
+            poseidon.rangeVisual.SetActive(true);
         }
         else if (TryGetComponent(out HeraTower hera))
         {
@@ -105,6 +127,8 @@ public class Hoverable : MonoBehaviour
                 $"{hera.slowValue}%\n" +
                 $"{GameManager.Instance.critChance}%\n" +
                 $"{1 / hera.attackSpeed:F2}";
+
+            hera.rangeVisual.SetActive(true);
         }
         else if (TryGetComponent(out HephaistosTower heph))
         {
@@ -119,6 +143,25 @@ public class Hoverable : MonoBehaviour
                 $"5%\n" +
                 $"{GameManager.Instance.critChance}%\n" +
                 $"{1 / heph.attackSpeed:F2}";
+
+            heph.rangeVisual.SetActive(true);
+        }
+        else if (gameObject.name == "BTNZeusSkill")
+        {
+            if (TryGetComponent(out ZeusBolt bolt))
+            {
+                tooltipInfo = $"{bolt.name}\n" +
+                    $"Damage:\n" +
+                    $"Damage/Speed Buff Value:\n" +
+                    $"Crit Chance:\n" +
+                    $"Attacks/Second:";
+
+                //tooltipData = $"Level: \n" +
+                //    //$"{bolt.} - {heph.damageUpperLimit}\n" +
+                //    //$"5%\n" +
+                //    //$"{GameManager.Instance.critChance}%\n" +
+                //    //$"{1 / heph.attackSpeed:F2}";
+            }
         }
     }
 

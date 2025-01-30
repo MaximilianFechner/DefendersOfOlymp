@@ -73,7 +73,6 @@ public class CardManager : MonoBehaviour
         } else {
             Debug.LogError($"Cannot GetComponent<PlacedObject>() from previewTower {previewTower.ToString()}");
         }
-
     }
 
     public Cards GetCurrentCard()

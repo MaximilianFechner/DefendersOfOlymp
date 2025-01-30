@@ -17,27 +17,27 @@ public class HephaistosQuake : MonoBehaviour
     [Tooltip("The minimum damage the ability does per interval")]
     [Min(0)]
     [SerializeField]
-    private float damageLowerLimitPerInterval = 1f;
+    public float damageLowerLimitPerInterval = 1f;
 
     [Tooltip("The maximum damage the ability does per interval")]
     [Min(0)]
     [SerializeField]
-    private float damageUpperLimitPerInterval = 5f;
+    public float damageUpperLimitPerInterval = 5f;
 
     [Tooltip("The time between the damage ticks")]
     [Min(0)]
     [SerializeField]
-    private float _damageIntervalSeconds = 1f;
+    public float _damageIntervalSeconds = 1f;
 
     [Tooltip("The Percentage for the default movement speed")]
     [Min(0)]
     [SerializeField]
-    private float _slowPercentage = 0.5f;
+    public float _slowPercentage = 0.5f;
 
     [Tooltip("The time how long the skill is active")]
     [Min(0)]
     [SerializeField]
-    private float _quakeDuration = 5f;
+    public float _quakeDuration = 5f;
 
     [Tooltip("The radius for the skill")]
     [Min(0)]
@@ -47,7 +47,7 @@ public class HephaistosQuake : MonoBehaviour
     [Tooltip("The time you have to wait before you can use the skill again")]
     [Min(0)]
     [SerializeField]
-    private float _cooldownTime = 30f;
+    public float _cooldownTime = 30f;
 
     [Tooltip("The intensity of the camera shake")]
     [Min(0)]
@@ -90,6 +90,8 @@ public class HephaistosQuake : MonoBehaviour
     private float remainingCooldownTime = 0f;
 
     private CameraShake _cameraShake;
+
+    [HideInInspector] public int hephaistosSkillLevel = 1;
 
     private void Start()
     {
