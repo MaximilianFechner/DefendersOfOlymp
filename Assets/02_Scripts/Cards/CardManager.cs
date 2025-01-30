@@ -18,6 +18,16 @@ public class CardManager : MonoBehaviour
     public GameObject towerPreview;
     private GameObject currentPreview;
 
+    private Vector2 buttonOriginalPosition; //MOVEBTN
+    public Button drawCardBTN; //MOVEBTN
+    public Animator uiAnimation; //MOVEBTN
+
+    private void Start()
+    {
+        buttonOriginalPosition = drawCardBTN.GetComponent<RectTransform>().anchoredPosition;
+        uiAnimation = uiAnimation.GetComponent<Animator>();
+    }
+
     private void Update()
     {
         if (currentPreview != null)
@@ -28,6 +38,12 @@ public class CardManager : MonoBehaviour
             currentPreview.transform.position = worldPosition;
         }
 
+        if (GameManager.Instance.isCardDrawable)
+        {
+            StartCoroutine(MoveButton(drawCardBTN.GetComponent<RectTransform>(), buttonOriginalPosition)); //BTN CD MOVE
+            drawCardBTN.interactable = true; //BTN CD MOVE
+            GameManager.Instance.isCardDrawable = false;
+        }
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -59,7 +75,13 @@ public class CardManager : MonoBehaviour
         currentCard = AvailableCards[randomIndex];
         CardDisplay.sprite = currentCard.CardSprite;
         CardDisplay.gameObject.SetActive(true);
-        drawCardButton.gameObject.SetActive(false);
+
+        //drawCardButton.gameObject.SetActive(false);
+
+        RectTransform buttonRect = drawCardBTN.GetComponent<RectTransform>(); //MOVEBTN
+        Vector2 targetPosition = buttonOriginalPosition + new Vector2(0, -200); //MOVEBTN
+        StartCoroutine(MoveButton(buttonRect, targetPosition)); //MOVEBTN
+        drawCardBTN.interactable = false; //MOVEBTN
 
         AudioManager.Instance.PlayCardSFX();
 
@@ -72,6 +94,40 @@ public class CardManager : MonoBehaviour
             GridBuildingSystem.Instance.RefreshSelectedObjectType(placedObjectPreviewTower.GetPlacedObjectTypeSO());
         } else {
             Debug.LogError($"Cannot GetComponent<PlacedObject>() from previewTower {previewTower.ToString()}");
+        }
+    }
+
+    private IEnumerator MoveButton(RectTransform buttonRect, Vector2 targetPosition) //MOVEBTN
+    {
+        float duration = 1f;
+        Vector2 startPosition = buttonRect.anchoredPosition;
+        float elapsedTime = 0f;
+
+        float startSpeed = 1f;
+        float targetSpeed = 0.5f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+
+            t = t * t * (3f - 2f * t); // smoothes Movement des Buttons
+
+            buttonRect.anchoredPosition = Vector2.Lerp(startPosition, targetPosition, t);
+
+            if (uiAnimation != null)
+            {
+                uiAnimation.speed = Mathf.Lerp(startSpeed, targetSpeed, t);
+            }
+
+            yield return null;
+        }
+
+        buttonRect.anchoredPosition = targetPosition;
+
+        if (uiAnimation != null)
+        {
+            uiAnimation.speed = targetSpeed;
         }
     }
 

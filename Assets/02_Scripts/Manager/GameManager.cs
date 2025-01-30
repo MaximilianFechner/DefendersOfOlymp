@@ -74,6 +74,8 @@ public class GameManager : MonoBehaviour
     public PoseidonWave poseidonWave;
     public HeraStun heraStun;
 
+    public bool isCardDrawable = false;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -98,6 +100,8 @@ public class GameManager : MonoBehaviour
 
         if (highscore == 0) return;
         UIManager.Instance.highscore.text = highscore.ToString();
+
+        isCardDrawable = true;
     }
 
     public void NewGame()
@@ -111,6 +115,8 @@ public class GameManager : MonoBehaviour
 
         if (highscore == 0) return;
         UIManager.Instance.highscore.text = highscore.ToString();
+
+        isCardDrawable = true;
     }
 
     public void CloseGame()
@@ -130,6 +136,8 @@ public class GameManager : MonoBehaviour
         if (zeusBolt != null) zeusBolt.ResetCooldown();
         if (poseidonWave != null) poseidonWave.ResetCooldown();
         if (heraStun != null) heraStun.ResetCooldown();
+
+        isCardDrawable = true;
 
         SceneManager.LoadScene(0);
     }
@@ -226,6 +234,8 @@ public class GameManager : MonoBehaviour
         zeusBolt.CancelZeusSkill();
         poseidonWave.CancelPoseidonSkill();
         heraStun.CancelHeraSkill();
+
+        isCardDrawable = true;
 
         int remainingCardsToDraw = _cardsToDraw;
 
