@@ -1,58 +1,57 @@
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine;
-
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Manual_CardManager : MonoBehaviour
+public class ManualCardManager : MonoBehaviour
 {
-    [SerializeField]
-    private List<Cards> _AvailableCards;
+    [SerializeField] private List<Cards> _availableCards;
     private Cards _currentCard;
 
     [Header("UI Elements")]
-    public Image _CardDisplay;
-    public Button _drawCardButton;
+    [SerializeField] private Image _cardDisplay;
+    [SerializeField] private Button _drawCardButton;
 
-    public GameObject _towerPreview;
-    private GameObject _currentPreview;
+    [SerializeField] private GameObject _towerPreview;
+    [SerializeField] private GameObject _currentPreview;
 
     private void Update()
     {
         if (_currentPreview != null)
         {
             Vector3 mousePosition = Input.mousePosition;
-            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
-            worldPosition.z = 0;
-            _currentPreview.transform.position = worldPosition;
+            if (Camera.main != null)
+            {
+                Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
+                worldPosition.z = 0;
+                _currentPreview.transform.position = worldPosition;
+            }
         }
 
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (_GetCurrentCard() != null)
+            if (GetCurrentCard() != null)
             {
                 if (EventSystem.current.IsPointerOverGameObject()) return;
-                _PlaceTower();
+                PlaceTower();
             }
         }
 
         if (Input.GetMouseButtonDown(1))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
-            if (hit.collider != null)
+            if (Camera.main != null)
             {
-                GameObject tower = hit.collider.gameObject;
-                if (tower.tag.Equals("Tower"))
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+                if (hit.collider != null)
                 {
-                    BaseTower baseTower = tower.GetComponent<BaseTower>();
-                    baseTower.SetTowerMenu();
+                    GameObject tower = hit.collider.gameObject;
+                    if (tower.tag.Equals("Tower"))
+                    {
+                        BaseTower baseTower = tower.GetComponent<BaseTower>();
+                        baseTower.SetTowerMenu();
+                    }
                 }
             }
         }
@@ -60,41 +59,41 @@ public class Manual_CardManager : MonoBehaviour
 
     public void DrawCard()
     {
-        if (_AvailableCards.Count == 0) return;
+        if (_availableCards.Count == 0) return;
 
-        int randomIndex = Random.Range(0, _AvailableCards.Count);
-        _currentCard = _AvailableCards[randomIndex];
-        _CardDisplay.sprite = _currentCard.CardSprite;
-        _CardDisplay.gameObject.SetActive(true);
+        int randomIndex = Random.Range(0, _availableCards.Count);
+        _currentCard = _availableCards[randomIndex];
+        _cardDisplay.sprite = _currentCard.CardSprite;
+        _cardDisplay.gameObject.SetActive(true);
         _drawCardButton.gameObject.SetActive(false);
         //UIManager.Instance.waveFinPanel.SetActive(false);
 
-        Cards previewTower = _GetCurrentCard();
-        _PlacementPreview(previewTower);
+        Cards previewTower = GetCurrentCard();
+        PlacementPreview(previewTower);
 
         //if (!UIManager.Instance.prepareFirstWavePanel) return;
         //UIManager.Instance.prepareFirstWavePanel.SetActive(false);
         //_drawCardButton.interactable = false;
     }
 
-    public Cards _GetCurrentCard()
+    public Cards GetCurrentCard()
     {
         return _currentCard;
     }
 
-    public void _ClearCard()
+    public void ClearCard()
     {
         _currentCard = null;
-        _CardDisplay.gameObject.SetActive(false);
+        _cardDisplay.gameObject.SetActive(false);
     }
 
 
-    private void _PlaceTower()
+    private void PlaceTower()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0; // Z-Achse auf 0 setzen für 2D
+        mousePosition.z = 0; // Z-Achse auf 0 setzen fï¿½r 2D
 
-        Cards selectedCard = _GetCurrentCard();
+        Cards selectedCard = GetCurrentCard();
         Instantiate(selectedCard.TowerPrefab, mousePosition, Quaternion.identity);
 
         if (_currentPreview != null)
@@ -103,11 +102,11 @@ public class Manual_CardManager : MonoBehaviour
             _currentPreview = null;
         }
 
-        _ClearCard();
+        ClearCard();
         GameManager.Instance.StartNextWave();
     }
 
-    private void _PlacementPreview(Cards currentCard)
+    private void PlacementPreview(Cards currentCard)
     {
         if (currentCard == null) return;
 
