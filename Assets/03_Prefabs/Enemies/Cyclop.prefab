@@ -504,6 +504,7 @@ MonoBehaviour:
   deathPrefab: {fileID: 6555997334480401726, guid: bef2b922bd07d724fb877b72bf6404bb, type: 3}
   bloodParticlePrefab: {fileID: 3722948830147621180, guid: 394713cc275bbfe43a3863de26e9de10, type: 3}
   damageTextPrefab: {fileID: 8891703432907291767, guid: 817e71aa649dd764f958c8500888b914, type: 3}
+  alreadyDamagedPlayer: 0
 --- !u!114 &1173280012366497405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -625,7 +626,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 5, y: 5}
   m_Direction: 0
 --- !u!58 &2397494157646913868
 CircleCollider2D:

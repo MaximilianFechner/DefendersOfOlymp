@@ -456,6 +456,63 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1001 &211971309
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4551683048762430202, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -28.540037
+      objectReference: {fileID: 0}
+    - target: {fileID: 4551683048762430202, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.39767575
+      objectReference: {fileID: 0}
+    - target: {fileID: 4551683048762430202, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0000038146973
+      objectReference: {fileID: 0}
+    - target: {fileID: 4551683048762430202, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4551683048762430202, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4551683048762430202, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4551683048762430202, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4551683048762430202, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4551683048762430202, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4551683048762430202, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158947907336913497, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+      propertyPath: m_Name
+      value: ZeusTower
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
 --- !u!114 &325762330 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7012968655721769340, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
@@ -3479,3 +3536,4 @@ SceneRoots:
   - {fileID: 172336949}
   - {fileID: 922142465}
   - {fileID: 1141751715}
+  - {fileID: 211971309}

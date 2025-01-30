@@ -8,6 +8,11 @@ public class Hoverable : MonoBehaviour
     private string tooltipData;
     private bool isHovered = false;
 
+    private void Start()
+    {
+        tooltipInfo = "";
+        tooltipData = "";
+    }
     private void Update()
     {
         if (this == null) return;
@@ -35,6 +40,9 @@ public class Hoverable : MonoBehaviour
             {
                 TooltipManager.Instance.HideTooltip();
             }
+
+            tooltipInfo = "";
+            tooltipData = "";
         }
     }
 
@@ -116,6 +124,9 @@ public class Hoverable : MonoBehaviour
 
     private void OnDestroy()
     {
+        tooltipInfo = "";
+        tooltipData = "";
+
         if (TooltipManager.Instance != null)
         {
             TooltipManager.Instance.HideTooltip();

@@ -19,14 +19,49 @@ public class TooltipManager : MonoBehaviour
     {
         Instance = this;
         SceneManager.sceneLoaded += OnSceneLoaded;
-        HideTooltip();
+        //HideTooltip();
         
     }
 
     private void Start()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+
         lastScreenResolution = new Vector2(Screen.width, Screen.height);
         UpdateOffset();
+
+        tooltipText.text = "";
+        tooltipData.text = "";
+    }
+
+    private void OnEnable()
+    {
+
+        UpdateOffset();
+
+        if (tooltipPanel == null)
+        {
+            tooltipPanel = GameObject.Find("PNLTooltip")?.GetComponent<RectTransform>();
+        }
+
+        if (canvas == null)
+        {
+            canvas = GameObject.Find("UI")?.GetComponent<Canvas>();
+        }
+
+        if (tooltipPanel != null)
+        {
+            tooltipPanel.gameObject.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("Tooltip Panel not found on enable.");
+        }
+
+        HideTooltip();
     }
 
     private void Update()
@@ -40,6 +75,11 @@ public class TooltipManager : MonoBehaviour
 
     public void ShowTooltip(string text)
     {
+        if (tooltipPanel == null)
+        {
+            tooltipPanel = GameObject.Find("PNLTooltip")?.GetComponent<RectTransform>();
+        }
+
         tooltipText.text = text;
         tooltipPanel.gameObject.SetActive(true);
         UpdateTooltipPosition(Input.mousePosition);
@@ -47,6 +87,11 @@ public class TooltipManager : MonoBehaviour
 
     public void ShowTooltipData(string text)
     {
+        if (tooltipPanel == null)
+        {
+            tooltipPanel = GameObject.Find("PNLTooltip")?.GetComponent<RectTransform>();
+        }
+
         tooltipData.text = text;
         tooltipPanel.gameObject.SetActive(true);
         UpdateTooltipPosition(Input.mousePosition);
@@ -91,21 +136,28 @@ public class TooltipManager : MonoBehaviour
 
     public void HideTooltip()
     {
-        if (tooltipPanel == null) return;
-        tooltipPanel.gameObject.SetActive(false);
+        if (tooltipPanel != null)
+        {
+            tooltipPanel.gameObject.SetActive(false);
+        }
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (tooltipPanel == null)
         {
-            tooltipPanel = GameObject.Find("TooltipPanel")?.GetComponent<RectTransform>();
-        }
+            tooltipPanel = GameObject.Find("PNLTooltip")?.GetComponent<RectTransform>();
 
-        HideTooltip();
+            if (tooltipPanel == null)
+            {
+                Debug.LogError("TooltipPanel nicht gefunden!");
+            }
+        }
     }
 
     private void OnDestroy()
     {
+        tooltipText.text = "";
+        tooltipData.text = "";
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
