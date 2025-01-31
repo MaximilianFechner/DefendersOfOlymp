@@ -42,10 +42,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 2273737059560296588}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd603ee9d4c7dee41a8bb01d70b59960, type: 3}
+  m_Script: {fileID: 11500000, guid: df43eaa5da3d6da4f9c6eeb23dc0848a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelBackgroundMusic: {fileID: 8300000, guid: d47f493841e9d69488cbb163bb377369, type: 3}
+  levelBackgroundMusic: {fileID: 8300000, guid: ed2d3278327293a4c9e2acf2e6b0724d, type: 3}
+  levelAmbienteSFX: {fileID: 8300000, guid: 1396ecd1a2386134194b65c1b7730b78, type: 3}
+  waveEndMusic: {fileID: 8300000, guid: 13151bf8b427a93458c9548e84cf48ce, type: 3}
+  lostLifeSFX:
+  - {fileID: 8300000, guid: 09bee012489a42246868805263335219, type: 3}
+  - {fileID: 8300000, guid: ce3335805c226304fb0679a598247045, type: 3}
+  cardSFX: {fileID: 8300000, guid: 64a8e130faaa1d14fa370d40eca5f7e3, type: 3}
+  buttonSFX: {fileID: 8300000, guid: d0acd4cb711d0854aa2361a2248efbdd, type: 3}
+  stoneSFX: {fileID: 8300000, guid: c855f11382bdbf04ea1091669ce7d381, type: 3}
+  towerPlacementSFX:
+  - {fileID: 8300000, guid: 7de84e45eb031af4a9f4c749d9b767f9, type: 3}
+  - {fileID: 8300000, guid: 6914f9051359a5f40801ad5b0c8e14f0, type: 3}
+  - {fileID: 8300000, guid: 4b828e5bc32b0ea4a9451e514d4566f7, type: 3}
+  - {fileID: 8300000, guid: cb4f43cc118470340b52c5bb282061bc, type: 3}
+  hitImpactSFX:
+  - {fileID: 8300000, guid: f86b9cb670b563e469f61c3365bd926d, type: 3}
+  - {fileID: 8300000, guid: d1dc188d4e82c2d43a3a5c3f22b87ef6, type: 3}
+  - {fileID: 8300000, guid: 5e011d68a7dd0504e938ce4bad82b1b3, type: 3}
+  - {fileID: 8300000, guid: ecccade480ec7c24abe18e95521d8fbb, type: 3}
 --- !u!82 &1817887635198218660
 AudioSource:
   m_ObjectHideFlags: 0
@@ -56,12 +74,12 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: ed2d3278327293a4c9e2acf2e6b0724d, type: 3}
+  m_Resource: {fileID: 8300000, guid: ed2d3278327293a4c9e2acf2e6b0724d, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.2
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

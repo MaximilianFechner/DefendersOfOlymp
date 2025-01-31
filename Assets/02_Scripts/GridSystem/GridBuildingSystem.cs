@@ -66,19 +66,22 @@ public class GridBuildingSystem : MonoBehaviour
         }
     }
 
-    public void PlaceTower() {
+    public bool PlaceTower() {
         grid.GetXY(GetMouseWorldPosition(), out int x, out int z);
-
         Vector2Int placedObjectOrigin = new Vector2Int(x, z);
-
         List<Vector2Int> gridPositionList = placedObjectTypeSO.GetGridPositionList(placedObjectOrigin, dir);
 
+        BaseTower towerToUpgrade = null;
 
         bool canBuild = true;
         foreach (Vector2Int gridPosition in gridPositionList) {
             if (!grid.GetGridObject(gridPosition.x, gridPosition.y).CanBuild()) {
                 //Cannot build here
                 canBuild = false;
+                towerToUpgrade = grid.GetGridObject(gridPosition.x, gridPosition.y).GetPlacedObject().gameObject.GetComponent<BaseTower>();
+                if (towerToUpgrade == null) {
+                    Debug.LogError("towerToUpgrade is null on position: " + gridPosition.ToString());
+                }
                 break;
             }
         }
@@ -105,8 +108,21 @@ public class GridBuildingSystem : MonoBehaviour
             OnObjectPlaced?.Invoke(this, EventArgs.Empty);
 
         } else {
-            Debug.Log("Cant build! Transform not null");
+            Debug.Log("Cant build! Transform not null. Try to upgrade");
+            if (towerToUpgrade == null) {
+                Debug.LogError("TowerToUpgrade is null!");
+            } else if (!towerToUpgrade.towerName.Equals(placedObjectTypeSO.towerName)) {
+                Debug.Log("Cant upgrade! Selected Tower is not equals placed Tower! Try again");
+                return canBuild;
+            } else {
+                towerToUpgrade.UpgradeTower();
+                DeselectObjectType();
+                OnObjectPlaced?.Invoke(this, EventArgs.Empty);
+                canBuild = true;
+                Debug.Log("Tower upgraded");
+            }
         }
+        return canBuild;
     }
 
     public static Vector3 GetMouseWorldPosition() {
@@ -136,7 +152,7 @@ public class GridBuildingSystem : MonoBehaviour
 
     public void RefreshSelectedObjectType(PlacedObjectTypeSO selectedTower) {
         for (int i = 0;i < placedObjectTypeSOList.Count;i++) {
-            if (selectedTower.nameString.Equals(placedObjectTypeSOList[i].nameString)) {
+            if (selectedTower.towerName.Equals(placedObjectTypeSOList[i].towerName)) {
                 placedObjectTypeSO = placedObjectTypeSOList[i];
                 OnSelectedChanged?.Invoke(this, EventArgs.Empty);
             }

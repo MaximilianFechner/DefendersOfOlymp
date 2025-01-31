@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1599f721d8800954883315ac4cc8eed7, type: 3}
   m_Name: PoseidonTower
   m_EditorClassIdentifier: 
-  nameString: PoseidonTower
+  towerName: 2
   prefab: {fileID: 3910613375756440478, guid: e607f517af798464f9111ce99e5cc7ec, type: 3}
   visual: {fileID: 3910613375756440478, guid: e607f517af798464f9111ce99e5cc7ec, type: 3}
   width: 1

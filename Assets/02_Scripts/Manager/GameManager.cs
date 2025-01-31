@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour //IDataPersistence
 {
     public static GameManager Instance { get; private set; }
     public int RemainingLives { get; private set; }
@@ -206,6 +206,19 @@ public class GameManager : MonoBehaviour
         waveNumber++;
         UIManager.Instance.waveNumberText.text = $"{waveNumber.ToString()}";
     }
+
+    //SaveSystem
+    public void LoadData(GameData data)
+    {
+        this.waveNumber= data.waveCount;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.waveCount = this.waveNumber;
+    }
+
+    //Save System
 
     public void ResetStats()
     {

@@ -20,7 +20,7 @@ public class BaseTower : MonoBehaviour
     [Header("Game Design Values: Tower")]
 
     [Tooltip("The name of the tower")]
-    public string towerName;
+    public TowerName towerName;
 
     [Tooltip("The base attack speed for the tower")]
     [SerializeField] public float attackSpeed;
@@ -168,7 +168,7 @@ public class BaseTower : MonoBehaviour
     }
 
     public void UpgradeTower() {
-        attackSpeed += attackSpeed * upgradeAttackSpeed;
+        attackSpeed -= attackSpeed * upgradeAttackSpeed;
         attackRadius += attackRadius * upgradeAttackRadius;
         movementSpeed += movementSpeed * upgradeMovementSpeed;
         damage += damage * upgradeDamage;
