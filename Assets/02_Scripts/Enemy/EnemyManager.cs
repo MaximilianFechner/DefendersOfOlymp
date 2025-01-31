@@ -11,31 +11,34 @@ public class EnemyManager : MonoBehaviour
     private NavMeshAgent navMeshAgent;
 
     [Header("Game Design Values")]
+    [Tooltip("name of the enemy")]
+    public string enemyName;
+
     [Tooltip("The maximum hp for the enemy")]
     [Min(1)]
-    [SerializeField] 
+    [SerializeField]
     public float _maxHP = 50f; // default value
 
     [Tooltip("Add extra absolute HP for this enemy for every wave")]
     [Min(0)]
     [SerializeField]
-    private float absoluteHPIncreaseWave = 0f;
-   
+    public float absoluteHPIncreaseWave = 0f;
+
     [Tooltip("Add extra prozentual HP for this enemy for every wave")]
     [Min(0)]
     [SerializeField]
-    private float prozentualHPIncreaseWave = 0f;
+    public float prozentualHPIncreaseWave = 0f;
 
 
     [Tooltip("Add extra absolute Speed for this enemy for every wave")]
     [Min(0)]
     [SerializeField]
-    private float absoluteSpeedIncreaseWave = 0f;
+    public float absoluteSpeedIncreaseWave = 0f;
 
     [Tooltip("Add extra prozentual Speed for this enemy for every wave")]
     [Min(0)]
     [SerializeField]
-    private float prozentualSpeedIncreaseWave = 0f;
+    public float prozentualSpeedIncreaseWave = 0f;
 
     [Tooltip("The damage the enemy did on the player when he reached the target/goal")]
     [Min(1)]
@@ -111,6 +114,8 @@ public class EnemyManager : MonoBehaviour
 
     public GameObject damageTextPrefab;
 
+    public bool alreadyDamagedPlayer = false;
+
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -132,10 +137,16 @@ public class EnemyManager : MonoBehaviour
         // HP Increase per Wave
         prozentualHPIncreaseWave = ((_maxHP / 100) * prozentualHPIncreaseWave) * GameManager.Instance.waveNumber;
         absoluteHPIncreaseWave *= GameManager.Instance.waveNumber;
-        _maxHP += (absoluteHPIncreaseWave + prozentualHPIncreaseWave);
+        _maxHP += Mathf.RoundToInt(absoluteHPIncreaseWave + prozentualHPIncreaseWave); //auf eine Ganzzahl runden
         _currentHP = _maxHP;
 
         audioSource = GetComponent<AudioSource>();
+
+        if (audioSource != null)
+        {
+            audioSource.ignoreListenerPause = false;
+            audioSource.pitch = Random.Range(minPitchSounds, maxPitchSounds);
+        }
     }
 
     void Update()
@@ -152,6 +163,21 @@ public class EnemyManager : MonoBehaviour
         else
         {
             enemyHealthBar.SetVisible(true);
+        }
+
+        if (Time.timeScale == 0)
+        {
+            if (audioSource.isPlaying)
+            {
+                audioSource.Pause();
+            }
+        }
+        else
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.UnPause();
+            }
         }
     }
     public void TakeDamage(float damage)
@@ -294,11 +320,12 @@ public class EnemyManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "EnemyTarget")
+        if (collision.tag == "EnemyTarget" && (!alreadyDamagedPlayer))
         {
             GameManager.Instance.LoseLife(_playerDamage);
             GameManager.Instance.SubRemainingEnemy();
             Destroy(this.gameObject, 3f);
+            alreadyDamagedPlayer = true;
         }
     }
 

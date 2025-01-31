@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class HephaistosQuake : MonoBehaviour
 {
@@ -16,27 +17,27 @@ public class HephaistosQuake : MonoBehaviour
     [Tooltip("The minimum damage the ability does per interval")]
     [Min(0)]
     [SerializeField]
-    private float damageLowerLimitPerInterval = 1f;
+    public float damageLowerLimitPerInterval = 1f;
 
     [Tooltip("The maximum damage the ability does per interval")]
     [Min(0)]
     [SerializeField]
-    private float damageUpperLimitPerInterval = 5f;
+    public float damageUpperLimitPerInterval = 5f;
 
     [Tooltip("The time between the damage ticks")]
     [Min(0)]
     [SerializeField]
-    private float _damageIntervalSeconds = 1f;
+    public float _damageIntervalSeconds = 1f;
 
     [Tooltip("The Percentage for the default movement speed")]
     [Min(0)]
     [SerializeField]
-    private float _slowPercentage = 0.5f;
+    public float _slowPercentage = 0.5f;
 
     [Tooltip("The time how long the skill is active")]
     [Min(0)]
     [SerializeField]
-    private float _quakeDuration = 5f;
+    public float _quakeDuration = 5f;
 
     [Tooltip("The radius for the skill")]
     [Min(0)]
@@ -46,7 +47,7 @@ public class HephaistosQuake : MonoBehaviour
     [Tooltip("The time you have to wait before you can use the skill again")]
     [Min(0)]
     [SerializeField]
-    private float _cooldownTime = 30f;
+    public float _cooldownTime = 30f;
 
     [Tooltip("The intensity of the camera shake")]
     [Min(0)]
@@ -90,9 +91,26 @@ public class HephaistosQuake : MonoBehaviour
 
     private CameraShake _cameraShake;
 
-    private void Awake()
+    [HideInInspector] public int hephaistosSkillLevel = 1;
+
+    private void Start()
     {
+        AssignCameraShake();
         _cameraShake = Camera.main.GetComponent<CameraShake>();
+        //_cameraShake = FindFirstObjectByType<CameraShake>();
+    }
+
+    private void AssignCameraShake()
+    {
+        if (_cameraShake == null)
+        {
+            _cameraShake = FindFirstObjectByType<CameraShake>();
+
+            if (_cameraShake == null)
+            {
+                Debug.LogError("CameraShake not found in the scene!");
+            }
+        }
     }
 
     private void Update()
@@ -136,13 +154,24 @@ public class HephaistosQuake : MonoBehaviour
         }
     }
 
+
     public void ActivateQuake()
     {
+        if (Time.timeScale == 0) return;
         if (!isReady) return;
+
+        if (_cameraShake == null)
+        {
+            _cameraShake = FindFirstObjectByType<CameraShake>();
+        }
 
         if (_cameraShake != null)
         {
             StartCoroutine(_cameraShake.Shake(_quakeDuration, _cameraShakeMagnitude));
+        }
+        else
+        {
+            Debug.LogError("CameraShake is NULL!");
         }
 
         StartCoroutine(HephaitosQuakeDamageOverTime());
@@ -156,21 +185,26 @@ public class HephaistosQuake : MonoBehaviour
     private IEnumerator HephaitosQuakeDamageOverTime()
     {
         float elapsedTime = 0f;
+
         while (elapsedTime <= _quakeDuration)
         {
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(Vector3.zero, _quakeRadius, enemyLayer);
 
             foreach (Collider2D enemy in hitEnemies)
             {
-                if (enemy.TryGetComponent(out EnemyManager enemyManager))
+                if (enemy.isTrigger)
                 {
-                    enemyManager.TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimitPerInterval, damageUpperLimitPerInterval)));
+                    if (enemy.TryGetComponent(out EnemyManager enemyManager))
+                    {
+                        enemyManager.TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimitPerInterval, damageUpperLimitPerInterval)));
+                    }
+
+                    if (enemy.TryGetComponent(out EnemyPathfinding enemyPathfinding))
+                    {
+                        enemyPathfinding.SlowMovement(_slowPercentage, _damageIntervalSeconds);
+                    }
                 }
 
-                if (enemy.TryGetComponent(out EnemyPathfinding enemyPathfinding))
-                {
-                    enemyPathfinding.SlowMovement(_slowPercentage, _damageIntervalSeconds);
-                }
             }
 
             elapsedTime += _damageIntervalSeconds;

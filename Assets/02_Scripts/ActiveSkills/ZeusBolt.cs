@@ -20,12 +20,12 @@ public class ZeusBolt : MonoBehaviour
     [Tooltip("The minimum damage the ability does")]
     [Min(0)]
     [SerializeField]
-    private float damageLowerLimit = 90f;
+    public float damageLowerLimit = 90f;
 
     [Tooltip("The maximum damage the ability does")]
     [Min(0)]
     [SerializeField]
-    private float damageUpperLimit = 110f;
+    public float damageUpperLimit = 110f;
 
     [Tooltip("Animationtime, it doesnt change the damage")]
     [Min(0)]
@@ -40,7 +40,7 @@ public class ZeusBolt : MonoBehaviour
     [Tooltip("The time you have to wait before you can use the skill again")]
     [Min(0)]
     [SerializeField]
-    private float cooldownTime = 20f;
+    public float cooldownTime = 20f;
 
     [Space(10)]
 
@@ -74,6 +74,8 @@ public class ZeusBolt : MonoBehaviour
     [Min(0)]
     [SerializeField]
     private float _cameraShakeDuration = 1f;
+
+    [HideInInspector] public int zeusSkillLevel = 1;
 
     public AudioClip skillSound;
     public AudioClip preSkillSound;
@@ -171,6 +173,8 @@ public class ZeusBolt : MonoBehaviour
 
     public void ActivateZeusSkill() //set isReady on true, activate the preview and the pre-sound
     {
+        if (Time.timeScale == 0) return;
+
         if (remainingCooldownTime <= 0 && GameManager.Instance.isInWave)
         {
             if (isReady)
@@ -200,7 +204,7 @@ public class ZeusBolt : MonoBehaviour
 
         Collider2D targetEnemy = Physics2D.OverlapCircle(new Vector2(worldPosition.x, worldPosition.y), attackRadius, enemyLayer);
 
-        if (targetEnemy != null)
+        if (targetEnemy != null && targetEnemy.isTrigger)
         {
             GameObject bolt = Instantiate(boltPrefab, new Vector3(worldPosition.x, worldPosition.y + 10, 0), Quaternion.identity);
             PlayBoltSFX(skillSound);
@@ -228,6 +232,11 @@ public class ZeusBolt : MonoBehaviour
             Vector2 targetPosition = buttonOriginalPosition + new Vector2(0, -50);
             StartCoroutine(MoveButton(buttonRect, targetPosition, Color.white, new Color(0.73f, 0.73f, 0.73f)));
             skillButton.interactable = false;
+
+            if (_cameraShake == null)
+            {
+                _cameraShake = FindFirstObjectByType<CameraShake>();
+            }
 
             if (_cameraShake != null)
             {
@@ -277,7 +286,7 @@ public class ZeusBolt : MonoBehaviour
         AudioSource tempAudioSource = soundObject.AddComponent<AudioSource>();
 
         tempAudioSource.clip = clip;
-        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.ignoreListenerPause = false;
         tempAudioSource.volume = Random.Range(minVolumeSounds, maxVolumeSounds);
         tempAudioSource.pitch = Random.Range(minPitchSounds, maxPitchSounds);
 
@@ -291,7 +300,7 @@ public class ZeusBolt : MonoBehaviour
         AudioSource tempAudioSource = preBoltSoundObject.AddComponent<AudioSource>();
 
         tempAudioSource.clip = clip;
-        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.ignoreListenerPause = false;
         tempAudioSource.loop = true;
         tempAudioSource.volume = Random.Range(minVolumeSounds, maxVolumeSounds);
         tempAudioSource.pitch = Random.Range(minPitchSounds, maxPitchSounds);
