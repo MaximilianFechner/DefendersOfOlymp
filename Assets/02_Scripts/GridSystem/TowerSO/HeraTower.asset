@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1599f721d8800954883315ac4cc8eed7, type: 3}
   m_Name: HeraTower
   m_EditorClassIdentifier: 
-  nameString: HeraTower
+  towerName: 1
   prefab: {fileID: 5364546954765906432, guid: df4954743583e0f47b5d23681783779b, type: 3}
   visual: {fileID: 5364546954765906432, guid: df4954743583e0f47b5d23681783779b, type: 3}
   width: 1

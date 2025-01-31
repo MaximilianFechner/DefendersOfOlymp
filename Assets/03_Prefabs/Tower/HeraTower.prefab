@@ -1132,7 +1132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4abec0f5468925489ee2d63d64f9583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerName: Hera
+  towerName: 1
   attackSpeed: 0.9
   attackRadius: 13
   targetType: 1

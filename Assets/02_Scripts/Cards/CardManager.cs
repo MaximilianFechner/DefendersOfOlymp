@@ -153,12 +153,15 @@ public class CardManager : MonoBehaviour
         else if (currentCard.TowerName.Contains("Hera")) AudioManager.Instance.PlayTowerPlacementSFX(2);
         else if (currentCard.TowerName.Contains("Hephaistos")) AudioManager.Instance.PlayTowerPlacementSFX(3);
 
-        GridBuildingSystem.Instance.PlaceTower();
-        currentPreview = null;
-
-        ClearCard();
-
-        GameManager.Instance.StartNextWave();
+        bool buildOrUpgradedTower = GridBuildingSystem.Instance.PlaceTower();
+        if (buildOrUpgradedTower) {
+            currentPreview = null;
+            ClearCard();
+            GameManager.Instance.StartNextWave();
+        } else {
+            Debug.Log("Couldn't build or upgrade. The player has to choose another position.");
+            //TODO Feedback to player
+        }
     }
 }
 
