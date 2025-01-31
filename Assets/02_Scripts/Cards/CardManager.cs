@@ -131,6 +131,42 @@ public class CardManager : MonoBehaviour
         }
     }
 
+    // TESTING
+
+    private IEnumerator TurnCard(RectTransform buttonRect, Vector2 targetPosition) //MOVEBTN
+    {
+        float duration = 1f;
+        Vector2 startPosition = buttonRect.anchoredPosition;
+        float elapsedTime = 0f;
+
+        float startSpeed = 1f;
+        float targetSpeed = 0.5f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+
+            t = t * t * (3f - 2f * t); // smoothes Movement des Buttons
+
+            buttonRect.anchoredPosition = Vector2.Lerp(startPosition, targetPosition, t);
+
+            if (uiAnimation != null)
+            {
+                uiAnimation.speed = Mathf.Lerp(startSpeed, targetSpeed, t);
+            }
+
+            yield return null;
+        }
+
+        buttonRect.anchoredPosition = targetPosition;
+
+        if (uiAnimation != null)
+        {
+            uiAnimation.speed = targetSpeed;
+        }
+    }
+
     public Cards GetCurrentCard()
     {
         return currentCard;
