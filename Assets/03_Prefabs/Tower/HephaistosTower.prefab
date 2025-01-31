@@ -338,7 +338,7 @@ MonoBehaviour:
   slowValue: 0
   timeSlowed: 0
   maxDamageJump: 0
-  upgradeAttackSpeed: 0.5
+  upgradeAttackSpeed: 0.05
   upgradeAttackRadius: 0
   upgradeMovementSpeed: 0
   upgradeDamage: 0

@@ -874,7 +874,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6603521257935481352}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 843dc1c2019eff549b99d9ce58a9bb47, type: 3}
   m_Name: 
@@ -891,7 +891,7 @@ MonoBehaviour:
   slowValue: 0
   timeSlowed: 0
   maxDamageJump: 0
-  upgradeAttackSpeed: 0.5
+  upgradeAttackSpeed: 0.05
   upgradeAttackRadius: 0
   upgradeMovementSpeed: 0
   upgradeDamage: 0
