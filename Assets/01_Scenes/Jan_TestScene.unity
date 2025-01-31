@@ -1106,6 +1106,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 125520608471001202, guid: 889f7bd5262c54640a390401f0968019, type: 3}
+      propertyPath: cellSize
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 125520608471001202, guid: 889f7bd5262c54640a390401f0968019, type: 3}
+      propertyPath: gridHeight
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 125520608471001202, guid: 889f7bd5262c54640a390401f0968019, type: 3}
+      propertyPath: leftUpperGridPosition.x
+      value: -20.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 125520608471001202, guid: 889f7bd5262c54640a390401f0968019, type: 3}
+      propertyPath: leftUpperGridPosition.y
+      value: 22.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4432569428322874509, guid: 889f7bd5262c54640a390401f0968019, type: 3}
       propertyPath: m_Name
       value: GridBuildingSystem_MidBlock
@@ -3053,6 +3069,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1584656598389747658}
+    - target: {fileID: 6564904415956882939, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30
+      objectReference: {fileID: 0}
     - target: {fileID: 7012968655721769340, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

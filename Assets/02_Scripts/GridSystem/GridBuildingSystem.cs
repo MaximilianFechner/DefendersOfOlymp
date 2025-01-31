@@ -118,6 +118,7 @@ public class GridBuildingSystem : MonoBehaviour
                 towerToUpgrade.UpgradeTower();
                 DeselectObjectType();
                 OnObjectPlaced?.Invoke(this, EventArgs.Empty);
+                canBuild = true;
                 Debug.Log("Tower upgraded");
             }
         }

@@ -168,7 +168,7 @@ public class BaseTower : MonoBehaviour
     }
 
     public void UpgradeTower() {
-        attackSpeed += attackSpeed * upgradeAttackSpeed;
+        attackSpeed -= attackSpeed * upgradeAttackSpeed;
         attackRadius += attackRadius * upgradeAttackRadius;
         movementSpeed += movementSpeed * upgradeMovementSpeed;
         damage += damage * upgradeDamage;
