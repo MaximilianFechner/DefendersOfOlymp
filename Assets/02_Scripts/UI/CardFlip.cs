@@ -45,6 +45,8 @@ public class CardFlip : MonoBehaviour
 
     IEnumerator FlipAnimation(Sprite sprite)
     {
+        psLighting.Stop();
+
         cardImage.sprite = defaultImage;
         newCardSprite = defaultImage;
         newCardSprite = sprite;
@@ -79,7 +81,7 @@ public class CardFlip : MonoBehaviour
         card.localScale = targetScale; // Skalierung bleibt auf 1.3
         isCardFlipped = true;
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         psLighting.gameObject.SetActive(false);
     }
 
