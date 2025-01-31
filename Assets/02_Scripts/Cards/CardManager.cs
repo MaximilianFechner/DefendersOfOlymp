@@ -12,11 +12,22 @@ public class CardManager : MonoBehaviour
     private Cards currentCard;
 
     [Header("UI Elements")]
-    public Image CardDisplay;
     public Button drawCardButton;
 
     public GameObject towerPreview;
     private GameObject currentPreview;
+
+    private Vector2 buttonOriginalPosition; //MOVEBTN
+    public Button drawCardBTN; //MOVEBTN
+    public Animator uiAnimation; //MOVEBTN
+
+    public CardFlip cardToFlip;
+
+    private void Start()
+    {
+        buttonOriginalPosition = drawCardBTN.GetComponent<RectTransform>().anchoredPosition;
+        uiAnimation = uiAnimation.GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -28,6 +39,12 @@ public class CardManager : MonoBehaviour
             currentPreview.transform.position = worldPosition;
         }
 
+        if (GameManager.Instance.isCardDrawable)
+        {
+            StartCoroutine(MoveButton(drawCardBTN.GetComponent<RectTransform>(), buttonOriginalPosition)); //BTN CD MOVE
+            drawCardBTN.interactable = true; //BTN CD MOVE
+            GameManager.Instance.isCardDrawable = false;
+        }
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -38,17 +55,17 @@ public class CardManager : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(1)) {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
-            if (hit.collider != null) {
-                GameObject tower = hit.collider.gameObject;
-                if (tower.tag.Equals("Tower")) {
-                    BaseTower baseTower = tower.GetComponent<BaseTower>();
-                    baseTower.SetTowerMenu();
-                }
-            }
-        }
+        //if (Input.GetMouseButtonDown(1)) {
+        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //    RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+        //    if (hit.collider != null) {
+        //        GameObject tower = hit.collider.gameObject;
+        //        if (tower.tag.Equals("Tower")) {
+        //            BaseTower baseTower = tower.GetComponent<BaseTower>();
+        //            baseTower.SetTowerMenu();
+        //        }
+        //    }
+        //}
     }
 
     public void DrawCard()
@@ -57,9 +74,16 @@ public class CardManager : MonoBehaviour
 
         int randomIndex = Random.Range(0, AvailableCards.Count);
         currentCard = AvailableCards[randomIndex];
-        CardDisplay.sprite = currentCard.CardSprite;
-        CardDisplay.gameObject.SetActive(true);
-        drawCardButton.gameObject.SetActive(false);
+
+        //CardDisplay.gameObject.SetActive(true);
+        //drawCardButton.gameObject.SetActive(false);
+
+        RectTransform buttonRect = drawCardBTN.GetComponent<RectTransform>(); //MOVEBTN
+        Vector2 targetPosition = buttonOriginalPosition + new Vector2(0, -200); //MOVEBTN
+        StartCoroutine(MoveButton(buttonRect, targetPosition)); //MOVEBTN
+        drawCardBTN.interactable = false; //MOVEBTN
+
+        cardToFlip.FlipCard(currentCard.CardSprite); //Cardflip Animation
 
         AudioManager.Instance.PlayCardSFX();
 
@@ -73,7 +97,40 @@ public class CardManager : MonoBehaviour
         } else {
             Debug.LogError($"Cannot GetComponent<PlacedObject>() from previewTower {previewTower.ToString()}");
         }
+    }
 
+    private IEnumerator MoveButton(RectTransform buttonRect, Vector2 targetPosition) //MOVEBTN
+    {
+        float duration = 1f;
+        Vector2 startPosition = buttonRect.anchoredPosition;
+        float elapsedTime = 0f;
+
+        float startSpeed = 1f;
+        float targetSpeed = 0.5f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+
+            t = t * t * (3f - 2f * t); // smoothes Movement des Buttons
+
+            buttonRect.anchoredPosition = Vector2.Lerp(startPosition, targetPosition, t);
+
+            if (uiAnimation != null)
+            {
+                uiAnimation.speed = Mathf.Lerp(startSpeed, targetSpeed, t);
+            }
+
+            yield return null;
+        }
+
+        buttonRect.anchoredPosition = targetPosition;
+
+        if (uiAnimation != null)
+        {
+            uiAnimation.speed = targetSpeed;
+        }
     }
 
     public Cards GetCurrentCard()
@@ -83,8 +140,9 @@ public class CardManager : MonoBehaviour
 
     public void ClearCard()
     {
+        cardToFlip.MoveCardOut();
+        cardToFlip.SetNewCard();
         currentCard = null;
-        CardDisplay.gameObject.SetActive(false);
     }
 
 
@@ -97,11 +155,10 @@ public class CardManager : MonoBehaviour
 
         GridBuildingSystem.Instance.PlaceTower();
         currentPreview = null;
-        
+
         ClearCard();
 
         GameManager.Instance.StartNextWave();
     }
-
 }
 

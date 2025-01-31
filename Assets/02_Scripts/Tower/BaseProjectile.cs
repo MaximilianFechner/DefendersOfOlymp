@@ -52,9 +52,13 @@ public abstract class BaseProjectile : MonoBehaviour
 
     
     private void OnTriggerEnter2D(Collider2D collider) {
-        if (collider.gameObject.tag.Equals("Enemy") && collider.gameObject.Equals(targetEnemy)) {
-            DamageCalculation(collider.gameObject);
-            Destroy(gameObject);
+        if (collider.isTrigger)
+        {
+            if (collider.gameObject.tag.Equals("Enemy") && collider.gameObject.Equals(targetEnemy))
+            {
+                DamageCalculation(collider.gameObject);
+                Destroy(gameObject);
+            }
         }
     }
 

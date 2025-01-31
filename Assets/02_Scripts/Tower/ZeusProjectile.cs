@@ -1,126 +1,126 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using System.Linq;
 
 public class ZeusProjectile : BaseProjectile
 {
     private int indexAttackedEnemies = 0;
     private GameObject lastEnemyAttacked;
-    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private GameObject hitPS; // Particle-System for hits
 
-    public GameObject hitPS; //Particle-System for hits
+    private HashSet<GameObject> hitEnemies = new HashSet<GameObject>(); // Avoid double damage on the same enemy
+    private new GameObject targetEnemy; // Current enemy target
+    private Vector2 targetPosition; // Position of the current target to move towards
+    private Vector2 initialDirection; // Direction of the projectile when it was first fired
 
-    private void Start() {
-        lastEnemyAttacked = targetEnemy;
+    private bool isMovingToNextEnemy = false;
+
+    void Start()
+    {
+        targetPosition = transform.position;
+        // Save initial direction relative to the first target
+        initialDirection = (targetPosition - (Vector2)transform.position).normalized;
+        // Rotate the projectile towards the first target
+        transform.right = initialDirection;
     }
 
-    //Bei einem Hit, neues Projektil mit dem nächsten targetEnemy und überschriebenen Wert des jumpCounter
-
-
-
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         Move();
+
+        if (isMovingToNextEnemy)
+        {
+            MoveToNextTarget();
+            MaintainInitialRotation();
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collider) {
-        if (collider.gameObject.tag.Equals("Enemy") && collider.gameObject.Equals(targetEnemy)) {
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("Enemy") && collider.isTrigger && !hitEnemies.Contains(collider.gameObject))
+        {
+            hitEnemies.Add(collider.gameObject); // Add the enemy to the hit list to avoid re-hitting it
             DamageCalculation(collider.gameObject);
             GetNextTargetEnemy();
         }
     }
 
-    private void GetNextTargetEnemy() {
+    private void MoveToNextTarget()
+    {
+        Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
+        float step = movementSpeed * Time.deltaTime; // Movement step based on speed
+        transform.position = Vector2.MoveTowards(transform.position, targetPosition, step);
+
+        // Check if the projectile has reached the target position
+        if ((Vector2)transform.position == targetPosition)
+        {
+            isMovingToNextEnemy = false; // Stop moving to the next target
+        }
+    }
+
+    private void MaintainInitialRotation()
+    {
+        // Ensure the projectile maintains the same initial direction for each jump
+        transform.right = initialDirection; // Keep the initial direction
+    }
+
+    private void GetNextTargetEnemy()
+    {
         List<GameObject> enemiesGameObjects = new List<GameObject>();
-        if (indexAttackedEnemies <= Mathf.RoundToInt(maxDamageJump)) {
-            Collider2D[] enemiesColliders = Physics2D.OverlapCircleAll(transform.position, aoeRadius);
+        Collider2D[] enemiesColliders = Physics2D.OverlapCircleAll(transform.position, aoeRadius);
 
-            if (enemiesColliders.Length > 0) {
-                foreach (Collider2D enemyCollider in enemiesColliders) {
-                    if (enemyCollider.gameObject.CompareTag("Enemy")) {
-                        enemiesGameObjects.Add(enemyCollider.gameObject);
-                    }
-                }
-                if (enemiesGameObjects.Count == 1) {
-                    Destroy(gameObject);
-                    return;
-                } else if (enemiesGameObjects.Count > 1) {
-                    BubbleSort(enemiesGameObjects);
+        foreach (Collider2D enemyCollider in enemiesColliders)
+        {
+            if (enemyCollider.isTrigger && enemyCollider.CompareTag("Enemy") && !hitEnemies.Contains(enemyCollider.gameObject))
+            {
+                enemiesGameObjects.Add(enemyCollider.gameObject);
+            }
+        }
 
-                    GameObject tempEnemy = enemiesGameObjects[0];
-                    for (int i = 1;i < enemiesGameObjects.Count;i++) {
-                        if (!tempEnemy.Equals(lastEnemyAttacked) && !tempEnemy.Equals(targetEnemy)) {
-                            lastEnemyAttacked = targetEnemy;
-                            targetEnemy = tempEnemy;
-                            maxDamageJump -= 1;
-                            return;
-                        }
-                        tempEnemy = enemiesGameObjects[i];
-                    }
+        if (enemiesGameObjects.Count > 0)
+        {
+            GameObject nextTarget = enemiesGameObjects[0]; // Closest enemy is the next target
+            targetEnemy = nextTarget;
+            targetPosition = targetEnemy.transform.position; // Set target position to the current position of the next enemy
 
-                    if (targetEnemy == null) {
-                        Debug.Log("Target enenym is null");
-                        Destroy(gameObject);
-                        return;
-                    }
+            // Update direction to the target
+            initialDirection = (targetPosition - (Vector2)transform.position).normalized;
+            transform.right = initialDirection;
 
-                }
+            lastEnemyAttacked = targetEnemy;
+            isMovingToNextEnemy = true;
 
-                if (maxDamageJump <= 0) {
-                    Destroy(gameObject);
-                    return;
-                } else {
-                    SpawnProjectile();
-                    Destroy(gameObject);
-                }
+            maxDamageJump -= 1;
+            indexAttackedEnemies++;
 
-                indexAttackedEnemies++;
-            } else {
-                Debug.Log("No Enemies found!");
+            // If no more enemies to jump to, destroy the projectile
+            if (maxDamageJump <= 0)
+            {
                 Destroy(gameObject);
             }
-        } else {
-            Destroy(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject); // If no more enemies, destroy the projectile
         }
     }
 
-    public override void DamageCalculation(GameObject enemy) {
-        if (enemy != null) {
+    public override void DamageCalculation(GameObject enemy)
+    {
+        if (enemy != null)
+        {
             EnemyManager enemyManager = enemy.GetComponent<EnemyManager>();
-            enemyManager.TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit)));
-        } else {
-            Debug.Log("Enemy is null!");
-        }
-    }
-
-    public void SpawnProjectile() {
-        GameObject projectile = Instantiate(projectilePrefab, this.transform.position, Quaternion.identity);
-        projectile.transform.SetParent(null);
-        BaseProjectile baseProjectile = projectile.GetComponent<BaseProjectile>();
-        baseProjectile.towerType = towerType;
-        baseProjectile.targetEnemy = targetEnemy;
-        baseProjectile.enemyLayerMask = enemyLayerMask;
-        baseProjectile.damage = damage;
-        baseProjectile.damageLowerLimit = damageLowerLimit;
-        baseProjectile.damageUpperLimit = damageUpperLimit;
-        baseProjectile.movementSpeed = movementSpeed;
-        baseProjectile.maxDamageJump = maxDamageJump;
-        baseProjectile.aoeRadius = aoeRadius;
-    }
-
-    public static void BubbleSort(List<GameObject> enemies) {
-        if (enemies.Count > 2) {
-            GameObject temp = enemies[0];
-            for (int i = 0;i < enemies.Count -1;i++) {
-                for (int j = 0;j < enemies.Count - i -1;j++) {
-                    float tempDistance = Vector2.Distance(temp.transform.position, enemies[j].transform.position);
-                    float newDistance = Vector2.Distance(enemies[j].transform.position, enemies[j + 1].transform.position);
-                    if (tempDistance > newDistance) {
-                        temp = enemies[j];
-                        enemies[j] = enemies[j + 1];
-                        enemies[j + 1] = temp;
-                    }
-                }
+            if (enemyManager != null)
+            {
+                int damage = Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit) *
+                    Mathf.Pow(0.8f, indexAttackedEnemies)); // % damage reduce after hit
+                enemyManager.TakeDamage(damage);
             }
+        }
+        else
+        {
+            Debug.Log("Enemy is null!");
         }
     }
 
@@ -129,5 +129,4 @@ public class ZeusProjectile : BaseProjectile
         Instantiate(hitPS, this.transform.position, Quaternion.identity);
         AudioManager.Instance.PlayHitImpactSFX(0);
     }
-
 }

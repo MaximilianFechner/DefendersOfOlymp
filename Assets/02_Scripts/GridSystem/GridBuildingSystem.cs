@@ -73,6 +73,7 @@ public class GridBuildingSystem : MonoBehaviour
 
         List<Vector2Int> gridPositionList = placedObjectTypeSO.GetGridPositionList(placedObjectOrigin, dir);
 
+
         bool canBuild = true;
         foreach (Vector2Int gridPosition in gridPositionList) {
             if (!grid.GetGridObject(gridPosition.x, gridPosition.y).CanBuild()) {
@@ -83,7 +84,9 @@ public class GridBuildingSystem : MonoBehaviour
         }
 
 
-        if (canBuild) {
+        if (canBuild) 
+        {
+
             Vector2Int rotationOffset = placedObjectTypeSO.GetRotationOffset(dir);
             Vector3 placedObjectWorldPosition = grid.GetWorldPosition(x, z) +
                 new Vector3(rotationOffset.x, rotationOffset.y) * grid.GetCellSize();

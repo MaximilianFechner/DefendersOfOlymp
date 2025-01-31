@@ -20,22 +20,22 @@ public class PoseidonWave : MonoBehaviour
     [Tooltip("The minimum damage the ability does per interval")]
     [Min(0)]
     [SerializeField]
-    private float damageLowerLimitPerInterval = 8f;
+    public float damageLowerLimitPerInterval = 8f;
 
     [Tooltip("The maximum damage the ability does per interval")]
     [Min(0)]
     [SerializeField]
-    private float damageUpperLimitPerInterval = 12f;
+    public float damageUpperLimitPerInterval = 12f;
 
     [Tooltip("The time between the damage ticks")]
     [Min(0)]
     [SerializeField]
-    private float _damageIntervalSeconds = 2f;
+    public float _damageIntervalSeconds = 2f;
 
     [Tooltip("The time how long the skill is active")]
     [Min(0)]
     [SerializeField]
-    private float _waveDuration = 10f;
+    public float _waveDuration = 10f;
 
     [Tooltip("The radius for the skill")]
     [Min(0)]
@@ -45,7 +45,7 @@ public class PoseidonWave : MonoBehaviour
     [Tooltip("The time you have to wait before you can use the skill again")]
     [Min(0)]
     [SerializeField]
-    private float _cooldownTime = 30f;
+    public float _cooldownTime = 30f;
 
     [Space(10)]
 
@@ -93,6 +93,8 @@ public class PoseidonWave : MonoBehaviour
     public ZeusBolt zeusBolt;
     public HeraStun heraStun;
     public HephaistosQuake hephaistosQuake;
+
+    [HideInInspector] public int poseidonSkillLevel = 1;
 
     //BTN CD MOVE
     private void Start()
@@ -231,9 +233,12 @@ private void Update()
 
             foreach (Collider2D enemy in hitEnemies)
             {
-                if (enemy.TryGetComponent(out EnemyManager enemyManager))
+                if (enemy.isTrigger)
                 {
-                    enemyManager.TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimitPerInterval, damageUpperLimitPerInterval)));
+                    if (enemy.TryGetComponent(out EnemyManager enemyManager))
+                    {
+                        enemyManager.TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimitPerInterval, damageUpperLimitPerInterval)));
+                    }
                 }
             }
 
