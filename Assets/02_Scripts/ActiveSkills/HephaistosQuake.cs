@@ -106,7 +106,7 @@ public class HephaistosQuake : MonoBehaviour
         {
             _cameraShake = FindFirstObjectByType<CameraShake>();
 
-            if (_cameraShake == null)
+            if (_cameraShake != null)
             {
                 Debug.LogError("CameraShake not found in the scene!");
             }
