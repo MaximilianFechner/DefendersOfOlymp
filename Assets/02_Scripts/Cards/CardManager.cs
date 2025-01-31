@@ -13,6 +13,7 @@ public class CardManager : MonoBehaviour
 
     [Header("UI Elements")]
     public Button drawCardButton;
+    public Image isDrawableLighting;
 
     public GameObject towerPreview;
     private GameObject currentPreview;
@@ -43,6 +44,9 @@ public class CardManager : MonoBehaviour
         {
             StartCoroutine(MoveButton(drawCardBTN.GetComponent<RectTransform>(), buttonOriginalPosition)); //BTN CD MOVE
             drawCardBTN.interactable = true; //BTN CD MOVE
+            isDrawableLighting.enabled = true;
+            cardToFlip.psLighting.gameObject.SetActive(true);
+
             GameManager.Instance.isCardDrawable = false;
         }
 
@@ -82,6 +86,7 @@ public class CardManager : MonoBehaviour
         Vector2 targetPosition = buttonOriginalPosition + new Vector2(0, -200); //MOVEBTN
         StartCoroutine(MoveButton(buttonRect, targetPosition)); //MOVEBTN
         drawCardBTN.interactable = false; //MOVEBTN
+        isDrawableLighting.enabled = false;
 
         cardToFlip.FlipCard(currentCard.CardSprite); //Cardflip Animation
 
