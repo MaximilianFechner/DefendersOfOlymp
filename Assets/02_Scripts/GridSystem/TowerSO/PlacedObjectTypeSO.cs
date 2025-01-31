@@ -1,10 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TowerName {
+    HEPHAISTOS,
+    HERA,
+    POSEIDON,
+    ZEUS
+}
+
 [CreateAssetMenu(fileName = "PlacedObjectTypeSO", menuName = "Scriptable Objects/PlacedObjectTypeSO")]
 public class PlacedObjectTypeSO : ScriptableObject
 {
-    public string nameString;
+    public TowerName towerName;
     public Transform prefab;
     public Transform visual;
     public int width;

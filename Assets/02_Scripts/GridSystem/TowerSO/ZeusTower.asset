@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1599f721d8800954883315ac4cc8eed7, type: 3}
   m_Name: ZeusTower
   m_EditorClassIdentifier: 
-  nameString: ZeusTower
+  towerName: 3
   prefab: {fileID: 4551683048762430202, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
   visual: {fileID: 4551683048762430202, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
   width: 1

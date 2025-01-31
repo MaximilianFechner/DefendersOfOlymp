@@ -4,6 +4,8 @@ using UnityEngine;
 public class PlacedObject : MonoBehaviour
 {
 
+    private static int defaultSortingOrder = 12;
+
     public static PlacedObject Create(Vector3 worldPosition, Vector2Int origin, PlacedObjectTypeSO.Dir dir, PlacedObjectTypeSO placedObjectTypeSO) {
         Transform placedObjectTransform = Instantiate(placedObjectTypeSO.prefab, worldPosition, Quaternion.Euler(0, 0, placedObjectTypeSO.GetRotationAngle(dir))); //TODO Vielleicht muss es auf y und z auf 0
 
@@ -11,6 +13,11 @@ public class PlacedObject : MonoBehaviour
         placedObject.placedObjectTypeSO = placedObjectTypeSO;
         placedObject.origin = origin;
         placedObject.dir = dir;
+
+        PlacedObject towerWithSpriteRenderer = FindAnyObjectByType<PlacedObject>();
+        SpriteRenderer spriteRenderer = towerWithSpriteRenderer.GetComponent<SpriteRenderer>();
+        spriteRenderer.sortingOrder = defaultSortingOrder - origin.y;
+
         return placedObject;
     }
 

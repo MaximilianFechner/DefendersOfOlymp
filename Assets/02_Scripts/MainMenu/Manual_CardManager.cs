@@ -1,12 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine;
-
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Manual_CardManager : MonoBehaviour
@@ -42,6 +36,7 @@ public class Manual_CardManager : MonoBehaviour
             }
         }
 
+        /* Auskommentiert, da TowerMenu jetzt über ein Tooltip funktioniert
         if (Input.GetMouseButtonDown(1))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -55,7 +50,8 @@ public class Manual_CardManager : MonoBehaviour
                     baseTower.SetTowerMenu();
                 }
             }
-        }
+        } 
+        */
     }
 
     public void DrawCard()
@@ -96,7 +92,7 @@ public class Manual_CardManager : MonoBehaviour
 
         Cards selectedCard = _GetCurrentCard();
         Instantiate(selectedCard.TowerPrefab, mousePosition, Quaternion.identity);
-
+        Debug.Log("Manual_CardManager");
         if (_currentPreview != null)
         {
             Destroy(_currentPreview);
