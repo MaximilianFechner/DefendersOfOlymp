@@ -5,6 +5,7 @@ using System.Collections;
 public class CardFlip : MonoBehaviour
 {
     public RectTransform card;
+    public Sprite defaultImage;
     public Image cardImage;
     private Sprite newCardSprite;
     public float duration = 1f;
@@ -16,12 +17,14 @@ public class CardFlip : MonoBehaviour
     private Vector2 originalPosition;
     private Vector2 targetPosition;
     private bool isCardFlipped = false;
+    public ParticleSystem psLighting;
 
     void Start()
     {
         originalScale = card.localScale;
         targetScale = new Vector3(1.3f, 1.3f, 1);
         originalPosition = card.anchoredPosition;
+        psLighting.gameObject.SetActive(true);
 
         RectTransform canvasRect = canvas.GetComponent<RectTransform>();
         float adjustedWidth = (card.rect.width * 1.3f) / 2;
@@ -42,6 +45,8 @@ public class CardFlip : MonoBehaviour
 
     IEnumerator FlipAnimation(Sprite sprite)
     {
+        cardImage.sprite = defaultImage;
+        newCardSprite = defaultImage;
         newCardSprite = sprite;
 
         float time = 0;
@@ -73,6 +78,9 @@ public class CardFlip : MonoBehaviour
         card.anchoredPosition = targetPosition;
         card.localScale = targetScale; // Skalierung bleibt auf 1.3
         isCardFlipped = true;
+
+        yield return new WaitForSeconds(3);
+        psLighting.gameObject.SetActive(false);
     }
 
     public void MoveCardOut()
@@ -100,6 +108,7 @@ public class CardFlip : MonoBehaviour
         }
 
         card.anchoredPosition = endPosition;
+
     }
 
     public void SetNewCard()

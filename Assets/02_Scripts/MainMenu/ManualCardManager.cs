@@ -38,6 +38,7 @@ public class ManualCardManager : MonoBehaviour
             }
         }
 
+        /* Auskommentiert, da TowerMenu jetzt über ein Tooltip funktioniert
         if (Input.GetMouseButtonDown(1))
         {
             if (Camera.main != null)
@@ -54,7 +55,8 @@ public class ManualCardManager : MonoBehaviour
                     }
                 }
             }
-        }
+        } 
+        */
     }
 
     public void DrawCard()
@@ -95,7 +97,7 @@ public class ManualCardManager : MonoBehaviour
 
         Cards selectedCard = GetCurrentCard();
         Instantiate(selectedCard.TowerPrefab, mousePosition, Quaternion.identity);
-
+        Debug.Log("Manual_CardManager");
         if (_currentPreview != null)
         {
             Destroy(_currentPreview);

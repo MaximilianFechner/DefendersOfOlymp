@@ -13,6 +13,7 @@ public class CardManager : MonoBehaviour
 
     [Header("UI Elements")]
     public Button drawCardButton;
+    public Image isDrawableLighting;
 
     public GameObject towerPreview;
     private GameObject currentPreview;
@@ -43,6 +44,9 @@ public class CardManager : MonoBehaviour
         {
             StartCoroutine(MoveButton(drawCardBTN.GetComponent<RectTransform>(), buttonOriginalPosition)); //BTN CD MOVE
             drawCardBTN.interactable = true; //BTN CD MOVE
+            isDrawableLighting.enabled = true;
+            cardToFlip.psLighting.gameObject.SetActive(true);
+
             GameManager.Instance.isCardDrawable = false;
         }
 
@@ -82,6 +86,7 @@ public class CardManager : MonoBehaviour
         Vector2 targetPosition = buttonOriginalPosition + new Vector2(0, -200); //MOVEBTN
         StartCoroutine(MoveButton(buttonRect, targetPosition)); //MOVEBTN
         drawCardBTN.interactable = false; //MOVEBTN
+        isDrawableLighting.enabled = false;
 
         cardToFlip.FlipCard(currentCard.CardSprite); //Cardflip Animation
 
@@ -153,12 +158,15 @@ public class CardManager : MonoBehaviour
         else if (currentCard.TowerName.Contains("Hera")) AudioManager.Instance.PlayTowerPlacementSFX(2);
         else if (currentCard.TowerName.Contains("Hephaistos")) AudioManager.Instance.PlayTowerPlacementSFX(3);
 
-        GridBuildingSystem.Instance.PlaceTower();
-        currentPreview = null;
-
-        ClearCard();
-
-        GameManager.Instance.StartNextWave();
+        bool buildOrUpgradedTower = GridBuildingSystem.Instance.PlaceTower();
+        if (buildOrUpgradedTower) {
+            currentPreview = null;
+            ClearCard();
+            GameManager.Instance.StartNextWave();
+        } else {
+            Debug.Log("Couldn't build or upgrade. The player has to choose another position.");
+            //TODO Feedback to player
+        }
     }
 }
 
