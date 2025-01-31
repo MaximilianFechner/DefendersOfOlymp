@@ -289,6 +289,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4944463581349003126, guid: 8708faa0eaf99574f9c30b351c9b47f1, type: 3}
   m_PrefabInstance: {fileID: 2453908190324029044}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &545614479 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4129339114779702429, guid: 64195ba9f22f5fa44b7609df99d5d597, type: 3}
+  m_PrefabInstance: {fileID: 5153067387144911786}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &671411158 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3440468434188493020, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
@@ -813,6 +818,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 349488450}
     m_Modifications:
     - target: {fileID: 1817887635198218660, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817887635198218660, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
       propertyPath: m_Volume
       value: 0.2
       objectReference: {fileID: 0}
@@ -826,7 +835,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: d47f493841e9d69488cbb163bb377369, type: 3}
     - target: {fileID: 1817887635198218660, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
       propertyPath: m_PlayOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1817887635198218660, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
       propertyPath: OutputAudioMixerGroup
@@ -1125,15 +1134,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4927842608779397137, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4927842608779397137, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4927842608779397137, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4927842608779397137, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1330,7 +1339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputFPS: {fileID: 1721638597}
   selectedFPS: {fileID: 841778065}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 545614479}
   _audioMixer: {fileID: 24100000, guid: bd9e0c0253698a942b2d6686341db3e1, type: 2}
   _resolutionDropdown: {fileID: 1118540589}
   _optionsMenu: {fileID: 540512707}
@@ -1833,6 +1842,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 2d4ced299a8a8a54881f6b922eb79907, type: 3}
+    - target: {fileID: 4129339114779702429, guid: 64195ba9f22f5fa44b7609df99d5d597, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
