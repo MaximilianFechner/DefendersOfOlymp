@@ -50,7 +50,7 @@ public class ManualCardManager : MonoBehaviour
                     if (tower.tag.Equals("Tower"))
                     {
                         BaseTower baseTower = tower.GetComponent<BaseTower>();
-                        baseTower.SetTowerMenu();
+                    //    baseTower.SetTowerMenu();
                     }
                 }
             }
