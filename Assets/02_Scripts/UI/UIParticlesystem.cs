@@ -19,7 +19,7 @@ public class UIParticlesystem : MonoBehaviour
         Vector3 kartenPositionWelt = kamera.ViewportToWorldPoint(kartenPositionViewport);
 
         partikelSystem.transform.position = new Vector3(
-            kartenPositionWelt.x,
+            kartenPositionWelt.x - 5.0f,
             kartenPositionWelt.y + 7.5f,
             0f // Z-Koordinate immer auf 0 setzen
         );
