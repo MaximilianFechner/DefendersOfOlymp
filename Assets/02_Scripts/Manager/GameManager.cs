@@ -128,6 +128,7 @@ public class GameManager : MonoBehaviour //IDataPersistence
     public void TryAgain()
     {
         FindFirstObjectByType<CardManager>().ResetGrid();
+        FindFirstObjectByType<UIParticlesystem>().ResetPosParticleSystem();
         ResetStats();
         EndOfWave();
         UIManager.Instance.InitializeLives(_playerStartLives);
