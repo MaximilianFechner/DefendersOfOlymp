@@ -22,6 +22,8 @@ public class BaseTower : MonoBehaviour
     [Tooltip("The name of the tower")]
     public TowerName towerName;
 
+    public string nameTower;
+
     [Tooltip("The base attack speed for the tower")]
     [SerializeField] public float attackSpeed;
 
@@ -172,6 +174,8 @@ public class BaseTower : MonoBehaviour
         attackRadius += attackRadius * upgradeAttackRadius;
         movementSpeed += movementSpeed * upgradeMovementSpeed;
         damage += damage * upgradeDamage;
+        damageLowerLimit += damageLowerLimit * upgradeDamage;
+        damageUpperLimit += damageUpperLimit * upgradeDamage;
         aoeRadius += aoeRadius * upgradeAoeRadius;
         slowValue += slowValue * upgradeSlowValue;
         timeSlowed += timeSlowed * upgradeTimeSlowed;
@@ -180,10 +184,12 @@ public class BaseTower : MonoBehaviour
     }
 
     public void DowngradeTower() {
-        attackSpeed -= attackSpeed * upgradeAttackSpeed;
+        attackSpeed += attackSpeed * upgradeAttackSpeed;
         attackRadius -= attackRadius * upgradeAttackRadius;
         movementSpeed -= movementSpeed * upgradeMovementSpeed;
         damage -= damage * upgradeDamage;
+        damageLowerLimit -= damageLowerLimit * upgradeDamage;
+        damageUpperLimit -= damageUpperLimit * upgradeDamage;
         aoeRadius -= aoeRadius * upgradeAoeRadius;
         slowValue -= slowValue * upgradeSlowValue;
         timeSlowed -= timeSlowed * upgradeTimeSlowed;

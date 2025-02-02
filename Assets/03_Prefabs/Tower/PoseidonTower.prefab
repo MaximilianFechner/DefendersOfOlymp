@@ -880,6 +880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerName: 2
+  nameTower: Poseidon
   attackSpeed: 0.95
   attackRadius: 13
   targetType: 1

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEditor.Experimental.GraphView;
 
 public class GameManager : MonoBehaviour //IDataPersistence
 {
@@ -126,6 +127,7 @@ public class GameManager : MonoBehaviour //IDataPersistence
 
     public void TryAgain()
     {
+        FindFirstObjectByType<CardManager>().ResetGrid();
         ResetStats();
         EndOfWave();
         UIManager.Instance.InitializeLives(_playerStartLives);

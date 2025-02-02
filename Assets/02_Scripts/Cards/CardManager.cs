@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -99,14 +101,14 @@ public class CardManager : MonoBehaviour
         return nearest;
     }
 
-    private void HighlightCell(GridCells cell)
+    private void HighlightCell(GridCells cell) //method to highlight the hovered cell
     {
-        foreach (GridCells c in gridCells)
+        foreach (GridCells cellBackground in gridCells)
         {
-            c.GetComponent<SpriteRenderer>().color = Color.white; // Reset aller Zellen
+            cellBackground.GetComponent<SpriteRenderer>().color = Color.white; //resets all cells
         }
 
-        cell.GetComponent<SpriteRenderer>().color = Color.green; // Neue Zelle hervorheben
+        cell.GetComponent<SpriteRenderer>().color = Color.green; //highlights the new cell
     }
 
     public void DrawCard()
@@ -133,16 +135,10 @@ public class CardManager : MonoBehaviour
         if (currentPreview != null) Destroy(currentPreview);
         currentPreview = Instantiate(currentCard.TowerPrefab);
 
-        //Collider2D collider = currentPreview.GetComponentInChildren<Collider2D>(); // Sucht auch in Kind-Objekten
-        //if (collider != null)
-        //{
-        //    collider.enabled = false;
-        //}
-
-        SpriteRenderer sprite = currentPreview.GetComponentInChildren<SpriteRenderer>(); // Sucht auch in Kind-Objekten
+        SpriteRenderer sprite = currentPreview.GetComponentInChildren<SpriteRenderer>();
         if (sprite != null)
         {
-            sprite.color = new Color(1, 1, 1, 0.5f);
+            sprite.color = new Color(1, 1, 1, 0.5f); //slightly transparent preview
         }
     }
 
@@ -199,13 +195,21 @@ public class CardManager : MonoBehaviour
 
         if (currentTargetCell.isCellBuilt)
         {
-            // Falls der Turm bereits existiert, prüfen, ob er geupgraded werden kann
-            BaseTower existingTower = currentTargetCell.GetComponentInChildren<BaseTower>();
-            BaseTower drawedTower = currentCard.TowerPrefab.GetComponent<BaseTower>();
+            //if the cell is not empty then check for an able upgrade
+            BaseTower towerInCell = currentTargetCell.placedTower.GetComponentInChildren<BaseTower>();
+            string existingTower = currentTargetCell.towerName;
 
-            if (existingTower != null && existingTower.towerName == drawedTower.towerName)
+            Debug.Log($"Existing Tower: {towerInCell.nameTower}, Drawed Tower: {currentCard.TowerName}");
+
+            if (towerInCell != null && existingTower == currentCard.TowerName)
             {
-                existingTower.UpgradeTower();
+                towerInCell.UpgradeTower();
+
+                if (currentCard.TowerName.Contains("Zeus")) AudioManager.Instance.PlayTowerPlacementSFX(0);
+                else if (currentCard.TowerName.Contains("Poseidon")) AudioManager.Instance.PlayTowerPlacementSFX(1);
+                else if (currentCard.TowerName.Contains("Hera")) AudioManager.Instance.PlayTowerPlacementSFX(2);
+                else if (currentCard.TowerName.Contains("Hephaistos")) AudioManager.Instance.PlayTowerPlacementSFX(3);
+
                 Destroy(currentPreview);
                 currentPreview = null;
                 ClearCard();
@@ -215,31 +219,30 @@ public class CardManager : MonoBehaviour
         }
         else
         {
-            // Neuen Turm platzieren
+            //place a new tower
             GameObject newTower = Instantiate(currentCard.TowerPrefab, currentTargetCell.transform.position, Quaternion.identity);
             currentTargetCell.PlaceTower(newTower);
+
+            currentTargetCell.isCellBuilt = true;
+
+            if (currentCard.TowerName.Contains("Zeus")) AudioManager.Instance.PlayTowerPlacementSFX(0);
+            else if (currentCard.TowerName.Contains("Poseidon")) AudioManager.Instance.PlayTowerPlacementSFX(1);
+            else if (currentCard.TowerName.Contains("Hera")) AudioManager.Instance.PlayTowerPlacementSFX(2);
+            else if (currentCard.TowerName.Contains("Hephaistos")) AudioManager.Instance.PlayTowerPlacementSFX(3);
 
             Destroy(currentPreview);
             currentPreview = null;
             ClearCard();
             GameManager.Instance.StartNextWave();
         }
+    }
 
-
-        //if (currentCard.TowerName.Contains("Zeus")) AudioManager.Instance.PlayTowerPlacementSFX(0);
-        //else if (currentCard.TowerName.Contains("Poseidon")) AudioManager.Instance.PlayTowerPlacementSFX(1);
-        //else if (currentCard.TowerName.Contains("Hera")) AudioManager.Instance.PlayTowerPlacementSFX(2);
-        //else if (currentCard.TowerName.Contains("Hephaistos")) AudioManager.Instance.PlayTowerPlacementSFX(3);
-
-        //bool buildOrUpgradedTower = GridBuildingSystem.Instance.PlaceTower();
-        //if (buildOrUpgradedTower) {
-        //    currentPreview = null;
-        //    ClearCard();
-        //    GameManager.Instance.StartNextWave();
-        //} else {
-        //    Debug.Log("Couldn't build or upgrade. The player has to choose another position.");
-        //    //TODO Feedback to player
-        //}
+    public void ResetGrid()
+    {
+        foreach (GridCells cell in gridCells)
+        {
+            cell.ResetCell();
+        }
     }
 }
 

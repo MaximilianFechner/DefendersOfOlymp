@@ -24,6 +24,12 @@ public class CardFlip : MonoBehaviour
         originalScale = card.localScale;
         targetScale = new Vector3(1.3f, 1.3f, 1);
         originalPosition = card.anchoredPosition;
+
+        if (psLighting == null) // Falls psLighting nicht zugewiesen wurde
+        {
+            psLighting = GetComponentInChildren<ParticleSystem>(); // Hier das Particle System zuweisen
+        }
+
         psLighting.gameObject.SetActive(true);
 
         UpdateTargetPosition();

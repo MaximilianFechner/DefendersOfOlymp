@@ -327,6 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerName: 0
+  nameTower: Hephaistos
   attackSpeed: 1.5
   attackRadius: 15
   targetType: 0
