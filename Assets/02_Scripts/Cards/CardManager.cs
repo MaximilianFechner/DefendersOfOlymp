@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -24,6 +23,10 @@ public class CardManager : MonoBehaviour
 
     public CardFlip cardToFlip;
 
+    private GridCells currentTargetCell; //OwnGrid: Die aktuelle Ziel-Zelle fürs Snappen
+    public GridCells[] gridCells; //OwnGrid:  Array mit allen Grid-Zellen
+    public float snapSpeed = 10f; //OwnGrid: Geschwindigkeit für Smooth-Snapping
+
     private void Start()
     {
         buttonOriginalPosition = drawCardBTN.GetComponent<RectTransform>().anchoredPosition;
@@ -37,7 +40,26 @@ public class CardManager : MonoBehaviour
             Vector3 mousePosition = Input.mousePosition;
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
             worldPosition.z = 0;
-            currentPreview.transform.position = worldPosition;
+
+            // Nächstgelegene Zelle finden
+            GridCells nearestCell = GetNearestCell(worldPosition);
+            if (nearestCell != null)
+            {
+                if (nearestCell != currentTargetCell)
+                {
+                    currentTargetCell = nearestCell;
+                    HighlightCell(nearestCell);
+                }
+            }
+
+            // Smooth Snapping zur Zelle
+            if (currentTargetCell != null)
+            {
+                currentPreview.transform.position = Vector3.Lerp(
+                    currentPreview.transform.position,
+                    currentTargetCell.transform.position,
+                    Time.deltaTime * snapSpeed);
+            }
         }
 
         if (GameManager.Instance.isCardDrawable)
@@ -58,18 +80,33 @@ public class CardManager : MonoBehaviour
                 PlaceTower();
             }
         }
+    }
 
-        //if (Input.GetMouseButtonDown(1)) {
-        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //    RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
-        //    if (hit.collider != null) {
-        //        GameObject tower = hit.collider.gameObject;
-        //        if (tower.tag.Equals("Tower")) {
-        //            BaseTower baseTower = tower.GetComponent<BaseTower>();
-        //            baseTower.SetTowerMenu();
-        //        }
-        //    }
-        //}
+    private GridCells GetNearestCell(Vector3 position)
+    {
+        GridCells nearest = null;
+        float minDist = Mathf.Infinity;
+
+        foreach (GridCells cell in gridCells)
+        {
+            float dist = Vector3.Distance(position, cell.transform.position);
+            if (dist < minDist)
+            {
+                minDist = dist;
+                nearest = cell;
+            }
+        }
+        return nearest;
+    }
+
+    private void HighlightCell(GridCells cell)
+    {
+        foreach (GridCells c in gridCells)
+        {
+            c.GetComponent<SpriteRenderer>().color = Color.white; // Reset aller Zellen
+        }
+
+        cell.GetComponent<SpriteRenderer>().color = Color.green; // Neue Zelle hervorheben
     }
 
     public void DrawCard()
@@ -92,15 +129,20 @@ public class CardManager : MonoBehaviour
 
         AudioManager.Instance.PlayCardSFX();
 
-        //TODO Der PreviewTower aka BuildingGhost, darf nicht angreifen. 
-        Cards previewTower = GetCurrentCard();
+        // Preview-Turm erstellen
+        if (currentPreview != null) Destroy(currentPreview);
+        currentPreview = Instantiate(currentCard.TowerPrefab);
 
-        PlacedObject placedObjectPreviewTower = previewTower.TowerPrefab.GetComponentInChildren<PlacedObject>();
+        //Collider2D collider = currentPreview.GetComponentInChildren<Collider2D>(); // Sucht auch in Kind-Objekten
+        //if (collider != null)
+        //{
+        //    collider.enabled = false;
+        //}
 
-        if (placedObjectPreviewTower != null) {
-            GridBuildingSystem.Instance.RefreshSelectedObjectType(placedObjectPreviewTower.GetPlacedObjectTypeSO());
-        } else {
-            Debug.LogError($"Cannot GetComponent<PlacedObject>() from previewTower {previewTower.ToString()}");
+        SpriteRenderer sprite = currentPreview.GetComponentInChildren<SpriteRenderer>(); // Sucht auch in Kind-Objekten
+        if (sprite != null)
+        {
+            sprite.color = new Color(1, 1, 1, 0.5f);
         }
     }
 
@@ -153,20 +195,51 @@ public class CardManager : MonoBehaviour
 
     private void PlaceTower()
     {
-        if (currentCard.TowerName.Contains("Zeus")) AudioManager.Instance.PlayTowerPlacementSFX(0);
-        else if (currentCard.TowerName.Contains("Poseidon")) AudioManager.Instance.PlayTowerPlacementSFX(1);
-        else if (currentCard.TowerName.Contains("Hera")) AudioManager.Instance.PlayTowerPlacementSFX(2);
-        else if (currentCard.TowerName.Contains("Hephaistos")) AudioManager.Instance.PlayTowerPlacementSFX(3);
+        if (currentTargetCell == null) return;
 
-        bool buildOrUpgradedTower = GridBuildingSystem.Instance.PlaceTower();
-        if (buildOrUpgradedTower) {
+        if (currentTargetCell.isCellBuilt)
+        {
+            // Falls der Turm bereits existiert, prüfen, ob er geupgraded werden kann
+            BaseTower existingTower = currentTargetCell.GetComponentInChildren<BaseTower>();
+            BaseTower drawedTower = currentCard.TowerPrefab.GetComponent<BaseTower>();
+
+            if (existingTower != null && existingTower.towerName == drawedTower.towerName)
+            {
+                existingTower.UpgradeTower();
+                Destroy(currentPreview);
+                currentPreview = null;
+                ClearCard();
+                GameManager.Instance.StartNextWave();
+                return;
+            }
+        }
+        else
+        {
+            // Neuen Turm platzieren
+            GameObject newTower = Instantiate(currentCard.TowerPrefab, currentTargetCell.transform.position, Quaternion.identity);
+            currentTargetCell.PlaceTower(newTower);
+
+            Destroy(currentPreview);
             currentPreview = null;
             ClearCard();
             GameManager.Instance.StartNextWave();
-        } else {
-            Debug.Log("Couldn't build or upgrade. The player has to choose another position.");
-            //TODO Feedback to player
         }
+
+
+        //if (currentCard.TowerName.Contains("Zeus")) AudioManager.Instance.PlayTowerPlacementSFX(0);
+        //else if (currentCard.TowerName.Contains("Poseidon")) AudioManager.Instance.PlayTowerPlacementSFX(1);
+        //else if (currentCard.TowerName.Contains("Hera")) AudioManager.Instance.PlayTowerPlacementSFX(2);
+        //else if (currentCard.TowerName.Contains("Hephaistos")) AudioManager.Instance.PlayTowerPlacementSFX(3);
+
+        //bool buildOrUpgradedTower = GridBuildingSystem.Instance.PlaceTower();
+        //if (buildOrUpgradedTower) {
+        //    currentPreview = null;
+        //    ClearCard();
+        //    GameManager.Instance.StartNextWave();
+        //} else {
+        //    Debug.Log("Couldn't build or upgrade. The player has to choose another position.");
+        //    //TODO Feedback to player
+        //}
     }
 }
 
