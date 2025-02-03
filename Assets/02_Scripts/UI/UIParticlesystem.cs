@@ -1,30 +1,36 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class UIParticlesystem : MonoBehaviour
 {
     public RectTransform card;
-    public ParticleSystem particleSystem;
+    public ParticleSystem psDrawCardBtn;
 
-    private Camera camera;
+    private Camera camRef;
 
     private Vector3 startPosCard;
     private Vector3 startPosParticle;
 
     void Start()
     {
-        camera = Camera.main;
+        camRef = Camera.main;
 
         //startPosCard = card.position;
-        startPosParticle = particleSystem.transform.position;
+        startPosParticle = psDrawCardBtn.transform.position;
     }
 
     void Update()
     {
-        Vector3 kartenPositionUI = card.position;
-        Vector3 kartenPositionViewport = camera.ScreenToViewportPoint(kartenPositionUI);
-        Vector3 kartenPositionWelt = camera.ViewportToWorldPoint(kartenPositionViewport);
+        if (camRef == null)
+        {
+            camRef = Camera.main;
+        }
 
-        particleSystem.transform.position = new Vector3(
+        Vector3 kartenPositionUI = card.position;
+        Vector3 kartenPositionViewport = camRef.ScreenToViewportPoint(kartenPositionUI);
+        Vector3 kartenPositionWelt = camRef.ViewportToWorldPoint(kartenPositionViewport);
+
+        psDrawCardBtn.transform.position = new Vector3(
             kartenPositionWelt.x - 5.0f,
             kartenPositionWelt.y + 7.5f,
             0f // z = 0
@@ -35,7 +41,8 @@ public class UIParticlesystem : MonoBehaviour
     {
         //card.position = startPosCard;
         this.gameObject.SetActive(true);
-        particleSystem.transform.position = startPosParticle;
+        psDrawCardBtn.transform.position = startPosParticle;
+        camRef = Camera.main;
     }
 }
 

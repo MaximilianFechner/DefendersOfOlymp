@@ -13,7 +13,8 @@ public class GridCells : MonoBehaviour
     public void PlaceTower(GameObject tower)
     {
         placedTower = tower;
-        towerName = tower.GetComponentInChildren<BaseTower>().nameTower; // Name für spätere Vergleiche speichern
+        towerName = tower.GetComponentInChildren<BaseTower>().nameTower; //save name for checks later
+        towerLevel++;
     }
 
     public void ResetCell()

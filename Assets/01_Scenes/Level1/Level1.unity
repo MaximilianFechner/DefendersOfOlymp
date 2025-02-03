@@ -3407,9 +3407,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1936498715}
     - target: {fileID: 3432806550311285796, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: psDrawCardBtn
+      value: 
+      objectReference: {fileID: 723338430}
+    - target: {fileID: 3432806550311285796, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: particleSystem
       value: 
       objectReference: {fileID: 723338430}
+    - target: {fileID: 3440468434188493020, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: duration
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440468434188493020, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: moveOutDuration
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4067185540345730313, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

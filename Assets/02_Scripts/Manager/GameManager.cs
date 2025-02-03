@@ -128,7 +128,7 @@ public class GameManager : MonoBehaviour //IDataPersistence
     public void TryAgain()
     {
         FindFirstObjectByType<CardManager>().ResetGrid();
-        FindFirstObjectByType<UIParticlesystem>().ResetPosParticleSystem();
+
         ResetStats();
         EndOfWave();
         UIManager.Instance.InitializeLives(_playerStartLives);
@@ -143,6 +143,12 @@ public class GameManager : MonoBehaviour //IDataPersistence
         isCardDrawable = true;
 
         SceneManager.LoadScene(1);
+
+        UIParticlesystem part = FindFirstObjectByType<UIParticlesystem>();
+        if (part != null)
+        {
+            part.ResetPosParticleSystem();
+        }
     }
 
     public void LoseLife(int damage)
