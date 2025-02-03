@@ -296,6 +296,25 @@ public class CardManager : MonoBehaviour
             GameObject newTower = Instantiate(currentCard.TowerPrefab, currentTargetCell.transform.position, Quaternion.identity);
             currentTargetCell.PlaceTower(newTower);
 
+            SpriteRenderer towerRenderer = newTower.GetComponentInChildren<SpriteRenderer>();
+            if (towerRenderer != null)
+            {
+                int sortingOffset = 0;
+                if (currentTargetCell.cellIndex >= 20 && currentTargetCell.cellIndex < 30)
+                {
+                    sortingOffset = 1;
+                }
+                else if (currentTargetCell.cellIndex >= 30 && currentTargetCell.cellIndex < 40)
+                {
+                    sortingOffset = 2;
+                }
+
+                foreach (SpriteRenderer renderer in newTower.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    renderer.sortingOrder += sortingOffset;
+                }
+            }
+
             currentTargetCell.isCellBuilt = true;
 
             switch (currentCard.TowerName)

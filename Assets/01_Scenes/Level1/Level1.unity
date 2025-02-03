@@ -596,8 +596,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minAlpha: 0.4
   maxAlpha: 0.8
-  minSpeed: 0.3
-  maxSpeed: 0.5
+  minSpeed: 0.5
+  maxSpeed: 1
   minScale: 3
   maxScale: 10
 --- !u!4 &215978949 stripped
@@ -1036,8 +1036,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minAlpha: 0.4
   maxAlpha: 0.8
-  minSpeed: 0.3
-  maxSpeed: 0.5
+  minSpeed: 0.5
+  maxSpeed: 1
   minScale: 3
   maxScale: 10
 --- !u!4 &489273553 stripped
@@ -3620,8 +3620,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minAlpha: 0.4
   maxAlpha: 0.8
-  minSpeed: 0.3
-  maxSpeed: 0.5
+  minSpeed: 0.5
+  maxSpeed: 1
   minScale: 3
   maxScale: 10
 --- !u!1 &1085188317
