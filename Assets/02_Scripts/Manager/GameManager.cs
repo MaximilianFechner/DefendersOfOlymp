@@ -354,5 +354,16 @@ public class GameManager : MonoBehaviour //IDataPersistence
     public void ToggleTooltips()
     {
         showTooltips = !showTooltips;
+
+        GridCells[] allCells = FindObjectsOfType<GridCells>();
+
+        foreach (GridCells cell in allCells)
+        {
+            if (cell.towerLevelText != null)
+            {
+                cell.towerLevelText.gameObject.SetActive(showTooltips && cell.towerLevel > 0);
+                cell.UpdateTowerLevelText();
+            }
+        }
     }
 }

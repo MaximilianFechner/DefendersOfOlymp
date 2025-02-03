@@ -115,7 +115,7 @@ public class CardManager : MonoBehaviour
                 }
                 else
                 {
-                    cellBackground.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 0.25f); // red if not placeable
+                    cellBackground.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 0.50f); // red if not placeable
                 }
             }
             else
@@ -263,6 +263,8 @@ public class CardManager : MonoBehaviour
             if (towerInCell != null && existingTower == currentCard.TowerName)
             {
                 towerInCell.UpgradeTower();
+                currentTargetCell.towerLevel++;
+                currentTargetCell.UpdateTowerLevelText();
 
                 switch (currentCard.TowerName) 
                 {
