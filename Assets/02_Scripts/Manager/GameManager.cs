@@ -131,6 +131,20 @@ public class GameManager : MonoBehaviour //IDataPersistence
 
         ResetStats();
         EndOfWave();
+
+        BloodManager bloodPools = FindFirstObjectByType<BloodManager>();
+        if (bloodPools != null)
+        {
+            bloodPools.ClearBloodPools();
+        }
+
+        CorpseManager corpses = FindFirstObjectByType<CorpseManager>();
+        if (corpses != null)
+        {
+            corpses.ClearCorpses();
+        }
+
+
         UIManager.Instance.InitializeLives(_playerStartLives);
         UIManager.Instance.UpdateUITexts();
         UIManager.Instance.gameOverPanel.SetActive(false);

@@ -105,10 +105,69 @@ public class CardManager : MonoBehaviour
     {
         foreach (GridCells cellBackground in gridCells)
         {
-            cellBackground.GetComponent<SpriteRenderer>().color = Color.white; //resets all cells
+            if (cellBackground.isCellBuilt)
+            {
+                BaseTower towerInCell = cellBackground.placedTower?.GetComponentInChildren<BaseTower>();
+
+                if (towerInCell != null && cellBackground.towerName == currentCard.TowerName)
+                {
+                    cellBackground.GetComponent<SpriteRenderer>().color = new Color(0, 255, 0, 0.50f); ; // green if upgradeable
+                }
+                else
+                {
+                    cellBackground.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 0.25f); // red if not placeable
+                }
+            }
+            else
+            {
+                cellBackground.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.15f); // Normale Zelle
+            }
         }
 
-        cell.GetComponent<SpriteRenderer>().color = Color.green; //highlights the new cell
+        if (!cell.isCellBuilt)
+        {
+            cell.GetComponent<SpriteRenderer>().color = Color.white; // Nur hervorheben, wenn nicht upgradbar
+        }
+    }
+
+    private void DisableCells() //method to highlight the hovered cell
+    {
+        StartCoroutine(FadeOutCells());
+    }
+
+    private IEnumerator FadeOutCells()
+    {
+        float duration = 0.5f;
+        float elapsedTime = 0f;
+
+        // Speichert die aktuelle Farbe jeder Zelle
+        Dictionary<GridCells, Color> initialColors = new Dictionary<GridCells, Color>();
+
+        foreach (GridCells cell in gridCells)
+        {
+            initialColors[cell] = cell.GetComponent<SpriteRenderer>().color;
+        }
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+
+            foreach (GridCells cell in gridCells)
+            {
+                Color startColor = initialColors[cell];
+                Color targetColor = new Color(startColor.r, startColor.g, startColor.b, 0f);
+
+                cell.GetComponent<SpriteRenderer>().color = Color.Lerp(startColor, targetColor, t);
+            }
+
+            yield return null;
+        }
+
+        foreach (GridCells cell in gridCells)
+        {
+            cell.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+        }
     }
 
     public void DrawCard()
@@ -138,7 +197,7 @@ public class CardManager : MonoBehaviour
         SpriteRenderer sprite = currentPreview.GetComponentInChildren<SpriteRenderer>();
         if (sprite != null)
         {
-            sprite.color = new Color(1, 1, 1, 0.5f); //slightly transparent preview
+            sprite.color = new Color(1, 1, 1, 0.6f); //slightly transparent preview
         }
     }
 
@@ -224,6 +283,7 @@ public class CardManager : MonoBehaviour
                 Destroy(currentPreview);
                 currentPreview = null;
                 ClearCard();
+                DisableCells();
                 GameManager.Instance.StartNextWave();
                 return;
             }
@@ -255,6 +315,7 @@ public class CardManager : MonoBehaviour
             Destroy(currentPreview);
             currentPreview = null;
             ClearCard();
+            DisableCells();
             GameManager.Instance.StartNextWave();
         }
     }
