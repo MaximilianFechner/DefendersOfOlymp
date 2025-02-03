@@ -1,9 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
-using UnityEditor.Experimental.GraphView;
 
-public class GameManager : MonoBehaviour //IDataPersistence
+public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public int RemainingLives { get; private set; }
@@ -156,7 +155,7 @@ public class GameManager : MonoBehaviour //IDataPersistence
 
         isCardDrawable = true;
 
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Level1");
 
         UIParticlesystem part = FindFirstObjectByType<UIParticlesystem>();
         if (part != null)

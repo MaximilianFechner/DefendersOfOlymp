@@ -8061,6 +8061,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1040459522354727499, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _playerStartLives
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1116821196418075773, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: m_Color.a
       value: 0
