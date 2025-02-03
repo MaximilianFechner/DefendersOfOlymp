@@ -205,10 +205,21 @@ public class CardManager : MonoBehaviour
             {
                 towerInCell.UpgradeTower();
 
-                if (currentCard.TowerName.Contains("Zeus")) AudioManager.Instance.PlayTowerPlacementSFX(0);
-                else if (currentCard.TowerName.Contains("Poseidon")) AudioManager.Instance.PlayTowerPlacementSFX(1);
-                else if (currentCard.TowerName.Contains("Hera")) AudioManager.Instance.PlayTowerPlacementSFX(2);
-                else if (currentCard.TowerName.Contains("Hephaistos")) AudioManager.Instance.PlayTowerPlacementSFX(3);
+                switch (currentCard.TowerName) 
+                {
+                    case "Zeus":
+                        AudioManager.Instance.PlayTowerPlacementSFX(0);
+                        break;
+                    case "Poseidon":
+                        AudioManager.Instance.PlayTowerPlacementSFX(1);
+                        break;
+                    case "Hera":
+                        AudioManager.Instance.PlayTowerPlacementSFX(2);
+                        break;
+                    case "Hephaistos":
+                        AudioManager.Instance.PlayTowerPlacementSFX(3);
+                        break;
+                }
 
                 Destroy(currentPreview);
                 currentPreview = null;
@@ -225,10 +236,21 @@ public class CardManager : MonoBehaviour
 
             currentTargetCell.isCellBuilt = true;
 
-            if (currentCard.TowerName.Contains("Zeus")) AudioManager.Instance.PlayTowerPlacementSFX(0);
-            else if (currentCard.TowerName.Contains("Poseidon")) AudioManager.Instance.PlayTowerPlacementSFX(1);
-            else if (currentCard.TowerName.Contains("Hera")) AudioManager.Instance.PlayTowerPlacementSFX(2);
-            else if (currentCard.TowerName.Contains("Hephaistos")) AudioManager.Instance.PlayTowerPlacementSFX(3);
+            switch (currentCard.TowerName)
+            {
+                case "Zeus":
+                    AudioManager.Instance.PlayTowerPlacementSFX(0);
+                    break;
+                case "Poseidon":
+                    AudioManager.Instance.PlayTowerPlacementSFX(1);
+                    break;
+                case "Hera":
+                    AudioManager.Instance.PlayTowerPlacementSFX(2);
+                    break;
+                case "Hephaistos":
+                    AudioManager.Instance.PlayTowerPlacementSFX(3);
+                    break;
+            }
 
             Destroy(currentPreview);
             currentPreview = null;
