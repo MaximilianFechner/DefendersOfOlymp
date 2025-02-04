@@ -32,10 +32,10 @@ public class ZeusBolt : MonoBehaviour
     [SerializeField]
     private float lightningDuration = 0.5f;
 
-    [Tooltip("Radius for detecting collider of enemies")]
-    [Min(0)]
-    [SerializeField]
-    private float attackRadius = 0.5f;
+    //[Tooltip("Radius for detecting collider of enemies")]
+    //[Min(0)]
+    //[SerializeField]
+    //private float attackRadius = 0.5f;
 
     [Tooltip("The time you have to wait before you can use the skill again")]
     [Min(0)]
