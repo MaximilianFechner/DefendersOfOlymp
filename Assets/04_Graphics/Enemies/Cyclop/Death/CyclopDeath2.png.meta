@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a7dae46acb1f95743b94dbea596cc90c
+guid: 2aa56ef77c0ef8347942caa7d74230de
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 160
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,29 +123,29 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HephaistosTowerAttack2_0
+      name: CyclopDeath2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 997
+        width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b74409e6cb498ea43ae38a77660131ba
-      internalID: -1802505646
+      spriteID: b00585121ac395949b61cfdfc67a6526
+      internalID: 1526651727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HephaistosTowerAttack2_1
+      name: CyclopDeath2_1
       rect:
         serializedVersion: 2
         x: 1000
@@ -153,21 +153,21 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f19d56ec4c8b72041ab555328e2ffb1f
-      internalID: -552931158
+      spriteID: cb0399f55ec2a154cbfbd52f4241e6f0
+      internalID: 341709041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HephaistosTowerAttack2_2
+      name: CyclopDeath2_2
       rect:
         serializedVersion: 2
         x: 2000
@@ -175,65 +175,65 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9c561c28a70b3046b609518987d8296
-      internalID: -238044567
+      spriteID: 98a57e55dd195874fadab198b2eed876
+      internalID: 1439012944
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HephaistosTowerAttack2_3
+      name: CyclopDeath2_3
       rect:
         serializedVersion: 2
         x: 3000
         y: 0
-        width: 992
+        width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d87561347f8bc640b5304008ac41554
-      internalID: -1204513470
+      spriteID: 1d106fb1333831a45b1570586962e63c
+      internalID: -920770927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HephaistosTowerAttack2_4
+      name: CyclopDeath2_4
       rect:
         serializedVersion: 2
-        x: 4001
+        x: 4000
         y: 0
-        width: 999
+        width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 539a9f396015b57438c414171adbacdb
-      internalID: -1805699959
+      spriteID: bf31b36abaf677a4980f898b98c82208
+      internalID: 875093152
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HephaistosTowerAttack2_5
+      name: CyclopDeath2_5
       rect:
         serializedVersion: 2
         x: 5000
@@ -241,21 +241,21 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ef0a272e3795674db40930838d6422f
-      internalID: -228181809
+      spriteID: 7c65760a64b7057489a31c81c9d97ec4
+      internalID: -322400847
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HephaistosTowerAttack2_6
+      name: CyclopDeath2_6
       rect:
         serializedVersion: 2
         x: 6000
@@ -263,21 +263,21 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70d080d0f176fd7488acfc8bde6b7cd8
-      internalID: 1336349601
+      spriteID: 085ece6ed6c5b96479ee34b4f1d2ebdd
+      internalID: -1078688871
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HephaistosTowerAttack2_7
+      name: CyclopDeath2_7
       rect:
         serializedVersion: 2
         x: 7000
@@ -285,21 +285,21 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5cfd32d4234e8e4fa0965f96bf56378
-      internalID: 231834662
+      spriteID: a597aabf3af32d446b666740bd324a3c
+      internalID: -473096300
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HephaistosTowerAttack2_8
+      name: CyclopDeath2_8
       rect:
         serializedVersion: 2
         x: 8000
@@ -307,15 +307,103 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e869ef4fb7ea0764d9b97ce72c200001
-      internalID: 905484454
+      spriteID: f9546580a2c889d498e07964f0fd5d44
+      internalID: 1891828083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyclopDeath2_9
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e385280d11ffe664bbc3aa654aa45768
+      internalID: -1089717612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyclopDeath2_10
+      rect:
+        serializedVersion: 2
+        x: 10000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31eb249bf2fe1894985db613d1fc3486
+      internalID: -1613881952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyclopDeath2_11
+      rect:
+        serializedVersion: 2
+        x: 11000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 695e8ea5834681e468ca7bcb2cdcb512
+      internalID: 142350346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyclopDeath2_12
+      rect:
+        serializedVersion: 2
+        x: 12000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5d37236534bf924897fea33d19b44cd
+      internalID: 522810532
       vertices: []
       indices: 
       edges: []
@@ -324,7 +412,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 432c1cd0f095ed8448de9f643450818b
+    spriteID: b47143df60197294ba4b415a4ace1b29
     internalID: 0
     vertices: []
     indices: 
@@ -334,15 +422,19 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      HephaistosTowerAttack2_0: -1802505646
-      HephaistosTowerAttack2_1: -552931158
-      HephaistosTowerAttack2_2: -238044567
-      HephaistosTowerAttack2_3: -1204513470
-      HephaistosTowerAttack2_4: -1805699959
-      HephaistosTowerAttack2_5: -228181809
-      HephaistosTowerAttack2_6: 1336349601
-      HephaistosTowerAttack2_7: 231834662
-      HephaistosTowerAttack2_8: 905484454
+      CyclopDeath2_0: 1526651727
+      CyclopDeath2_1: 341709041
+      CyclopDeath2_10: -1613881952
+      CyclopDeath2_11: 142350346
+      CyclopDeath2_12: 522810532
+      CyclopDeath2_2: 1439012944
+      CyclopDeath2_3: -920770927
+      CyclopDeath2_4: 875093152
+      CyclopDeath2_5: -322400847
+      CyclopDeath2_6: -1078688871
+      CyclopDeath2_7: -473096300
+      CyclopDeath2_8: 1891828083
+      CyclopDeath2_9: -1089717612
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

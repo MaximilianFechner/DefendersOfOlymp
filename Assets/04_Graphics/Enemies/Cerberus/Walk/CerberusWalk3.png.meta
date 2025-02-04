@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a7dae46acb1f95743b94dbea596cc90c
+guid: 32fa1f441de6b5341b475616d9c2ee39
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 256
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,199 +123,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HephaistosTowerAttack2_0
+      name: CerberusWalk3_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 997
-        height: 1000
+        width: 1280
+        height: 1280
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b74409e6cb498ea43ae38a77660131ba
-      internalID: -1802505646
+      spriteID: 6409991e1fcf6ca4e883590f35a56cdf
+      internalID: -1100310646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HephaistosTowerAttack2_1
+      name: CerberusWalk3_1
       rect:
         serializedVersion: 2
-        x: 1000
+        x: 1280
         y: 0
-        width: 1000
-        height: 1000
+        width: 1280
+        height: 1280
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f19d56ec4c8b72041ab555328e2ffb1f
-      internalID: -552931158
+      spriteID: 4508111a6e545d84cb84a88477ec76f5
+      internalID: -144221255
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HephaistosTowerAttack2_2
+      name: CerberusWalk3_2
       rect:
         serializedVersion: 2
-        x: 2000
+        x: 2560
         y: 0
-        width: 1000
-        height: 1000
+        width: 1280
+        height: 1280
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9c561c28a70b3046b609518987d8296
-      internalID: -238044567
+      spriteID: b1c3a220339cfd8458e88cd8ffa2ab6d
+      internalID: 944155738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HephaistosTowerAttack2_3
+      name: CerberusWalk3_3
       rect:
         serializedVersion: 2
-        x: 3000
+        x: 3840
         y: 0
-        width: 992
-        height: 1000
+        width: 1280
+        height: 1280
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d87561347f8bc640b5304008ac41554
-      internalID: -1204513470
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HephaistosTowerAttack2_4
-      rect:
-        serializedVersion: 2
-        x: 4001
-        y: 0
-        width: 999
-        height: 1000
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 539a9f396015b57438c414171adbacdb
-      internalID: -1805699959
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HephaistosTowerAttack2_5
-      rect:
-        serializedVersion: 2
-        x: 5000
-        y: 0
-        width: 1000
-        height: 1000
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7ef0a272e3795674db40930838d6422f
-      internalID: -228181809
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HephaistosTowerAttack2_6
-      rect:
-        serializedVersion: 2
-        x: 6000
-        y: 0
-        width: 1000
-        height: 1000
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 70d080d0f176fd7488acfc8bde6b7cd8
-      internalID: 1336349601
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HephaistosTowerAttack2_7
-      rect:
-        serializedVersion: 2
-        x: 7000
-        y: 0
-        width: 1000
-        height: 1000
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b5cfd32d4234e8e4fa0965f96bf56378
-      internalID: 231834662
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HephaistosTowerAttack2_8
-      rect:
-        serializedVersion: 2
-        x: 8000
-        y: 0
-        width: 1000
-        height: 1000
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e869ef4fb7ea0764d9b97ce72c200001
-      internalID: 905484454
+      spriteID: 2c41c9a75b1e4f244a572cfd562c763b
+      internalID: 1825414974
       vertices: []
       indices: 
       edges: []
@@ -324,7 +214,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 432c1cd0f095ed8448de9f643450818b
+    spriteID: 853bab9bb8e3f114f9f76a087486309e
     internalID: 0
     vertices: []
     indices: 
@@ -334,15 +224,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      HephaistosTowerAttack2_0: -1802505646
-      HephaistosTowerAttack2_1: -552931158
-      HephaistosTowerAttack2_2: -238044567
-      HephaistosTowerAttack2_3: -1204513470
-      HephaistosTowerAttack2_4: -1805699959
-      HephaistosTowerAttack2_5: -228181809
-      HephaistosTowerAttack2_6: 1336349601
-      HephaistosTowerAttack2_7: 231834662
-      HephaistosTowerAttack2_8: 905484454
+      CerberusWalk3_0: -1100310646
+      CerberusWalk3_1: -144221255
+      CerberusWalk3_2: 944155738
+      CerberusWalk3_3: 1825414974
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
