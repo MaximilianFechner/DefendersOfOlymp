@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,13 +27,12 @@ public class GameManager : MonoBehaviour
     [Min(0)]
     public int firstWaveEnemies = 2;
 
-    [Tooltip("Every wave increase the enemies + 1, here you can add extra enemies every wave - if not wanted choose 0")]
+    [Tooltip("every X waves add an extra enemy (when 5, then every 5 waves you spawn a additional enemy")]
     [Min(0)]
-    public int addExtraEnemiesEveryWave = 0;
+    public int extraEnemiesPerXWaves = 10; // NEW PROGRESS SPAWN - Ab welcher Welle immer ein zusätzlicher Gegner spawnt
 
     [Tooltip("How many cards allowed to draw between the waves")]
     [Min(1)]
-    [SerializeField]
     private int _cardsToDraw = 1;
 
     [Tooltip("Chance to crit: 2x damage")]
@@ -40,18 +40,17 @@ public class GameManager : MonoBehaviour
     public float critChance = 5;
 
     [Space(10)]
+    [Header("ONLY DISPLAYED FOR TESTING - DONT CHANGE")]
+    public int nextWaveEnemies = 0; // NEW PROGRESS SPAWN - Gegner in der nächsten Welle
+    public int plusEnemies = 0; // NEW PROGRESS SPAWN - Wieviele Gegner auf die Startgegner hinzugerechnet werden für die nächste Welle
+    public int plusMultiplikator = 1; // NEW PROGRESS SPAWN - Modifikator für die plusEnemies Variable
+
+    [Space(10)]
     [Header("Wave Management")]
     public GameObject[] enemyPrefabs;
     public Transform[] spawnPoints;
     private bool isSpawning = false;
 
-    [HideInInspector] public float thisWaveDuration;
-    [HideInInspector] public float totalWaveDurations;
-
-    private float _waveStartTime;
-    private float _waveEndTime;
-
-    //public float gameSpeed = 1f;
     [HideInInspector] public bool isInWave = false;
     
     [HideInInspector] public int score = 0;
@@ -67,8 +66,6 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public bool showDamageNumbers = true; //default activated, change for show damageNumbers or to disable them
     [HideInInspector] public bool showTooltips = true; //default activated, change for show Tooltips of Enemies and Tower or to disable them
-    //[HideInInspector] public bool isASkillSelected = false; //checks global if any active skill is selected to avoid multiple activation of skills
-
 
     public ZeusBolt zeusBolt;
     public PoseidonWave poseidonWave;
@@ -239,7 +236,6 @@ public class GameManager : MonoBehaviour
     {
         data.waveCount = this.waveNumber;
     }
-
     //Save System
 
     public void ResetStats()
@@ -255,6 +251,9 @@ public class GameManager : MonoBehaviour
         enemyScore = 0;
         waveScore = 0;
         healthScore = 0;
+        nextWaveEnemies = 0;
+        plusEnemies = 0;
+        plusMultiplikator = 1;
     }
 
     private void GameOver()
@@ -273,10 +272,6 @@ public class GameManager : MonoBehaviour
         isCardDrawable = true;
 
         int remainingCardsToDraw = _cardsToDraw;
-
-        _waveEndTime = Time.time;
-        thisWaveDuration = _waveEndTime - _waveStartTime;
-        totalWaveDurations += thisWaveDuration;
 
         waveScore += waveNumber;
         score += waveNumber;
@@ -306,11 +301,11 @@ public class GameManager : MonoBehaviour
         if (!isSpawning)
         {
             AddWaveCounter();
-            AddRemainingEnemy(firstWaveEnemies + waveNumber + addExtraEnemiesEveryWave);
-            StartCoroutine(SpawnWave(firstWaveEnemies + waveNumber + addExtraEnemiesEveryWave));
+            CalculateNextWaveEnemies();
+            AddRemainingEnemy(nextWaveEnemies);
+            StartCoroutine(SpawnWave(nextWaveEnemies));
 
             WaveEnemiesKilled = 0;
-            _waveStartTime = Time.time;
 
             UIManager.Instance.nextWaveButton.gameObject.SetActive(false);
 
@@ -364,5 +359,27 @@ public class GameManager : MonoBehaviour
                 cell.UpdateTowerLevelText();
             }
         }
+    }
+
+    public void CalculateNextWaveEnemies()
+    {
+        if (waveNumber % extraEnemiesPerXWaves == 0) plusMultiplikator++; // Wenn eine gewisse Welle erreicht wurde, dann erhöhe den Multiplilkator um 1
+
+        if (waveNumber == 1)
+        {
+            nextWaveEnemies = firstWaveEnemies;
+        }
+        else
+        {
+            plusEnemies += plusMultiplikator; // 0           += 1             = 1 StartValues
+            nextWaveEnemies = firstWaveEnemies + plusEnemies;
+        }
+
+        Debug.Log($"CalculateNextWaveEnemies\n" +
+            $"Wave: {waveNumber}\n" +
+            $"WaveEnemies: {nextWaveEnemies}\n" +
+            $"plusEnemies: {plusEnemies} \n" +
+            $"plusMultiplikator: {plusMultiplikator}");
+
     }
 }

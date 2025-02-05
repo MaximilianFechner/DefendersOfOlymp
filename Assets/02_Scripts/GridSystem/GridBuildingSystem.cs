@@ -164,7 +164,7 @@ public class GridBuildingSystem : MonoBehaviour
         {
             return lowerGrid;
         }
-        return new GridData();
+        //return new GridData();
     }
 
     public static Vector3 GetMouseWorldPosition() {

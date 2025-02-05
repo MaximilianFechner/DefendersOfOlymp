@@ -500,7 +500,9 @@ MonoBehaviour:
   upgradeAttackSpeed: 0.05
   upgradeAttackRadius: 0
   upgradeMovementSpeed: 0
-  upgradeDamage: 0
+  upgradeDamage: 4
+  upgradeDamageLowerLimit: 3
+  upgradeDamageUpperLimit: 5
   upgradeAoeRadius: 0
   upgradeSlowValue: 0
   upgradeTimeSlowed: 0
