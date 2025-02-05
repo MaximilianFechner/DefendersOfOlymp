@@ -177,9 +177,6 @@ public class CardManager : MonoBehaviour
         int randomIndex = Random.Range(0, AvailableCards.Count);
         currentCard = AvailableCards[randomIndex];
 
-        //CardDisplay.gameObject.SetActive(true);
-        //drawCardButton.gameObject.SetActive(false);
-
         RectTransform buttonRect = drawCardBTN.GetComponent<RectTransform>(); //MOVEBTN
         Vector2 targetPosition = buttonOriginalPosition + new Vector2(0, -200); //MOVEBTN
         StartCoroutine(MoveButton(buttonRect, targetPosition)); //MOVEBTN
@@ -193,6 +190,12 @@ public class CardManager : MonoBehaviour
         // Preview-Turm erstellen
         if (currentPreview != null) Destroy(currentPreview);
         currentPreview = Instantiate(currentCard.TowerPrefab);
+
+        Collider2D collider = currentPreview.GetComponentInChildren<Collider2D>(); // Deaktiviert den Collider der Preview, damit man die Tooltips von bereits
+        if (collider != null)                                                      // platzierten Türmen hovern kann
+        {
+            collider.enabled = false;
+        }
 
         SpriteRenderer sprite = currentPreview.GetComponentInChildren<SpriteRenderer>();
         if (sprite != null)
