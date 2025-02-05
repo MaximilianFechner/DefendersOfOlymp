@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8bb29d049a9b4a24ab735096454d4bcc
+guid: 19bc3e5eb2966c646b61a3d1b9efdd33
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -107,7 +107,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WindowsStoreApps
+    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -121,78 +121,12 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Poison_Idle-ezgif.com-gif-to-sprite-converter_0
-      rect:
-        serializedVersion: 2
-        x: 226
-        y: 67
-        width: 464
-        height: 873
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 38d60418bea0d8f4a8c68007922a8217
-      internalID: 540787703
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Poison_Idle-ezgif.com-gif-to-sprite-converter_1
-      rect:
-        serializedVersion: 2
-        x: 1254
-        y: 67
-        width: 437
-        height: 883
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d5c9c687b13a0ec468d7dee8b5e414d3
-      internalID: 1893187927
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Poison_Idle-ezgif.com-gif-to-sprite-converter_2
-      rect:
-        serializedVersion: 2
-        x: 2239
-        y: 67
-        width: 450
-        height: 890
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2dce01c18fedf2243a27d331838e06e1
-      internalID: 338123853
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d5eea1cfde94fea4d8d2b51c6a0862d5
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -201,10 +135,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Poison_Idle-ezgif.com-gif-to-sprite-converter_0: 540787703
-      Poison_Idle-ezgif.com-gif-to-sprite-converter_1: 1893187927
-      Poison_Idle-ezgif.com-gif-to-sprite-converter_2: 338123853
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

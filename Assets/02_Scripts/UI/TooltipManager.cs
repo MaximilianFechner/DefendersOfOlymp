@@ -11,7 +11,7 @@ public class TooltipManager : MonoBehaviour
     public Text tooltipData;
     public Canvas canvas;
 
-    private Vector2 defaultOffset = new Vector2(170, 65); //offset for 1920x1080
+    private Vector2 defaultOffset = new Vector2(180, 65); //offset for 1920x1080
     private Vector2 currentOffset;
     private Vector2 lastScreenResolution; //for check for screensize changes
 
@@ -87,19 +87,23 @@ public class TooltipManager : MonoBehaviour
 
         if (hoveredElement == "enemy")
         {
-            SetTooltipHeight(-65);
+            SetTooltipHeight(-60);
+            UpdateOffsetPerTooltip(-5);
         }
         else if (hoveredElement == "tower")
         {
-            SetTooltipHeight(-20);
+            SetTooltipHeight(-15f);
+            UpdateOffsetPerTooltip(15);
         }
         else if (hoveredElement == "zeusSkill")
         {
-            SetTooltipHeight(-20);
+            SetTooltipHeight(-15);
+            UpdateOffsetPerTooltip(15);
         }
         else if (hoveredElement == "skill")
         {
-            SetTooltipHeight(0);
+            SetTooltipHeight(10);
+            UpdateOffsetPerTooltip(25);
         }
 
         UpdateTooltipPosition(Input.mousePosition);
@@ -125,7 +129,7 @@ public class TooltipManager : MonoBehaviour
 
         Vector2 newPosition = mousePosition + currentOffset;
 
-        if (newPosition.x + tooltipSize.x > screenSize.x)
+        if (newPosition.x + tooltipSize.x > screenSize.x * 0.9f)
         {
             newPosition.x = mousePosition.x - currentOffset.x;
         }
@@ -153,6 +157,14 @@ public class TooltipManager : MonoBehaviour
         float scaleY = Screen.height / 1080f;
 
         currentOffset = new Vector2(defaultOffset.x * scaleX, defaultOffset.y * scaleY);
+    }
+
+    private void UpdateOffsetPerTooltip(float addY)
+    {
+        float scaleX = Screen.width / 1920f;
+        float scaleY = Screen.height / 1080f;
+
+        currentOffset = new Vector2(defaultOffset.x * scaleX, defaultOffset.y * scaleY + addY);
     }
 
     public void HideTooltip()

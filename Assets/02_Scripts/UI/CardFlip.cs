@@ -24,33 +24,46 @@ public class CardFlip : MonoBehaviour
         originalScale = card.localScale;
         targetScale = new Vector3(1.3f, 1.3f, 1);
         originalPosition = card.anchoredPosition;
+
+        if (psLighting == null) // Falls psLighting nicht zugewiesen wurde
+        {
+            psLighting = GetComponentInChildren<ParticleSystem>(); // Hier das Particle System zuweisen
+        }
+
         psLighting.gameObject.SetActive(true);
 
+        UpdateTargetPosition();
+    }
+
+    void UpdateTargetPosition()
+    {
         RectTransform canvasRect = canvas.GetComponent<RectTransform>();
         float adjustedWidth = (card.rect.width * 1.3f) / 2;
         float adjustedHeight = (card.rect.height * 1.3f) / 2;
 
         targetPosition = new Vector2(
-            (canvasRect.rect.width / 2) - adjustedWidth - 5, //abstand nach animation
-            (-canvasRect.rect.height / 2) + adjustedHeight + 5 //abstand nach animation
+            (canvasRect.rect.width / 2) - adjustedWidth - 5, // Abstand nach Animation
+            (-canvasRect.rect.height / 2) + adjustedHeight + 5 // Abstand nach Animation
         );
-
-        //FlipCard();
     }
 
     public void FlipCard(Sprite sprite)
     {
+        UpdateTargetPosition();
         StartCoroutine(FlipAnimation(sprite));
     }
 
     IEnumerator FlipAnimation(Sprite sprite)
     {
+        psLighting.Stop();
+
         cardImage.sprite = defaultImage;
-        newCardSprite = defaultImage;
         newCardSprite = sprite;
 
         float time = 0;
         bool spriteChanged = false;
+
+        Vector2 targetPosition = new Vector2(-10, 10);
 
         while (time < duration)
         {
@@ -79,7 +92,7 @@ public class CardFlip : MonoBehaviour
         card.localScale = targetScale; // Skalierung bleibt auf 1.3
         isCardFlipped = true;
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         psLighting.gameObject.SetActive(false);
     }
 
@@ -95,7 +108,7 @@ public class CardFlip : MonoBehaviour
     {
         float time = 0;
         Vector2 startPosition = card.anchoredPosition;
-        Vector2 endPosition = startPosition + new Vector2(300, 0);
+        Vector2 endPosition = startPosition + new Vector2(500, 0);
 
         while (time < moveOutDuration)
         {

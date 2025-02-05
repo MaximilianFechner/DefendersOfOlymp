@@ -66,13 +66,13 @@ public class UIHoverable : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
             if (bolt != null)
             {
-                tooltipInfo = $"Lightning Strike\n" +
+                tooltipInfo = $"<b><color=#E1E0E1>Lightning Strike</color></b>\n" +
                     $"Damage:\n" +
                     $"Damage Type:\n" +
                     $"Crit Chance:\n" +
                     $"Cooldown:";
 
-                tooltipData = $"Level: {bolt.zeusSkillLevel}\n" +
+                tooltipData = $"Level: <b><color=#E1E0E1>{bolt.zeusSkillLevel}</color></b>\n" +
                     $"{bolt.damageLowerLimit} - {bolt.damageUpperLimit}\n" +
                     $"Single Target\n" +
                     $"{GameManager.Instance.critChance}%\n" +
@@ -85,14 +85,14 @@ public class UIHoverable : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
             if (wave != null)
             {
-                tooltipInfo = $"Holy Wave\n" +
+                tooltipInfo = $"<b><color=#0EA1D2>Holy Wave</color></b>\n" +
                     $"Damage / {wave._damageIntervalSeconds}s:\n" +
                     $"Damage Type:\n" +
                     $"Crit Chance:\n" +
                     $"Duration:\n" +
                     $"Cooldown:";
 
-                tooltipData = $"Level: {wave.poseidonSkillLevel}\n" +
+                tooltipData = $"Level: <b><color=#0EA1D2>{wave.poseidonSkillLevel}</color></b>\n" +
                     $"{wave.damageLowerLimitPerInterval} - {wave.damageUpperLimitPerInterval}\n" +
                     $"Area Of Effect\n" +
                     $"{GameManager.Instance.critChance}%\n" +
@@ -106,14 +106,14 @@ public class UIHoverable : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
             if (stun != null)
             {
-                tooltipInfo = $"Toxic Binding\n" +
+                tooltipInfo = $"<b><color=#E19CF1>Toxic Binding</color></b>\n" +
                     $"Damage:\n" +
                     $"Damage Type:\n" +
                     $"Crit Chance:\n" +
                     $"Slow / Duration:\n" +
                     $"Cooldown:";
 
-                tooltipData = $"Level: {stun.heraSkillLevel}\n" +
+                tooltipData = $"Level: <b><color=#E19CF1>{stun.heraSkillLevel}</color></b>\n" +
                     $"{stun.damageLowerLimit} - {stun.damageUpperLimit}\n" +
                     $"Area Of Effect\n" +
                     $"{GameManager.Instance.critChance}%\n" +
@@ -127,14 +127,14 @@ public class UIHoverable : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
             if (quake != null)
             {
-                tooltipInfo = $"Earths Anger\n" +
+                tooltipInfo = $"<b><color=#FA9821>Earths Anger</color></b>\n" +
                     $"Damage / {quake._damageIntervalSeconds}s\n" +
                     $"Damage Type:\n" +
                     $"Crit Chance:\n" +
                     $"Slow / Duration:\n" +
                     $"Cooldown:";
 
-                tooltipData = $"Level: {quake.hephaistosSkillLevel}\n" +
+                tooltipData = $"Level: <b><color=#FA9821>{quake.hephaistosSkillLevel}</color></b>\n" +
                     $"{quake.damageUpperLimitPerInterval} - {quake.damageUpperLimitPerInterval}\n" +
                     $"Area Of Effect\n" +
                     $"{GameManager.Instance.critChance}%\n" +

@@ -32,10 +32,10 @@ public class ZeusBolt : MonoBehaviour
     [SerializeField]
     private float lightningDuration = 0.5f;
 
-    [Tooltip("Radius for detecting collider of enemies")]
-    [Min(0)]
-    [SerializeField]
-    private float attackRadius = 0.5f;
+    //[Tooltip("Radius for detecting collider of enemies")]
+    //[Min(0)]
+    //[SerializeField]
+    //private float attackRadius = 0.5f;
 
     [Tooltip("The time you have to wait before you can use the skill again")]
     [Min(0)]
@@ -202,15 +202,21 @@ public class ZeusBolt : MonoBehaviour
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
         worldPosition.z = 0;
 
-        Collider2D targetEnemy = Physics2D.OverlapCircle(new Vector2(worldPosition.x, worldPosition.y), attackRadius, enemyLayer);
+        //Test Bolt Hit in Build with Ray
+        Vector2 rayDirection = worldPosition - Camera.main.transform.position; // Direction of the raycast
+        RaycastHit2D hit = Physics2D.Raycast(Camera.main.transform.position, rayDirection, Mathf.Infinity, enemyLayer);
+        //
 
-        if (targetEnemy != null && targetEnemy.isTrigger)
+        //Collider2D targetEnemy = Physics2D.OverlapCircle(new Vector2(worldPosition.x, worldPosition.y), attackRadius, enemyLayer);
+
+        if (hit.collider != null && hit.collider.CompareTag("Enemy")) //if (targetEnemy != null && targetEnemy.isTrigger)
         {
             GameObject bolt = Instantiate(boltPrefab, new Vector3(worldPosition.x, worldPosition.y + 10, 0), Quaternion.identity);
             PlayBoltSFX(skillSound);
             Destroy(bolt, lightningDuration);
 
-            targetEnemy.GetComponent<EnemyManager>().TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit)));
+            //targetEnemy.GetComponent<EnemyManager>().TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit)));
+            hit.collider.GetComponent<EnemyManager>().TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit)));
 
             remainingCooldownTime = cooldownTime;
             lastUseTime = Time.time;

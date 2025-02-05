@@ -15,15 +15,31 @@ public class BloodManager : MonoBehaviour
         if (bloodQueue.Count <= maxBloodPools) return;
 
         GameObject oldestBlood = bloodQueue.Dequeue();
+
+        if (oldestBlood == null) return;
+
         BloodPools fadeOut = oldestBlood.GetComponent<BloodPools>();
 
         if (fadeOut != null)
         {
             fadeOut.StartFadeAndDestroy();
         }
-        else if (oldestBlood != null)
+        else
         {
             Destroy(oldestBlood);
+        }
+    }
+
+    public void ClearBloodPools()
+    {
+        while (bloodQueue.Count > 0)
+        {
+            GameObject blood = bloodQueue.Dequeue();
+
+            if (blood != null)
+            {
+                Destroy(blood);
+            }
         }
     }
 }

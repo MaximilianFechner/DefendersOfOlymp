@@ -75,9 +75,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.16470589, g: 0.42352942, b: 0.6784314, a: 0.29411766}
+  m_Color: {r: 0.88235295, g: 0.8784314, b: 0.88235295, a: 0.29411766}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -406,10 +406,11 @@ Transform:
   m_GameObject: {fileID: 4229367091254677781}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5, y: 4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.01, y: 0.72, z: 0}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6553226746420814833}
   - {fileID: 816843599049028290}
   - {fileID: 1896045590516688220}
   - {fileID: 7355285064921616281}
@@ -478,12 +479,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4229367091254677781}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b755468701b9b314dae82591416c687c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   towerName: 3
+  nameTower: Zeus
   attackSpeed: 0.5
   attackRadius: 16
   targetType: 0
@@ -495,10 +497,12 @@ MonoBehaviour:
   slowValue: 0
   timeSlowed: 0
   maxDamageJump: 2
-  upgradeAttackSpeed: 0.5
+  upgradeAttackSpeed: 0.05
   upgradeAttackRadius: 0
   upgradeMovementSpeed: 0
-  upgradeDamage: 0
+  upgradeDamage: 4
+  upgradeDamageLowerLimit: 3
+  upgradeDamageUpperLimit: 5
   upgradeAoeRadius: 0
   upgradeSlowValue: 0
   upgradeTimeSlowed: 0
@@ -808,7 +812,6 @@ Transform:
   m_Children:
   - {fileID: 3913151572979903406}
   - {fileID: 8827633288442154107}
-  - {fileID: 6553226746420814833}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5218363702042774429
@@ -1051,11 +1054,11 @@ Transform:
   m_GameObject: {fileID: 6534055542187971901}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.01829599, w: 0.99983263}
-  m_LocalPosition: {x: 1.98, y: 3.92, z: 0}
+  m_LocalPosition: {x: -0.13, y: -0.07999992, z: 0}
   m_LocalScale: {x: 1.25, y: 2.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4551683048762430202}
+  m_Father: {fileID: 8827633288442154107}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.097}
 --- !u!212 &6241230130907814639
 SpriteRenderer:
@@ -1287,8 +1290,8 @@ Transform:
   m_GameObject: {fileID: 7757898830268980250}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.06, y: -3.22, z: 0}
-  m_LocalScale: {x: 4.35, y: 1.45, z: 1}
+  m_LocalPosition: {x: 0.03, y: -3.18, z: 0}
+  m_LocalScale: {x: 3.5, y: 1.45, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8827633288442154107}
@@ -1364,7 +1367,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3913151572979903406
 Transform:
   m_ObjectHideFlags: 0

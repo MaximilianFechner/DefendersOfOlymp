@@ -16,6 +16,9 @@ public class CorpseManager : MonoBehaviour
         if (corpseQueue.Count <= maxCorpses) return;
 
         GameObject oldestCorpse = corpseQueue.Dequeue();
+
+        if (oldestCorpse == null) return;
+
         CorpseEnemy fadeOut = oldestCorpse.GetComponent<CorpseEnemy>();
 
         if (fadeOut != null)
@@ -25,6 +28,19 @@ public class CorpseManager : MonoBehaviour
         else
         {
             Destroy(oldestCorpse);
+        }
+    }
+
+    public void ClearCorpses()
+    {
+        while (corpseQueue.Count > 0)
+        {
+            GameObject corpse = corpseQueue.Dequeue();
+
+            if (corpse != null)
+            {
+                Destroy(corpse);
+            }
         }
     }
 }

@@ -22,6 +22,8 @@ public class BaseTower : MonoBehaviour
     [Tooltip("The name of the tower")]
     public TowerName towerName;
 
+    public string nameTower;
+
     [Tooltip("The base attack speed for the tower")]
     [SerializeField] public float attackSpeed;
 
@@ -89,6 +91,14 @@ public class BaseTower : MonoBehaviour
 
     [Tooltip("The base upgrade value for the projectile attack damage")]
     [SerializeField] public float upgradeDamage;
+
+    [Tooltip("The minimum damage upgrade the ability does")]
+    [Min(0)]
+    [SerializeField] public float upgradeDamageLowerLimit;
+
+    [Tooltip("The maximum damage upgrade the ability does")]
+    [Min(0)]
+    [SerializeField] public float upgradeDamageUpperLimit;
 
     [Tooltip("The base upgrade value for the projectile aoe radius")]
     [SerializeField] public float upgradeAoeRadius;
@@ -172,6 +182,8 @@ public class BaseTower : MonoBehaviour
         attackRadius += attackRadius * upgradeAttackRadius;
         movementSpeed += movementSpeed * upgradeMovementSpeed;
         damage += damage * upgradeDamage;
+        damageLowerLimit += upgradeDamageLowerLimit;
+        damageUpperLimit += upgradeDamageUpperLimit;
         aoeRadius += aoeRadius * upgradeAoeRadius;
         slowValue += slowValue * upgradeSlowValue;
         timeSlowed += timeSlowed * upgradeTimeSlowed;
@@ -180,10 +192,12 @@ public class BaseTower : MonoBehaviour
     }
 
     public void DowngradeTower() {
-        attackSpeed -= attackSpeed * upgradeAttackSpeed;
+        attackSpeed += attackSpeed * upgradeAttackSpeed;
         attackRadius -= attackRadius * upgradeAttackRadius;
         movementSpeed -= movementSpeed * upgradeMovementSpeed;
         damage -= damage * upgradeDamage;
+        damageLowerLimit -= upgradeDamageLowerLimit;
+        damageUpperLimit -= upgradeDamageUpperLimit;
         aoeRadius -= aoeRadius * upgradeAoeRadius;
         slowValue -= slowValue * upgradeSlowValue;
         timeSlowed -= timeSlowed * upgradeTimeSlowed;
