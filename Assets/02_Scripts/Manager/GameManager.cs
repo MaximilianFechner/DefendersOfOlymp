@@ -44,6 +44,11 @@ public class GameManager : MonoBehaviour
     public int nextWaveEnemies = 0; // NEW PROGRESS SPAWN - Gegner in der nächsten Welle
     public int plusEnemies = 0; // NEW PROGRESS SPAWN - Wieviele Gegner auf die Startgegner hinzugerechnet werden für die nächste Welle
     public int plusMultiplikator = 1; // NEW PROGRESS SPAWN - Modifikator für die plusEnemies Variable
+    [Space(10)]
+    public int zeusTower = 0;
+    public int poseidonTower = 0;
+    public int heraTower = 0;
+    public int hephaistosTower = 0;
 
     [Space(10)]
     [Header("Wave Management")]
@@ -254,7 +259,12 @@ public class GameManager : MonoBehaviour
         nextWaveEnemies = 0;
         plusEnemies = 0;
         plusMultiplikator = 1;
-    }
+
+        zeusTower = 0;
+        poseidonTower = 0;
+        heraTower = 0;
+        hephaistosTower = 0;
+}
 
     private void GameOver()
     {

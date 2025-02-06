@@ -26,6 +26,11 @@ public class CardManager : MonoBehaviour
 
     public CardFlip cardToFlip;
 
+    public ZeusBolt zeusBolt;
+    public PoseidonWave poseidonWave;
+    public HeraStun heraStun;
+    public HephaistosQuake hephaistosQuake;
+
     private GridCells currentTargetCell; //OwnGrid: Die aktuelle Ziel-Zelle fürs Snappen
     public GridCells[] gridCells; //OwnGrid:  Array mit allen Grid-Zellen
     public float snapSpeed = 10f; //OwnGrid: Geschwindigkeit für Smooth-Snapping
@@ -281,15 +286,23 @@ public class CardManager : MonoBehaviour
                 {
                     case "Zeus":
                         AudioManager.Instance.PlayTowerPlacementSFX(0);
+                        GameManager.Instance.zeusTower++;
+                        zeusBolt.UpgradeBolt();
                         break;
                     case "Poseidon":
                         AudioManager.Instance.PlayTowerPlacementSFX(1);
+                        GameManager.Instance.poseidonTower++;
+                        poseidonWave.UpgradeWave();
                         break;
                     case "Hera":
                         AudioManager.Instance.PlayTowerPlacementSFX(2);
+                        GameManager.Instance.heraTower++;
+                        heraStun.UpgradeStun();
                         break;
                     case "Hephaistos":
                         AudioManager.Instance.PlayTowerPlacementSFX(3);
+                        GameManager.Instance.hephaistosTower++;
+                        hephaistosQuake.UpgradeQuake();
                         break;
                 }
 
@@ -332,15 +345,23 @@ public class CardManager : MonoBehaviour
             {
                 case "Zeus":
                     AudioManager.Instance.PlayTowerPlacementSFX(0);
+                    GameManager.Instance.zeusTower++;
+                    zeusBolt.UpgradeBolt();
                     break;
                 case "Poseidon":
                     AudioManager.Instance.PlayTowerPlacementSFX(1);
+                    GameManager.Instance.poseidonTower++;
+                    poseidonWave.UpgradeWave();
                     break;
                 case "Hera":
                     AudioManager.Instance.PlayTowerPlacementSFX(2);
+                    GameManager.Instance.heraTower++;
+                    heraStun.UpgradeStun();
                     break;
                 case "Hephaistos":
                     AudioManager.Instance.PlayTowerPlacementSFX(3);
+                    GameManager.Instance.hephaistosTower++;
+                    hephaistosQuake.UpgradeQuake();
                     break;
             }
 

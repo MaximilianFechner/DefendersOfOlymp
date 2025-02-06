@@ -13,11 +13,6 @@ public class HeraStun : MonoBehaviour
 
     [Space(10)]
     [Header("Game Design Values")]
-    //[Tooltip("The damage per tick in every interval")]
-    //[Min(0)]
-    //[SerializeField]
-    //private float _damageOnUse = 15f;
-
     [Tooltip("The minimum damage the ability does")]
     [Min(0)]
     [SerializeField]
@@ -48,8 +43,12 @@ public class HeraStun : MonoBehaviour
     [SerializeField]
     public float _cooldownTime = 30f;
 
-    [Space(10)]
+    [Header("Game Design Values: UPGRADE / TOWER")]
+    [SerializeField][Tooltip("Lower Damage Limit increase per Level/Heratower - absolut value")] private float damageLowerLimitUpgrade;
+    [SerializeField][Tooltip("Upper Damage Limit increase per Level/Heratower - absolut value")] private float damageUpperLimitUpgrade;
+    [SerializeField][Tooltip("Cooldown reduction per Level/Heratower - absolut value")] private float cooldownReductionUpgrade;
 
+    [Space(20)]
     [Tooltip("Minimum volume for the enemy sounds")]
     [Range(0, 1)]
     [SerializeField]
@@ -73,12 +72,6 @@ public class HeraStun : MonoBehaviour
     public AudioClip skillSound;
     public AudioClip preSkillSound;
     private GameObject preStunSoundObject;
-
-    //private int skillLevel;
-    //private float levelModifikatorDamage;
-    //private float levelModifikatorRadius;
-    //private float levelModifikatorDuration;
-    //private float levelModifikatorCooldown;
 
     private float lastUseTime = -Mathf.Infinity;
     private bool isReady = false;
@@ -379,5 +372,15 @@ public class HeraStun : MonoBehaviour
             Destroy(preStunSoundObject);
             preStunSoundObject = null;
         }
+    }
+
+    public void UpgradeStun()
+    {
+        Debug.Log("HeraStun upgraded");
+        damageLowerLimit += (damageLowerLimitUpgrade);
+        damageUpperLimit += (damageUpperLimitUpgrade);
+        _cooldownTime -= cooldownReductionUpgrade; //OPTIONAL: Mathf.clamp um Cooldown bspw. auf 1/2 des urpsrgl. CDs zu beschränken
+        //Multiplikator mit GameManager.Instance.zeusTower; nicht notwendig 
+        //da Upgrade mit dem Platzieren/Upgraden eines Turmes jedes Mal aufgerufen wird
     }
 }

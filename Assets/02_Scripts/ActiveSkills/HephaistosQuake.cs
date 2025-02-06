@@ -54,7 +54,12 @@ public class HephaistosQuake : MonoBehaviour
     [SerializeField]
     private float _cameraShakeMagnitude = 0.1f;
 
-    [Space(10)]
+    [Header("Game Design Values: UPGRADE / TOWER")]
+    [SerializeField][Tooltip("Lower Damage Limit increase per Level/Hephtower - absolut value")] private float damageLowerLimitUpgrade;
+    [SerializeField][Tooltip("Upper Damage Limit increase per Level/Hephtower - absolut value")] private float damageUpperLimitUpgrade;
+    [SerializeField][Tooltip("Cooldown reduction per Level/Hephtower - absolut value")] private float cooldownReductionUpgrade;
+
+    [Space(20)]
 
     [Tooltip("Minimum volume for the enemy sounds")]
     [Range(0, 1)]
@@ -77,12 +82,6 @@ public class HephaistosQuake : MonoBehaviour
     private float maxPitchSounds = 1f;
 
     public AudioClip skillSound;
-
-    //private int skillLevel;
-    //private float levelModifikatorDamage;
-    //private float levelModifikatorRadius;
-    //private float levelModifikatorDuration;
-    //private float levelModifikatorCooldown;
 
     private float lastUseTime = -Mathf.Infinity;
     private bool isReady = false;
@@ -133,12 +132,6 @@ public class HephaistosQuake : MonoBehaviour
                 }
             }
         }
-
-        //if (UIManager.Instance.hephaistosSkillCooldown != null)
-        //{
-        //    float remainingTime = Mathf.Max(0, lastUseTime + _cooldownTime - Time.time);
-        //    UIManager.Instance.hephaistosSkillCooldown.text = remainingTime > 0 ? $"{remainingTime:F1}s" : "Quake";
-        //}
 
         if (isReady && GameManager.Instance.isInWave)
         {
@@ -225,5 +218,14 @@ public class HephaistosQuake : MonoBehaviour
         tempAudioSource.Play();
 
         Destroy(soundObject, clip.length);
+    }
+    public void UpgradeQuake()
+    {
+        Debug.Log("HephQuake upgraded");
+        damageLowerLimitPerInterval += (damageLowerLimitUpgrade);
+        damageUpperLimitPerInterval += (damageUpperLimitUpgrade);
+        _cooldownTime -= cooldownReductionUpgrade; //OPTIONAL: Mathf.clamp um Cooldown bspw. auf 1/2 des urpsrgl. CDs zu beschränken
+        //Multiplikator mit GameManager.Instance.zeusTower; nicht notwendig 
+        //da Upgrade mit dem Platzieren/Upgraden eines Turmes jedes Mal aufgerufen wird
     }
 }

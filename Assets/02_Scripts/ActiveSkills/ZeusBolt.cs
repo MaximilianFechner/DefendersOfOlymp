@@ -13,11 +13,6 @@ public class ZeusBolt : MonoBehaviour
 
     [Space(10)]
     [Header("Game Design Values")]
-    //[Tooltip("The damage dealt by the skill")]
-    //[Min(0)]
-    //[SerializeField]
-    //private float damage = 100f;
-
     [Tooltip("The minimum damage the ability does")]
     [Min(0)]
     [SerializeField]
@@ -33,17 +28,16 @@ public class ZeusBolt : MonoBehaviour
     [SerializeField]
     private float lightningDuration = 0.5f;
 
-    //[Tooltip("Radius for detecting collider of enemies")]
-    //[Min(0)]
-    //[SerializeField]
-    //private float attackRadius = 0.5f;
-
     [Tooltip("The time you have to wait before you can use the skill again")]
     [Min(0)]
     [SerializeField]
     public float cooldownTime = 20f;
 
-    [Space(10)]
+    [Header("Game Design Values: UPGRADE / TOWER")]
+    [SerializeField][Tooltip("Lower Damage Limit increase per Level/Zeustower - absolut value")] private float damageLowerLimitUpgrade;
+    [SerializeField][Tooltip("Upper Damage Limit increase per Level/Zeustower - absolut value")] private float damageUpperLimitUpgrade;
+    [SerializeField][Tooltip("Cooldown reduction per Level/Zeustower - absolut value")] private float cooldownReductionUpgrade;
+    [Space(20)]
 
     [Tooltip("Minimum volume for the enemy sounds")]
     [Range(0, 1)]
@@ -65,7 +59,7 @@ public class ZeusBolt : MonoBehaviour
     [SerializeField]
     private float maxPitchSounds = 1f;
 
-    [Space(10)]
+    [Space(20)]
     [Tooltip("The intensity of the camera shake")]
     [Min(0)]
     [SerializeField]
@@ -83,10 +77,6 @@ public class ZeusBolt : MonoBehaviour
     private GameObject preBoltSoundObject;
 
     private CameraShake _cameraShake;
-
-    //private int skillLevel;
-    //private float levelModifikatorDamage;
-    //private float levelModifikatorCooldown;
 
     private float lastUseTime = -Mathf.Infinity;
     private bool isReady = false;
@@ -384,5 +374,15 @@ public class ZeusBolt : MonoBehaviour
             Destroy(preBoltSoundObject);
             preBoltSoundObject = null;
         }
+    }
+
+    public void UpgradeBolt()
+    {
+        Debug.Log("ZeusBolt upgraded");
+        damageLowerLimit += (damageLowerLimitUpgrade);
+        damageUpperLimit += (damageUpperLimitUpgrade);
+        cooldownTime -= cooldownReductionUpgrade; //OPTIONAL: Mathf.clamp um Cooldown bspw. auf 1/2 des urpsrgl. CDs zu beschränken
+        //Multiplikator mit GameManager.Instance.zeusTower; nicht notwendig 
+        //da Upgrade mit dem Platzieren/Upgraden eines Turmes jedes Mal aufgerufen wird
     }
 }

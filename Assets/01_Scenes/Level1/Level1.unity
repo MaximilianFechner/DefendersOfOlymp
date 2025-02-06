@@ -3908,6 +3908,22 @@ PrefabInstance:
       propertyPath: uiAnimation
       value: 
       objectReference: {fileID: 1108071275}
+    - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: slowDurationUpgrade
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageLowerLimitUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageUpperLimitUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: cooldownReductionUpgrade
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 458755429283034958, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: m_FontData.m_Alignment
       value: 8
@@ -3916,6 +3932,14 @@ PrefabInstance:
       propertyPath: m_FontData.m_Alignment
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 563932065624218141, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: heraStun
+      value: 
+      objectReference: {fileID: 2051375965738174274}
+    - target: {fileID: 563932065624218141, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: zeusBolt
+      value: 
+      objectReference: {fileID: 1584656598389747658}
     - target: {fileID: 563932065624218141, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: cardToFlip
       value: 
@@ -3929,9 +3953,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 315063680}
     - target: {fileID: 563932065624218141, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: poseidonWave
+      value: 
+      objectReference: {fileID: 839597698752409530}
+    - target: {fileID: 563932065624218141, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: drawCardButton
       value: 
       objectReference: {fileID: 1936498712}
+    - target: {fileID: 563932065624218141, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: hephaistosQuake
+      value: 
+      objectReference: {fileID: 5628521491133392082}
     - target: {fileID: 563932065624218141, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: isDrawableLighting
       value: 
@@ -3968,6 +4000,18 @@ PrefabInstance:
       propertyPath: uiAnimation
       value: 
       objectReference: {fileID: 409121941}
+    - target: {fileID: 1127305501548914579, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageLowerLimitUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127305501548914579, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageUpperLimitUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127305501548914579, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: cooldownReductionUpgrade
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1139168559274152157, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.05
@@ -3984,6 +4028,18 @@ PrefabInstance:
       propertyPath: uiAnimation
       value: 
       objectReference: {fileID: 597842270}
+    - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageLowerLimitUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageUpperLimitUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: cooldownReductionUpgrade
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1371998763206316033, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: m_FontData.m_Alignment
       value: 8
@@ -4159,6 +4215,18 @@ PrefabInstance:
     - target: {fileID: 6047779919805440026, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: m_FontData.m_Alignment
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072449750005525643, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageLowerLimitUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072449750005525643, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageUpperLimitUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072449750005525643, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: cooldownReductionUpgrade
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6111717548414160211, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: m_FontData.m_Alignment
