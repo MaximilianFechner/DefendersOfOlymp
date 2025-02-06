@@ -349,7 +349,9 @@ public class GameManager : MonoBehaviour
     {
         showTooltips = !showTooltips;
 
+#pragma warning disable CS0618 // Typ oder Element ist veraltet
         GridCells[] allCells = FindObjectsOfType<GridCells>();
+#pragma warning restore CS0618 // Typ oder Element ist veraltet
 
         foreach (GridCells cell in allCells)
         {

@@ -43,7 +43,7 @@ public class GridCells : MonoBehaviour
 
         if (towerLevelText != null && towerLevel > 0)
         {
-            if (!towerLevelText.gameObject.active) towerLevelText.gameObject.SetActive(true);
+            if (!towerLevelText.gameObject.activeInHierarchy) towerLevelText.gameObject.SetActive(true);
             towerLevelText.text = $"{towerLevel.ToString()}";
 
             switch (towerName)

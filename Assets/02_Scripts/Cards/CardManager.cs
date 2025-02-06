@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -187,9 +188,16 @@ public class CardManager : MonoBehaviour
 
         AudioManager.Instance.PlayCardSFX();
 
-        // Preview-Turm erstellen
         if (currentPreview != null) Destroy(currentPreview);
-        currentPreview = Instantiate(currentCard.TowerPrefab);
+        currentPreview = Instantiate(currentCard.TowerPrefab); // Preview-Turm erstellen
+
+        Transform rangeVisual = currentPreview.GetComponentsInChildren<Transform>(true)
+                                            .FirstOrDefault(t => t.name == "RangeVisual");
+
+        if (rangeVisual != null)
+        {
+            rangeVisual.gameObject.SetActive(true);
+        }
 
         Collider2D collider = currentPreview.GetComponentInChildren<Collider2D>(); // Deaktiviert den Collider der Preview, damit man die Tooltips von bereits
         if (collider != null)                                                      // platzierten Türmen hovern kann
