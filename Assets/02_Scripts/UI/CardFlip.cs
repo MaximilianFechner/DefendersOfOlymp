@@ -16,7 +16,7 @@ public class CardFlip : MonoBehaviour
     private Vector3 targetScale;
     private Vector2 originalPosition;
     private Vector2 targetPosition;
-    private bool isCardFlipped = false;
+    //private bool isCardFlipped = false;
     public ParticleSystem psLighting;
 
     void Start()
@@ -90,7 +90,7 @@ public class CardFlip : MonoBehaviour
 
         card.anchoredPosition = targetPosition;
         card.localScale = targetScale; // Skalierung bleibt auf 1.3
-        isCardFlipped = true;
+        //isCardFlipped = true;
 
         yield return new WaitForSeconds(5);
         psLighting.gameObject.SetActive(false);
@@ -98,10 +98,12 @@ public class CardFlip : MonoBehaviour
 
     public void MoveCardOut()
     {
-        if (isCardFlipped)
-        {
-            StartCoroutine(MoveOutAnimation());
-        }
+
+        StartCoroutine(MoveOutAnimation());
+        //if (isCardFlipped)
+        //{
+        //    StartCoroutine(MoveOutAnimation());
+        //}
     }
 
     IEnumerator MoveOutAnimation()
