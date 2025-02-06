@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
+using System.Linq;
 
 public class ZeusBolt : MonoBehaviour
 {
@@ -202,51 +203,53 @@ public class ZeusBolt : MonoBehaviour
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
         worldPosition.z = 0;
 
-        //Test Bolt Hit in Build with Ray
-        Vector2 rayDirection = worldPosition - Camera.main.transform.position; // Direction of the raycast
-        RaycastHit2D hit = Physics2D.Raycast(Camera.main.transform.position, rayDirection, Mathf.Infinity, enemyLayer);
-        //
+        Vector2 rayOrigin = worldPosition;
+        Vector2 rayDirection = (Vector2)worldPosition - rayOrigin;
+        RaycastHit2D[] hits = Physics2D.RaycastAll(rayOrigin, rayDirection, Mathf.Infinity, enemyLayer);
 
-        //Collider2D targetEnemy = Physics2D.OverlapCircle(new Vector2(worldPosition.x, worldPosition.y), attackRadius, enemyLayer);
-
-        if (hit.collider != null && hit.collider.CompareTag("Enemy")) //if (targetEnemy != null && targetEnemy.isTrigger)
+        if (hits.Length > 0)
         {
-            GameObject bolt = Instantiate(boltPrefab, new Vector3(worldPosition.x, worldPosition.y + 10, 0), Quaternion.identity);
-            PlayBoltSFX(skillSound);
-            Destroy(bolt, lightningDuration);
+            // Finde den nächsten Gegner zur Maus
+            RaycastHit2D closestHit = hits.OrderBy(h => Vector2.Distance(h.point, worldPosition)).First();
 
-            //targetEnemy.GetComponent<EnemyManager>().TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit)));
-            hit.collider.GetComponent<EnemyManager>().TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit)));
-
-            remainingCooldownTime = cooldownTime;
-            lastUseTime = Time.time;
-            isReady = false;
-
-            if (currentPreview != null)
+            if (closestHit.collider != null && closestHit.collider.CompareTag("Enemy"))
             {
-                Destroy(currentPreview);
-                currentPreview = null;
-            }
+                GameObject bolt = Instantiate(boltPrefab, new Vector3(closestHit.point.x, closestHit.point.y + 10, 0), Quaternion.identity);
+                PlayBoltSFX(skillSound);
+                Destroy(bolt, lightningDuration);
 
-            if (preBoltSoundObject != null)
-            {
-                Destroy(preBoltSoundObject);
-                preBoltSoundObject = null;
-            }
+                closestHit.collider.GetComponent<EnemyManager>().TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit)));
 
-            RectTransform buttonRect = skillButton.GetComponent<RectTransform>();
-            Vector2 targetPosition = buttonOriginalPosition + new Vector2(0, -50);
-            StartCoroutine(MoveButton(buttonRect, targetPosition, Color.white, new Color(0.73f, 0.73f, 0.73f)));
-            skillButton.interactable = false;
+                remainingCooldownTime = cooldownTime;
+                lastUseTime = Time.time;
+                isReady = false;
 
-            if (_cameraShake == null)
-            {
-                _cameraShake = FindFirstObjectByType<CameraShake>();
-            }
+                if (currentPreview != null)
+                {
+                    Destroy(currentPreview);
+                    currentPreview = null;
+                }
 
-            if (_cameraShake != null)
-            {
-                StartCoroutine(_cameraShake.Shake(_cameraShakeDuration, _cameraShakeMagnitude));
+                if (preBoltSoundObject != null)
+                {
+                    Destroy(preBoltSoundObject);
+                    preBoltSoundObject = null;
+                }
+
+                RectTransform buttonRect = skillButton.GetComponent<RectTransform>();
+                Vector2 targetPosition = buttonOriginalPosition + new Vector2(0, -50);
+                StartCoroutine(MoveButton(buttonRect, targetPosition, Color.white, new Color(0.73f, 0.73f, 0.73f)));
+                skillButton.interactable = false;
+
+                if (_cameraShake == null)
+                {
+                    _cameraShake = FindFirstObjectByType<CameraShake>();
+                }
+
+                if (_cameraShake != null)
+                {
+                    StartCoroutine(_cameraShake.Shake(_cameraShakeDuration, _cameraShakeMagnitude));
+                }
             }
         }
     }

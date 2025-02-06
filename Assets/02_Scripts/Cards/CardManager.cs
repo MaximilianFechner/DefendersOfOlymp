@@ -191,7 +191,7 @@ public class CardManager : MonoBehaviour
         if (currentPreview != null) Destroy(currentPreview);
         currentPreview = Instantiate(currentCard.TowerPrefab); // Preview-Turm erstellen
 
-        Transform rangeVisual = currentPreview.GetComponentsInChildren<Transform>(true)
+        Transform rangeVisual = currentPreview.GetComponentsInChildren<Transform>(true) //true sagt, dass auch deaktivierte GOs durchsucht werden
                                             .FirstOrDefault(t => t.name == "RangeVisual");
 
         if (rangeVisual != null)

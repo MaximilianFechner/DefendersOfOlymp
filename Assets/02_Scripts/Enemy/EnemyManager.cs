@@ -323,9 +323,9 @@ public class EnemyManager : MonoBehaviour
         if (collision.tag == "EnemyTarget" && (!alreadyDamagedPlayer))
         {
             GameManager.Instance.LoseLife(_playerDamage);
-            GameManager.Instance.SubRemainingEnemy();
-            Destroy(this.gameObject, 3f);
             alreadyDamagedPlayer = true;
+            GameManager.Instance.SubRemainingEnemy();
+            Destroy(this.gameObject); //die 3 Sekunden despawn-Zeit entfernt
         }
     }
 
