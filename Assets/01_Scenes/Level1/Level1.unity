@@ -718,6 +718,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417444487}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &426104745 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3139923327430318242, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+  m_PrefabInstance: {fileID: 1507989259852378251}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &436225004 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8517423732879660253, guid: 03fe891b7126c024984c4280bce765f5, type: 3}
@@ -2939,6 +2944,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2007902269 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5832809815486839706, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+  m_PrefabInstance: {fileID: 1507989259852378251}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2118132949
 GameObject:
   m_ObjectHideFlags: 0
@@ -3125,6 +3135,10 @@ PrefabInstance:
       propertyPath: buttonSFX
       value: 
       objectReference: {fileID: 8300000, guid: d0acd4cb711d0854aa2361a2248efbdd, type: 3}
+    - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
+      propertyPath: highscoreSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 927e6801223186f41a6b3364b11f3e68, type: 3}
     - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
       propertyPath: waveEndMusic
       value: 
@@ -3321,10 +3335,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 500678916655645796, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
-      propertyPath: m_SortingOrder
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 553511375603535885, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3349,6 +3359,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2128610116716368452}
+    - target: {fileID: 3139923327430318242, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3422088003417893174, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: bolt
       value: 
@@ -3365,6 +3379,14 @@ PrefabInstance:
       propertyPath: quake
       value: 
       objectReference: {fileID: 5628521491133392082}
+    - target: {fileID: 3776431016061551521, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: highscoreShadow
+      value: 
+      objectReference: {fileID: 2007902269}
+    - target: {fileID: 3776431016061551521, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: highscoreVisual
+      value: 
+      objectReference: {fileID: 426104745}
     - target: {fileID: 4067185540345730313, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3452,6 +3474,10 @@ PrefabInstance:
     - target: {fileID: 4927842608779397137, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5832809815486839706, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5976403880716465212, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3645,6 +3671,14 @@ PrefabInstance:
       propertyPath: hephQuake
       value: 
       objectReference: {fileID: 5628521491133392082}
+    - target: {fileID: 1040459522354727499, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: highscoreShadow
+      value: 
+      objectReference: {fileID: 2007902269}
+    - target: {fileID: 1040459522354727499, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: highscoreVisual
+      value: 
+      objectReference: {fileID: 426104745}
     - target: {fileID: 1066022503287968152, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: m_FontData.m_Alignment
       value: 8
