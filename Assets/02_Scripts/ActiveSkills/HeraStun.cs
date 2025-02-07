@@ -113,7 +113,7 @@ public class HeraStun : MonoBehaviour
                     UIManager.Instance.heraSkillCooldown.text = "READY";
 
                     StartCoroutine(MoveButton(skillButton.GetComponent<RectTransform>(),
-                        buttonOriginalPosition, new Color(0.73f, 0.73f, 0.73f), Color.white)); //BTN CD MOVE
+                        buttonOriginalPosition, new Color(0.5f, 0.5f, 0.5f), Color.white)); //BTN CD MOVE
                     skillButton.interactable = true; //BTN CD MOVE
                 }
                 else
@@ -235,7 +235,7 @@ public class HeraStun : MonoBehaviour
 
         RectTransform buttonRect = skillButton.GetComponent<RectTransform>();
         Vector2 targetPosition = buttonOriginalPosition + new Vector2(0, -50);
-        StartCoroutine(MoveButton(buttonRect, targetPosition, Color.white, new Color(0.73f, 0.73f, 0.73f)));
+        StartCoroutine(MoveButton(buttonRect, targetPosition, Color.white, new Color(0.5f, 0.5f, 0.5f)));
         skillButton.interactable = false;
     }
 
@@ -357,7 +357,7 @@ public class HeraStun : MonoBehaviour
         UIManager.Instance.heraSkillCooldown.text = "READY";
 
         RectTransform buttonRect = skillButton.GetComponent<RectTransform>();
-        StartCoroutine(MoveButton(buttonRect, buttonOriginalPosition, new Color(0.73f, 0.73f, 0.73f), Color.white));
+        StartCoroutine(MoveButton(buttonRect, buttonOriginalPosition, new Color(0.5f, 0.5f, 0.5f), Color.white));
 
         skillButton.interactable = true;
 

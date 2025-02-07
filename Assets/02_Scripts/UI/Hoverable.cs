@@ -75,12 +75,16 @@ public class Hoverable : MonoBehaviour
 
             if (enemy.TryGetComponent(out NavMeshAgent navAgent))
             {
-                tooltipInfo = $"<b><color=#8E0000>{enemy.enemyName}</color></b>\n" +
-                    $"Health:\n" +
-                    $"Speed:";
+                if (enemy.TryGetComponent(out EnemyPathfinding path))
+                {
+                    tooltipInfo = $"<b><color=#8E0000>{enemy.enemyName}</color></b>\n" +
+                        $"Health:\n" +
+                        $"Speed:";
 
-                tooltipData = $"\n<b><color=#8E0000>{enemy._currentHP}</color></b> / {enemy._maxHP}\n" +
-                    $"{navAgent.speed}";
+                    tooltipData = $"\n<b><color=#8E0000>{enemy._currentHP}</color></b> / {enemy._maxHP}\n" +
+                        $"{navAgent.speed} / {(navAgent.speed / path._defaultSpeed) * 100}%";
+                }
+
             }
         }
         else if (TryGetComponent(out ZeusTower zeus))

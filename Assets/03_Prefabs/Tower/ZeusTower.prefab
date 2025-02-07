@@ -670,9 +670,9 @@ MonoBehaviour:
   aoeRadius: 0
   slowValue: 0
   timeSlowed: 0
-  maxDamageJump: 2
+  maxDamageJump: 0
   upgradeAttackSpeed: 0.05
-  upgradeAttackRadius: 0
+  upgradeAttackRadius: 0.01
   upgradeMovementSpeed: 0
   upgradeDamage: 4
   upgradeDamageLowerLimit: 3

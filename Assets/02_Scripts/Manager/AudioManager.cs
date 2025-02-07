@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip stoneSFX;
     public AudioClip[] towerPlacementSFX;
     public AudioClip[] hitImpactSFX;
+    public AudioClip highscoreSFX;
 
     private void Awake()
     {
@@ -168,5 +169,20 @@ public class AudioManager : MonoBehaviour
 
         Destroy(hitImpactSoundObject, hitImpactSFX[god].length);
 
+    }
+
+    public void PlayHighscoreSFX()
+    {
+        GameObject highscoreSFXObject = new GameObject("HighscoreSFX");
+        AudioSource tempAudioSource = highscoreSFXObject.AddComponent<AudioSource>();
+
+        tempAudioSource.clip = highscoreSFX;
+        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.volume = 1f;
+        tempAudioSource.loop = false;
+
+        tempAudioSource.Play();
+
+        Destroy(highscoreSFXObject, highscoreSFX.length);
     }
 }

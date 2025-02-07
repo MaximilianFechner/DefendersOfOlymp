@@ -7,7 +7,7 @@ public class EnemyPathfinding : MonoBehaviour
     private GameObject _player;
     private NavMeshAgent _agent;
 
-    [SerializeField] private float _defaultSpeed;
+    [SerializeField] public float _defaultSpeed;
     private float _currentSlowValue = 1f; // 1f = kein Slow
     [SerializeField] private float _timeSlowed;
     [SerializeField] private bool _isSlowed;

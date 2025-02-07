@@ -29,6 +29,9 @@ public class UIManager : MonoBehaviour
     public Transform PlayerLife;
     public GameObject heartPrefab;
 
+    public GameObject highscoreVisual;
+    public GameObject highscoreShadow;
+
     private List<GameObject> hearts = new List<GameObject>();
 
     [Space(10)]
@@ -150,4 +153,16 @@ public class UIManager : MonoBehaviour
         hearts.Clear();
     }
     // Player Life Methods --
+
+    public void ShowHighscoreVisual()
+    {
+        highscoreVisual.SetActive(true);
+        highscoreShadow.SetActive(false);
+    }
+
+    public void HideHighscoreVisual()
+    {
+        highscoreVisual.SetActive(false);
+        highscoreShadow.SetActive(true);
+    }
 }

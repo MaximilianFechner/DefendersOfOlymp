@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool isInWave = false;
     
     [HideInInspector] public int score = 0;
-    [HideInInspector] public int highscore = 0;
+    [HideInInspector] public int highscore = 10;
 
     [HideInInspector] public int cerberusKills = 0;
     [HideInInspector] public int cyclopKills = 0;
@@ -78,6 +78,8 @@ public class GameManager : MonoBehaviour
     public HephaistosQuake hephQuake;
 
     public bool isCardDrawable = false;
+
+    public bool highscoreReached = false;
 
     private void Awake()
     {
@@ -149,8 +151,9 @@ public class GameManager : MonoBehaviour
 
         UIManager.Instance.InitializeLives(_playerStartLives);
         UIManager.Instance.UpdateUITexts();
+        UIManager.Instance.HideHighscoreVisual();
         UIManager.Instance.gameOverPanel.SetActive(false);
-        UIManager.Instance.waveFinPanel.SetActive(false);
+        //UIManager.Instance.waveFinPanel.SetActive(false);
 
         if (zeusBolt != null) zeusBolt.ResetCooldown();
         if (poseidonWave != null) poseidonWave.ResetCooldown();
@@ -194,10 +197,17 @@ public class GameManager : MonoBehaviour
     public void AddEnemyKilled()
     {
         enemyScore++;
-
         score++;
+
         if (score > highscore)
         {
+            if (!highscoreReached)
+            {
+                UIManager.Instance.ShowHighscoreVisual();
+                AudioManager.Instance.PlayHighscoreSFX();
+                highscoreReached = true;
+            }
+
             highscore = score;
             PlayerPrefs.SetInt("highscore", highscore);
             PlayerPrefs.Save();
@@ -233,17 +243,17 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.waveNumberText.text = $"{waveNumber.ToString()}";
     }
 
-    //SaveSystem
-    public void LoadData(GameData data)
-    {
-        this.waveNumber= data.waveCount;
-    }
+    ////SaveSystem
+    //public void LoadData(GameData data)
+    //{
+    //    this.waveNumber= data.waveCount;
+    //}
 
-    public void SaveData(ref GameData data)
-    {
-        data.waveCount = this.waveNumber;
-    }
-    //Save System
+    //public void SaveData(ref GameData data)
+    //{
+    //    data.waveCount = this.waveNumber;
+    //}
+    ////Save System
 
     public void ResetStats()
     {
@@ -261,6 +271,8 @@ public class GameManager : MonoBehaviour
         nextWaveEnemies = 0;
         plusEnemies = 0;
         plusMultiplikator = 1;
+
+        highscoreReached = false;
 
         zeusTower = 0;
         poseidonTower = 0;
@@ -289,6 +301,13 @@ public class GameManager : MonoBehaviour
         score += waveNumber;
         if (score > highscore)
         {
+            if (!highscoreReached)
+            {
+                UIManager.Instance.ShowHighscoreVisual();
+                AudioManager.Instance.PlayHighscoreSFX();
+                highscoreReached = true;
+            }
+
             highscore = score;
             PlayerPrefs.SetInt("highscore", highscore);
             PlayerPrefs.Save();
