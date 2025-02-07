@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -24,6 +25,11 @@ public class CardManager : MonoBehaviour
     public Animator uiAnimation; //MOVEBTN
 
     public CardFlip cardToFlip;
+
+    public ZeusBolt zeusBolt;
+    public PoseidonWave poseidonWave;
+    public HeraStun heraStun;
+    public HephaistosQuake hephaistosQuake;
 
     private GridCells currentTargetCell; //OwnGrid: Die aktuelle Ziel-Zelle fürs Snappen
     public GridCells[] gridCells; //OwnGrid:  Array mit allen Grid-Zellen
@@ -177,9 +183,6 @@ public class CardManager : MonoBehaviour
         int randomIndex = Random.Range(0, AvailableCards.Count);
         currentCard = AvailableCards[randomIndex];
 
-        //CardDisplay.gameObject.SetActive(true);
-        //drawCardButton.gameObject.SetActive(false);
-
         RectTransform buttonRect = drawCardBTN.GetComponent<RectTransform>(); //MOVEBTN
         Vector2 targetPosition = buttonOriginalPosition + new Vector2(0, -200); //MOVEBTN
         StartCoroutine(MoveButton(buttonRect, targetPosition)); //MOVEBTN
@@ -190,9 +193,22 @@ public class CardManager : MonoBehaviour
 
         AudioManager.Instance.PlayCardSFX();
 
-        // Preview-Turm erstellen
         if (currentPreview != null) Destroy(currentPreview);
-        currentPreview = Instantiate(currentCard.TowerPrefab);
+        currentPreview = Instantiate(currentCard.TowerPrefab); // Preview-Turm erstellen
+
+        Transform rangeVisual = currentPreview.GetComponentsInChildren<Transform>(true) //true sagt, dass auch deaktivierte GOs durchsucht werden
+                                            .FirstOrDefault(t => t.name == "RangeVisual");
+
+        if (rangeVisual != null)
+        {
+            rangeVisual.gameObject.SetActive(true);
+        }
+
+        Collider2D collider = currentPreview.GetComponentInChildren<Collider2D>(); // Deaktiviert den Collider der Preview, damit man die Tooltips von bereits
+        if (collider != null)                                                      // platzierten Türmen hovern kann
+        {
+            collider.enabled = false;
+        }
 
         SpriteRenderer sprite = currentPreview.GetComponentInChildren<SpriteRenderer>();
         if (sprite != null)
@@ -270,15 +286,23 @@ public class CardManager : MonoBehaviour
                 {
                     case "Zeus":
                         AudioManager.Instance.PlayTowerPlacementSFX(0);
+                        GameManager.Instance.zeusTower++;
+                        zeusBolt.UpgradeBolt();
                         break;
                     case "Poseidon":
                         AudioManager.Instance.PlayTowerPlacementSFX(1);
+                        GameManager.Instance.poseidonTower++;
+                        poseidonWave.UpgradeWave();
                         break;
                     case "Hera":
                         AudioManager.Instance.PlayTowerPlacementSFX(2);
+                        GameManager.Instance.heraTower++;
+                        heraStun.UpgradeStun();
                         break;
                     case "Hephaistos":
                         AudioManager.Instance.PlayTowerPlacementSFX(3);
+                        GameManager.Instance.hephaistosTower++;
+                        hephaistosQuake.UpgradeQuake();
                         break;
                 }
 
@@ -321,15 +345,23 @@ public class CardManager : MonoBehaviour
             {
                 case "Zeus":
                     AudioManager.Instance.PlayTowerPlacementSFX(0);
+                    GameManager.Instance.zeusTower++;
+                    zeusBolt.UpgradeBolt();
                     break;
                 case "Poseidon":
                     AudioManager.Instance.PlayTowerPlacementSFX(1);
+                    GameManager.Instance.poseidonTower++;
+                    poseidonWave.UpgradeWave();
                     break;
                 case "Hera":
                     AudioManager.Instance.PlayTowerPlacementSFX(2);
+                    GameManager.Instance.heraTower++;
+                    heraStun.UpgradeStun();
                     break;
                 case "Hephaistos":
                     AudioManager.Instance.PlayTowerPlacementSFX(3);
+                    GameManager.Instance.hephaistosTower++;
+                    hephaistosQuake.UpgradeQuake();
                     break;
             }
 

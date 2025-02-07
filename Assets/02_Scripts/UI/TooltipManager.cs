@@ -174,6 +174,7 @@ public class TooltipManager : MonoBehaviour
             tooltipPanel.gameObject.SetActive(false);
         }
     }
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (tooltipPanel == null)

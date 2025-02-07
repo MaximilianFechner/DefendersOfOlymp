@@ -121,6 +121,7 @@ public class BaseTower : MonoBehaviour
     [SerializeField] public Transform spawnPoint;
     [SerializeField] public GameObject targetEnemy;    
     [SerializeField] public GameObject rangeVisual;
+    [SerializeField] public GameObject midPoint;
     [SerializeField] public GameObject towerMenu;
     [SerializeField] public Animator animator;
     [SerializeField] public int towerLevel = 1;
@@ -143,11 +144,11 @@ public class BaseTower : MonoBehaviour
 
     private void OnDrawGizmos() {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRadius);
+        Gizmos.DrawWireSphere(midPoint.transform.position, attackRadius);
     }
 
     public GameObject GetTargetEnemy() {
-        Collider2D[] enemiesColliders = Physics2D.OverlapCircleAll(transform.position, attackRadius, enemyLayerMask);
+        Collider2D[] enemiesColliders = Physics2D.OverlapCircleAll(midPoint.transform.position, attackRadius, enemyLayerMask); //transform.position
         targetEnemy = null;
         if (enemiesColliders.Length > 0) {
             EnemyManager targetEnemyManager = enemiesColliders[0].GetComponent<EnemyManager>();

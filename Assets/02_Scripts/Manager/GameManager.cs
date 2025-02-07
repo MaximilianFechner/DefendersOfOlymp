@@ -44,6 +44,11 @@ public class GameManager : MonoBehaviour
     public int nextWaveEnemies = 0; // NEW PROGRESS SPAWN - Gegner in der nächsten Welle
     public int plusEnemies = 0; // NEW PROGRESS SPAWN - Wieviele Gegner auf die Startgegner hinzugerechnet werden für die nächste Welle
     public int plusMultiplikator = 1; // NEW PROGRESS SPAWN - Modifikator für die plusEnemies Variable
+    [Space(10)]
+    public int zeusTower = 0;
+    public int poseidonTower = 0;
+    public int heraTower = 0;
+    public int hephaistosTower = 0;
 
     [Space(10)]
     [Header("Wave Management")]
@@ -70,6 +75,7 @@ public class GameManager : MonoBehaviour
     public ZeusBolt zeusBolt;
     public PoseidonWave poseidonWave;
     public HeraStun heraStun;
+    public HephaistosQuake hephQuake;
 
     public bool isCardDrawable = false;
 
@@ -149,6 +155,7 @@ public class GameManager : MonoBehaviour
         if (zeusBolt != null) zeusBolt.ResetCooldown();
         if (poseidonWave != null) poseidonWave.ResetCooldown();
         if (heraStun != null) heraStun.ResetCooldown();
+        if (hephQuake != null) hephQuake.ResetCooldown();
 
         isCardDrawable = true;
 
@@ -254,7 +261,12 @@ public class GameManager : MonoBehaviour
         nextWaveEnemies = 0;
         plusEnemies = 0;
         plusMultiplikator = 1;
-    }
+
+        zeusTower = 0;
+        poseidonTower = 0;
+        heraTower = 0;
+        hephaistosTower = 0;
+}
 
     private void GameOver()
     {
@@ -349,7 +361,9 @@ public class GameManager : MonoBehaviour
     {
         showTooltips = !showTooltips;
 
+#pragma warning disable CS0618 // Typ oder Element ist veraltet
         GridCells[] allCells = FindObjectsOfType<GridCells>();
+#pragma warning restore CS0618 // Typ oder Element ist veraltet
 
         foreach (GridCells cell in allCells)
         {
