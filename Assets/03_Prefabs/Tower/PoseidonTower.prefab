@@ -1235,7 +1235,7 @@ MonoBehaviour:
   nameTower: Poseidon
   attackSpeed: 0.95
   attackRadius: 13
-  targetType: 1
+  targetType: 0
   movementSpeed: 12
   damage: 9
   damageLowerLimit: 8
@@ -1245,7 +1245,7 @@ MonoBehaviour:
   timeSlowed: 0
   maxDamageJump: 0
   upgradeAttackSpeed: 0.05
-  upgradeAttackRadius: 0
+  upgradeAttackRadius: 0.01
   upgradeMovementSpeed: 0
   upgradeDamage: 9
   upgradeDamageLowerLimit: 8

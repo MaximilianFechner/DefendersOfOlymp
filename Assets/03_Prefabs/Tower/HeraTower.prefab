@@ -1401,7 +1401,7 @@ MonoBehaviour:
   nameTower: Hera
   attackSpeed: 0.9
   attackRadius: 13
-  targetType: 1
+  targetType: 0
   movementSpeed: 15
   damage: 7
   damageLowerLimit: 6
@@ -1411,7 +1411,7 @@ MonoBehaviour:
   timeSlowed: 1.5
   maxDamageJump: 0
   upgradeAttackSpeed: 0.05
-  upgradeAttackRadius: 0
+  upgradeAttackRadius: 0.01
   upgradeMovementSpeed: 0
   upgradeDamage: 7
   upgradeDamageLowerLimit: 6

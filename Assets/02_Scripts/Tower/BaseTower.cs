@@ -179,32 +179,36 @@ public class BaseTower : MonoBehaviour
     }
 
     public void UpgradeTower() {
-        attackSpeed -= attackSpeed * upgradeAttackSpeed;
-        attackRadius += attackRadius * upgradeAttackRadius;
-        movementSpeed += movementSpeed * upgradeMovementSpeed;
-        damage += damage * upgradeDamage;
-        damageLowerLimit += upgradeDamageLowerLimit;
-        damageUpperLimit += upgradeDamageUpperLimit;
-        aoeRadius += aoeRadius * upgradeAoeRadius;
-        slowValue += slowValue * upgradeSlowValue;
-        timeSlowed += timeSlowed * upgradeTimeSlowed;
-        maxDamageJump += maxDamageJump * upgradeMaxDamageJump;
-        towerLevel += 1;
+        attackSpeed -= attackSpeed * upgradeAttackSpeed; // %%% value
+        attackRadius += attackRadius * upgradeAttackRadius; // %%% value
+        movementSpeed += movementSpeed * upgradeMovementSpeed; // %%% value
+        damage += damage * upgradeDamage; // %%% value
+        damageLowerLimit += upgradeDamageLowerLimit; // abs value
+        damageUpperLimit += upgradeDamageUpperLimit; // abs value
+        aoeRadius += aoeRadius * upgradeAoeRadius; // %%% value
+        slowValue += slowValue * upgradeSlowValue; // %%% value
+        timeSlowed += timeSlowed * upgradeTimeSlowed; // %%% value
+        maxDamageJump += upgradeMaxDamageJump; // abs value
+        towerLevel += 1; // abs value
+
+        UpdateRangeVisual();
     }
 
-    public void DowngradeTower() {
-        attackSpeed += attackSpeed * upgradeAttackSpeed;
-        attackRadius -= attackRadius * upgradeAttackRadius;
-        movementSpeed -= movementSpeed * upgradeMovementSpeed;
-        damage -= damage * upgradeDamage;
-        damageLowerLimit -= upgradeDamageLowerLimit;
-        damageUpperLimit -= upgradeDamageUpperLimit;
-        aoeRadius -= aoeRadius * upgradeAoeRadius;
-        slowValue -= slowValue * upgradeSlowValue;
-        timeSlowed -= timeSlowed * upgradeTimeSlowed;
-        maxDamageJump -= maxDamageJump * upgradeMaxDamageJump;
-        towerLevel -= 1;
-    }
+    //public void DowngradeTower() {
+    //    attackSpeed += attackSpeed * upgradeAttackSpeed;
+    //    attackRadius -= attackRadius * upgradeAttackRadius;
+    //    movementSpeed -= movementSpeed * upgradeMovementSpeed;
+    //    damage -= damage * upgradeDamage;
+    //    damageLowerLimit -= upgradeDamageLowerLimit;
+    //    damageUpperLimit -= upgradeDamageUpperLimit;
+    //    aoeRadius -= aoeRadius * upgradeAoeRadius;
+    //    slowValue -= slowValue * upgradeSlowValue;
+    //    timeSlowed -= timeSlowed * upgradeTimeSlowed;
+    //    maxDamageJump -= maxDamageJump * upgradeMaxDamageJump;
+    //    towerLevel -= 1;
+
+    //    UpdateRangeVisual();
+    //}
 
     public void AddBonusToAttackDamage(float amount) {
         //this.damage *= amount;
@@ -225,6 +229,11 @@ public class BaseTower : MonoBehaviour
 
     public void SetRangeVisual() {
         rangeVisual.SetActive(!rangeVisual.activeSelf);
+    }
+
+    public void UpdateRangeVisual()
+    {
+        rangeVisual.transform.localScale = new Vector3(attackRadius * 2, attackRadius * 2, 1);
     }
 
     //public void SetTowerMenu() {

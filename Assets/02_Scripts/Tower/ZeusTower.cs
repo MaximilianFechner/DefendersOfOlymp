@@ -20,6 +20,7 @@ public class ZeusTower : BaseTower
         }
         GameObject projectile = Instantiate(projectilePrefab, spawnPoint);
         projectile.transform.SetParent(null);
+        projectile.GetComponent<ZeusProjectile>().InitializeProjectile(attackRadius, towerLevel);
         BaseProjectile baseProjectile = projectile.GetComponent<BaseProjectile>();
         baseProjectile.towerType = towerType;
         baseProjectile.targetEnemy = targetEnemy;
@@ -28,7 +29,7 @@ public class ZeusTower : BaseTower
         baseProjectile.damageLowerLimit = damageLowerLimit;
         baseProjectile.damageUpperLimit = damageUpperLimit;
         baseProjectile.movementSpeed = movementSpeed;
-        baseProjectile.maxDamageJump = maxDamageJump;
+        //baseProjectile.maxDamageJump = maxDamageJump;
         baseProjectile.aoeRadius = attackRadius;
     }
 }
