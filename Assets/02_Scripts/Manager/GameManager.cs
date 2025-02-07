@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour
     public ZeusBolt zeusBolt;
     public PoseidonWave poseidonWave;
     public HeraStun heraStun;
+    public HephaistosQuake hephQuake;
 
     public bool isCardDrawable = false;
 
@@ -154,6 +155,7 @@ public class GameManager : MonoBehaviour
         if (zeusBolt != null) zeusBolt.ResetCooldown();
         if (poseidonWave != null) poseidonWave.ResetCooldown();
         if (heraStun != null) heraStun.ResetCooldown();
+        if (hephQuake != null) hephQuake.ResetCooldown();
 
         isCardDrawable = true;
 

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class HephaistosQuake : MonoBehaviour
 {
@@ -88,12 +89,21 @@ public class HephaistosQuake : MonoBehaviour
 
     private float remainingCooldownTime = 0f;
 
+    private Vector2 buttonOriginalPosition; //BTN CD MOVE
+    public Button skillButton; //BTN CD MOVE
+    public Animator uiAnimation; //BTN CD MOVE
+    public Image image; //BTN CD MOVE
+
     private CameraShake _cameraShake;
 
     [HideInInspector] public int hephaistosSkillLevel = 1;
 
     private void Start()
     {
+        buttonOriginalPosition = skillButton.GetComponent<RectTransform>().anchoredPosition;
+        uiAnimation = uiAnimation.GetComponent<Animator>();
+        image = image.GetComponent<Image>();
+
         AssignCameraShake();
         _cameraShake = Camera.main.GetComponent<CameraShake>();
         //_cameraShake = FindFirstObjectByType<CameraShake>();
@@ -124,7 +134,11 @@ public class HephaistosQuake : MonoBehaviour
                 if (remainingCooldownTime <= 0)
                 {
                     remainingCooldownTime = 0;
-                    UIManager.Instance.hephaistosSkillCooldown.text = "Quake";
+                    UIManager.Instance.hephaistosSkillCooldown.text = "READY";
+
+                    StartCoroutine(MoveButton(skillButton.GetComponent<RectTransform>(),
+                        buttonOriginalPosition, new Color(0.73f, 0.73f, 0.73f), Color.white)); //BTN CD MOVE
+                    skillButton.interactable = true; //BTN CD MOVE
                 }
                 else
                 {
@@ -173,6 +187,11 @@ public class HephaistosQuake : MonoBehaviour
         remainingCooldownTime = _cooldownTime;
         lastUseTime = Time.time;
         isReady = false;
+
+        RectTransform buttonRect = skillButton.GetComponent<RectTransform>();
+        Vector2 targetPosition = buttonOriginalPosition + new Vector2(0, -50);
+        StartCoroutine(MoveButton(buttonRect, targetPosition, Color.white, new Color(0.73f, 0.73f, 0.73f)));
+        skillButton.interactable = false;
     }
 
     private IEnumerator HephaitosQuakeDamageOverTime()
@@ -227,5 +246,62 @@ public class HephaistosQuake : MonoBehaviour
         _cooldownTime -= cooldownReductionUpgrade; //OPTIONAL: Mathf.clamp um Cooldown bspw. auf 1/2 des urpsrgl. CDs zu beschränken
         //Multiplikator mit GameManager.Instance.zeusTower; nicht notwendig 
         //da Upgrade mit dem Platzieren/Upgraden eines Turmes jedes Mal aufgerufen wird
+    }
+
+    private IEnumerator MoveButton(RectTransform buttonRect, Vector2 targetPosition, Color startColor, Color targetColor)
+    {
+        float duration = 1f;
+        Vector2 startPosition = buttonRect.anchoredPosition;
+        float elapsedTime = 0f;
+
+        float startSpeed = 1f;
+        float targetSpeed = 0.5f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+
+            t = t * t * (3f - 2f * t); // smoothes Movement des Buttons
+
+            buttonRect.anchoredPosition = Vector2.Lerp(startPosition, targetPosition, t);
+
+            if (image != null)
+            {
+                image.color = Color.Lerp(startColor, targetColor, t);
+            }
+
+            if (uiAnimation != null)
+            {
+                uiAnimation.speed = Mathf.Lerp(startSpeed, targetSpeed, t);
+            }
+
+            yield return null;
+        }
+
+        buttonRect.anchoredPosition = targetPosition;
+
+        if (image != null)
+        {
+            image.color = targetColor;
+        }
+
+        if (uiAnimation != null)
+        {
+            uiAnimation.speed = targetSpeed;
+        }
+    }
+
+    public void ResetCooldown()
+    {
+        remainingCooldownTime = 0f;
+        isReady = false;
+
+        UIManager.Instance.hephaistosSkillCooldown.text = "READY";
+
+        RectTransform buttonRect = skillButton.GetComponent<RectTransform>();
+        StartCoroutine(MoveButton(buttonRect, buttonOriginalPosition, new Color(0.73f, 0.73f, 0.73f), Color.white));
+
+        skillButton.interactable = true;
     }
 }
