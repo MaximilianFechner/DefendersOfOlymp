@@ -2169,6 +2169,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7061303886503941288, guid: 8708faa0eaf99574f9c30b351c9b47f1, type: 3}
+      propertyPath: m_Name
+      value: UI_StartSubMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061303886503941288, guid: 8708faa0eaf99574f9c30b351c9b47f1, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
