@@ -6,20 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/01_Scenes/CardTestMax.unity
-    guid: 86fdcd0ccd2a3624fb45f4129fc4d0e9
-  - enabled: 0
     path: Assets/01_Scenes/Main Menu/Main Menu.unity
     guid: 30a94a9826d267b4fa579a74897850e5
-  - enabled: 0
-    path: Assets/01_Scenes/Gate 1.unity
-    guid: 702539eba30967643b40caaba77daa30
   - enabled: 1
     path: Assets/01_Scenes/Level1/Level1.unity
     guid: 411006e139fe05445847f14851e7e88a
-  - enabled: 0
-    path: Assets/01_Scenes/Elija Test.unity
-    guid: 1f2d4259299cdb94b91a017b53299bd4
+  - enabled: 1
+    path: Assets/01_Scenes/Main Menu/InteractiveMainMenu.unity
+    guid: 88517cd4c2955a842a20afd813f8ace4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 289c1b55c9541489481df5cc06664110, type: 3}
   m_UseUCBPForAssetBundles: 0
