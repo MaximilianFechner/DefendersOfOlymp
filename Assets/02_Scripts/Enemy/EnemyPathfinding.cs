@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public class EnemyPathfinding : MonoBehaviour
 {
     private GameObject _player;
     private NavMeshAgent _agent;
 
-    [SerializeField] private float _defaultSpeed;
+    [SerializeField] public float _defaultSpeed;
+    private float _currentSlowValue = 1f; // 1f = kein Slow
     [SerializeField] private float _timeSlowed;
     [SerializeField] private bool _isSlowed;
 
@@ -22,13 +24,16 @@ public class EnemyPathfinding : MonoBehaviour
     void Update()
     {
         _agent.SetDestination(_player.transform.position);
-        
-        if (_isSlowed) {
-            if (_timeSlowed > 0) {
+
+        if (_isSlowed)
+        {
+            if (_timeSlowed > 0)
+            {
                 _timeSlowed -= Time.deltaTime;
-            } else {
-                _isSlowed = false;
-                _agent.speed = _defaultSpeed;
+            }
+            else
+            {
+                ResetSpeed();
             }
         }
     }
@@ -43,15 +48,30 @@ public class EnemyPathfinding : MonoBehaviour
         }
     }
 
-    public void SlowMovement(float slowValue, float timeSlowed) {
-        _timeSlowed = timeSlowed;
-        if (_isSlowed) {
-            //SlowValue is already added to the agent speed
-            return;
-        } else {
-            _agent.speed = _agent.speed * slowValue;
+    public void SlowMovement(float slowValue, float timeSlowed)
+    {
+        if (!_isSlowed || slowValue < _currentSlowValue) // if not slowed or if the new slowValue is stronger than the first one
+        {
+            _currentSlowValue = slowValue;
+            _timeSlowed = timeSlowed;
+            _agent.speed = _defaultSpeed * slowValue;
             _isSlowed = true;
+          
+            StopAllCoroutines();
+            StartCoroutine(ResetSpeedAfterTime(timeSlowed)); //reset to default speed after slowtime
         }
     }
 
+    private IEnumerator ResetSpeedAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        ResetSpeed();
+    }
+
+    private void ResetSpeed()
+    {
+        _agent.speed = _defaultSpeed;
+        _isSlowed = false;
+        _currentSlowValue = 1f; // Kein Slow mehr
+    }
 }

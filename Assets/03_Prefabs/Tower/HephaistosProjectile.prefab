@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3326221806264063275}
   - component: {fileID: 2215419493549752664}
   - component: {fileID: 1295193638439123765}
-  - component: {fileID: 4874417660913582619}
+  - component: {fileID: 1988825565808693431}
   m_Layer: 0
   m_Name: HephaistosProjectile
   m_TagString: Projectile
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 9
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 0.89019614, g: 0.454902, b: 0.10196079, a: 1}
   m_FlipX: 0
@@ -167,7 +167,7 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 0
---- !u!114 &4874417660913582619
+--- !u!114 &1988825565808693431
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,8 +176,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7359844151393371129}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f288e9ad76a68254abfd9c6f887914cd, type: 3}
+  m_Script: {fileID: 11500000, guid: 70646f465361dba4a94320cce768f719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetEnemy: {fileID: 0}
-  _projectileSO: {fileID: 11400000, guid: 497b08fc38d0dd4439788e6b5ff89785, type: 2}
+  prefab: {fileID: 0}
+  rb2D: {fileID: 0}

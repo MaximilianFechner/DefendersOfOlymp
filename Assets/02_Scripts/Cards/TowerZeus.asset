@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TowerZeus
   m_EditorClassIdentifier: 
   TowerName: Zeus
-  CardSprite: {fileID: 21300000, guid: 0105cacecca65944192951af632a2d3a, type: 3}
-  TowerPrefab: {fileID: 5225003605191494454, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}
+  CardSprite: {fileID: 21300000, guid: 7d6f8c7193b0efb4095d540641e77b86, type: 3}
+  TowerPrefab: {fileID: 5158947907336913497, guid: 337dc2c0fd16c894e837d09210383a28, type: 3}

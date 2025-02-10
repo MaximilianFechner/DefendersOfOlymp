@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TowerPoseidon
   m_EditorClassIdentifier: 
   TowerName: Poseidon
-  CardSprite: {fileID: 21300000, guid: 50b95e892d1084b4c8780f93c56024ce, type: 3}
-  TowerPrefab: {fileID: 5225003605191494454, guid: e607f517af798464f9111ce99e5cc7ec, type: 3}
+  CardSprite: {fileID: 21300000, guid: 53dda3da6b8a7bc43adb8763ad3620b3, type: 3}
+  TowerPrefab: {fileID: 581261153204507760, guid: e607f517af798464f9111ce99e5cc7ec, type: 3}

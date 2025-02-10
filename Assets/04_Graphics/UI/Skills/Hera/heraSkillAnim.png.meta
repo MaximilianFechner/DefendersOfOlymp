@@ -1,0 +1,369 @@
+fileFormatVersion: 2
+guid: 44cbfcf213d45434888c8456b3dbf6c4
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: heraSkillAnim_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 870
+        width: 666
+        height: 623
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a70e0fb7965719418f3e7d0c62d7201
+      internalID: 98950203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heraSkillAnim_1
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 871
+        width: 666
+        height: 623
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2dded8ef1ba1334998030c2c52e1c42
+      internalID: -304975648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heraSkillAnim_2
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 869
+        width: 666
+        height: 623
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd65c68f2085aa54da238ceaf480293c
+      internalID: 1785621093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heraSkillAnim_11
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 869
+        width: 666
+        height: 623
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cde8c34f4be4a39478ab4212c791e2a5
+      internalID: -1885657393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heraSkillAnim_17
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 869
+        width: 666
+        height: 623
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d599e5cd3e0f574b8296061595f80a2
+      internalID: 154331450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heraSkillAnim_47
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 99
+        width: 666
+        height: 623
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93a7964e3d649ba4885dc208df6f67fa
+      internalID: -1177872445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heraSkillAnim_48
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 99
+        width: 666
+        height: 623
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8300e4393c78cc74a84d6aa2ac5647b4
+      internalID: 1581680667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heraSkillAnim_49
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 99
+        width: 666
+        height: 623
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b5acc5e97b03ad49899c6fc2a594b59
+      internalID: -1204409585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c78863a28aff7bc46baac6567a0d24a1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      heraSkillAnim_0: 98950203
+      heraSkillAnim_1: -304975648
+      heraSkillAnim_10: -1095628107
+      heraSkillAnim_11: -1885657393
+      heraSkillAnim_12: 1904062217
+      heraSkillAnim_13: -1100561732
+      heraSkillAnim_14: -1904017435
+      heraSkillAnim_15: -272662037
+      heraSkillAnim_16: -1020274600
+      heraSkillAnim_17: 154331450
+      heraSkillAnim_18: 1563086919
+      heraSkillAnim_19: -2040138449
+      heraSkillAnim_2: 1785621093
+      heraSkillAnim_20: -1084908914
+      heraSkillAnim_21: 726969507
+      heraSkillAnim_22: -1589795725
+      heraSkillAnim_23: 1028513808
+      heraSkillAnim_24: 1258039922
+      heraSkillAnim_25: 981226902
+      heraSkillAnim_26: -1878947991
+      heraSkillAnim_27: -1893552393
+      heraSkillAnim_28: -1081396934
+      heraSkillAnim_29: -1991473341
+      heraSkillAnim_3: 1918692421
+      heraSkillAnim_30: 1877256928
+      heraSkillAnim_31: 1329200150
+      heraSkillAnim_32: -1346363986
+      heraSkillAnim_33: -364821249
+      heraSkillAnim_34: 1976398002
+      heraSkillAnim_35: -1368467612
+      heraSkillAnim_36: 1899393431
+      heraSkillAnim_37: -451673260
+      heraSkillAnim_38: 1357353093
+      heraSkillAnim_39: 594679131
+      heraSkillAnim_4: 1084634073
+      heraSkillAnim_40: 1454736349
+      heraSkillAnim_41: 1925841966
+      heraSkillAnim_42: 1403920038
+      heraSkillAnim_43: 1697256978
+      heraSkillAnim_44: 831408418
+      heraSkillAnim_45: -280217855
+      heraSkillAnim_46: -782814910
+      heraSkillAnim_47: -1177872445
+      heraSkillAnim_48: 1581680667
+      heraSkillAnim_49: -1204409585
+      heraSkillAnim_5: -1423154636
+      heraSkillAnim_6: -1923505738
+      heraSkillAnim_7: 1344077592
+      heraSkillAnim_8: -2079455255
+      heraSkillAnim_9: -1108345161
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,14 +1,44 @@
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.UI;
+using System.Collections;
 
 public class EnemyManager : MonoBehaviour
 {
     private EnemyHealthBar enemyHealthBar;
+    private NavMeshAgent navMeshAgent;
 
     [Header("Game Design Values")]
+    [Tooltip("name of the enemy")]
+    public string enemyName;
+
     [Tooltip("The maximum hp for the enemy")]
     [Min(1)]
-    [SerializeField] 
-    private float _maxHP = 50f; // default value
+    [SerializeField]
+    public float _maxHP = 50f; // default value
+
+    [Tooltip("Add extra absolute HP for this enemy for every wave")]
+    [Min(0)]
+    [SerializeField]
+    public float absoluteHPIncreaseWave = 0f;
+
+    [Tooltip("Add extra prozentual HP for this enemy for every wave")]
+    [Min(0)]
+    [SerializeField]
+    public float prozentualHPIncreaseWave = 0f;
+
+
+    [Tooltip("Add extra absolute Speed for this enemy for every wave")]
+    [Min(0)]
+    [SerializeField]
+    public float absoluteSpeedIncreaseWave = 0f;
+
+    [Tooltip("Add extra prozentual Speed for this enemy for every wave")]
+    [Min(0)]
+    [SerializeField]
+    public float prozentualSpeedIncreaseWave = 0f;
 
     [Tooltip("The damage the enemy did on the player when he reached the target/goal")]
     [Min(1)]
@@ -46,14 +76,55 @@ public class EnemyManager : MonoBehaviour
     [SerializeField]
     private float maxPitchSounds = 1f;
 
+    [Header("Game Design Values: Blood")]
+    [Tooltip("Chance to spawn blood on enemies hit")]
+    [Range(0, 1)]
+    [SerializeField]
+    private float bloodSpawnChance = 0.1f;
+
+    [Tooltip("Minimum scale for spawned blood")]
+    [Min(0)]
+    [SerializeField]
+    private float minBloodScale = 0.8f;
+
+    [Tooltip("Maximum scale for spawned blood")]
+    [Min(0)]
+    [SerializeField]
+    private float maxBloodScale = 1f;
+
+    private float bloodSpawnRadius = 1.5f;
+
     private AudioSource audioSource;
 
     [Space(10)]
     public AudioClip[] enemySounds;
+    public AudioClip[] deathSounds;
 
-    private float _currentHP;
+    [Space(10)]
+    public GameObject[] bloodPrefabs;
+
+
+    [HideInInspector] public float _currentHP;
+
     private bool _isAlive = true;
     private float nextSoundAvailable = 0f;
+
+    public GameObject deathPrefab;
+    public GameObject bloodParticlePrefab;
+
+    public GameObject damageTextPrefab;
+
+    public bool alreadyDamagedPlayer = false;
+
+    private void Awake()
+    {
+        navMeshAgent = GetComponent<NavMeshAgent>();
+
+        // Speed Increase per Wave
+        prozentualSpeedIncreaseWave = ((navMeshAgent.speed / 100) * prozentualSpeedIncreaseWave) * GameManager.Instance.waveNumber;
+        absoluteSpeedIncreaseWave *= GameManager.Instance.waveNumber;
+        navMeshAgent.speed += (absoluteSpeedIncreaseWave + prozentualSpeedIncreaseWave);
+    }
 
     void Start()
     {
@@ -62,9 +133,20 @@ public class EnemyManager : MonoBehaviour
         {
             return;
         }
+
+        // HP Increase per Wave
+        prozentualHPIncreaseWave = ((_maxHP / 100) * prozentualHPIncreaseWave) * GameManager.Instance.waveNumber;
+        absoluteHPIncreaseWave *= GameManager.Instance.waveNumber;
+        _maxHP += Mathf.RoundToInt(absoluteHPIncreaseWave + prozentualHPIncreaseWave); //auf eine Ganzzahl runden
         _currentHP = _maxHP;
 
         audioSource = GetComponent<AudioSource>();
+
+        if (audioSource != null)
+        {
+            audioSource.ignoreListenerPause = false;
+            audioSource.pitch = Random.Range(minPitchSounds, maxPitchSounds);
+        }
     }
 
     void Update()
@@ -82,13 +164,46 @@ public class EnemyManager : MonoBehaviour
         {
             enemyHealthBar.SetVisible(true);
         }
+
+        if (Time.timeScale == 0)
+        {
+            if (audioSource.isPlaying)
+            {
+                audioSource.Pause();
+            }
+        }
+        else
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.UnPause();
+            }
+        }
     }
     public void TakeDamage(float damage)
     {
         if (!_isAlive) return; // avoid damage on dead enemies
+
+        bool isCrit = Random.Range(0,100) <= GameManager.Instance.critChance;
+
+        if (isCrit)
+        {
+            damage *= 2;
+        }
+
         _currentHP -= damage;
-        HitAndDieSound();
+
+        if (GameManager.Instance.showDamageNumbers) ShowDamageText(damage, isCrit);
+
+        if (Random.value <= bloodSpawnChance)
+        {
+            SpawnBlood();
+        }
+
+        HitSound();
         UpdateHealthBar();
+        Instantiate(bloodParticlePrefab, this.transform.position, Quaternion.identity);
+
         if (_currentHP <= 0 && _isAlive)
         {
             Die();
@@ -100,9 +215,23 @@ public class EnemyManager : MonoBehaviour
         if (_isAlive)
         {
             _isAlive = false;
+
+            if (this.gameObject.name == "Centaur(Clone)") GameManager.Instance.centaurKills++;
+            if (this.gameObject.name == "Cerberus(Clone)") GameManager.Instance.cerberusKills++;
+            if (this.gameObject.name == "Cyclop(Clone)") GameManager.Instance.cyclopKills++;
+
             GameManager.Instance.AddEnemyKilled();
             GameManager.Instance.SubRemainingEnemy();
+            DieSound();
+
+            if (deathPrefab != null)
+            {
+                Instantiate(deathPrefab, this.gameObject.transform.position, Quaternion.identity);
+                SpawnBloodPool();
+            }
+
             Destroy(this.gameObject);
+
         }
     }
 
@@ -116,7 +245,7 @@ public class EnemyManager : MonoBehaviour
         return _currentHP; 
     }
 
-    private void HitAndDieSound()
+    private void HitSound()
     {
         int randomNumber = Random.Range(1, 100);
         if (randomNumber > _chanceToPlaySound) return;
@@ -126,6 +255,10 @@ public class EnemyManager : MonoBehaviour
             PlaySoundOnTempGameObject(enemySounds[Random.Range(0, enemySounds.Length)]);
             nextSoundAvailable = Time.time + soundCooldown;
         }
+    }
+    private void DieSound()
+    {
+        PlaySoundOnTempGameObject(deathSounds[Random.Range(0, enemySounds.Length)]);
     }
 
     private void PlaySoundOnTempGameObject(AudioClip clip)
@@ -143,13 +276,75 @@ public class EnemyManager : MonoBehaviour
         Destroy(soundObject, clip.length);
     }
 
+    private void SpawnBlood()
+    {
+        Vector2 randomPosition = (Vector2)transform.position + Random.insideUnitCircle * bloodSpawnRadius;
+        GameObject blood = Instantiate(bloodPrefabs[Random.Range(0, bloodPrefabs.Length)], 
+            randomPosition, Quaternion.Euler(0, 0, Random.Range(-25f, 25f)));
+        blood.transform.localScale = new Vector2(Random.Range(minBloodScale, maxBloodScale), Random.Range(minBloodScale, maxBloodScale));
+    }
+    public void SpawnBloodPool()
+    {
+        if (this.gameObject.name == "Centaur(Clone)")
+        {
+            GameObject bloodPool = Instantiate(bloodPrefabs[1],
+                new Vector3(this.transform.position.x, this.transform.position.y - 2f, 0), Quaternion.Euler(0, 0, Random.Range(-25f, 25f)));
+
+            bloodPool.transform.localScale = new Vector2(0.3f, 0.3f);
+            bloodPool.AddComponent<BloodPoolGrowth>().Initialize(new Vector2(0.3f, 0.3f),
+                new Vector2(Random.Range(1.65f, 1.9f), Random.Range(1.65f, 1.9f)), Random.Range(5f, 10f));
+        }
+
+        else if (this.gameObject.name == "Cerberus(Clone)")
+        {
+            GameObject bloodPool = Instantiate(bloodPrefabs[1],
+                new Vector3(this.transform.position.x, this.transform.position.y - 2f, 0), Quaternion.Euler(0, 0, Random.Range(-25f, 25f)));
+
+            bloodPool.transform.localScale = new Vector2(0.3f, 0.3f);
+            bloodPool.AddComponent<BloodPoolGrowth>().Initialize(new Vector2(0.3f, 0.3f), 
+                new Vector2(Random.Range(1.45f, 1.7f), Random.Range(1.45f, 1.7f)), Random.Range(5f, 10f));
+        }
+
+        else
+        {
+            GameObject bloodPool = Instantiate(bloodPrefabs[1],
+                new Vector3(this.transform.position.x, this.transform.position.y - 2.5f, 0), Quaternion.Euler(0, 0, Random.Range(-25f, 25f)));
+
+            bloodPool.transform.localScale = new Vector2(0.3f, 0.3f);
+            bloodPool.AddComponent<BloodPoolGrowth>().Initialize(new Vector2(0.3f, 0.3f), 
+                new Vector2(Random.Range(1.9f, 2.3f), Random.Range(1.9f, 2.3f)), Random.Range(5f, 10f));
+        }
+
+        //Instantiate(bloodPrefabs[Random.Range(0, bloodPrefabs.Length)]
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "EnemyTarget")
+        if (collision.tag == "EnemyTarget" && (!alreadyDamagedPlayer))
         {
             GameManager.Instance.LoseLife(_playerDamage);
+            alreadyDamagedPlayer = true;
             GameManager.Instance.SubRemainingEnemy();
-            Destroy(this.gameObject, 3f);
+            Destroy(this.gameObject); //die 3 Sekunden despawn-Zeit entfernt
+        }
+    }
+
+    private void ShowDamageText(float damage, bool isCrit)
+    {
+        float randomXOffset = Random.Range(-1.5f, 1.5f);
+        float randomYOffset = Random.Range(0.2f, 0.8f);
+
+        Vector3 spawnPosition = transform.position + new Vector3(randomXOffset, 1.5f + randomYOffset, 0);
+
+        GameObject damageTextInstance = Instantiate(damageTextPrefab, spawnPosition, Quaternion.identity);
+
+        Text textComponent = damageTextInstance.GetComponent<Text>();
+        textComponent.text = damage.ToString();
+
+        if (isCrit)
+        {
+            textComponent.color = new Color(255f / 255f, 210f / 255f, 0f / 255f);
+            textComponent.fontSize += 4;
         }
     }
 }

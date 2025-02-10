@@ -10,6 +10,7 @@ TagManager:
   - EnemyGoal
   - EnemyTarget
   - Tower
+  - Interactable
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - Water
   - UI
   - Enemy
-  - 
-  - 
+  - Grid
+  - Layer
   - 
   - 
   - 
