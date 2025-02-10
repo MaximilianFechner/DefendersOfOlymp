@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da366d33-0f64-4b80-99e9-c7067bf752fd" name="Changes" comment="Fix Reference Bugs">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DefendersOfOlymp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DefendersOfOlymp/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="da366d33-0f64-4b80-99e9-c7067bf752fd" name="Changes" comment="Check some things" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +29,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/01_Scenes/Main Menu/Main Menu.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/MainMenu/ManualCardManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/03_Prefabs/Manager/AudioManager.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" root0="SKIP_HIGHLIGHTING" />
@@ -137,7 +136,7 @@
       <updated>1738256629046</updated>
       <workItem from="1738256631305" duration="4812000" />
       <workItem from="1738280269751" duration="3103000" />
-      <workItem from="1738315769374" duration="6035000" />
+      <workItem from="1738315769374" duration="6113000" />
     </task>
     <task id="LOCAL-00003" summary="Edit StartMenu &amp; Rearrange hierarchy">
       <option name="closed" value="true" />
@@ -187,7 +186,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738321852352</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Check some things">
+      <option name="closed" value="true" />
+      <created>1738322305088</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1738322305088</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +227,7 @@
     <MESSAGE value="Change Font in Options &amp; Create Bloodstorm Regular Font for TMPro &amp; Rearrange Main Menu Button" />
     <MESSAGE value="Fix &quot;can't resolve&quot; error" />
     <MESSAGE value="Fix Reference Bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Reference Bugs" />
+    <MESSAGE value="Check some things" />
+    <option name="LAST_COMMIT_MESSAGE" value="Check some things" />
   </component>
 </project>
