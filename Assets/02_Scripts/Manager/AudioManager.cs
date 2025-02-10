@@ -163,8 +163,18 @@ public class AudioManager : MonoBehaviour
 
         tempAudioSource.clip = hitImpactSFX[god];
         tempAudioSource.ignoreListenerPause = true;
-        tempAudioSource.volume = Random.Range(0.025f, 0.04f);
-        tempAudioSource.pitch = Random.Range(0.9f, 1.1f);
+
+        if (tempAudioSource.clip == hitImpactSFX[0])
+        {
+            tempAudioSource.volume = Random.Range(0.01f, 0.02f);
+            tempAudioSource.pitch = Random.Range(0.9f, 1.1f);
+        }
+        else
+        {
+            tempAudioSource.volume = Random.Range(0.035f, 0.06f);
+            tempAudioSource.pitch = Random.Range(0.9f, 1.1f);
+        }
+
         tempAudioSource.Play();
 
         Destroy(hitImpactSoundObject, hitImpactSFX[god].length);
@@ -178,7 +188,7 @@ public class AudioManager : MonoBehaviour
 
         tempAudioSource.clip = highscoreSFX;
         tempAudioSource.ignoreListenerPause = true;
-        tempAudioSource.volume = 1f;
+        tempAudioSource.volume = 0.7f;
         tempAudioSource.loop = false;
 
         tempAudioSource.Play();

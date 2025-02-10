@@ -136,6 +136,9 @@ public class ZeusProjectile : BaseProjectile
             EnemyManager enemyManager = enemy.GetComponent<EnemyManager>();
             if (enemyManager != null)
             {
+                Instantiate(hitPS, this.transform.position, Quaternion.identity);
+                AudioManager.Instance.PlayHitImpactSFX(0);
+
                 int damage = Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit) *
                     Mathf.Pow(0.8f, indexAttackedEnemies)); // % damage reduce after hit
                 enemyManager.TakeDamage(damage);
@@ -153,10 +156,10 @@ public class ZeusProjectile : BaseProjectile
     }
 
 
-    private void OnDestroy()
-    {
-        Instantiate(hitPS, this.transform.position, Quaternion.identity);
-        AudioManager.Instance.PlayHitImpactSFX(0);
-    }
+    //private void OnDestroy()
+    //{
+    //    Instantiate(hitPS, this.transform.position, Quaternion.identity);
+    //    AudioManager.Instance.PlayHitImpactSFX(0);
+    //}
 
 }

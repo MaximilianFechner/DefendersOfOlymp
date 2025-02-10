@@ -10,6 +10,8 @@ public class HephaistosProjectile : BaseProjectile
     public override void DamageCalculation(GameObject enemy) {
         if (enemy != null) 
         {
+            AudioManager.Instance.PlayHitImpactSFX(3);
+
             EnemyManager enemyManager = enemy.GetComponent<EnemyManager>();
             enemyManager.TakeDamage(damage);
         } 
@@ -19,9 +21,9 @@ public class HephaistosProjectile : BaseProjectile
         }
     }
 
-    private void OnDestroy()
-    {
-        AudioManager.Instance.PlayHitImpactSFX(3);
-    }
+    //private void OnDestroy()
+    //{
+    //    AudioManager.Instance.PlayHitImpactSFX(3);
+    //}
 
 }

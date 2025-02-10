@@ -14,6 +14,10 @@ public class HeraProjectile : BaseProjectile
 
     public override void DamageCalculation(GameObject enemy) {
         if (enemy != null) {
+
+            Instantiate(hitPS, this.transform.position, Quaternion.identity);
+            AudioManager.Instance.PlayHitImpactSFX(2);
+
             EnemyManager enemyManager = enemy.GetComponent<EnemyManager>();
             enemyManager.TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit)));
             EnemyPathfinding enemyPathfinding = enemy.GetComponent<EnemyPathfinding>();
@@ -31,10 +35,10 @@ public class HeraProjectile : BaseProjectile
         }
     }
 
-    private void OnDestroy()
-    {
-        Instantiate(hitPS, this.transform.position, Quaternion.identity);
-        AudioManager.Instance.PlayHitImpactSFX(2);
-    }
+    //private void OnDestroy()
+    //{
+    //    Instantiate(hitPS, this.transform.position, Quaternion.identity);
+    //    AudioManager.Instance.PlayHitImpactSFX(2);
+    //}
 
 }
