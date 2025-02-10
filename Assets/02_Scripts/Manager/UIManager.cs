@@ -29,6 +29,9 @@ public class UIManager : MonoBehaviour
     public Transform PlayerLife;
     public GameObject heartPrefab;
 
+    public GameObject highscoreVisual;
+    public GameObject highscoreShadow;
+
     private List<GameObject> hearts = new List<GameObject>();
 
     [Space(10)]
@@ -50,7 +53,7 @@ public class UIManager : MonoBehaviour
     public Text waveFinishedText;
     public Text nextWaveEnemiesText;
     public Text waveEnemiesKilledText;
-    public Text waveDurationText;
+    //public Text waveDurationText;
 
     [Space(10)]
     [Header("UI Elements: First Wave Panel")]
@@ -71,7 +74,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        firstWaveEnemiesText.text = $"Enemies in the first wave: {GameManager.Instance.firstWaveEnemies + (GameManager.Instance.waveNumber + 1) + GameManager.Instance.addExtraEnemiesEveryWave}";
+        firstWaveEnemiesText.text = $"Enemies in the first wave: {GameManager.Instance.firstWaveEnemies + (GameManager.Instance.waveNumber + 1)}";
         //prepareFirstWavePanel.SetActive(true);
         InitializeLives(GameManager.Instance.ReturnLives());
     }
@@ -99,9 +102,9 @@ public class UIManager : MonoBehaviour
     public void ShowWaveResults()
     {
         waveFinishedText.text = $"Wave {GameManager.Instance.waveNumber.ToString()} finished!";
-        nextWaveEnemiesText.text = $"Enemies next wave: {GameManager.Instance.firstWaveEnemies + (GameManager.Instance.waveNumber + 1) + GameManager.Instance.addExtraEnemiesEveryWave}";
+        nextWaveEnemiesText.text = $"Enemies next wave: {GameManager.Instance.firstWaveEnemies + (GameManager.Instance.waveNumber + 1)}";
         waveEnemiesKilledText.text = $"Enemies killed this wave: {GameManager.Instance.WaveEnemiesKilled}";
-        waveDurationText.text = $"Time needed for this wave:\n{GameManager.Instance.thisWaveDuration:F1} seconds";
+        //waveDurationText.text = $"Time needed for this wave:\n{GameManager.Instance.thisWaveDuration:F1} seconds";
         waveFinPanel.SetActive(true);
     }
 
@@ -150,4 +153,16 @@ public class UIManager : MonoBehaviour
         hearts.Clear();
     }
     // Player Life Methods --
+
+    public void ShowHighscoreVisual()
+    {
+        highscoreVisual.SetActive(true);
+        highscoreShadow.SetActive(false);
+    }
+
+    public void HideHighscoreVisual()
+    {
+        highscoreVisual.SetActive(false);
+        highscoreShadow.SetActive(true);
+    }
 }

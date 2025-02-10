@@ -12,11 +12,6 @@ public class PoseidonWave : MonoBehaviour
 
     [Space(10)]
     [Header("Game Design Values")]
-    //[Tooltip("The damage per tick in every interval")]
-    //[Min(0)]
-    //[SerializeField]
-    //private float _damagePerInterval = 10f;
-
     [Tooltip("The minimum damage the ability does per interval")]
     [Min(0)]
     [SerializeField]
@@ -47,7 +42,12 @@ public class PoseidonWave : MonoBehaviour
     [SerializeField]
     public float _cooldownTime = 30f;
 
-    [Space(10)]
+    [Header("Game Design Values: UPGRADE / TOWER")]
+    [SerializeField][Tooltip("Lower Damage Limit increase per Level/Poseidontower - absolut value")] private float damageLowerLimitUpgrade;
+    [SerializeField][Tooltip("Upper Damage Limit increase per Level/Poseidontower - absolut value")] private float damageUpperLimitUpgrade;
+    [SerializeField][Tooltip("Cooldown reduction per Level/Poseidontower - absolut value")] private float cooldownReductionUpgrade;
+
+    [Space(20)]
 
     [Tooltip("Minimum volume for the enemy sounds")]
     [Range(0, 1)]
@@ -72,12 +72,6 @@ public class PoseidonWave : MonoBehaviour
     public AudioClip skillSound;
     public AudioClip preSkillSound;
     private GameObject preWaveSoundObject;
-
-    //private int skillLevel;
-    //private float levelModifikatorDamage;
-    //private float levelModifikatorRadius;
-    //private float levelModifikatorDuration;
-    //private float levelModifikatorCooldown;
 
     private float lastUseTime = -Mathf.Infinity;
     private bool isReady = false;
@@ -120,7 +114,7 @@ private void Update()
                     UIManager.Instance.poseidonSkillCooldown.text = "READY";
 
                     StartCoroutine(MoveButton(skillButton.GetComponent<RectTransform>(),
-                        buttonOriginalPosition, new Color(0.73f, 0.73f, 0.73f), Color.white)); //BTN CD MOVE
+                        buttonOriginalPosition, new Color(0.5f, 0.5f, 0.5f), Color.white)); //BTN CD MOVE
                     skillButton.interactable = true; //BTN CD MOVE
                 }
                 else
@@ -220,7 +214,7 @@ private void Update()
 
         RectTransform buttonRect = skillButton.GetComponent<RectTransform>();
         Vector2 targetPosition = buttonOriginalPosition + new Vector2(0, -50);
-        StartCoroutine(MoveButton(buttonRect, targetPosition, Color.white, new Color(0.73f, 0.73f, 0.73f)));
+        StartCoroutine(MoveButton(buttonRect, targetPosition, Color.white, new Color(0.5f, 0.5f, 0.5f)));
         skillButton.interactable = false;
     }
 
@@ -363,7 +357,7 @@ private void Update()
         UIManager.Instance.poseidonSkillCooldown.text = "READY";
 
         RectTransform buttonRect = skillButton.GetComponent<RectTransform>();
-        StartCoroutine(MoveButton(buttonRect, buttonOriginalPosition, new Color(0.73f, 0.73f, 0.73f), Color.white));
+        StartCoroutine(MoveButton(buttonRect, buttonOriginalPosition, new Color(0.5f, 0.5f, 0.5f), Color.white));
 
         skillButton.interactable = true;
 
@@ -378,5 +372,14 @@ private void Update()
             Destroy(preWaveSoundObject);
             preWaveSoundObject = null;
         }
+    }
+    public void UpgradeWave()
+    {
+        Debug.Log("PoseidonWave upgraded");
+        damageLowerLimitPerInterval += (damageLowerLimitUpgrade);
+        damageUpperLimitPerInterval += (damageUpperLimitUpgrade);
+        _cooldownTime -= cooldownReductionUpgrade; //OPTIONAL: Mathf.clamp um Cooldown bspw. auf 1/2 des urpsrgl. CDs zu beschränken
+        //Multiplikator mit GameManager.Instance.zeusTower; nicht notwendig 
+        //da Upgrade mit dem Platzieren/Upgraden eines Turmes jedes Mal aufgerufen wird
     }
 }

@@ -77,7 +77,7 @@ public class HephaistosTower : BaseTower
         if (animator != null) {
             animator.SetTrigger("attackTrigger");
         }
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, attackRadius);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(midPoint.transform.position, attackRadius);
         foreach (Collider2D collider in colliders) 
         {
 

@@ -69,39 +69,43 @@ public class Hoverable : MonoBehaviour
 
     private void UpdateTooltipText()
     {
-        if (TryGetComponent(out EnemyManager zeus))
+        if (TryGetComponent(out EnemyManager enemy))
         {
             hoveredElement = "enemy";
 
-            if (zeus.TryGetComponent(out NavMeshAgent navAgent))
+            if (enemy.TryGetComponent(out NavMeshAgent navAgent))
             {
-                tooltipInfo = $"{zeus.enemyName}\n" +
-                    $"Health:\n" +
-                    $"Speed:\n";
+                if (enemy.TryGetComponent(out EnemyPathfinding path))
+                {
+                    tooltipInfo = $"<b><color=#8E0000>{enemy.enemyName}</color></b>\n" +
+                        $"Health:\n" +
+                        $"Speed:";
 
-                tooltipData = $"\n{zeus._currentHP}/{zeus._maxHP}\n" +
-                    $"{navAgent.speed}\n";
+                    tooltipData = $"\n<b><color=#8E0000>{enemy._currentHP}</color></b> / {enemy._maxHP}\n" +
+                        $"{navAgent.speed} / {(navAgent.speed / path._defaultSpeed) * 100}%";
+                }
+
             }
         }
-        else if (TryGetComponent(out ZeusTower zeusSkill))
+        else if (TryGetComponent(out ZeusTower zeus))
         {
             hoveredElement = "tower";
 
-            tooltipInfo = $"{zeusSkill.towerName}\n" +
+            tooltipInfo = $"<b><color=#E1E0E1>Zeus</color></b>\n" +
                 $"Damage:\n" +
                 $"Damage/Bounce:\n" +
                 $"Crit Chance:\n" +
                 $"Attacks/Second:";
 
-            tooltipData = $"Level: {zeusSkill.towerLevel}\n" +
-                $"{zeusSkill.damageLowerLimit} - {zeusSkill.damageUpperLimit}\n" +
+            tooltipData = $"Level: <b><color=#E1E0E1>{zeus.towerLevel}</color></b>\n" +
+                $"{zeus.damageLowerLimit} - {zeus.damageUpperLimit}\n" +
                 $"-20%/Bounce\n" +
                 $"{GameManager.Instance.critChance}%\n" +
-                $"{1 / zeusSkill.attackSpeed:F2}";
+                $"{1 / zeus.attackSpeed:F2}";
 
             if (isHovered)
             {
-                zeusSkill.rangeVisual.SetActive(true);
+                zeus.rangeVisual.SetActive(true);
             }
 
         }
@@ -109,13 +113,13 @@ public class Hoverable : MonoBehaviour
         {
             hoveredElement = "tower";
 
-            tooltipInfo = $"{poseidon.towerName}\n" +
+            tooltipInfo = $"<b><color=#0EA1D2>Poseidon</color></b>\n" +
                 $"Damage:\n" +
                 $"Damage Area:\n" +
                 $"Crit Chance:\n" +
                 $"Attacks/Second:";
 
-            tooltipData = $"Level: {poseidon.towerLevel}\n" +
+            tooltipData = $"Level: <b><color=#0EA1D2>{poseidon.towerLevel}</color></b>\n" +
                 $"{poseidon.damageLowerLimit} - {poseidon.damageUpperLimit}\n" +
                 $"{poseidon.aoeRadius}\n" +
                 $"{GameManager.Instance.critChance}%\n" +
@@ -127,13 +131,13 @@ public class Hoverable : MonoBehaviour
         {
             hoveredElement = "tower";
 
-            tooltipInfo = $"{hera.towerName}\n" +
+            tooltipInfo = $"<b><color=#E19CF1>Hera</color></b>\n" +
                 $"Damage:\n" +
                 $"Slow Value:\n" +
                 $"Crit Chance:\n" +
                 $"Attacks/Second:";
 
-            tooltipData = $"Level: {hera.towerLevel}\n" +
+            tooltipData = $"Level: <b><color=#E19CF1>{hera.towerLevel}</color></b>\n" +
                 $"{hera.damageLowerLimit} - {hera.damageUpperLimit}\n" +
                 $"{hera.slowValue}%\n" +
                 $"{GameManager.Instance.critChance}%\n" +
@@ -145,13 +149,13 @@ public class Hoverable : MonoBehaviour
         {
             hoveredElement = "tower";
 
-            tooltipInfo = $"{heph.towerName}\n" +
+            tooltipInfo = $"<b><color=#FA9821>Hephaistos</color></b>\n" +
                 $"Damage:\n" +
                 $"Damage/Speed Buff Value:\n" +
                 $"Crit Chance:\n" +
                 $"Attacks/Second:";
 
-            tooltipData = $"Level: {heph.towerLevel}\n" +
+            tooltipData = $"Level: <b><color=#FA9821>{heph.towerLevel}</color></b>\n" +
                 $"{heph.damageLowerLimit} - {heph.damageUpperLimit}\n" +
                 $"5%\n" +
                 $"{GameManager.Instance.critChance}%\n" +

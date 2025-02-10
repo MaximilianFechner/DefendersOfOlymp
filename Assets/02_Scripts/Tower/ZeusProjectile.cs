@@ -6,6 +6,7 @@ using System.Linq;
 public class ZeusProjectile : BaseProjectile
 {
     private int indexAttackedEnemies = 0;
+    //[SerializeField] private int maxDamageJump = 1; // is in the BaseProjectile defined
     private GameObject lastEnemyAttacked;
     [SerializeField] private GameObject hitPS; // Particle-System for hits
 
@@ -15,6 +16,7 @@ public class ZeusProjectile : BaseProjectile
     private Vector2 initialDirection; // Direction of the projectile when it was first fired
 
     private bool isMovingToNextEnemy = false;
+    [SerializeField] private float projectileRange; // Own Radius for the projectile
 
     void Start()
     {
@@ -23,6 +25,8 @@ public class ZeusProjectile : BaseProjectile
         initialDirection = (targetPosition - (Vector2)transform.position).normalized;
         // Rotate the projectile towards the first target
         transform.right = initialDirection;
+
+        Debug.Log($"Jumps: {maxDamageJump}");
     }
 
     void FixedUpdate()
@@ -52,10 +56,21 @@ public class ZeusProjectile : BaseProjectile
         float step = movementSpeed * Time.deltaTime; // Movement step based on speed
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, step);
 
-        // Check if the projectile has reached the target position
-        if ((Vector2)transform.position == targetPosition)
+        if (Vector2.Distance(transform.position, targetPosition) < 0.05f)
         {
-            isMovingToNextEnemy = false; // Stop moving to the next target
+            isMovingToNextEnemy = false;
+            maxDamageJump--;
+
+            Debug.Log($"Remaining jumps: {maxDamageJump}");
+
+            if (maxDamageJump > 0)
+            {
+                GetNextTargetEnemy(); // Erst jetzt ein neues Ziel suchen
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -67,8 +82,15 @@ public class ZeusProjectile : BaseProjectile
 
     private void GetNextTargetEnemy()
     {
+        if (maxDamageJump <= 0)
+        {
+            Debug.Log("Max jumps reached, destroying projectile.");
+            Destroy(gameObject);
+            return; // Beende die Methode sofort
+        }
+
         List<GameObject> enemiesGameObjects = new List<GameObject>();
-        Collider2D[] enemiesColliders = Physics2D.OverlapCircleAll(transform.position, aoeRadius);
+        Collider2D[] enemiesColliders = Physics2D.OverlapCircleAll(transform.position, projectileRange);
 
         foreach (Collider2D enemyCollider in enemiesColliders)
         {
@@ -84,24 +106,25 @@ public class ZeusProjectile : BaseProjectile
             targetEnemy = nextTarget;
             targetPosition = targetEnemy.transform.position; // Set target position to the current position of the next enemy
 
-            // Update direction to the target
             initialDirection = (targetPosition - (Vector2)transform.position).normalized;
             transform.right = initialDirection;
 
             lastEnemyAttacked = targetEnemy;
             isMovingToNextEnemy = true;
 
-            maxDamageJump -= 1;
             indexAttackedEnemies++;
 
-            // If no more enemies to jump to, destroy the projectile
-            if (maxDamageJump <= 0)
-            {
-                Destroy(gameObject);
-            }
+            maxDamageJump--;
+
+            //if (maxDamageJump <= 0)
+            //{
+            //    isMovingToNextEnemy = false;
+            //    Destroy(gameObject);
+            //}
         }
         else
         {
+            Debug.Log("No more enemies in range, destroying projectile.");
             Destroy(gameObject); // If no more enemies, destroy the projectile
         }
     }
@@ -123,10 +146,17 @@ public class ZeusProjectile : BaseProjectile
             Debug.Log("Enemy is null!");
         }
     }
+    public void InitializeProjectile(float range, int towerLevel)
+    {
+        projectileRange = range * 0.7f;
+        maxDamageJump = 1 + Mathf.FloorToInt(towerLevel / 3);
+    }
+
 
     private void OnDestroy()
     {
         Instantiate(hitPS, this.transform.position, Quaternion.identity);
         AudioManager.Instance.PlayHitImpactSFX(0);
     }
+
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
+using System.Linq;
 
 public class ZeusBolt : MonoBehaviour
 {
@@ -12,11 +13,6 @@ public class ZeusBolt : MonoBehaviour
 
     [Space(10)]
     [Header("Game Design Values")]
-    //[Tooltip("The damage dealt by the skill")]
-    //[Min(0)]
-    //[SerializeField]
-    //private float damage = 100f;
-
     [Tooltip("The minimum damage the ability does")]
     [Min(0)]
     [SerializeField]
@@ -32,17 +28,16 @@ public class ZeusBolt : MonoBehaviour
     [SerializeField]
     private float lightningDuration = 0.5f;
 
-    [Tooltip("Radius for detecting collider of enemies")]
-    [Min(0)]
-    [SerializeField]
-    private float attackRadius = 0.5f;
-
     [Tooltip("The time you have to wait before you can use the skill again")]
     [Min(0)]
     [SerializeField]
     public float cooldownTime = 20f;
 
-    [Space(10)]
+    [Header("Game Design Values: UPGRADE / TOWER")]
+    [SerializeField][Tooltip("Lower Damage Limit increase per Level/Zeustower - absolut value")] private float damageLowerLimitUpgrade;
+    [SerializeField][Tooltip("Upper Damage Limit increase per Level/Zeustower - absolut value")] private float damageUpperLimitUpgrade;
+    [SerializeField][Tooltip("Cooldown reduction per Level/Zeustower - absolut value")] private float cooldownReductionUpgrade;
+    [Space(20)]
 
     [Tooltip("Minimum volume for the enemy sounds")]
     [Range(0, 1)]
@@ -64,7 +59,7 @@ public class ZeusBolt : MonoBehaviour
     [SerializeField]
     private float maxPitchSounds = 1f;
 
-    [Space(10)]
+    [Space(20)]
     [Tooltip("The intensity of the camera shake")]
     [Min(0)]
     [SerializeField]
@@ -82,10 +77,6 @@ public class ZeusBolt : MonoBehaviour
     private GameObject preBoltSoundObject;
 
     private CameraShake _cameraShake;
-
-    //private int skillLevel;
-    //private float levelModifikatorDamage;
-    //private float levelModifikatorCooldown;
 
     private float lastUseTime = -Mathf.Infinity;
     private bool isReady = false;
@@ -127,7 +118,7 @@ public class ZeusBolt : MonoBehaviour
                     remainingCooldownTime = 0;
 
                     StartCoroutine(MoveButton(skillButton.GetComponent<RectTransform>(), 
-                        buttonOriginalPosition, new Color(0.73f, 0.73f, 0.73f), Color.white)); //BTN CD MOVE
+                        buttonOriginalPosition, new Color(0.5f, 0.5f, 0.5f), Color.white)); //BTN CD MOVE
                     skillButton.interactable = true; //BTN CD MOVE
 
                     UIManager.Instance.zeusSkillCooldown.text = "READY";
@@ -202,45 +193,53 @@ public class ZeusBolt : MonoBehaviour
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
         worldPosition.z = 0;
 
-        Collider2D targetEnemy = Physics2D.OverlapCircle(new Vector2(worldPosition.x, worldPosition.y), attackRadius, enemyLayer);
+        Vector2 rayOrigin = worldPosition;
+        Vector2 rayDirection = (Vector2)worldPosition - rayOrigin;
+        RaycastHit2D[] hits = Physics2D.RaycastAll(rayOrigin, rayDirection, Mathf.Infinity, enemyLayer);
 
-        if (targetEnemy != null && targetEnemy.isTrigger)
+        if (hits.Length > 0)
         {
-            GameObject bolt = Instantiate(boltPrefab, new Vector3(worldPosition.x, worldPosition.y + 10, 0), Quaternion.identity);
-            PlayBoltSFX(skillSound);
-            Destroy(bolt, lightningDuration);
+            // Finde den nächsten Gegner zur Maus
+            RaycastHit2D closestHit = hits.OrderBy(h => Vector2.Distance(h.point, worldPosition)).First();
 
-            targetEnemy.GetComponent<EnemyManager>().TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit)));
-
-            remainingCooldownTime = cooldownTime;
-            lastUseTime = Time.time;
-            isReady = false;
-
-            if (currentPreview != null)
+            if (closestHit.collider != null && closestHit.collider.CompareTag("Enemy"))
             {
-                Destroy(currentPreview);
-                currentPreview = null;
-            }
+                GameObject bolt = Instantiate(boltPrefab, new Vector3(closestHit.point.x, closestHit.point.y + 10, 0), Quaternion.identity);
+                PlayBoltSFX(skillSound);
+                Destroy(bolt, lightningDuration);
 
-            if (preBoltSoundObject != null)
-            {
-                Destroy(preBoltSoundObject);
-                preBoltSoundObject = null;
-            }
+                closestHit.collider.GetComponent<EnemyManager>().TakeDamage(Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit)));
 
-            RectTransform buttonRect = skillButton.GetComponent<RectTransform>();
-            Vector2 targetPosition = buttonOriginalPosition + new Vector2(0, -50);
-            StartCoroutine(MoveButton(buttonRect, targetPosition, Color.white, new Color(0.73f, 0.73f, 0.73f)));
-            skillButton.interactable = false;
+                remainingCooldownTime = cooldownTime;
+                lastUseTime = Time.time;
+                isReady = false;
 
-            if (_cameraShake == null)
-            {
-                _cameraShake = FindFirstObjectByType<CameraShake>();
-            }
+                if (currentPreview != null)
+                {
+                    Destroy(currentPreview);
+                    currentPreview = null;
+                }
 
-            if (_cameraShake != null)
-            {
-                StartCoroutine(_cameraShake.Shake(_cameraShakeDuration, _cameraShakeMagnitude));
+                if (preBoltSoundObject != null)
+                {
+                    Destroy(preBoltSoundObject);
+                    preBoltSoundObject = null;
+                }
+
+                RectTransform buttonRect = skillButton.GetComponent<RectTransform>();
+                Vector2 targetPosition = buttonOriginalPosition + new Vector2(0, -50);
+                StartCoroutine(MoveButton(buttonRect, targetPosition, Color.white, new Color(0.5f, 0.5f, 0.5f)));
+                skillButton.interactable = false;
+
+                if (_cameraShake == null)
+                {
+                    _cameraShake = FindFirstObjectByType<CameraShake>();
+                }
+
+                if (_cameraShake != null)
+                {
+                    StartCoroutine(_cameraShake.Shake(_cameraShakeDuration, _cameraShakeMagnitude));
+                }
             }
         }
     }
@@ -360,7 +359,7 @@ public class ZeusBolt : MonoBehaviour
         UIManager.Instance.zeusSkillCooldown.text = "READY";
 
         RectTransform buttonRect = skillButton.GetComponent<RectTransform>();
-        StartCoroutine(MoveButton(buttonRect, buttonOriginalPosition, new Color(0.73f, 0.73f, 0.73f), Color.white));
+        StartCoroutine(MoveButton(buttonRect, buttonOriginalPosition, new Color(0.5f, 0.5f, 0.5f), Color.white));
 
         skillButton.interactable = true;
 
@@ -375,5 +374,15 @@ public class ZeusBolt : MonoBehaviour
             Destroy(preBoltSoundObject);
             preBoltSoundObject = null;
         }
+    }
+
+    public void UpgradeBolt()
+    {
+        Debug.Log("ZeusBolt upgraded");
+        damageLowerLimit += (damageLowerLimitUpgrade);
+        damageUpperLimit += (damageUpperLimitUpgrade);
+        cooldownTime -= cooldownReductionUpgrade; //OPTIONAL: Mathf.clamp um Cooldown bspw. auf 1/2 des urpsrgl. CDs zu beschränken
+        //Multiplikator mit GameManager.Instance.zeusTower; nicht notwendig 
+        //da Upgrade mit dem Platzieren/Upgraden eines Turmes jedes Mal aufgerufen wird
     }
 }

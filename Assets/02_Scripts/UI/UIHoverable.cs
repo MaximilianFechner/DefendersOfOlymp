@@ -66,17 +66,17 @@ public class UIHoverable : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
             if (bolt != null)
             {
-                tooltipInfo = $"Lightning Strike\n" +
+                tooltipInfo = $"<b><color=#E1E0E1>Lightning Strike</color></b>\n" +
                     $"Damage:\n" +
                     $"Damage Type:\n" +
                     $"Crit Chance:\n" +
                     $"Cooldown:";
 
-                tooltipData = $"Level: {bolt.zeusSkillLevel}\n" +
+                tooltipData = $"Level: <b><color=#E1E0E1>{GameManager.Instance.zeusTower}</color></b>\n" +
                     $"{bolt.damageLowerLimit} - {bolt.damageUpperLimit}\n" +
                     $"Single Target\n" +
                     $"{GameManager.Instance.critChance}%\n" +
-                    $"{bolt.cooldownTime}s";
+                    $"{Mathf.Round(bolt.cooldownTime * 10f) / 10f}s";
             }
         }
         else if (gameObject.name == "BTNPoseidonSkill")
@@ -85,19 +85,19 @@ public class UIHoverable : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
             if (wave != null)
             {
-                tooltipInfo = $"Holy Wave\n" +
+                tooltipInfo = $"<b><color=#0EA1D2>Holy Wave</color></b>\n" +
                     $"Damage / {wave._damageIntervalSeconds}s:\n" +
                     $"Damage Type:\n" +
                     $"Crit Chance:\n" +
                     $"Duration:\n" +
                     $"Cooldown:";
 
-                tooltipData = $"Level: {wave.poseidonSkillLevel}\n" +
+                tooltipData = $"Level: <b><color=#0EA1D2>{GameManager.Instance.poseidonTower}</color></b>\n" +
                     $"{wave.damageLowerLimitPerInterval} - {wave.damageUpperLimitPerInterval}\n" +
                     $"Area Of Effect\n" +
                     $"{GameManager.Instance.critChance}%\n" +
                     $"{wave._waveDuration}s\n" +
-                    $"{wave._cooldownTime}s";
+                    $"{Mathf.Round(wave._cooldownTime * 10f) / 10f}s";
             }
         }
         else if (gameObject.name == "BTNHeraSkill")
@@ -106,19 +106,19 @@ public class UIHoverable : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
             if (stun != null)
             {
-                tooltipInfo = $"Toxic Binding\n" +
+                tooltipInfo = $"<b><color=#E19CF1>Toxic Binding</color></b>\n" +
                     $"Damage:\n" +
                     $"Damage Type:\n" +
                     $"Crit Chance:\n" +
                     $"Slow / Duration:\n" +
                     $"Cooldown:";
 
-                tooltipData = $"Level: {stun.heraSkillLevel}\n" +
+                tooltipData = $"Level: <b><color=#E19CF1>{GameManager.Instance.heraTower}</color></b>\n" +
                     $"{stun.damageLowerLimit} - {stun.damageUpperLimit}\n" +
                     $"Area Of Effect\n" +
                     $"{GameManager.Instance.critChance}%\n" +
                     $"{(1 - stun._slowPercentage) * 100f}% / {stun._slowDuration}s\n" +
-                    $"{stun._cooldownTime}s";
+                    $"{Mathf.Round(stun._cooldownTime * 10f) / 10f}s";
             }
         }
         else if (gameObject.name == "BTNHephaistosSkill")
@@ -127,19 +127,19 @@ public class UIHoverable : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
             if (quake != null)
             {
-                tooltipInfo = $"Earths Anger\n" +
+                tooltipInfo = $"<b><color=#FA9821>Earths Anger</color></b>\n" +
                     $"Damage / {quake._damageIntervalSeconds}s\n" +
                     $"Damage Type:\n" +
                     $"Crit Chance:\n" +
                     $"Slow / Duration:\n" +
                     $"Cooldown:";
 
-                tooltipData = $"Level: {quake.hephaistosSkillLevel}\n" +
-                    $"{quake.damageUpperLimitPerInterval} - {quake.damageUpperLimitPerInterval}\n" +
+                tooltipData = $"Level: <b><color=#FA9821>{GameManager.Instance.hephaistosTower}</color></b>\n" +
+                    $"{quake.damageLowerLimitPerInterval} - {quake.damageUpperLimitPerInterval}\n" +
                     $"Area Of Effect\n" +
                     $"{GameManager.Instance.critChance}%\n" +
                     $"{(1 - quake._slowPercentage) * 100f}% / {quake._quakeDuration}s\n" +
-                    $"{quake._cooldownTime}s";
+                    $"{Mathf.Round(quake._cooldownTime * 10f) / 10f}s";
             }
         }
     }
