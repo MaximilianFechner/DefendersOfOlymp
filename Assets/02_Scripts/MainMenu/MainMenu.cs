@@ -126,6 +126,10 @@ public class MainMenu : MonoBehaviour
         _BackgroundImage.SetActive(true);
         _uiMainElements.SetActive(true);
         SceneManager.LoadScene(0);
+        GameManager.Instance.DestroyManager	();
+        UIManager.Instance.DestroyManager	();
+        AudioManager.Instance.DestroyManager	();
+        TooltipManager.Instance	.DestroyManager	();
     }
 
     //Quit

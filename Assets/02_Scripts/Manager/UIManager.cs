@@ -165,4 +165,9 @@ public class UIManager : MonoBehaviour
         highscoreVisual.SetActive(false);
         highscoreShadow.SetActive(true);
     }
+    
+    public void DestroyManager()
+    {
+        Destroy(this);
+    }
 }
