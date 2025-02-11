@@ -153,6 +153,11 @@ Transform:
   - {fileID: 1172120481}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &470516371 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7451743828503943801, guid: bfc492fdbb14613478fb329499a0e8a2, type: 3}
+  m_PrefabInstance: {fileID: 6237102933248003900}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &511311792
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,6 +443,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5846892449283421764, guid: bfc492fdbb14613478fb329499a0e8a2, type: 3}
+      propertyPath: _menuAudio
+      value: 
+      objectReference: {fileID: 470516371}
     - target: {fileID: 8339673177675234165, guid: bfc492fdbb14613478fb329499a0e8a2, type: 3}
       propertyPath: m_Pivot.x
       value: 0

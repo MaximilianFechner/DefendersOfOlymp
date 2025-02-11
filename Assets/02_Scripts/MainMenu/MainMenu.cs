@@ -24,6 +24,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _startSubMenu;
     [SerializeField] private GameObject _BackgroundImage;
     [SerializeField] private GameObject _uiMainElements;
+    [SerializeField] private GameObject _menuAudio;
     
     //Framerate Limit
     public int targetFPS;
@@ -105,6 +106,7 @@ public class MainMenu : MonoBehaviour
     //Play
     public void PlayGame()
     {
+        _menuAudio.SetActive(false);
         _startSubMenu.SetActive	(false);
         _BackgroundImage.SetActive(false);
         _uiMainElements.SetActive(false);
