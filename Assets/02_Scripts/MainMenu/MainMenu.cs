@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine.Audio;
 
@@ -106,7 +107,8 @@ public class MainMenu : MonoBehaviour
     //Play
     public void PlayGame()
     {
-        _menuAudio.SetActive(false);
+        ButtonSFX	();
+        _menuAudio.GetComponent	<AudioSource>().Stop();
         _startSubMenu.SetActive	(false);
         _BackgroundImage.SetActive(false);
         _uiMainElements.SetActive(false);
@@ -116,12 +118,18 @@ public class MainMenu : MonoBehaviour
     //Interactive Manual
     public void PlayManual()
     {
+        ButtonSFX	();
+        _menuAudio.GetComponent	<AudioSource>().Stop();
+        _startSubMenu.SetActive	(false);
+        _BackgroundImage.SetActive(false);
+        _uiMainElements.SetActive(false);
         SceneManager.LoadScene(2);
     }
 
     //Return to Main Menu
     public void LeaveGame()
     {
+        ButtonSFX	();
         if (Time.timeScale != 1)
             Time.timeScale = 1;
         _pauseMenu.SetActive(false);
@@ -137,6 +145,7 @@ public class MainMenu : MonoBehaviour
     //Quit
     public void QuitGame()
     {
+        ButtonSFX	();
         Application.Quit();
 
 #if UNITY_EDITOR
@@ -154,6 +163,7 @@ public class MainMenu : MonoBehaviour
     //Fullscreen
     public void SetFullscreen(bool isFullscreen)
     {
+        ButtonSFX	();
         Screen.fullScreen = isFullscreen;
     }
 
@@ -172,6 +182,11 @@ public class MainMenu : MonoBehaviour
     {
         _audioMixer.SetFloat("AUD_Master", volume);
         _musicVolume = volume;
+    }
+
+    private void ButtonSFX()
+    {
+        AudioManager.Instance.PlayButtonSFX	();
     }
 }
 
