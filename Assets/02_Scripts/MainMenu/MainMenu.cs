@@ -1,54 +1,36 @@
-using System;
-using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using System.Xml.Schema;
 using TMPro;
 using UnityEditor;
 using UnityEngine.Audio;
-using Unity.VisualScripting;
-
 
 public class MainMenu : MonoBehaviour
 {
     public InputField inputFPS;
     public Text selectedFPS;
-
-
-
-    public AudioSource AudioSource;
-
+    public AudioSource audioSource;
     private float _musicVolume;
     [SerializeField] private AudioMixer _audioMixer;
-
-    //Resolution
+    
+    [Header("Resolution")]
     [SerializeField] private TMP_Dropdown _resolutionDropdown;
     private GameObject _resolution;
-
     private Resolution[] _resolutions;
 
     [SerializeField] private GameObject _optionsMenu;
-
-
     //Framerate Limit
-
     public int targetFPS; //int.Parse(selectedFPS.text);
-
-
 
     void Start()
     {
-
         //Audio
-
-        AudioSource.Play();
-
+        audioSource.Play();
+        
+        #region Resolution Dropdown
         _resolutionDropdown.ClearOptions();
-
-        //Resolution Dropdown
-
+        
         var options = new List<string>();
         _resolutions = Screen.resolutions;
         var currentResolutionIndex = 0;
@@ -65,8 +47,7 @@ public class MainMenu : MonoBehaviour
         _resolutionDropdown.AddOptions(options);
         _resolutionDropdown.RefreshShownValue();
         LoadSettings(currentResolutionIndex);
-
-
+        #endregion
     }
 
     void Update()
@@ -85,7 +66,6 @@ public class MainMenu : MonoBehaviour
         else
         {
             targetFPS = 60; // Default FPS
-
         }
 
         QualitySettings.vSyncCount = 0;
@@ -97,10 +77,7 @@ public class MainMenu : MonoBehaviour
     public void SetResolution(int resolutionIndex)
     {
         if (_resolutions == null || _resolutions.Length == 0)
-        {
-
             return;
-        }
 
         var resolution = _resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
@@ -109,20 +86,19 @@ public class MainMenu : MonoBehaviour
     //Play
     public void PlayGame()
     {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadScene(1);
     }
 
     //Interactive Manual
-
     public void PlayManual()
     {
-        SceneManager.LoadSceneAsync(2);
+        SceneManager.LoadScene(2);
     }
 
     //Return to Main Menu
     public void LeaveGame()
     {
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadScene(0);
     }
 
     //Quit
@@ -152,16 +128,11 @@ public class MainMenu : MonoBehaviour
     }
 
     //Music
-
     public void updateVolume(float volume)
     {
         _audioMixer.SetFloat("AUD_Master", volume);
         _musicVolume = volume;
     }
-
-
-
-
 }
 
 
