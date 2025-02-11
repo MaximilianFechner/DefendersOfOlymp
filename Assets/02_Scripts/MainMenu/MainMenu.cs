@@ -20,9 +20,27 @@ public class MainMenu : MonoBehaviour
     private Resolution[] _resolutions;
 
     [SerializeField] private GameObject _optionsMenu;
+    [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] private GameObject _startSubMenu;
+    [SerializeField] private GameObject _BackgroundImage;
+    [SerializeField] private GameObject _uiMainElements;
+    
     //Framerate Limit
-    public int targetFPS; //int.Parse(selectedFPS.text);
+    public int targetFPS;
 
+    private static MainMenu singleton;//int.Parse(selectedFPS.text);
+
+    void Awake()
+    {
+        if (singleton == null)
+        {
+            singleton = this;
+        } else if(singleton != null)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+    }
     void Start()
     {
         //Audio
@@ -54,7 +72,8 @@ public class MainMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            _optionsMenu.SetActive(true);
+            _pauseMenu.SetActive(true);
+            Time.timeScale = 0;
         }
 
         // Framerate Limit
@@ -86,6 +105,9 @@ public class MainMenu : MonoBehaviour
     //Play
     public void PlayGame()
     {
+        _startSubMenu.SetActive	(false);
+        _BackgroundImage.SetActive(false);
+        _uiMainElements.SetActive(false);
         SceneManager.LoadScene(1);
     }
 
@@ -98,7 +120,12 @@ public class MainMenu : MonoBehaviour
     //Return to Main Menu
     public void LeaveGame()
     {
+        if (Time.timeScale != 1)
+            Time.timeScale = 1;
+        if(_pauseMenu) _pauseMenu.SetActive(false);
         SceneManager.LoadScene(0);
+        if(!_BackgroundImage) _BackgroundImage.SetActive(true);
+        if(!_uiMainElements) _uiMainElements.SetActive(true);
     }
 
     //Quit
@@ -109,6 +136,13 @@ public class MainMenu : MonoBehaviour
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
 #endif
+    }
+
+    public void PauseGame()
+    {
+        if (Time.timeScale != 1)
+            Time.timeScale = 1;
+        _pauseMenu.SetActive(false);
     }
 
     //Fullscreen
