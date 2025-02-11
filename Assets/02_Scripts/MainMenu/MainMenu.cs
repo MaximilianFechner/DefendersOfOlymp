@@ -74,8 +74,7 @@ public class MainMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            _pauseMenu.SetActive(true);
-            Time.timeScale = 0;
+            PauseGame();
         }
 
         // Framerate Limit
@@ -154,6 +153,11 @@ public class MainMenu : MonoBehaviour
     }
 
     public void PauseGame()
+    {
+        _pauseMenu.SetActive(true);
+        Time.timeScale = 0;
+    }
+    public void ContinueGame()
     {
         if (Time.timeScale != 1)
             Time.timeScale = 1;

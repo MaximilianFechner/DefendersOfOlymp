@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -168,6 +169,7 @@ public class UIManager : MonoBehaviour
     
     public void DestroyManager()
     {
-        Destroy(this);
+        var Manager = this.GameObject();
+        GameObject.Destroy	(Manager);
     }
 }

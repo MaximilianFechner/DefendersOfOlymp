@@ -418,6 +418,7 @@ public class GameManager : MonoBehaviour
     
     public void DestroyManager()
     {
-        Destroy(this);
+        var Manager = this.GameObject();
+        GameObject.Destroy	(Manager);
     }
 }

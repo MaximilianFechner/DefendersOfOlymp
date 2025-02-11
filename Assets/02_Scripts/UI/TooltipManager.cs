@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -207,6 +208,8 @@ public class TooltipManager : MonoBehaviour
 
     public void DestroyManager()
     {
-        Destroy(this);
+        var Manager = this.GameObject();
+        GameObject.Destroy	(Manager);
+        GameObject.Find().IsSceneBound();
     }
 }
