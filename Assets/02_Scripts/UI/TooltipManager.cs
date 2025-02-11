@@ -210,6 +210,5 @@ public class TooltipManager : MonoBehaviour
     {
         var Manager = this.GameObject();
         GameObject.Destroy	(Manager);
-        GameObject.Find().IsSceneBound();
     }
 }

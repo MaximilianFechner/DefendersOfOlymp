@@ -137,7 +137,6 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(0);
         GameManager.Instance.DestroyManager	();
         UIManager.Instance.DestroyManager	();
-        AudioManager.Instance.DestroyManager	();
         TooltipManager.Instance	.DestroyManager	();
     }
 
