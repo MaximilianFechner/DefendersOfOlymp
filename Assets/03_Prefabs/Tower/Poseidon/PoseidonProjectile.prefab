@@ -5104,7 +5104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
   rb2D: {fileID: 0}
-  hitPS: {fileID: 3722948830147621180, guid: c0916b69217894f48950d80bd13f288c, type: 3}
+  hitPS: {fileID: 3722948830147621180, guid: f22723264a8f40544a995f9646bb831a, type: 3}
 --- !u!82 &3156677905291673706
 AudioSource:
   m_ObjectHideFlags: 0

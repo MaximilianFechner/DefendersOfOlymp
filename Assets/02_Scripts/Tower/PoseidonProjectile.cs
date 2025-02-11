@@ -11,8 +11,11 @@ public class PoseidonProjectile : BaseProjectile
     }
 
     public override void DamageCalculation(GameObject enemy) {
-        if (enemy != null) 
+        if (enemy != null)
         {
+            Instantiate(hitPS, this.transform.position, Quaternion.identity);
+            AudioManager.Instance.PlayHitImpactSFX(1);
+
             Collider2D[] enemiesColliders = Physics2D.OverlapCircleAll(transform.position, aoeRadius);
             foreach (Collider2D enemyCollider in enemiesColliders) 
             {
@@ -32,10 +35,10 @@ public class PoseidonProjectile : BaseProjectile
         }
     }
 
-    private void OnDestroy()
-    {
-        Instantiate(hitPS, this.transform.position, Quaternion.identity);
-        AudioManager.Instance.PlayHitImpactSFX(1);
-    }
+    //private void OnDestroy()
+    //{
+    //    Instantiate(hitPS, this.transform.position, Quaternion.identity);
+    //    AudioManager.Instance.PlayHitImpactSFX(1);
+    //}
 
 }

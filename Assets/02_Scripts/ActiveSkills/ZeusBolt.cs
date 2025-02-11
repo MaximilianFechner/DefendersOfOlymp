@@ -76,6 +76,8 @@ public class ZeusBolt : MonoBehaviour
     public AudioClip preSkillSound;
     private GameObject preBoltSoundObject;
 
+    public GameObject hitPS;
+
     private CameraShake _cameraShake;
 
     private float lastUseTime = -Mathf.Infinity;
@@ -205,6 +207,7 @@ public class ZeusBolt : MonoBehaviour
             if (closestHit.collider != null && closestHit.collider.CompareTag("Enemy"))
             {
                 GameObject bolt = Instantiate(boltPrefab, new Vector3(closestHit.point.x, closestHit.point.y + 10, 0), Quaternion.identity);
+                GameObject zeus = Instantiate(hitPS, worldPosition, Quaternion.identity);
                 PlayBoltSFX(skillSound);
                 Destroy(bolt, lightningDuration);
 
