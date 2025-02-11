@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &174210912 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3720041369813585808, guid: 8708faa0eaf99574f9c30b351c9b47f1, type: 3}
+  m_PrefabInstance: {fileID: 2453908190324029044}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &349488449
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,11 +569,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622252547}
   m_CullTransparentMesh: 1
---- !u!1 &2097967705 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8818402724229310684, guid: 8708faa0eaf99574f9c30b351c9b47f1, type: 3}
-  m_PrefabInstance: {fileID: 2453908190324029044}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2110972746
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,7 +694,7 @@ MonoBehaviour:
   _pauseMenu: {fileID: 704657157}
   _startSubMenu: {fileID: 647810084}
   _BackgroundImage: {fileID: 1622252547}
-  _uiMainElements: {fileID: 2097967705}
+  _uiMainElements: {fileID: 174210912}
   targetFPS: 0
 --- !u!1001 &2453908190324029044
 PrefabInstance:
