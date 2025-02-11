@@ -314,7 +314,7 @@ public class CardManager : MonoBehaviour
                 return;
             }
         }
-        else
+        if (!currentTargetCell.isCellBuilt)
         {
             //place a new tower
             GameObject newTower = Instantiate(currentCard.TowerPrefab, currentTargetCell.transform.position, Quaternion.identity);
@@ -370,6 +370,11 @@ public class CardManager : MonoBehaviour
             ClearCard();
             DisableCells();
             GameManager.Instance.StartNextWave();
+        }
+        else
+        {
+            //not placeable sfx
+            AudioManager.Instance.PlayTowerPlacementSFX(4);
         }
     }
 

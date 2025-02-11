@@ -150,7 +150,7 @@ public class AudioManager : MonoBehaviour
 
         tempAudioSource.clip = towerPlacementSFX[god];
         tempAudioSource.ignoreListenerPause = true;
-        tempAudioSource.volume = Random.Range(0.1f, 0.2f);
+        tempAudioSource.volume = 0.2f;
         tempAudioSource.pitch = Random.Range(0.9f, 1.1f);
         tempAudioSource.Play();
 

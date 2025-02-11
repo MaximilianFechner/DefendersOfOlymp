@@ -4638,7 +4638,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: ecccade480ec7c24abe18e95521d8fbb, type: 3}
     - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
       propertyPath: towerPlacementSFX.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
       propertyPath: 'towerPlacementSFX.Array.data[0]'
@@ -4656,6 +4656,10 @@ PrefabInstance:
       propertyPath: 'towerPlacementSFX.Array.data[3]'
       value: 
       objectReference: {fileID: 8300000, guid: cb4f43cc118470340b52c5bb282061bc, type: 3}
+    - target: {fileID: 2304584033235585652, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
+      propertyPath: 'towerPlacementSFX.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 2f3970902ac38e949a1dbd8a0bd77706, type: 3}
     - target: {fileID: 5530621683758067520, guid: 81a0548e92203aa45b5ecfe60464abc3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
