@@ -195,9 +195,4 @@ public class AudioManager : MonoBehaviour
 
         Destroy(highscoreSFXObject, highscoreSFX.length);
     }
-    
-    public void DestroyManager()
-    {
-        Destroy(this);
-    }
 }
