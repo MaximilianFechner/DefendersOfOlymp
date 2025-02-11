@@ -332,13 +332,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerName: 0
   nameTower: Hephaistos
-  attackSpeed: 1.5
-  attackRadius: 15
+  attackSpeed: 1.27
+  attackRadius: 10
   targetType: 0
   movementSpeed: 10
-  damage: 4
-  damageLowerLimit: 3
-  damageUpperLimit: 5
+  damage: 6
+  damageLowerLimit: 5
+  damageUpperLimit: 7
   aoeRadius: 15
   slowValue: 0
   timeSlowed: 0

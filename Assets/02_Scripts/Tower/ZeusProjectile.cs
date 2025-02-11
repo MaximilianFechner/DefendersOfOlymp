@@ -84,7 +84,7 @@ public class ZeusProjectile : BaseProjectile
     {
         if (maxDamageJump <= 0)
         {
-            Debug.Log("Max jumps reached, destroying projectile.");
+            //Debug.Log("Max jumps reached, destroying projectile.");
             Destroy(gameObject);
             return; // Beende die Methode sofort
         }
@@ -124,7 +124,7 @@ public class ZeusProjectile : BaseProjectile
         }
         else
         {
-            Debug.Log("No more enemies in range, destroying projectile.");
+            //Debug.Log("No more enemies in range, destroying projectile.");
             Destroy(gameObject); // If no more enemies, destroy the projectile
         }
     }
@@ -136,6 +136,9 @@ public class ZeusProjectile : BaseProjectile
             EnemyManager enemyManager = enemy.GetComponent<EnemyManager>();
             if (enemyManager != null)
             {
+                Instantiate(hitPS, this.transform.position, Quaternion.identity);
+                AudioManager.Instance.PlayHitImpactSFX(0);
+
                 int damage = Mathf.RoundToInt(Random.Range(damageLowerLimit, damageUpperLimit) *
                     Mathf.Pow(0.8f, indexAttackedEnemies)); // % damage reduce after hit
                 enemyManager.TakeDamage(damage);
@@ -143,7 +146,7 @@ public class ZeusProjectile : BaseProjectile
         }
         else
         {
-            Debug.Log("Enemy is null!");
+            //Debug.Log("Enemy is null!");
         }
     }
     public void InitializeProjectile(float range, int towerLevel)
@@ -153,10 +156,10 @@ public class ZeusProjectile : BaseProjectile
     }
 
 
-    private void OnDestroy()
-    {
-        Instantiate(hitPS, this.transform.position, Quaternion.identity);
-        AudioManager.Instance.PlayHitImpactSFX(0);
-    }
+    //private void OnDestroy()
+    //{
+    //    Instantiate(hitPS, this.transform.position, Quaternion.identity);
+    //    AudioManager.Instance.PlayHitImpactSFX(0);
+    //}
 
 }

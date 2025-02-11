@@ -76,6 +76,7 @@ public class HephaistosTower : BaseTower
     private void SupportAOEDamageCalculation() {
         if (animator != null) {
             animator.SetTrigger("attackTrigger");
+            AudioManager.Instance.PlayHitImpactSFX(3);
         }
         Collider2D[] colliders = Physics2D.OverlapCircleAll(midPoint.transform.position, attackRadius);
         foreach (Collider2D collider in colliders) 

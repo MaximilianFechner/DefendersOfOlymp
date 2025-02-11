@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool isInWave = false;
     
     [HideInInspector] public int score = 0;
-    [HideInInspector] public int highscore = 10;
+    [HideInInspector] public int highscore = 0;
 
     [HideInInspector] public int cerberusKills = 0;
     [HideInInspector] public int cyclopKills = 0;
@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
 
         highscore = PlayerPrefs.GetInt("highscore", 0);
 
-        if (highscore == 0) return;
+        //if (highscore == 0) return;
         UIManager.Instance.highscore.text = highscore.ToString();
 
         isCardDrawable = true;
@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour
 
         highscore = PlayerPrefs.GetInt("highscore", 0);
 
-        if (highscore == 0) return;
+        //if (highscore == 0) return;
         UIManager.Instance.highscore.text = highscore.ToString();
 
         isCardDrawable = true;
