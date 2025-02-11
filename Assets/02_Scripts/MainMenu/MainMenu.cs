@@ -122,10 +122,10 @@ public class MainMenu : MonoBehaviour
     {
         if (Time.timeScale != 1)
             Time.timeScale = 1;
-        if(_pauseMenu) _pauseMenu.SetActive(false);
+        _pauseMenu.SetActive(false);
+        _BackgroundImage.SetActive(true);
+        _uiMainElements.SetActive(true);
         SceneManager.LoadScene(0);
-        if(!_BackgroundImage) _BackgroundImage.SetActive(true);
-        if(!_uiMainElements) _uiMainElements.SetActive(true);
     }
 
     //Quit
