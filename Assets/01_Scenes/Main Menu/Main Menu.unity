@@ -1031,6 +1031,10 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 188492458}
+    - target: {fileID: 5846892449283421764, guid: bfc492fdbb14613478fb329499a0e8a2, type: 3}
+      propertyPath: _mainMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2d4ced299a8a8a54881f6b922eb79907, type: 3}
     - target: {fileID: 6379670434016787666, guid: bfc492fdbb14613478fb329499a0e8a2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 3

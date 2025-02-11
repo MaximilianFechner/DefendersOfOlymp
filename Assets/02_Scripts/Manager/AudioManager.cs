@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     private AudioSource audioSource;
 
     public AudioClip levelBackgroundMusic;
+    public AudioClip mainMenuMusic;
     public AudioClip levelAmbienteSFX;
     public AudioClip waveEndMusic;
     public AudioClip[] lostLifeSFX;
@@ -39,6 +40,15 @@ public class AudioManager : MonoBehaviour
     public void PlayLevelBackgroundMusic()
     {
         audioSource.resource = levelBackgroundMusic;
+        audioSource.volume = 0.1f;
+        audioSource.loop = true;
+        audioSource.ignoreListenerPause = true;
+        audioSource.Play();
+    }
+    
+    public void PlayMainMenuMusic()
+    {
+        audioSource.resource = mainMenuMusic;
         audioSource.volume = 0.1f;
         audioSource.loop = true;
         audioSource.ignoreListenerPause = true;

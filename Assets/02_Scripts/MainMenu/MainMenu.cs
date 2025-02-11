@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     public InputField inputFPS;
     public Text selectedFPS;
     public AudioSource audioSource;
+    [SerializeField] private AudioClip _mainMenuSound;
     private float _musicVolume;
     [SerializeField] private AudioMixer _audioMixer;
     
@@ -46,7 +47,7 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         //Audio
-        audioSource.Play();
+        AudioManager.Instance.PlayMainMenuMusic	();
         
         #region Resolution Dropdown
         _resolutionDropdown.ClearOptions();
@@ -107,7 +108,6 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         ButtonSFX	();
-        _menuAudio.GetComponent	<AudioSource>().Stop();
         _startSubMenu.SetActive	(false);
         _BackgroundImage.SetActive(false);
         _uiMainElements.SetActive(false);
@@ -118,7 +118,6 @@ public class MainMenu : MonoBehaviour
     public void PlayManual()
     {
         ButtonSFX	();
-        _menuAudio.GetComponent	<AudioSource>().Stop();
         _startSubMenu.SetActive	(false);
         _BackgroundImage.SetActive(false);
         _uiMainElements.SetActive(false);
@@ -138,6 +137,7 @@ public class MainMenu : MonoBehaviour
         GameManager.Instance.DestroyManager	();
         UIManager.Instance.DestroyManager	();
         TooltipManager.Instance	.DestroyManager	();
+        AudioManager.Instance.PlayMainMenuMusic	();
     }
 
     //Quit
