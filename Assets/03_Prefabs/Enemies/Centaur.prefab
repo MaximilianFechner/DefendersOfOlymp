@@ -505,7 +505,7 @@ MonoBehaviour:
   - {fileID: 1756570301262041340, guid: a8b6bc71949c6c4439e25e2a1cf815f0, type: 3}
   _currentHP: 0
   deathPrefab: {fileID: 6555997334480401726, guid: 327e07482f22ebb4fa26a88a2fe69269, type: 3}
-  bloodParticlePrefab: {fileID: 3722948830147621180, guid: 394713cc275bbfe43a3863de26e9de10, type: 3}
+  bloodParticlePrefab: {fileID: 3722948830147621180, guid: e70eaf2cb1cd9c2438c4c3030bc61951, type: 3}
   damageTextPrefab: {fileID: 8891703432907291767, guid: 817e71aa649dd764f958c8500888b914, type: 3}
   alreadyDamagedPlayer: 0
 --- !u!114 &1173280012366497405
