@@ -289,7 +289,7 @@ private void Update()
 
         tempAudioSource.Play();
 
-        Destroy(soundObject, clip.length);
+        Destroy(soundObject, 6f);
     }
     private void PlayPreWaveSFX(AudioClip clip)
     {
