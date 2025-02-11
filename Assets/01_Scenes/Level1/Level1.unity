@@ -145,6 +145,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyEntranceLightingUP
       objectReference: {fileID: 0}
+    - target: {fileID: 5366541766131366984, guid: 5a1d8c5256c9e244aa781891b2c94f58, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366541766131366984, guid: 5a1d8c5256c9e244aa781891b2c94f58, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -375346341
+      objectReference: {fileID: 0}
     - target: {fileID: 5522332331171433183, guid: 5a1d8c5256c9e244aa781891b2c94f58, type: 3}
       propertyPath: m_LocalScale.y
       value: 3
@@ -850,6 +858,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1257655062575285299, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1503825678345799057, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
       propertyPath: m_LocalPosition.x
       value: -35.84
@@ -889,6 +901,22 @@ PrefabInstance:
     - target: {fileID: 1503825678345799057, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -375346341
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094823421383716497, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1290,9 +1318,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1264353881
-  m_SortingLayer: 1
-  m_SortingOrder: 5
+  m_SortingLayerID: -375346341
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8b4565cb3f0aca747b8b1f1b4575ee55, type: 3}
   m_Color: {r: 0.9775943, g: 1, b: 0.8207547, a: 0.19607843}
   m_FlipX: 1
@@ -1539,6 +1567,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1257655062575285299, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1503825678345799057, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.57
@@ -1578,6 +1610,22 @@ PrefabInstance:
     - target: {fileID: 1503825678345799057, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -375346341
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094823421383716497, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2117,6 +2165,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1257655062575285299, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1503825678345799057, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
       propertyPath: m_LocalPosition.x
       value: -35.84
@@ -2156,6 +2208,22 @@ PrefabInstance:
     - target: {fileID: 1503825678345799057, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -375346341
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094823421383716497, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2506,6 +2574,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1257655062575285299, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1503825678345799057, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
       propertyPath: m_LocalPosition.x
       value: 51.35
@@ -2546,6 +2618,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -375346341
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094823421383716497, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2572,6 +2660,10 @@ PrefabInstance:
     - target: {fileID: 354497146958961073, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
       propertyPath: m_Name
       value: Torch (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1257655062575285299, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1503825678345799057, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2613,6 +2705,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -375346341
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094823421383716497, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2629,6 +2737,10 @@ PrefabInstance:
     - target: {fileID: 354497146958961073, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
       propertyPath: m_Name
       value: Torch (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1257655062575285299, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1503825678345799057, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2669,6 +2781,22 @@ PrefabInstance:
     - target: {fileID: 1503825678345799057, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -375346341
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094823421383716497, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2734,9 +2862,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1264353881
-  m_SortingLayer: 1
-  m_SortingOrder: 5
+  m_SortingLayerID: -375346341
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8b4565cb3f0aca747b8b1f1b4575ee55, type: 3}
   m_Color: {r: 0.18490559, g: 0, b: 0, a: 0.627451}
   m_FlipX: 0
@@ -3158,6 +3286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1257655062575285299, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1503825678345799057, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
       propertyPath: m_LocalPosition.x
       value: 51.35
@@ -3198,6 +3330,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -375346341
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094823421383716497, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3218,6 +3366,14 @@ PrefabInstance:
     - target: {fileID: 3929073253180155868, guid: 5a1d8c5256c9e244aa781891b2c94f58, type: 3}
       propertyPath: m_Name
       value: EnemyEntranceLightingBOT
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366541766131366984, guid: 5a1d8c5256c9e244aa781891b2c94f58, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366541766131366984, guid: 5a1d8c5256c9e244aa781891b2c94f58, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -375346341
       objectReference: {fileID: 0}
     - target: {fileID: 5522332331171433183, guid: 5a1d8c5256c9e244aa781891b2c94f58, type: 3}
       propertyPath: m_LocalScale.y
@@ -3386,6 +3542,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1257655062575285299, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1503825678345799057, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
       propertyPath: m_LocalPosition.x
       value: -35.84
@@ -3425,6 +3585,22 @@ PrefabInstance:
     - target: {fileID: 1503825678345799057, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -375346341
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094823421383716497, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3471,6 +3647,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch
       objectReference: {fileID: 0}
+    - target: {fileID: 1257655062575285299, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1503825678345799057, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.57
@@ -3510,6 +3690,22 @@ PrefabInstance:
     - target: {fileID: 1503825678345799057, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -375346341
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094823421383716497, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4357,6 +4553,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1257655062575285299, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1503825678345799057, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
       propertyPath: m_LocalPosition.x
       value: 35.93
@@ -4396,6 +4596,22 @@ PrefabInstance:
     - target: {fileID: 1503825678345799057, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671450176305565936, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -375346341
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094823421383716497, guid: fcefc41ed79e5254688039a4e4636968, type: 3}
+      propertyPath: m_SortingOrder
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4748,6 +4964,14 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.4392157
       objectReference: {fileID: 0}
+    - target: {fileID: 2459470565629240534, guid: 44095e694dbd17b44b03a805efd9ad63, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2459470565629240534, guid: 44095e694dbd17b44b03a805efd9ad63, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -375346341
+      objectReference: {fileID: 0}
     - target: {fileID: 5442642304455312046, guid: 44095e694dbd17b44b03a805efd9ad63, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -4795,6 +5019,14 @@ PrefabInstance:
     - target: {fileID: 5442642304455312046, guid: 44095e694dbd17b44b03a805efd9ad63, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7765169373488138547, guid: 44095e694dbd17b44b03a805efd9ad63, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7765169373488138547, guid: 44095e694dbd17b44b03a805efd9ad63, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -375346341
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5147,6 +5379,10 @@ PrefabInstance:
       propertyPath: quake
       value: 
       objectReference: {fileID: 5628521491133392082}
+    - target: {fileID: 7209473145831457452, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7313426932398404343, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -5288,6 +5524,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1108071275}
     - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _skillRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _cooldownTime
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageLowerLimit
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageUpperLimit
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: slowDurationUpgrade
       value: 0
       objectReference: {fileID: 0}
@@ -5400,6 +5652,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 409121941}
     - target: {fileID: 1127305501548914579, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageLowerLimit
+      value: 81
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127305501548914579, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageUpperLimit
+      value: 91
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127305501548914579, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: damageLowerLimitUpgrade
       value: 1
       objectReference: {fileID: 0}
@@ -5420,6 +5680,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 597842271}
     - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _waveRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: skillButton
       value: 
       objectReference: {fileID: 1708476246}
@@ -5427,6 +5691,14 @@ PrefabInstance:
       propertyPath: uiAnimation
       value: 
       objectReference: {fileID: 597842270}
+    - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _cooldownTime
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _waveDuration
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: damageLowerLimitUpgrade
       value: 1
@@ -5438,6 +5710,10 @@ PrefabInstance:
     - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: cooldownReductionUpgrade
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageLowerLimitPerInterval
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1371998763206316033, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: m_FontData.m_Alignment
@@ -5628,6 +5904,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 394829373}
     - target: {fileID: 6072449750005525643, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: _cooldownTime
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072449750005525643, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: damageLowerLimitUpgrade
       value: 1
       objectReference: {fileID: 0}
@@ -5638,6 +5918,14 @@ PrefabInstance:
     - target: {fileID: 6072449750005525643, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: cooldownReductionUpgrade
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072449750005525643, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageLowerLimitPerInterval
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072449750005525643, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageUpperLimitPerInterval
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 6111717548414160211, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: m_FontData.m_Alignment
@@ -5850,9 +6138,25 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 63a790e823538054d8406e5bff1fa9d6, type: 3}
+    - target: {fileID: 1268412206666504412, guid: 5a1d8c5256c9e244aa781891b2c94f58, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1268412206666504412, guid: 5a1d8c5256c9e244aa781891b2c94f58, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -375346341
+      objectReference: {fileID: 0}
     - target: {fileID: 3929073253180155868, guid: 5a1d8c5256c9e244aa781891b2c94f58, type: 3}
       propertyPath: m_Name
       value: EnemyEntranceLightingMID
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366541766131366984, guid: 5a1d8c5256c9e244aa781891b2c94f58, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366541766131366984, guid: 5a1d8c5256c9e244aa781891b2c94f58, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -375346341
       objectReference: {fileID: 0}
     - target: {fileID: 5522332331171433183, guid: 5a1d8c5256c9e244aa781891b2c94f58, type: 3}
       propertyPath: m_LocalScale.x

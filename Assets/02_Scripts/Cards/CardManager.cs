@@ -274,7 +274,7 @@ public class CardManager : MonoBehaviour
             BaseTower towerInCell = currentTargetCell.placedTower.GetComponentInChildren<BaseTower>();
             string existingTower = currentTargetCell.towerName;
 
-            Debug.Log($"Existing Tower: {towerInCell.nameTower}, Drawed Tower: {currentCard.TowerName}");
+            //Debug.Log($"Existing Tower: {towerInCell.nameTower}, Drawed Tower: {currentCard.TowerName}");
 
             if (towerInCell != null && existingTower == currentCard.TowerName)
             {

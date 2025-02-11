@@ -660,7 +660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerName: 3
   nameTower: Zeus
-  attackSpeed: 0.5
+  attackSpeed: 0.53
   attackRadius: 16
   targetType: 0
   movementSpeed: 25

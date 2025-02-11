@@ -479,7 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: Centaur
-  _maxHP: 50
+  _maxHP: 55
   absoluteHPIncreaseWave: 4
   prozentualHPIncreaseWave: 2
   absoluteSpeedIncreaseWave: 0
