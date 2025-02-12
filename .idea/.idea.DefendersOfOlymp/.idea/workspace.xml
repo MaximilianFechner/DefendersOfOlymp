@@ -41,33 +41,42 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/01_Scenes/Level1/Level1.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/01_Scenes/Level1/Level1.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/01_Scenes/Main Menu/Main Menu.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/01_Scenes/Main Menu/Main Menu.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/01_Scenes/Main Menu/Main Menu.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/01_Scenes/Main Menu/Main Menu.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/01_Scenes/Main Menu/Main Menu.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02_Scripts/ActiveSkills/HephaistosQuake.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/MainMenu/MainMenu.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02_Scripts/MainMenu/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/MainMenu/MainMenu.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02_Scripts/MainMenu/ManualCardManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/Manager/AudioManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02_Scripts/Tower/BaseTower.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/03_Prefabs/MainMenu/Main Menu.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/03_Prefabs/MainMenu/Main Menu.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/ProjectSettings/EditorBuildSettings.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Runtime/UGUI/UI/Core/ScrollRect.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;git-widget-placeholder&quot;: &quot;#46 on feature/pause__menu&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
-  }
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
 }</component>
+  <component name="ProjectId" id="2swLxw67x0Umb1x6MLiQgmowZ4x" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "#50 on feature/Scrollable__manual",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RunManager" selected="Standalone Player.Start Unity">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/TestBuild\DefendersOfOlymp.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="F:\OneDrive - games-academy.de\GitFork\DefendersOfOlymp\TestBuild" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="F:\Unity\6000.0.25f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;F:\OneDrive - games-academy.de\GitFork\DefendersOfOlymp&quot; -debugCodeOptimization" />
@@ -84,7 +93,34 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="runtimes">
+        <list />
+      </option>
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="runtimes">
+        <list />
+      </option>
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -182,12 +218,39 @@
       <option name="project" value="LOCAL" />
       <updated>1739287371456</updated>
     </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9a0809e8-16ad-4168-b0b5-e4657bc15726" name="Changes" comment="Edit AudioManager again" />
+      <created>1739361941407</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1739361941407</updated>
+      <workItem from="1739361945014" duration="1280000" />
+    </task>
     <option name="localTasksCounter" value="13" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="false" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityProjectDiscoverer">
+    <option name="hasUnityReference" value="true" />
+    <option name="unityProject" value="true" />
+    <option name="unityProjectFolder" value="true" />
+  </component>
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="Add Pause Menu" />
@@ -201,6 +264,6 @@
     <MESSAGE value="Edit some Code Issues" />
     <MESSAGE value="Edit AudioManager" />
     <MESSAGE value="Edit AudioManager again" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit AudioManager again" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>

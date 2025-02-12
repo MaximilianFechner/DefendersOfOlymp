@@ -33,6 +33,9 @@ public class UIManager : MonoBehaviour
     public GameObject highscoreVisual;
     public GameObject highscoreShadow;
 
+    public Text nextWaveEnemiesText;
+    public GameObject hermes;
+
     private List<GameObject> hearts = new List<GameObject>();
 
     [Space(10)]
@@ -48,12 +51,12 @@ public class UIManager : MonoBehaviour
     public Text endWaveCounter;
     public Text endEnemiesKilled;
 
-    [Space(10)]
-    [Header("UI Elements: Wave Finish Panel")]
-    public GameObject waveFinPanel;
-    public Text waveFinishedText;
-    public Text nextWaveEnemiesText;
-    public Text waveEnemiesKilledText;
+    //[Space(10)]
+    //[Header("UI Elements: Wave Finish Panel")]
+    //public GameObject waveFinPanel;
+    //public Text waveFinishedText;
+    //public Text nextWaveEnemiesText;
+    //public Text waveEnemiesKilledText;
     //public Text waveDurationText;
 
     [Space(10)]
@@ -75,9 +78,12 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        firstWaveEnemiesText.text = $"Enemies in the first wave: {GameManager.Instance.firstWaveEnemies + (GameManager.Instance.waveNumber + 1)}";
+        //firstWaveEnemiesText.text = $"Enemies in the first wave: {GameManager.Instance.firstWaveEnemies + (GameManager.Instance.waveNumber + 1)}";
         //prepareFirstWavePanel.SetActive(true);
         InitializeLives(GameManager.Instance.ReturnLives());
+
+        GameManager.Instance.LoadHighscore();
+        highscore.text = GameManager.Instance.highscore.ToString();
     }
     public void UpdateUITexts()
     {
@@ -100,14 +106,14 @@ public class UIManager : MonoBehaviour
         endEnemiesKilled.text = $"Total enemies killed: {GameManager.Instance.TotalEnemiesKilled.ToString()}";
     }
 
-    public void ShowWaveResults()
-    {
-        waveFinishedText.text = $"Wave {GameManager.Instance.waveNumber.ToString()} finished!";
-        nextWaveEnemiesText.text = $"Enemies next wave: {GameManager.Instance.firstWaveEnemies + (GameManager.Instance.waveNumber + 1)}";
-        waveEnemiesKilledText.text = $"Enemies killed this wave: {GameManager.Instance.WaveEnemiesKilled}";
-        //waveDurationText.text = $"Time needed for this wave:\n{GameManager.Instance.thisWaveDuration:F1} seconds";
-        waveFinPanel.SetActive(true);
-    }
+    //public void ShowWaveResults()
+    //{
+    //    waveFinishedText.text = $"Wave {GameManager.Instance.waveNumber.ToString()} finished!";
+    //    nextWaveEnemiesText.text = $"Enemies next wave: {GameManager.Instance.firstWaveEnemies + (GameManager.Instance.waveNumber + 1)}";
+    //    waveEnemiesKilledText.text = $"Enemies killed this wave: {GameManager.Instance.WaveEnemiesKilled}";
+    //    //waveDurationText.text = $"Time needed for this wave:\n{GameManager.Instance.thisWaveDuration:F1} seconds";
+    //    waveFinPanel.SetActive(true);
+    //}
 
     public void UpdateKilledEnemies()
     {

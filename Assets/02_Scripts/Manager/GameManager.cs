@@ -1,6 +1,7 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.IO;
 using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     [Tooltip("every X waves add an extra enemy (when 5, then every 5 waves you spawn a additional enemy")]
     [Min(0)]
-    public int extraEnemiesPerXWaves = 10; // NEW PROGRESS SPAWN - Ab welcher Welle immer ein zus�tzlicher Gegner spawnt
+    public int extraEnemiesPerXWaves = 10; // NEW PROGRESS SPAWN - Ab welcher Welle immer ein zusätzlicher Gegner spawnt
 
     [Tooltip("How many cards allowed to draw between the waves")]
     [Min(1)]
@@ -41,9 +42,10 @@ public class GameManager : MonoBehaviour
 
     [Space(10)]
     [Header("ONLY DISPLAYED FOR TESTING - DONT CHANGE")]
-    public int nextWaveEnemies = 0; // NEW PROGRESS SPAWN - Gegner in der n�chsten Welle
-    public int plusEnemies = 0; // NEW PROGRESS SPAWN - Wieviele Gegner auf die Startgegner hinzugerechnet werden f�r die n�chste Welle
-    public int plusMultiplikator = 1; // NEW PROGRESS SPAWN - Modifikator f�r die plusEnemies Variable
+    public int nextWaveEnemies = 0; // NEW PROGRESS SPAWN - Gegner in der nächsten Welle
+    public int plusEnemies = 0; // NEW PROGRESS SPAWN - Wieviele Gegner auf die Startgegner hinzugerechnet werden für die nächste Welle
+    public int plusMultiplikator = 1; // NEW PROGRESS SPAWN - Modifikator für die plusEnemies Variable
+
     [Space(10)]
     public int zeusTower = 0;
     public int poseidonTower = 0;
@@ -56,7 +58,7 @@ public class GameManager : MonoBehaviour
     public Transform[] spawnPoints;
     private bool isSpawning = false;
 
-    [HideInInspector] public bool isInWave = false;
+    public bool isInWave = false;
     
     [HideInInspector] public int score = 0;
     [HideInInspector] public int highscore = 0;
@@ -76,9 +78,11 @@ public class GameManager : MonoBehaviour
     public PoseidonWave poseidonWave;
     public HeraStun heraStun;
     public HephaistosQuake hephQuake;
+    public Hermes hermes;
+    public GameOverManager gameOverManager;
 
     public bool isCardDrawable = false;
-
+    public bool isGameOver = false;
     public bool highscoreReached = false;
 
     private void Awake()
@@ -101,12 +105,20 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.PlayLevelBackgroundMusic();
         AudioManager.Instance.PlayLevelAmbienteSFX();
 
-        highscore = PlayerPrefs.GetInt("highscore", 0);
-
+        //highscore = PlayerPrefs.GetInt("highscore", 0);
         //if (highscore == 0) return;
+
+        LoadHighscore();
         UIManager.Instance.highscore.text = highscore.ToString();
 
         isCardDrawable = true;
+        isGameOver = false;
+        isInWave = false;
+
+        gameOverManager.StopGameOverEffects();
+
+        UIManager.Instance.nextWaveEnemiesText.text = $"<b><color=#8E0000>{PredictNextWaveEnemies()}</color></b> expected minions of\nHades in the next wave!";
+        hermes.ShowHermes();
     }
 
     public void NewGame()
@@ -116,16 +128,30 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.PlayLevelBackgroundMusic();
         AudioManager.Instance.PlayLevelAmbienteSFX();
 
-        highscore = PlayerPrefs.GetInt("highscore", 0);
-
+        //highscore = PlayerPrefs.GetInt("highscore", 0);
         //if (highscore == 0) return;
+
+        LoadHighscore();
         UIManager.Instance.highscore.text = highscore.ToString();
 
         isCardDrawable = true;
+        isGameOver = false;
+        isInWave = false;
+
+        gameOverManager.StopGameOverEffects();
+
+        UIManager.Instance.nextWaveEnemiesText.text = $"<b><color=#8E0000>{PredictNextWaveEnemies()}</color></b> expected minions of\nHades in the next wave!";
+        hermes.ShowHermes();
     }
 
     public void CloseGame()
     {
+        if (score > highscore)
+        {
+            highscore = score;
+            SaveHighscore();
+        }
+
         Application.Quit();
     }
 
@@ -148,12 +174,11 @@ public class GameManager : MonoBehaviour
             corpses.ClearCorpses();
         }
 
-
         UIManager.Instance.InitializeLives(_playerStartLives);
         UIManager.Instance.UpdateUITexts();
         UIManager.Instance.HideHighscoreVisual();
+        //UIManager.Instance.nextWaveEnemiesText.text = $"<b><color=#8E0000>{PredictNextWaveEnemies()}</color></b> expected minions of\nHades in the next wave!";
         UIManager.Instance.gameOverPanel.SetActive(false);
-        //UIManager.Instance.waveFinPanel.SetActive(false);
 
         if (zeusBolt != null) zeusBolt.ResetCooldown();
         if (poseidonWave != null) poseidonWave.ResetCooldown();
@@ -161,7 +186,10 @@ public class GameManager : MonoBehaviour
         if (hephQuake != null) hephQuake.ResetCooldown();
 
         isCardDrawable = true;
+        isGameOver = false;
+        isInWave = false;
 
+        gameOverManager.StopGameOverEffects();
         SceneManager.LoadScene("Level1");
 
         UIParticlesystem part = FindFirstObjectByType<UIParticlesystem>();
@@ -173,24 +201,29 @@ public class GameManager : MonoBehaviour
 
     public void LoseLife(int damage)
     {
-        RemainingLives -= damage;
-        healthScore--;
-        
-        score--;
-        if (score > highscore)
+        if (!isGameOver)
         {
-            highscore = score;
-            PlayerPrefs.SetInt("highscore", highscore);
-            PlayerPrefs.Save();
-        }
+            RemainingLives -= damage;
+            healthScore--;
 
-        UIManager.Instance.UpdateLives(RemainingLives);
-        UIManager.Instance.UpdateScoreCalculating();
-        AudioManager.Instance.PlayLostLifeSFX();
+            score--;
+            if (score > highscore)
+            {
+                highscore = score;
+                SaveHighscore();
 
-        if (RemainingLives == 0)
-        {
-            GameOver();
+                //PlayerPrefs.SetInt("highscore", highscore);
+                //PlayerPrefs.Save();
+            }
+
+            UIManager.Instance.UpdateLives(RemainingLives);
+            UIManager.Instance.UpdateScoreCalculating();
+            AudioManager.Instance.PlayLostLifeSFX();
+
+            if (RemainingLives == 0)
+            {
+                GameOver();
+            }
         }
     }
 
@@ -209,8 +242,10 @@ public class GameManager : MonoBehaviour
             }
 
             highscore = score;
-            PlayerPrefs.SetInt("highscore", highscore);
-            PlayerPrefs.Save();
+            SaveHighscore();
+
+            //PlayerPrefs.SetInt("highscore", highscore);
+            //PlayerPrefs.Save();
         }
 
         TotalEnemiesKilled++;
@@ -243,18 +278,6 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.waveNumberText.text = $"{waveNumber.ToString()}";
     }
 
-    ////SaveSystem
-    //public void LoadData(GameData data)
-    //{
-    //    this.waveNumber= data.waveCount;
-    //}
-
-    //public void SaveData(ref GameData data)
-    //{
-    //    data.waveCount = this.waveNumber;
-    //}
-    ////Save System
-
     public void ResetStats()
     {
         RemainingEnemies = 0;
@@ -273,6 +296,8 @@ public class GameManager : MonoBehaviour
         plusMultiplikator = 1;
 
         highscoreReached = false;
+        isGameOver = false;
+        isInWave = false;
 
         zeusTower = 0;
         poseidonTower = 0;
@@ -282,9 +307,18 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        Time.timeScale = 0;
-        UIManager.Instance.gameOverPanel.SetActive(true);
-        UIManager.Instance.ShowEndResults();
+        if (score > highscore)
+        {
+            highscore = score;
+            SaveHighscore();
+        }
+
+        isGameOver  = true;
+        //Time.timeScale = 0;
+        AudioManager.Instance.PlayGameOverSFX();
+        gameOverManager.TriggerGameOver();
+        //UIManager.Instance.gameOverPanel.SetActive(true);
+        //UIManager.Instance.ShowEndResults();
     }
 
     private void EndOfWave()
@@ -309,13 +343,16 @@ public class GameManager : MonoBehaviour
             }
 
             highscore = score;
-            PlayerPrefs.SetInt("highscore", highscore);
-            PlayerPrefs.Save();
+            SaveHighscore();
+
+            //PlayerPrefs.SetInt("highscore", highscore);
+            //PlayerPrefs.Save();
         }
 
         UIManager.Instance.UpdateScoreCalculating();
-
+        UIManager.Instance.nextWaveEnemiesText.text = $"<b><color=#8E0000>{PredictNextWaveEnemies()}</color></b> expected minions of\nHades in the next wave!";
         AudioManager.Instance.PlayWaveEndMusic();
+        hermes.ShowHermes();
 
         if (remainingCardsToDraw > 0)
         {
@@ -339,6 +376,7 @@ public class GameManager : MonoBehaviour
             WaveEnemiesKilled = 0;
 
             UIManager.Instance.nextWaveButton.gameObject.SetActive(false);
+            hermes.HideHermes();
 
             isInWave = true;
         }
@@ -396,7 +434,7 @@ public class GameManager : MonoBehaviour
 
     public void CalculateNextWaveEnemies()
     {
-        if (waveNumber % extraEnemiesPerXWaves == 0) plusMultiplikator++; // Wenn eine gewisse Welle erreicht wurde, dann erh�he den Multiplilkator um 1
+        if (waveNumber % extraEnemiesPerXWaves == 0) plusMultiplikator++; // Wenn eine gewisse Welle erreicht wurde, dann erhöhe den Multiplilkator um 1
 
         if (waveNumber == 1)
         {
@@ -404,16 +442,86 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            plusEnemies += plusMultiplikator; // 0           += 1             = 1 StartValues
+            plusEnemies += plusMultiplikator; // 0 += 1 = 1 StartValues
             nextWaveEnemies = firstWaveEnemies + plusEnemies;
         }
 
-        Debug.Log($"CalculateNextWaveEnemies\n" +
-            $"Wave: {waveNumber}\n" +
-            $"WaveEnemies: {nextWaveEnemies}\n" +
-            $"plusEnemies: {plusEnemies} \n" +
-            $"plusMultiplikator: {plusMultiplikator}");
+        //Debug.Log($"CalculateNextWaveEnemies\n" +
+        //    $"Wave: {waveNumber}\n" +
+        //    $"WaveEnemies: {nextWaveEnemies}\n" +
+        //    $"plusEnemies: {plusEnemies} \n" +
+        //    $"plusMultiplikator: {plusMultiplikator}");
 
+    }
+
+    public int PredictNextWaveEnemies()
+    {
+        int predictedPlusMultiplikator = plusMultiplikator;
+        int predictedPlusEnemies = plusEnemies;
+
+        if ((waveNumber + 1) % extraEnemiesPerXWaves == 0)
+            predictedPlusMultiplikator++;
+
+        if (waveNumber + 1 == 1)
+        {
+            return firstWaveEnemies;
+        }
+        else
+        {
+            predictedPlusEnemies += predictedPlusMultiplikator;
+            return firstWaveEnemies + predictedPlusEnemies;
+        }
+    }
+
+    public void SaveHighscore()
+    {
+        string path = Application.persistentDataPath + "/highscore.txt"; // .txt-Erweiterung für Textdatei
+        try
+        {
+            File.WriteAllText(path, highscore.ToString()); // Highscore als String speichern
+            Debug.Log("Highscore gespeichert: " + highscore);
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Fehler beim Speichern: {e.Message}");
+        }
+    }
+
+    public void LoadHighscore()
+    {
+        string path = Application.persistentDataPath + "/highscore.txt";
+
+        if (File.Exists(path))
+        {
+            try
+            {
+                string highscoreString = File.ReadAllText(path); // Highscore als String lesen
+
+                if (int.TryParse(highscoreString, out int loadedHighscore)) // Versuchen, in Integer zu konvertieren
+                {
+                    highscore = loadedHighscore;
+                    Debug.Log($"Highscore geladen: {highscore}");
+                }
+                else
+                {
+                    Debug.LogError($"Fehler: Highscore-Datei beschädigt! Inhalt: {highscoreString}");
+                    highscore = 0; // Standardwert, falls Konvertierung fehlschlägt
+                    SaveHighscore(); // Datei neu erstellen mit default wert
+                }
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError($"Fehler beim Laden: {e.Message}");
+                highscore = 0; // Standardwert bei Fehler
+                SaveHighscore(); // Datei neu erstellen mit default wert
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"Keine Highscore-Datei gefunden. Erstelle neue mit Highscore 0.");
+            highscore = 0; // Standardwert, wenn Datei nicht existiert.
+            SaveHighscore(); // Datei neu erstellen mit default wert
+        }
     }
     
     public void DestroyManager()
