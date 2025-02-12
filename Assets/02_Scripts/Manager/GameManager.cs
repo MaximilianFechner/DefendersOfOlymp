@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
     [Tooltip("every X waves add an extra enemy (when 5, then every 5 waves you spawn a additional enemy")]
     [Min(0)]
-    public int extraEnemiesPerXWaves = 10; // NEW PROGRESS SPAWN - Ab welcher Welle immer ein zusätzlicher Gegner spawnt
+    public int extraEnemiesPerXWaves = 10; // NEW PROGRESS SPAWN - Ab welcher Welle immer ein zusï¿½tzlicher Gegner spawnt
 
     [Tooltip("How many cards allowed to draw between the waves")]
     [Min(1)]
@@ -41,9 +41,9 @@ public class GameManager : MonoBehaviour
 
     [Space(10)]
     [Header("ONLY DISPLAYED FOR TESTING - DONT CHANGE")]
-    public int nextWaveEnemies = 0; // NEW PROGRESS SPAWN - Gegner in der nächsten Welle
-    public int plusEnemies = 0; // NEW PROGRESS SPAWN - Wieviele Gegner auf die Startgegner hinzugerechnet werden für die nächste Welle
-    public int plusMultiplikator = 1; // NEW PROGRESS SPAWN - Modifikator für die plusEnemies Variable
+    public int nextWaveEnemies = 0; // NEW PROGRESS SPAWN - Gegner in der nï¿½chsten Welle
+    public int plusEnemies = 0; // NEW PROGRESS SPAWN - Wieviele Gegner auf die Startgegner hinzugerechnet werden fï¿½r die nï¿½chste Welle
+    public int plusMultiplikator = 1; // NEW PROGRESS SPAWN - Modifikator fï¿½r die plusEnemies Variable
     [Space(10)]
     public int zeusTower = 0;
     public int poseidonTower = 0;
@@ -396,7 +396,7 @@ public class GameManager : MonoBehaviour
 
     public void CalculateNextWaveEnemies()
     {
-        if (waveNumber % extraEnemiesPerXWaves == 0) plusMultiplikator++; // Wenn eine gewisse Welle erreicht wurde, dann erhöhe den Multiplilkator um 1
+        if (waveNumber % extraEnemiesPerXWaves == 0) plusMultiplikator++; // Wenn eine gewisse Welle erreicht wurde, dann erhï¿½he den Multiplilkator um 1
 
         if (waveNumber == 1)
         {
@@ -414,5 +414,11 @@ public class GameManager : MonoBehaviour
             $"plusEnemies: {plusEnemies} \n" +
             $"plusMultiplikator: {plusMultiplikator}");
 
+    }
+    
+    public void DestroyManager()
+    {
+        var Manager = this.GameObject();
+        GameObject.Destroy	(Manager);
     }
 }

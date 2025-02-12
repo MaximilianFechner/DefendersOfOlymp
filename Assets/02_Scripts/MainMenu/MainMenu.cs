@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine.Audio;
 
@@ -11,8 +12,10 @@ public class MainMenu : MonoBehaviour
     public InputField inputFPS;
     public Text selectedFPS;
     public AudioSource audioSource;
+    [SerializeField] private AudioClip _mainMenuSound;
     private float _musicVolume;
     [SerializeField] private AudioMixer _audioMixer;
+    [SerializeField] private Slider _volumeSlider;
     
     [Header("Resolution")]
     [SerializeField] private TMP_Dropdown _resolutionDropdown;
@@ -20,13 +23,32 @@ public class MainMenu : MonoBehaviour
     private Resolution[] _resolutions;
 
     [SerializeField] private GameObject _optionsMenu;
+    [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] private GameObject _startSubMenu;
+    [SerializeField] private GameObject _BackgroundImage;
+    [SerializeField] private GameObject _uiMainElements;
+    [SerializeField] private GameObject _menuAudio;
+    
     //Framerate Limit
-    public int targetFPS; //int.Parse(selectedFPS.text);
+    public int targetFPS;
 
+    private static MainMenu singleton;//int.Parse(selectedFPS.text);
+
+    void Awake()
+    {
+        if (singleton == null)
+        {
+            singleton = this;
+        } else if(singleton != null)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+    }
     void Start()
     {
         //Audio
-        audioSource.Play();
+        AudioManager.Instance.PlayMainMenuMusic	();
         
         #region Resolution Dropdown
         _resolutionDropdown.ClearOptions();
@@ -54,7 +76,7 @@ public class MainMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            _optionsMenu.SetActive(true);
+            PauseGame();
         }
 
         // Framerate Limit
@@ -86,24 +108,43 @@ public class MainMenu : MonoBehaviour
     //Play
     public void PlayGame()
     {
+        ButtonSFX	();
+        _startSubMenu.SetActive	(false);
+        _BackgroundImage.SetActive(false);
+        _uiMainElements.SetActive(false);
         SceneManager.LoadScene(1);
     }
 
     //Interactive Manual
     public void PlayManual()
     {
+        ButtonSFX	();
+        _startSubMenu.SetActive	(false);
+        _BackgroundImage.SetActive(false);
+        _uiMainElements.SetActive(false);
         SceneManager.LoadScene(2);
     }
 
     //Return to Main Menu
     public void LeaveGame()
     {
+        ButtonSFX	();
+        if (Time.timeScale != 1)
+            Time.timeScale = 1;
+        _pauseMenu.SetActive(false);
+        _BackgroundImage.SetActive(true);
+        _uiMainElements.SetActive(true);
         SceneManager.LoadScene(0);
+        GameManager.Instance.DestroyManager	();
+        UIManager.Instance.DestroyManager	();
+        TooltipManager.Instance	.DestroyManager	();
+        AudioManager.Instance.PlayMainMenuMusic	();
     }
 
     //Quit
     public void QuitGame()
     {
+        ButtonSFX	();
         Application.Quit();
 
 #if UNITY_EDITOR
@@ -111,20 +152,37 @@ public class MainMenu : MonoBehaviour
 #endif
     }
 
+    public void PauseGame()
+    {
+        _pauseMenu.SetActive(true);
+        Time.timeScale = 0;
+    }
+    public void ContinueGame()
+    {
+        if (Time.timeScale != 1)
+            Time.timeScale = 1;
+        _pauseMenu.SetActive(false);
+    }
+
     //Fullscreen
     public void SetFullscreen(bool isFullscreen)
     {
+        ButtonSFX	();
         Screen.fullScreen = isFullscreen;
     }
 
     public void SaveSettings()
     {
         PlayerPrefs.SetInt("ResolutionPreference", _resolutionDropdown.value);
+        PlayerPrefs.SetFloat("VolumePref", _musicVolume);
     }
 
     public void LoadSettings(int currentResolutionIndex)
     {
         _resolutionDropdown.value = PlayerPrefs.HasKey("ResolutionPreference") ? PlayerPrefs.GetInt("ResolutionPreference") : currentResolutionIndex;
+        _volumeSlider.value = PlayerPrefs.HasKey("VolumePref")
+             ? _musicVolume = PlayerPrefs.GetFloat("VolumePref")
+             : PlayerPrefs.GetFloat("VolumePref");
     }
 
     //Music
@@ -132,6 +190,11 @@ public class MainMenu : MonoBehaviour
     {
         _audioMixer.SetFloat("AUD_Master", volume);
         _musicVolume = volume;
+    }
+
+    private void ButtonSFX()
+    {
+        AudioManager.Instance.PlayButtonSFX	();
     }
 }
 
