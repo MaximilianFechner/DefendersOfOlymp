@@ -82,7 +82,7 @@ public class Hoverable : MonoBehaviour
                         $"Speed:";
 
                     tooltipData = $"\n<b><color=#8E0000>{enemy._currentHP}</color></b> / {enemy._maxHP}\n" +
-                        $"{navAgent.speed} / {(navAgent.speed / path._defaultSpeed) * 100}%";
+                        $"{navAgent.speed:F2} / {(navAgent.speed / path._defaultSpeed) * 100}%";
                 }
 
             }
