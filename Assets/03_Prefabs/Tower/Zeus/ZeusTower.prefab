@@ -661,7 +661,7 @@ MonoBehaviour:
   towerName: 3
   nameTower: Zeus
   attackSpeed: 0.53
-  attackRadius: 16
+  attackRadius: 14
   targetType: 0
   movementSpeed: 16
   damage: 4
@@ -671,12 +671,12 @@ MonoBehaviour:
   slowValue: 0
   timeSlowed: 0
   maxDamageJump: 0
-  upgradeAttackSpeed: 0.17
+  upgradeAttackSpeed: 0.1
   upgradeAttackRadius: 0.1
   upgradeMovementSpeed: 0
-  upgradeDamage: 4
-  upgradeDamageLowerLimit: 2
-  upgradeDamageUpperLimit: 2
+  upgradeDamage: 0
+  upgradeDamageLowerLimit: 1
+  upgradeDamageUpperLimit: 1
   upgradeAoeRadius: 0
   upgradeSlowValue: 0
   upgradeTimeSlowed: 0

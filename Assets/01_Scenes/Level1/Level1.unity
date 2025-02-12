@@ -9448,6 +9448,18 @@ PrefabInstance:
       propertyPath: damageUpperLimit
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageLowerLimitUpgrade
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageUpperLimitUpgrade
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 445532231495864091, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: cooldownReductionUpgrade
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 563932065624218141, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: cardToFlip
       value: 
@@ -9508,6 +9520,18 @@ PrefabInstance:
       propertyPath: damageUpperLimit
       value: 115
       objectReference: {fileID: 0}
+    - target: {fileID: 1127305501548914579, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageLowerLimitUpgrade
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127305501548914579, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageUpperLimitUpgrade
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127305501548914579, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: cooldownReductionUpgrade
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: image
       value: 
@@ -9521,8 +9545,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 597842270}
     - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: minVolumeSounds
+      value: 0.05024
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: _damageIntervalSeconds
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageLowerLimitUpgrade
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageUpperLimitUpgrade
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297022462861125603, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: cooldownReductionUpgrade
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4452418663944235855, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9583,6 +9623,18 @@ PrefabInstance:
     - target: {fileID: 6072449750005525643, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: _slowPercentage
       value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072449750005525643, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageLowerLimitUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072449750005525643, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: damageUpperLimitUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072449750005525643, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
+      propertyPath: cooldownReductionUpgrade
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6072449750005525643, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: damageLowerLimitPerInterval
