@@ -306,7 +306,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 25
   m_Sprite: {fileID: -1252828465, guid: 18e478dd7699edc4697b3f764034fb7c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -335,7 +335,7 @@ MonoBehaviour:
   attackSpeed: 1.27
   attackRadius: 10
   targetType: 0
-  movementSpeed: 10
+  movementSpeed: 16
   damage: 6
   damageLowerLimit: 5
   damageUpperLimit: 7
@@ -343,12 +343,12 @@ MonoBehaviour:
   slowValue: 0
   timeSlowed: 0
   maxDamageJump: 0
-  upgradeAttackSpeed: 0.05
-  upgradeAttackRadius: 0.01
+  upgradeAttackSpeed: 0.283
+  upgradeAttackRadius: 0
   upgradeMovementSpeed: 0
   upgradeDamage: 4
-  upgradeDamageLowerLimit: 3
-  upgradeDamageUpperLimit: 5
+  upgradeDamageLowerLimit: 5.4
+  upgradeDamageUpperLimit: 7.4
   upgradeAoeRadius: 0
   upgradeSlowValue: 0
   upgradeTimeSlowed: 0
@@ -365,9 +365,10 @@ MonoBehaviour:
   animator: {fileID: 0}
   towerLevel: 1
   projectilePrefab: {fileID: 7359844151393371129, guid: 61fbda69a02c5524eac6c0acf49c7c97, type: 3}
-  _buffDamageValue: 0
+  _buffDamageValue: 0.15
   _buffDamageValueAbsolute: 0
-  _buffAttackSpeedValue: 0
+  _buffAttackSpeedValue: 0.15
+  _buffCheckInterval: 2
 --- !u!95 &8266162181526408809
 Animator:
   serializedVersion: 7
@@ -1521,9 +1522,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 20
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.98039216, g: 0.59607846, b: 0.12941177, a: 0.29411766}
+  m_Color: {r: 0.98039216, g: 0.59607846, b: 0.12941177, a: 0.1764706}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
