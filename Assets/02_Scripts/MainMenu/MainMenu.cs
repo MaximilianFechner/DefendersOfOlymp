@@ -1,54 +1,58 @@
-using System;
-using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using System.Xml.Schema;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine.Audio;
-using Unity.VisualScripting;
-
 
 public class MainMenu : MonoBehaviour
 {
     public InputField inputFPS;
     public Text selectedFPS;
-
-
-
-    public AudioSource AudioSource;
-
+    public AudioSource audioSource;
+    [SerializeField] private AudioClip _mainMenuSound;
     private float _musicVolume;
     [SerializeField] private AudioMixer _audioMixer;
-
-    //Resolution
+    [SerializeField] private Slider _volumeSlider;
+    
+    [Header("Resolution")]
     [SerializeField] private TMP_Dropdown _resolutionDropdown;
     private GameObject _resolution;
-
     private Resolution[] _resolutions;
 
     [SerializeField] private GameObject _optionsMenu;
-
-
+    [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] private GameObject _startSubMenu;
+    [SerializeField] private GameObject _BackgroundImage;
+    [SerializeField] private GameObject _uiMainElements;
+    [SerializeField] private GameObject _menuAudio;
+    
     //Framerate Limit
+    public int targetFPS;
 
-    public int targetFPS; //int.Parse(selectedFPS.text);
+    private static MainMenu singleton;//int.Parse(selectedFPS.text);
 
-
-
+    void Awake()
+    {
+        if (singleton == null)
+        {
+            singleton = this;
+        } else if(singleton != null)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+    }
     void Start()
     {
-
         //Audio
-
-        AudioSource.Play();
-
+        AudioManager.Instance.PlayMainMenuMusic	();
+        
+        #region Resolution Dropdown
         _resolutionDropdown.ClearOptions();
-
-        //Resolution Dropdown
-
+        
         var options = new List<string>();
         _resolutions = Screen.resolutions;
         var currentResolutionIndex = 0;
@@ -65,15 +69,14 @@ public class MainMenu : MonoBehaviour
         _resolutionDropdown.AddOptions(options);
         _resolutionDropdown.RefreshShownValue();
         LoadSettings(currentResolutionIndex);
-
-
+        #endregion
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            _optionsMenu.SetActive(true);
+            PauseGame();
         }
 
         // Framerate Limit
@@ -85,7 +88,6 @@ public class MainMenu : MonoBehaviour
         else
         {
             targetFPS = 60; // Default FPS
-
         }
 
         QualitySettings.vSyncCount = 0;
@@ -97,10 +99,7 @@ public class MainMenu : MonoBehaviour
     public void SetResolution(int resolutionIndex)
     {
         if (_resolutions == null || _resolutions.Length == 0)
-        {
-
             return;
-        }
 
         var resolution = _resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
@@ -109,25 +108,43 @@ public class MainMenu : MonoBehaviour
     //Play
     public void PlayGame()
     {
-        SceneManager.LoadSceneAsync(1);
+        ButtonSFX	();
+        _startSubMenu.SetActive	(false);
+        _BackgroundImage.SetActive(false);
+        _uiMainElements.SetActive(false);
+        SceneManager.LoadScene(1);
     }
 
     //Interactive Manual
-
     public void PlayManual()
     {
-        SceneManager.LoadSceneAsync(2);
+        ButtonSFX	();
+        _startSubMenu.SetActive	(false);
+        _BackgroundImage.SetActive(false);
+        _uiMainElements.SetActive(false);
+        SceneManager.LoadScene(2);
     }
 
     //Return to Main Menu
     public void LeaveGame()
     {
-        SceneManager.LoadSceneAsync(0);
+        ButtonSFX	();
+        if (Time.timeScale != 1)
+            Time.timeScale = 1;
+        _pauseMenu.SetActive(false);
+        _BackgroundImage.SetActive(true);
+        _uiMainElements.SetActive(true);
+        SceneManager.LoadScene(0);
+        GameManager.Instance.DestroyManager	();
+        UIManager.Instance.DestroyManager	();
+        TooltipManager.Instance	.DestroyManager	();
+        AudioManager.Instance.PlayMainMenuMusic	();
     }
 
     //Quit
     public void QuitGame()
     {
+        ButtonSFX	();
         Application.Quit();
 
 #if UNITY_EDITOR
@@ -135,33 +152,50 @@ public class MainMenu : MonoBehaviour
 #endif
     }
 
+    public void PauseGame()
+    {
+        _pauseMenu.SetActive(true);
+        Time.timeScale = 0;
+    }
+    public void ContinueGame()
+    {
+        if (Time.timeScale != 1)
+            Time.timeScale = 1;
+        _pauseMenu.SetActive(false);
+    }
+
     //Fullscreen
     public void SetFullscreen(bool isFullscreen)
     {
+        ButtonSFX	();
         Screen.fullScreen = isFullscreen;
     }
 
     public void SaveSettings()
     {
         PlayerPrefs.SetInt("ResolutionPreference", _resolutionDropdown.value);
+        PlayerPrefs.SetFloat("VolumePref", _musicVolume);
     }
 
     public void LoadSettings(int currentResolutionIndex)
     {
         _resolutionDropdown.value = PlayerPrefs.HasKey("ResolutionPreference") ? PlayerPrefs.GetInt("ResolutionPreference") : currentResolutionIndex;
+        _volumeSlider.value = PlayerPrefs.HasKey("VolumePref")
+             ? _musicVolume = PlayerPrefs.GetFloat("VolumePref")
+             : PlayerPrefs.GetFloat("VolumePref");
     }
 
     //Music
-
     public void updateVolume(float volume)
     {
         _audioMixer.SetFloat("AUD_Master", volume);
         _musicVolume = volume;
     }
 
-
-
-
+    private void ButtonSFX()
+    {
+        AudioManager.Instance.PlayButtonSFX	();
+    }
 }
 
 
