@@ -45,19 +45,7 @@ public class MainMenu : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject); 
-    }
-    void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (SceneManager.GetSceneByBuildIndex(0).buildIndex == 0)
-        {
-            _BackgroundImage.SetActive(true);
-            _uiMainElements.SetActive(true);
-        }
+        DontDestroyOnLoad(gameObject);
     }
     void Start()
     {
@@ -85,10 +73,7 @@ public class MainMenu : MonoBehaviour
         LoadSettings(currentResolutionIndex);
         #endregion
     }
-    void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -131,7 +116,7 @@ public class MainMenu : MonoBehaviour
         _uiMainElements.SetActive(false);
         SceneManager.LoadScene(1);
     }
-    
+
     //Interactive Manual
     public void PlayManual()
     {
@@ -155,11 +140,10 @@ public class MainMenu : MonoBehaviour
         GameManager.Instance.DestroyManager	();
         UIManager.Instance.DestroyManager	();
         TooltipManager.Instance	.DestroyManager	();
-        AudioManager.Instance.PlayMainMenuMusic();
+        AudioManager.Instance.PlayMainMenuMusic	();
     }
-
-
     //Quit
+
     public void QuitGame()
     {
         ButtonSFX	();
@@ -214,8 +198,6 @@ public class MainMenu : MonoBehaviour
     {
         AudioManager.Instance.PlayButtonSFX	();
     }
-
- 
 }
 
 

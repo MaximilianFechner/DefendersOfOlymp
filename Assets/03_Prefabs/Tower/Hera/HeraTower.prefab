@@ -1410,14 +1410,14 @@ MonoBehaviour:
   slowValue: 5
   timeSlowed: 1.5
   maxDamageJump: 0
-  upgradeAttackSpeed: 0.169
-  upgradeAttackRadius: 0
+  upgradeAttackSpeed: 0.14
+  upgradeAttackRadius: 0.02
   upgradeMovementSpeed: 0
   upgradeDamage: 7
-  upgradeDamageLowerLimit: 6
-  upgradeDamageUpperLimit: 8
+  upgradeDamageLowerLimit: 2
+  upgradeDamageUpperLimit: 2
   upgradeAoeRadius: 0
-  upgradeSlowValue: 2
+  upgradeSlowValue: 0
   upgradeTimeSlowed: 0.3
   upgradeMaxDamageJump: 0
   enemyLayerMask:

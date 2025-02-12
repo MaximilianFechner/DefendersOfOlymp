@@ -22,9 +22,9 @@ public class GameOverButtons : MonoBehaviour
         if (Time.timeScale != 1)
             Time.timeScale = 1;
         SceneManager.LoadScene(0);
-        GameManager.Instance.DestroyManager	();
-        UIManager.Instance.DestroyManager	();
-        TooltipManager.Instance	.DestroyManager	();
+        GameManager.Instance.DestroyManager();
+        UIManager.Instance.DestroyManager();
+        TooltipManager.Instance.DestroyManager();
         AudioManager.Instance.PlayMainMenuMusic();
     }
 }

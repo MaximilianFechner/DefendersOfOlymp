@@ -1309,11 +1309,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5978797976970559593, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
   m_PrefabInstance: {fileID: 1507989259852378251}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &321192998 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4927842608779397137, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
-  m_PrefabInstance: {fileID: 1507989259852378251}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &325762330 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7012968655721769340, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
@@ -3258,7 +3253,7 @@ RectTransform:
   m_Children:
   - {fileID: 607865639}
   - {fileID: 1681646406}
-  m_Father: {fileID: 321192998}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -7565,7 +7560,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 417776627}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7915,7 +7910,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 593918547}
-  m_Father: {fileID: 1507989259852378254}
+  m_Father: {fileID: 417776627}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9857,7 +9852,7 @@ PrefabInstance:
       objectReference: {fileID: 1452796576647152146}
     - target: {fileID: 2710145251862487515, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2754710053406547178, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -10135,11 +10130,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1507989259852378255}
   m_SourcePrefab: {fileID: 100100000, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
---- !u!224 &1507989259852378254 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 120536505535706836, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
-  m_PrefabInstance: {fileID: 1507989259852378251}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1507989259852378255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10225,7 +10215,7 @@ PrefabInstance:
       objectReference: {fileID: 354538978}
     - target: {fileID: 1040459522354727499, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: critChance
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1040459522354727499, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: _playerStartLives
@@ -10358,7 +10348,7 @@ PrefabInstance:
     - target: {fileID: 6625385644915245769, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: mainMenu
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1724269596}
     - target: {fileID: 6625385644915245769, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: tryAgain
       value: 
@@ -10634,3 +10624,5 @@ SceneRoots:
   - {fileID: 1507989259852378251}
   - {fileID: 172336949}
   - {fileID: 1141751715}
+  - {fileID: 721473585}
+  - {fileID: 1637626996}
