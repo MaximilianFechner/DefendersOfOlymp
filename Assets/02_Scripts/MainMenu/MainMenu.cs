@@ -9,6 +9,8 @@ using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
+    public static MainMenu Instance { get; private set; }
+
     public InputField inputFPS;
     public Text selectedFPS;
     public AudioSource audioSource;
@@ -140,6 +142,7 @@ public class MainMenu : MonoBehaviour
         TooltipManager.Instance	.DestroyManager	();
         AudioManager.Instance.PlayMainMenuMusic	();
     }
+
 
     //Quit
     public void QuitGame()
