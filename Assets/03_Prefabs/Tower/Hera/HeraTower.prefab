@@ -1413,7 +1413,7 @@ MonoBehaviour:
   upgradeAttackSpeed: 0.14
   upgradeAttackRadius: 0.02
   upgradeMovementSpeed: 0
-  upgradeDamage: 7
+  upgradeDamage: 0
   upgradeDamageLowerLimit: 2
   upgradeDamageUpperLimit: 2
   upgradeAoeRadius: 0

@@ -336,7 +336,7 @@ MonoBehaviour:
   attackRadius: 10
   targetType: 0
   movementSpeed: 16
-  damage: 6
+  damage: 2
   damageLowerLimit: 1
   damageUpperLimit: 3
   aoeRadius: 2
