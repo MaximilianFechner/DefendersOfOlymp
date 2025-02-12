@@ -78,9 +78,10 @@ public class GameManager : MonoBehaviour
     public HeraStun heraStun;
     public HephaistosQuake hephQuake;
     public Hermes hermes;
+    public GameOverManager gameOverManager;
 
     public bool isCardDrawable = false;
-
+    public bool isGameOver = false;
     public bool highscoreReached = false;
 
     private void Awake()
@@ -110,6 +111,9 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.highscore.text = highscore.ToString();
 
         isCardDrawable = true;
+        isGameOver = false;
+
+        gameOverManager.StopGameOverEffects();
 
         UIManager.Instance.nextWaveEnemiesText.text = $"<b><color=#8E0000>{PredictNextWaveEnemies()}</color></b> expected minions of\nHades in the next wave!";
         hermes.ShowHermes();
@@ -129,6 +133,9 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.highscore.text = highscore.ToString();
 
         isCardDrawable = true;
+        isGameOver = false;
+
+        gameOverManager.StopGameOverEffects();
 
         UIManager.Instance.nextWaveEnemiesText.text = $"<b><color=#8E0000>{PredictNextWaveEnemies()}</color></b> expected minions of\nHades in the next wave!";
         hermes.ShowHermes();
@@ -176,7 +183,9 @@ public class GameManager : MonoBehaviour
         if (hephQuake != null) hephQuake.ResetCooldown();
 
         isCardDrawable = true;
+        isGameOver = false;
 
+        gameOverManager.StopGameOverEffects();
         SceneManager.LoadScene("Level1");
 
         UIParticlesystem part = FindFirstObjectByType<UIParticlesystem>();
@@ -188,26 +197,29 @@ public class GameManager : MonoBehaviour
 
     public void LoseLife(int damage)
     {
-        RemainingLives -= damage;
-        healthScore--;
-        
-        score--;
-        if (score > highscore)
+        if (!isGameOver)
         {
-            highscore = score;
-            SaveHighscore();
+            RemainingLives -= damage;
+            healthScore--;
 
-            //PlayerPrefs.SetInt("highscore", highscore);
-            //PlayerPrefs.Save();
-        }
+            score--;
+            if (score > highscore)
+            {
+                highscore = score;
+                SaveHighscore();
 
-        UIManager.Instance.UpdateLives(RemainingLives);
-        UIManager.Instance.UpdateScoreCalculating();
-        AudioManager.Instance.PlayLostLifeSFX();
+                //PlayerPrefs.SetInt("highscore", highscore);
+                //PlayerPrefs.Save();
+            }
 
-        if (RemainingLives == 0)
-        {
-            GameOver();
+            UIManager.Instance.UpdateLives(RemainingLives);
+            UIManager.Instance.UpdateScoreCalculating();
+            AudioManager.Instance.PlayLostLifeSFX();
+
+            if (RemainingLives == 0)
+            {
+                GameOver();
+            }
         }
     }
 
@@ -280,6 +292,7 @@ public class GameManager : MonoBehaviour
         plusMultiplikator = 1;
 
         highscoreReached = false;
+        isGameOver = false;
 
         zeusTower = 0;
         poseidonTower = 0;
@@ -295,9 +308,12 @@ public class GameManager : MonoBehaviour
             SaveHighscore();
         }
 
-        Time.timeScale = 0;
-        UIManager.Instance.gameOverPanel.SetActive(true);
-        UIManager.Instance.ShowEndResults();
+        isGameOver  = true;
+        //Time.timeScale = 0;
+        AudioManager.Instance.PlayGameOverSFX();
+        gameOverManager.TriggerGameOver();
+        //UIManager.Instance.gameOverPanel.SetActive(true);
+        //UIManager.Instance.ShowEndResults();
     }
 
     private void EndOfWave()

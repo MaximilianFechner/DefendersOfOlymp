@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip[] towerPlacementSFX;
     public AudioClip[] hitImpactSFX;
     public AudioClip highscoreSFX;
+    public AudioClip gameOverSFX;
 
     private void Awake()
     {
@@ -194,5 +195,20 @@ public class AudioManager : MonoBehaviour
         tempAudioSource.Play();
 
         Destroy(highscoreSFXObject, highscoreSFX.length);
+    }
+
+    public void PlayGameOverSFX()
+    {
+        GameObject gameOverSFXObject = new GameObject("GameOverSFX");
+        AudioSource tempAudioSource = gameOverSFXObject.AddComponent<AudioSource>();
+
+        tempAudioSource.clip = gameOverSFX;
+        tempAudioSource.ignoreListenerPause = true;
+        tempAudioSource.volume = 0.5f;
+        tempAudioSource.loop = false;
+
+        tempAudioSource.Play();
+
+        Destroy(gameOverSFXObject, gameOverSFX.length);
     }
 }
