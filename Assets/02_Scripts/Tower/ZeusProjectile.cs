@@ -26,7 +26,7 @@ public class ZeusProjectile : BaseProjectile
         // Rotate the projectile towards the first target
         transform.right = initialDirection;
 
-        Debug.Log($"Jumps: {maxDamageJump}");
+        //Debug.Log($"Jumps: {maxDamageJump}");
     }
 
     void FixedUpdate()

@@ -155,6 +155,20 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void BackToMainMenu()
+    {
+        if (score > highscore)
+        {
+            highscore = score;
+            SaveHighscore();
+        }
+
+        ResetStats();
+        gameOverManager.StopGameOverEffects();
+
+        SceneManager.LoadScene(0); // 0 MainMenu
+    }
+
     public void TryAgain()
     {
         FindFirstObjectByType<CardManager>().ResetGrid();
