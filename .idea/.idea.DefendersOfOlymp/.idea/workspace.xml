@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a0809e8-16ad-4168-b0b5-e4657bc15726" name="Changes" comment="Initial Commit">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DefendersOfOlymp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DefendersOfOlymp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Scenes/Main Menu/Main Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Scenes/Main Menu/Main Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset.meta" beforeDir="false" />
-    </list>
+    <list default="true" id="9a0809e8-16ad-4168-b0b5-e4657bc15726" name="Changes" comment="Edit AudioManager again" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,43 +18,73 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Zarbony"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Zarbony&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/MaximilianFechner/DefendersOfOlymp.git",
-    "accountId": "13d83040-3537-4cd6-a3c2-0d06e14a0065"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/MaximilianFechner/DefendersOfOlymp.git&quot;,
+    &quot;accountId&quot;: &quot;13d83040-3537-4cd6-a3c2-0d06e14a0065&quot;
   },
-  "recentNewPullRequestHead": {
-    "server": {
-      "useHttp": false,
-      "host": "github.com",
-      "port": null,
-      "suffix": null
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
     },
-    "owner": "MaximilianFechner",
-    "repository": "DefendersOfOlymp"
+    &quot;owner&quot;: &quot;MaximilianFechner&quot;,
+    &quot;repository&quot;: &quot;DefendersOfOlymp&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/01_Scenes/Level1/Level1.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/01_Scenes/Level1/Level1.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/01_Scenes/Main Menu/Main Menu.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/01_Scenes/Main Menu/Main Menu.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/01_Scenes/Main Menu/Main Menu.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/01_Scenes/Main Menu/Main Menu.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/01_Scenes/Main Menu/Main Menu.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02_Scripts/ActiveSkills/HephaistosQuake.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/MainMenu/MainMenu.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02_Scripts/MainMenu/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/MainMenu/MainMenu.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02_Scripts/MainMenu/ManualCardManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/Manager/AudioManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02_Scripts/Tower/BaseTower.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/03_Prefabs/MainMenu/Main Menu.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/03_Prefabs/MainMenu/Main Menu.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/ProjectSettings/EditorBuildSettings.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "git-widget-placeholder": "#46 on feature/pause__menu",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;git-widget-placeholder&quot;: &quot;#46 on feature/pause__menu&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager" selected="Standalone Player.Start Unity">
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="F:\Unity\6000.0.25f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;F:\OneDrive - games-academy.de\GitFork\DefendersOfOlymp&quot; -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="F:\OneDrive - games-academy.de\GitFork\DefendersOfOlymp" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="F:\Unity\6000.0.25f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;F:\OneDrive - games-academy.de\GitFork\DefendersOfOlymp&quot; -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="F:\OneDrive - games-academy.de\GitFork\DefendersOfOlymp" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -69,7 +94,95 @@
       <option name="project" value="LOCAL" />
       <updated>1739273669202</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add Pause Menu">
+      <option name="closed" value="true" />
+      <created>1739276018564</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1739276018564</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Change GameObject for Script">
+      <option name="closed" value="true" />
+      <created>1739277463046</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1739277463046</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Edit MainMenu Prefab and script">
+      <option name="closed" value="true" />
+      <created>1739279182264</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1739279182264</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add DestroyManager Function">
+      <option name="closed" value="true" />
+      <created>1739282623509</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1739282623509</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Disable Audio when click on New Game">
+      <option name="closed" value="true" />
+      <created>1739282855519</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1739282855519</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Add Button Sounds || Edit AudioManager">
+      <option name="closed" value="true" />
+      <created>1739284473706</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1739284473706</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Destroy GameObjects in Scene 0">
+      <option name="closed" value="true" />
+      <created>1739286033363</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1739286033363</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Remove DestroyManager from AudioManager">
+      <option name="closed" value="true" />
+      <created>1739286070889</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1739286070889</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Edit some Code Issues">
+      <option name="closed" value="true" />
+      <created>1739286115335</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1739286115335</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Edit AudioManager">
+      <option name="closed" value="true" />
+      <created>1739287007001</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1739287007001</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Edit AudioManager again">
+      <option name="closed" value="true" />
+      <created>1739287371456</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1739287371456</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="false" />
@@ -77,6 +190,17 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit" />
+    <MESSAGE value="Add Pause Menu" />
+    <MESSAGE value="Change GameObject for Script" />
+    <MESSAGE value="Edit MainMenu Prefab and script" />
+    <MESSAGE value="Add DestroyManager Function" />
+    <MESSAGE value="Disable Audio when click on New Game" />
+    <MESSAGE value="Add Button Sounds || Edit AudioManager" />
+    <MESSAGE value="Destroy GameObjects in Scene 0" />
+    <MESSAGE value="Remove DestroyManager from AudioManager" />
+    <MESSAGE value="Edit some Code Issues" />
+    <MESSAGE value="Edit AudioManager" />
+    <MESSAGE value="Edit AudioManager again" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit AudioManager again" />
   </component>
 </project>

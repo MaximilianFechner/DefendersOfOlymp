@@ -15,6 +15,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private AudioClip _mainMenuSound;
     private float _musicVolume;
     [SerializeField] private AudioMixer _audioMixer;
+    [SerializeField] private Slider _volumeSlider;
     
     [Header("Resolution")]
     [SerializeField] private TMP_Dropdown _resolutionDropdown;
@@ -173,11 +174,15 @@ public class MainMenu : MonoBehaviour
     public void SaveSettings()
     {
         PlayerPrefs.SetInt("ResolutionPreference", _resolutionDropdown.value);
+        PlayerPrefs.SetFloat("VolumePref", _musicVolume);
     }
 
     public void LoadSettings(int currentResolutionIndex)
     {
         _resolutionDropdown.value = PlayerPrefs.HasKey("ResolutionPreference") ? PlayerPrefs.GetInt("ResolutionPreference") : currentResolutionIndex;
+        _volumeSlider.value = PlayerPrefs.HasKey("VolumePref")
+             ? _musicVolume = PlayerPrefs.GetFloat("VolumePref")
+             : PlayerPrefs.GetFloat("VolumePref");
     }
 
     //Music
