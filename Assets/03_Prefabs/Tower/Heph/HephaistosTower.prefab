@@ -339,7 +339,7 @@ MonoBehaviour:
   damage: 6
   damageLowerLimit: 5
   damageUpperLimit: 7
-  aoeRadius: 15
+  aoeRadius: 10
   slowValue: 0
   timeSlowed: 0
   maxDamageJump: 0
@@ -365,9 +365,9 @@ MonoBehaviour:
   animator: {fileID: 0}
   towerLevel: 1
   projectilePrefab: {fileID: 7359844151393371129, guid: 61fbda69a02c5524eac6c0acf49c7c97, type: 3}
-  _buffDamageValue: 0
+  _buffDamageValue: 0.2
   _buffDamageValueAbsolute: 0
-  _buffAttackSpeedValue: 0
+  _buffAttackSpeedValue: 0.2
 --- !u!95 &8266162181526408809
 Animator:
   serializedVersion: 7

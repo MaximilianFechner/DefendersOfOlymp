@@ -5633,7 +5633,7 @@ PrefabInstance:
       objectReference: {fileID: 426104745}
     - target: {fileID: 1040459522354727499, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: firstWaveEnemies
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1040459522354727499, guid: aa7e712d427fb1c4294227bb9ed8df7d, type: 3}
       propertyPath: extraEnemiesPerXWaves
