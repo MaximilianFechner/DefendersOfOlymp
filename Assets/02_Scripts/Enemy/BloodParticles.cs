@@ -8,4 +8,19 @@ public class BloodParticles : MonoBehaviour
     {
         Destroy(this.gameObject, 1f);
     }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Destroy(this.gameObject);
+    }
 }

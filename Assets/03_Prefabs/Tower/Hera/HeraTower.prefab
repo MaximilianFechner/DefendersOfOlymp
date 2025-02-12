@@ -1399,13 +1399,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerName: 1
   nameTower: Hera
-  attackSpeed: 0.9
+  attackSpeed: 0.71
   attackRadius: 13
   targetType: 0
   movementSpeed: 15
-  damage: 7
-  damageLowerLimit: 6
-  damageUpperLimit: 8
+  damage: 6
+  damageLowerLimit: 5
+  damageUpperLimit: 7
   aoeRadius: 0
   slowValue: 5
   timeSlowed: 1.5

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -139,7 +140,7 @@ public class TooltipManager : MonoBehaviour
             newPosition.y = mousePosition.y + currentOffset.y;
         }
 
-        // für die Umrechnugn von Bildschirmkoordinaten in Canvaskoordinaten
+        // fï¿½r die Umrechnugn von Bildschirmkoordinaten in Canvaskoordinaten
         Vector2 localPosition;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             canvas.transform as RectTransform,
@@ -203,5 +204,11 @@ public class TooltipManager : MonoBehaviour
         tooltipText.text = "";
         tooltipData.text = "";
         SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    public void DestroyManager()
+    {
+        var Manager = this.GameObject();
+        GameObject.Destroy	(Manager);
     }
 }
