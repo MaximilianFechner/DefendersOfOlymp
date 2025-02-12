@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a0809e8-16ad-4168-b0b5-e4657bc15726" name="Changes" comment="Edit AudioManager again" />
+    <list default="true" id="9a0809e8-16ad-4168-b0b5-e4657bc15726" name="Changes" comment="Edit Game Over Buttons">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DefendersOfOlymp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DefendersOfOlymp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/MainMenu/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/MainMenu/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/UI/GameOverButtons.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/UI/GameOverButtons.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -41,10 +48,25 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/321eb2db7c6d43ea8fc39b54eaca345246ae00/7b/e4dc922c/NullReferenceException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/321eb2db7c6d43ea8fc39b54eaca345246ae00/91/e4338b4d/Exception.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/321eb2db7c6d43ea8fc39b54eaca345246ae00/bc/6bab4bcc/SystemException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/01_Scenes/Main Menu/Main Menu.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02_Scripts/ActiveSkills/HephaistosQuake.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02_Scripts/MainMenu/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/MainMenu/MainMenu.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/MainMenu/MainMenu.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02_Scripts/MainMenu/ManualCardManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/Manager/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/Manager/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/Manager/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/Manager/GameOverManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/Manager/GameOverManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02_Scripts/Tower/BaseTower.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/Tower/ZeusProjectile.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/Tower/ZeusProjectile.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Runtime/UGUI/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Runtime/UGUI/UI/Core/Button.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Runtime/UGUI/UI/Core/ScrollRect.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
@@ -60,7 +82,8 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "#50 on feature/Scrollable__manual",
+    "Standalone Player.Start Unity.executor": "Debug",
+    "git-widget-placeholder": "#54 on fix/GameOverScreenMainMenuButton",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -226,7 +249,15 @@
       <updated>1739361941407</updated>
       <workItem from="1739361945014" duration="1280000" />
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Edit Game Over Buttons">
+      <option name="closed" value="true" />
+      <created>1739370608694</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1739370608694</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,6 +295,7 @@
     <MESSAGE value="Edit some Code Issues" />
     <MESSAGE value="Edit AudioManager" />
     <MESSAGE value="Edit AudioManager again" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Edit Game Over Buttons" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit Game Over Buttons" />
   </component>
 </project>

@@ -12,7 +12,6 @@ public class GameOverManager : MonoBehaviour
 
     public Image gameOver;
     public Button tryAgain;
-    public Button mainMenu;
     public Button quit;
 
     public GameObject[] spawnPoints;
@@ -137,7 +136,6 @@ public class GameOverManager : MonoBehaviour
     {
         StartCoroutine(FadeImage(gameOver, 25));
         StartCoroutine(FadeButton(tryAgain, 10f));
-        StartCoroutine(FadeButton(mainMenu, 10f));
         StartCoroutine(FadeButton(quit, 10f));
         yield return null;
     }
