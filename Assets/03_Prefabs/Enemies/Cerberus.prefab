@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: Cerberus
-  _maxHP: 95
+  _maxHP: 100
   absoluteHPIncreaseWave: 5
   prozentualHPIncreaseWave: 2
   absoluteSpeedIncreaseWave: 0

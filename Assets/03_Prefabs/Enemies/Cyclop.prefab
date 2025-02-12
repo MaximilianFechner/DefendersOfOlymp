@@ -581,7 +581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: Cyclop
-  _maxHP: 165
+  _maxHP: 170
   absoluteHPIncreaseWave: 5
   prozentualHPIncreaseWave: 3
   absoluteSpeedIncreaseWave: 0

@@ -1236,7 +1236,7 @@ MonoBehaviour:
   attackSpeed: 0.95
   attackRadius: 13
   targetType: 0
-  movementSpeed: 12
+  movementSpeed: 16
   damage: 9
   damageLowerLimit: 8
   damageUpperLimit: 10
@@ -1244,13 +1244,13 @@ MonoBehaviour:
   slowValue: 0
   timeSlowed: 0
   maxDamageJump: 0
-  upgradeAttackSpeed: 0.05
-  upgradeAttackRadius: 0.01
+  upgradeAttackSpeed: 0.158
+  upgradeAttackRadius: 0.077
   upgradeMovementSpeed: 0
   upgradeDamage: 9
-  upgradeDamageLowerLimit: 8
-  upgradeDamageUpperLimit: 10
-  upgradeAoeRadius: 0
+  upgradeDamageLowerLimit: 4
+  upgradeDamageUpperLimit: 4
+  upgradeAoeRadius: 1
   upgradeSlowValue: 0
   upgradeTimeSlowed: 0
   upgradeMaxDamageJump: 0
