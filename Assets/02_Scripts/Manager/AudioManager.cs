@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     private AudioSource audioSource;
 
     public AudioClip levelBackgroundMusic;
+    public AudioClip mainMenuMusic;
     public AudioClip levelAmbienteSFX;
     public AudioClip waveEndMusic;
     public AudioClip[] lostLifeSFX;
@@ -27,7 +28,7 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
+        
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
@@ -40,6 +41,15 @@ public class AudioManager : MonoBehaviour
     public void PlayLevelBackgroundMusic()
     {
         audioSource.resource = levelBackgroundMusic;
+        audioSource.volume = 0.1f;
+        audioSource.loop = true;
+        audioSource.ignoreListenerPause = true;
+        audioSource.Play();
+    }
+    
+    public void PlayMainMenuMusic()
+    {
+        audioSource.resource = mainMenuMusic;
         audioSource.volume = 0.1f;
         audioSource.loop = true;
         audioSource.ignoreListenerPause = true;
@@ -58,22 +68,23 @@ public class AudioManager : MonoBehaviour
 
         tempAudioSource.Play();
 
-        StartCoroutine(FadeInVolume(tempAudioSource, 0.015f, 10f));
+        //throws Error when switchting from Game to Main Menu
+        //StartCoroutine(FadeInVolume(tempAudioSource, 0.015f, 10f));
     }
 
-    private IEnumerator FadeInVolume(AudioSource audioSource, float targetVolume, float duration)
-    {
-        float elapsedTime = 0f;
+//    private IEnumerator FadeInVolume(AudioSource audioSource, float targetVolume, float duration)
+//    {
+//        float elapsedTime = 0f;
 
-        while (elapsedTime < duration)
-        {
-            elapsedTime += Time.deltaTime;
-            audioSource.volume = Mathf.Lerp(0f, targetVolume, elapsedTime / duration);
-            yield return null;
-        }
+//        while (elapsedTime < duration)
+//        {
+//            elapsedTime += Time.deltaTime;
+//            audioSource.volume = Mathf.Lerp(0f, targetVolume, elapsedTime / duration);
+//            yield return null;
+//        }
 
-        audioSource.volume = targetVolume;
-    }
+//        audioSource.volume = targetVolume;
+//    }
 
 
     public void PlayWaveEndMusic()

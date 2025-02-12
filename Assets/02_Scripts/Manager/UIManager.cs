@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -170,5 +171,11 @@ public class UIManager : MonoBehaviour
     {
         highscoreVisual.SetActive(false);
         highscoreShadow.SetActive(true);
+    }
+    
+    public void DestroyManager()
+    {
+        var Manager = this.GameObject();
+        GameObject.Destroy	(Manager);
     }
 }

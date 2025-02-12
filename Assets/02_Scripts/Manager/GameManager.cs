@@ -2,7 +2,7 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.IO;
-//using Unity.VisualScripting;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     public int nextWaveEnemies = 0; // NEW PROGRESS SPAWN - Gegner in der nächsten Welle
     public int plusEnemies = 0; // NEW PROGRESS SPAWN - Wieviele Gegner auf die Startgegner hinzugerechnet werden für die nächste Welle
     public int plusMultiplikator = 1; // NEW PROGRESS SPAWN - Modifikator für die plusEnemies Variable
+
     [Space(10)]
     public int zeusTower = 0;
     public int poseidonTower = 0;
@@ -521,5 +522,11 @@ public class GameManager : MonoBehaviour
             highscore = 0; // Standardwert, wenn Datei nicht existiert.
             SaveHighscore(); // Datei neu erstellen mit default wert
         }
+    }
+    
+    public void DestroyManager()
+    {
+        var Manager = this.GameObject();
+        GameObject.Destroy	(Manager);
     }
 }

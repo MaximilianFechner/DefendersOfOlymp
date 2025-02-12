@@ -8000,14 +8000,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d39c160a1c91a428a38df087586fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _AvailableCards:
-  - {fileID: 11400000, guid: cc8ad04a283b23241a6e8ecefe5ff65d, type: 2}
-  - {fileID: 11400000, guid: 29ad95fde724dc246b91f3942907e4ee, type: 2}
-  - {fileID: 11400000, guid: f1f7919503ec84e4fb30ab95578587f2, type: 2}
-  - {fileID: 11400000, guid: 1966102b65ea9b240be83a6e3d8379d3, type: 2}
-  _CardDisplay: {fileID: 0}
-  _drawCardButton: {fileID: 0}
+  _availableCards: []
+  _cardDisplay: {fileID: 0}
+  _drawCardButton: {fileID: 1936498712}
   _towerPreview: {fileID: 0}
+  _currentPreview: {fileID: 0}
 --- !u!1001 &1371414554377574553
 PrefabInstance:
   m_ObjectHideFlags: 0
