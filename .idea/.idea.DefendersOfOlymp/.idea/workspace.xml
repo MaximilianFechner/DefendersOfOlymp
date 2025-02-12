@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a0809e8-16ad-4168-b0b5-e4657bc15726" name="Changes" comment="Edit AudioManager again" />
+    <list default="true" id="9a0809e8-16ad-4168-b0b5-e4657bc15726" name="Changes" comment="Update new Changes">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DefendersOfOlymp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DefendersOfOlymp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_Scenes/Level1/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Scenes/Level1/Level1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/MainMenu/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/MainMenu/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Manager/GameManager.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,10 +46,20 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/01_Scenes/Main Menu/Main Menu.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02_Scripts/ActiveSkills/HephaistosQuake.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02_Scripts/MainMenu/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/MainMenu/MainMenu.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/MainMenu/MainMenu.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02_Scripts/MainMenu/ManualCardManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/Manager/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/Manager/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/Manager/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/Manager/GameOverManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/Manager/GameOverManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02_Scripts/Tower/BaseTower.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/Tower/ZeusProjectile.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/OneDrive - games-academy.de/GitFork/DefendersOfOlymp/Assets/02_Scripts/Tower/ZeusProjectile.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Runtime/UGUI/UI/Core/ScrollRect.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
@@ -60,7 +75,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "#50 on feature/Scrollable__manual",
+    "git-widget-placeholder": "fix/GameOverScreenMainMenuButton",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
