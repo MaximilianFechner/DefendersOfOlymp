@@ -151,8 +151,6 @@ public class GameManager : MonoBehaviour
             highscore = score;
             SaveHighscore();
         }
-
-        Application.Quit();
     }
 
     public void BackToMainMenu()
@@ -165,8 +163,6 @@ public class GameManager : MonoBehaviour
 
         ResetStats();
         gameOverManager.StopGameOverEffects();
-
-        SceneManager.LoadScene(0); // 0 MainMenu
     }
 
     public void TryAgain()
