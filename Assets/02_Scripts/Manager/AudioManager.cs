@@ -188,7 +188,7 @@ public class AudioManager : MonoBehaviour
 
         tempAudioSource.clip = highscoreSFX;
         tempAudioSource.ignoreListenerPause = true;
-        tempAudioSource.volume = 0.7f;
+        tempAudioSource.volume = 0.4f;
         tempAudioSource.loop = false;
 
         tempAudioSource.Play();

@@ -1,14 +1,18 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 public class ScoreBoard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 
     private Animator animator;
-
     private AudioSource audioSource;
     public AudioClip stoneSFX;
+
+    private Coroutine hoverCoroutine;
+    private bool isHovering = false;
+
 
     void Start()
     {
@@ -27,23 +31,42 @@ public class ScoreBoard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        animator.SetBool("isHovered", true);
+        isHovering = true;
 
-        if (stoneSFX != null && audioSource != null)
+        if (hoverCoroutine == null)
         {
-            audioSource.pitch = 1.1f;
-            audioSource.PlayOneShot(stoneSFX);
+            hoverCoroutine = StartCoroutine(HoverDelay());
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        animator.SetBool("isHovered", false);
+        isHovering = false;
 
-        if (stoneSFX != null && audioSource != null)
+        if (hoverCoroutine != null)
         {
-            audioSource.pitch = 0.8f;
-            audioSource.PlayOneShot(stoneSFX);
+            StopCoroutine(hoverCoroutine);
+            hoverCoroutine = null;
         }
+
+        animator.SetBool("isHovered", false);
+    }
+
+    private IEnumerator HoverDelay()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        if (isHovering)
+        {
+            animator.SetBool("isHovered", true);
+
+            if (stoneSFX != null && audioSource != null)
+            {
+                audioSource.pitch = 0.8f;
+                audioSource.PlayOneShot(stoneSFX);
+            }
+        }
+
+        hoverCoroutine = null;
     }
 }
