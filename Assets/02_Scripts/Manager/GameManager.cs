@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     public Transform[] spawnPoints;
     private bool isSpawning = false;
 
-    [HideInInspector] public bool isInWave = false;
+    public bool isInWave = false;
     
     [HideInInspector] public int score = 0;
     [HideInInspector] public int highscore = 0;
@@ -112,6 +112,7 @@ public class GameManager : MonoBehaviour
 
         isCardDrawable = true;
         isGameOver = false;
+        isInWave = false;
 
         gameOverManager.StopGameOverEffects();
 
@@ -134,6 +135,7 @@ public class GameManager : MonoBehaviour
 
         isCardDrawable = true;
         isGameOver = false;
+        isInWave = false;
 
         gameOverManager.StopGameOverEffects();
 
@@ -184,6 +186,7 @@ public class GameManager : MonoBehaviour
 
         isCardDrawable = true;
         isGameOver = false;
+        isInWave = false;
 
         gameOverManager.StopGameOverEffects();
         SceneManager.LoadScene("Level1");
@@ -293,6 +296,7 @@ public class GameManager : MonoBehaviour
 
         highscoreReached = false;
         isGameOver = false;
+        isInWave = false;
 
         zeusTower = 0;
         poseidonTower = 0;
