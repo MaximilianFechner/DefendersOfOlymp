@@ -77,7 +77,7 @@ public class MainMenu : MonoBehaviour
 
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "Level1" || SceneManager.GetActiveScene().name == "Credits")
+        if (SceneManager.GetActiveScene().name == "Level1")
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {

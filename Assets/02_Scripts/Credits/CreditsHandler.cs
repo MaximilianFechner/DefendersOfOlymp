@@ -6,6 +6,7 @@ public class CreditsHandler : MonoBehaviour
 {
 
     private MainMenu menu;
+    public GameObject creditsUI;
 
     private void Start()
     {
@@ -14,6 +15,7 @@ public class CreditsHandler : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        creditsUI.SetActive(false);
         menu.LeaveGame();
     }
 }
