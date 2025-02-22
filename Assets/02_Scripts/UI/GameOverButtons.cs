@@ -4,6 +4,12 @@ using UnityEngine.SceneManagement;
 
 public class GameOverButtons : MonoBehaviour
 {
+    MainMenu menu;
+
+    private void Start()
+    {
+        menu = FindAnyObjectByType<MainMenu>();
+    }
 
     public void QuitBtn()
     {
@@ -17,14 +23,16 @@ public class GameOverButtons : MonoBehaviour
 
     public void BackToMainMenuBtn()
     {
-        GameManager.Instance.BackToMainMenu();
-        //MainMenu.Instance.LeaveGame();
-        if (Time.timeScale != 1)
-            Time.timeScale = 1;
-        SceneManager.LoadScene(0);
-        GameManager.Instance.DestroyManager();
-        UIManager.Instance.DestroyManager();
-        TooltipManager.Instance.DestroyManager();
-        AudioManager.Instance.PlayMainMenuMusic();
+        menu.LeaveGame();
+
+        //GameManager.Instance.BackToMainMenu();
+        ////MainMenu.Instance.LeaveGame();
+        //if (Time.timeScale != 1)
+        //    Time.timeScale = 1;
+        //SceneManager.LoadScene(0);
+        //GameManager.Instance.DestroyManager();
+        //UIManager.Instance.DestroyManager();
+        //TooltipManager.Instance.DestroyManager();
+        //AudioManager.Instance.PlayMainMenuMusic();
     }
 }

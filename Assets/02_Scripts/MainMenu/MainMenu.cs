@@ -30,11 +30,12 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _BackgroundImage;
     [SerializeField] private GameObject _uiMainElements;
     [SerializeField] private GameObject _menuAudio;
+    [SerializeField] private GameObject _creditsBTN;
     
     //Framerate Limit
     public int targetFPS;
 
-    private static MainMenu singleton;//int.Parse(selectedFPS.text);
+    private static MainMenu singleton;
 
     void Awake()
     {
@@ -76,9 +77,12 @@ public class MainMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (SceneManager.GetActiveScene().name == "Level1" || SceneManager.GetActiveScene().name == "Credits")
         {
-            PauseGame();
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                PauseGame();
+            }
         }
 
         // Framerate Limit
@@ -110,43 +114,69 @@ public class MainMenu : MonoBehaviour
     //Play
     public void PlayGame()
     {
-        ButtonSFX	();
+        ButtonSFX();
         _startSubMenu.SetActive	(false);
         _BackgroundImage.SetActive(false);
         _uiMainElements.SetActive(false);
+        _creditsBTN.SetActive(false);
         SceneManager.LoadScene(1);
+    }
+
+    public void Credits()
+    {
+        ButtonSFX();
+        _startSubMenu.SetActive(false);
+        _BackgroundImage.SetActive(false);
+        _uiMainElements.SetActive(false);
+        _creditsBTN.SetActive(false);
+        SceneManager.LoadScene(2);
     }
 
     //Interactive Manual
     public void PlayManual()
     {
-        ButtonSFX	();
-        _startSubMenu.SetActive	(false);
+        ButtonSFX();
+        _startSubMenu.SetActive(false);
         _BackgroundImage.SetActive(false);
         _uiMainElements.SetActive(false);
+        _creditsBTN.SetActive(false);
         SceneManager.LoadScene(2);
     }
 
     //Return to Main Menu
     public void LeaveGame()
     {
-        ButtonSFX	();
+        ButtonSFX();
         if (Time.timeScale != 1)
             Time.timeScale = 1;
         _pauseMenu.SetActive(false);
         _BackgroundImage.SetActive(true);
         _uiMainElements.SetActive(true);
+        _creditsBTN.SetActive(true);
         SceneManager.LoadScene(0);
-        GameManager.Instance.DestroyManager	();
-        UIManager.Instance.DestroyManager	();
-        TooltipManager.Instance	.DestroyManager	();
-        AudioManager.Instance.PlayMainMenuMusic	();
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.DestroyManager();
+        }
+
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.DestroyManager();
+        }
+
+        if (TooltipManager.Instance != null)
+        {
+            TooltipManager.Instance.DestroyManager();
+        }
+
+        AudioManager.Instance.PlayMainMenuMusic();
     }
     //Quit
 
     public void QuitGame()
     {
-        ButtonSFX	();
+        ButtonSFX();
         Application.Quit();
 
 #if UNITY_EDITOR
@@ -169,7 +199,7 @@ public class MainMenu : MonoBehaviour
     //Fullscreen
     public void SetFullscreen(bool isFullscreen)
     {
-        ButtonSFX	();
+        ButtonSFX();
         Screen.fullScreen = isFullscreen;
     }
 
@@ -196,7 +226,7 @@ public class MainMenu : MonoBehaviour
 
     private void ButtonSFX()
     {
-        AudioManager.Instance.PlayButtonSFX	();
+        AudioManager.Instance.PlayButtonSFX();
     }
 }
 
