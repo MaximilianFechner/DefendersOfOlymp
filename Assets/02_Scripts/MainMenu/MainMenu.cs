@@ -205,8 +205,7 @@ public class MainMenu : MonoBehaviour
     }
     public void ContinueGame()
     {
-        if (Time.timeScale != 1)
-            Time.timeScale = 1;
+        Time.timeScale = _previousTimeScale;
         _pauseMenu.SetActive(false);
     }
 
