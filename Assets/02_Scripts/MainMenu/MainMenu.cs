@@ -51,7 +51,7 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         //Audio
-        AudioManager.Instance.PlayMainMenuMusic	();
+        AudioManager.Instance.PlayMainMenuMusic();
         
         #region Resolution Dropdown
         _resolutionDropdown.ClearOptions();
