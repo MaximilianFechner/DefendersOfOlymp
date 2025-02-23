@@ -31,7 +31,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _uiMainElements;
     [SerializeField] private GameObject _menuAudio;
     [SerializeField] private GameObject _creditsBTN;
-    
+    [SerializeField] private GameObject _manualBTN;
+    [SerializeField] private GameObject _manual;
+
     //Framerate Limit
     public int targetFPS;
 
@@ -121,6 +123,8 @@ public class MainMenu : MonoBehaviour
         _BackgroundImage.SetActive(false);
         _uiMainElements.SetActive(false);
         _creditsBTN.SetActive(false);
+        _manualBTN.SetActive(false);
+        _manual.SetActive(false);
         SceneManager.LoadScene(1);
     }
 
@@ -131,19 +135,21 @@ public class MainMenu : MonoBehaviour
         _BackgroundImage.SetActive(false);
         _uiMainElements.SetActive(false);
         _creditsBTN.SetActive(false);
+        _manualBTN.SetActive(false);
+        _manual.SetActive(false);
         SceneManager.LoadScene(2);
     }
 
     //Interactive Manual
-    public void PlayManual()
-    {
-        ButtonSFX();
-        _startSubMenu.SetActive(false);
-        _BackgroundImage.SetActive(false);
-        _uiMainElements.SetActive(false);
-        _creditsBTN.SetActive(false);
-        SceneManager.LoadScene(2);
-    }
+    //public void PlayManual()
+    //{
+    //    ButtonSFX();
+    //    _startSubMenu.SetActive(false);
+    //    _BackgroundImage.SetActive(false);
+    //    _uiMainElements.SetActive(false);
+    //    _creditsBTN.SetActive(false);
+    //    SceneManager.LoadScene(2);
+    //}
 
     //Return to Main Menu
     public void LeaveGame()
@@ -155,6 +161,7 @@ public class MainMenu : MonoBehaviour
         _BackgroundImage.SetActive(true);
         _uiMainElements.SetActive(true);
         _creditsBTN.SetActive(true);
+        _manualBTN.SetActive(true);
         SceneManager.LoadScene(0);
 
         if (GameManager.Instance != null)
@@ -203,6 +210,15 @@ public class MainMenu : MonoBehaviour
         //_pauseMenu.SetActive(true);
         //Time.timeScale = 0;
     }
+
+    public void ToggleManual()
+    {
+        if (_manual != null)
+        {
+            _manual.SetActive(!_manual.activeSelf);
+        }
+    }
+
     public void ContinueGame()
     {
         Time.timeScale = _previousTimeScale;
