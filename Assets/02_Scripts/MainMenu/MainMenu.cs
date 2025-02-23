@@ -35,6 +35,8 @@ public class MainMenu : MonoBehaviour
     //Framerate Limit
     public int targetFPS;
 
+    private float _previousTimeScale = 1f;
+
     private static MainMenu singleton;
 
     void Awake()
@@ -186,8 +188,20 @@ public class MainMenu : MonoBehaviour
 
     public void PauseGame()
     {
-        _pauseMenu.SetActive(true);
-        Time.timeScale = 0;
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = _previousTimeScale;
+            _pauseMenu.SetActive(false);
+        }
+        else
+        {
+            _previousTimeScale = Time.timeScale;
+            Time.timeScale = 0;
+            _pauseMenu.SetActive(true);
+        }
+
+        //_pauseMenu.SetActive(true);
+        //Time.timeScale = 0;
     }
     public void ContinueGame()
     {
