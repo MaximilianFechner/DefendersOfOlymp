@@ -479,6 +479,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1639596799265422196, guid: bfc492fdbb14613478fb329499a0e8a2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1881000894499860142, guid: bfc492fdbb14613478fb329499a0e8a2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 3
@@ -767,6 +771,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5802673004532334117, guid: bfc492fdbb14613478fb329499a0e8a2, type: 3}
+      propertyPath: m_MaxValue
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802673004532334117, guid: bfc492fdbb14613478fb329499a0e8a2, type: 3}
+      propertyPath: m_MinValue
+      value: -80
+      objectReference: {fileID: 0}
     - target: {fileID: 5846892449283421764, guid: bfc492fdbb14613478fb329499a0e8a2, type: 3}
       propertyPath: _menuAudio
       value: 
@@ -897,6 +909,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7133180669907852083, guid: bfc492fdbb14613478fb329499a0e8a2, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133180669907852083, guid: bfc492fdbb14613478fb329499a0e8a2, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7450933699150673505, guid: bfc492fdbb14613478fb329499a0e8a2, type: 3}

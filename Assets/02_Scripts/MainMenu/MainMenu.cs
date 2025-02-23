@@ -200,15 +200,17 @@ public class MainMenu : MonoBehaviour
         _resolutionDropdown.value = PlayerPrefs.HasKey("ResolutionPreference") ? PlayerPrefs.GetInt("ResolutionPreference") : currentResolutionIndex;
         _volumeSlider.value = PlayerPrefs.HasKey("VolumePref")
              ? _musicVolume = PlayerPrefs.GetFloat("VolumePref")
-             : PlayerPrefs.GetFloat("VolumePref");
+            : PlayerPrefs.GetFloat("VolumePref");
     }
 
     //Music
-    public void updateVolume(float volume)
+    
+  public void updateVolume(float volume)
     {
         _audioMixer.SetFloat("AUD_Master", volume);
         _musicVolume = volume;
     }
+
 
     private void ButtonSFX()
     {
