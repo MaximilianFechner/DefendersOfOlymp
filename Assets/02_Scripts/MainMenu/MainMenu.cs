@@ -33,6 +33,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _creditsBTN;
     [SerializeField] private GameObject _manualBTN;
     [SerializeField] private GameObject _manual;
+    [SerializeField] private GameObject titleText;
 
     //Framerate Limit
     public int targetFPS;
@@ -125,6 +126,7 @@ public class MainMenu : MonoBehaviour
         _creditsBTN.SetActive(false);
         _manualBTN.SetActive(false);
         _manual.SetActive(false);
+        titleText.SetActive(false);
         SceneManager.LoadScene(1);
     }
 
@@ -137,6 +139,7 @@ public class MainMenu : MonoBehaviour
         _creditsBTN.SetActive(false);
         _manualBTN.SetActive(false);
         _manual.SetActive(false);
+        titleText.SetActive(false);
         SceneManager.LoadScene(2);
     }
 
@@ -162,6 +165,7 @@ public class MainMenu : MonoBehaviour
         _uiMainElements.SetActive(true);
         _creditsBTN.SetActive(true);
         _manualBTN.SetActive(true);
+        titleText.SetActive(true);
         SceneManager.LoadScene(0);
 
         if (GameManager.Instance != null)
