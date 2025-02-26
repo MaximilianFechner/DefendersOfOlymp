@@ -92,13 +92,21 @@ public class MainMenu : MonoBehaviour
 
         // Framerate Limit
         string input = selectedFPS.text;
+
         if (int.TryParse(input, out int fps))
         {
-            targetFPS = fps;
+            if (fps >= 30 && fps <= 240)
+            {
+                targetFPS = fps;
+            }
+            else
+            {
+                targetFPS = 60;
+            }
         }
         else
         {
-            targetFPS = 60; // Default FPS
+            targetFPS = 60;
         }
 
         QualitySettings.vSyncCount = 0;
@@ -253,7 +261,9 @@ public class MainMenu : MonoBehaviour
     //Music
     public void updateVolume(float volume)
     {
-        _audioMixer.SetFloat("AUD_Master", volume);
+        Debug.Log("Slider Value: " + volume);
+        float dB = Mathf.Log10(volume) * 20;
+        _audioMixer.SetFloat("AUD_Master", dB);
         _musicVolume = volume;
     }
 

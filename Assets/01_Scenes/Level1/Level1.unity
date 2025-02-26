@@ -2210,13 +2210,13 @@ GameObject:
   - component: {fileID: 607865639}
   - component: {fileID: 607865641}
   - component: {fileID: 607865640}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: IMGBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &607865639
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2226,7 +2226,7 @@ RectTransform:
   m_GameObject: {fileID: 607865638}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 4, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 721473585}
@@ -2668,13 +2668,13 @@ GameObject:
   - component: {fileID: 721473585}
   - component: {fileID: 721473587}
   - component: {fileID: 721473586}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: PNLIntro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &721473585
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2682,17 +2682,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 721473584}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 607865639}
   - {fileID: 1681646406}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1507989259852378252}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2709,15 +2709,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.8}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 53cd99605e3bff54ca17e095fb3441e0, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6251,13 +6251,13 @@ GameObject:
   - component: {fileID: 1681646406}
   - component: {fileID: 1681646408}
   - component: {fileID: 1681646407}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: IMGGameOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1681646406
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6267,7 +6267,7 @@ RectTransform:
   m_GameObject: {fileID: 1681646405}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 721473585}
@@ -6275,7 +6275,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 358.4, y: 253.1}
+  m_SizeDelta: {x: 200, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1681646407
 MonoBehaviour:
@@ -8881,6 +8881,9 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 7910870415887019736, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4927842608779397137, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 721473585}
     - targetCorrespondingSourceObject: {fileID: 120536505535706836, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1724269595}
@@ -8889,6 +8892,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1507989259852378255}
   m_SourcePrefab: {fileID: 100100000, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+--- !u!224 &1507989259852378252 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4927842608779397137, guid: 35382e72aaa7bb64cbbf6e76411ea137, type: 3}
+  m_PrefabInstance: {fileID: 1507989259852378251}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1507989259852378255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9461,4 +9469,3 @@ SceneRoots:
   - {fileID: 1507989259852378251}
   - {fileID: 172336949}
   - {fileID: 1141751715}
-  - {fileID: 721473585}
