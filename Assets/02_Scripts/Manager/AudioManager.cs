@@ -63,7 +63,7 @@ public class AudioManager : MonoBehaviour
 
         tempAudioSource.clip = levelAmbienteSFX;
         tempAudioSource.ignoreListenerPause = true;
-        tempAudioSource.volume = 0f;
+        tempAudioSource.volume = 0.02f;
         tempAudioSource.loop = true;
 
         tempAudioSource.Play();

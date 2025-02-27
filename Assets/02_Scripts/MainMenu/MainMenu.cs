@@ -211,6 +211,7 @@ public class MainMenu : MonoBehaviour
         {
             Time.timeScale = _previousTimeScale;
             _pauseMenu.SetActive(false);
+            //_optionsMenu.SetActive(false);
         }
         else
         {
@@ -218,9 +219,6 @@ public class MainMenu : MonoBehaviour
             Time.timeScale = 0;
             _pauseMenu.SetActive(true);
         }
-
-        //_pauseMenu.SetActive(true);
-        //Time.timeScale = 0;
     }
 
     public void ToggleManual()

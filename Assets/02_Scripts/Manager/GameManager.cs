@@ -71,8 +71,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int waveScore = 0;
     [HideInInspector] public int healthScore = 0;
 
-    [HideInInspector] public bool showDamageNumbers = true; //default activated, change for show damageNumbers or to disable them
-    [HideInInspector] public bool showTooltips = true; //default activated, change for show Tooltips of Enemies and Tower or to disable them
+    public bool showDamageNumbers = true; //default activated, change for show damageNumbers or to disable them
+    public bool showTooltips = true; //default activated, change for show Tooltips of Enemies and Tower or to disable them
 
     public ZeusBolt zeusBolt;
     public PoseidonWave poseidonWave;
@@ -107,6 +107,9 @@ public class GameManager : MonoBehaviour
 
         //highscore = PlayerPrefs.GetInt("highscore", 0);
         //if (highscore == 0) return;
+        
+        showDamageNumbers = PlayerPrefs.GetInt("ShowDamageNumbers", 1) == 1;
+        showTooltips = PlayerPrefs.GetInt("ShowTooltips", 1) == 1;
 
         LoadHighscore();
         UIManager.Instance.highscore.text = highscore.ToString();
@@ -130,6 +133,9 @@ public class GameManager : MonoBehaviour
 
         //highscore = PlayerPrefs.GetInt("highscore", 0);
         //if (highscore == 0) return;
+        
+        showDamageNumbers = PlayerPrefs.GetInt("ShowDamageNumbers", 1) == 1;
+        showTooltips = PlayerPrefs.GetInt("ShowTooltips", 1) == 1;
 
         LoadHighscore();
         UIManager.Instance.highscore.text = highscore.ToString();
@@ -418,15 +424,21 @@ public class GameManager : MonoBehaviour
     {
         return _playerStartLives;
     }
-
+    
     public void ToggleDamageNumbers()
     {
         showDamageNumbers = !showDamageNumbers;
+        
+        PlayerPrefs.SetInt("ShowDamageNumbers", showDamageNumbers ? 1 : 0);
+        PlayerPrefs.Save();
     }
 
     public void ToggleTooltips()
     {
         showTooltips = !showTooltips;
+        
+        PlayerPrefs.SetInt("ShowTooltips", showTooltips ? 1 : 0);
+        PlayerPrefs.Save();
 
 #pragma warning disable CS0618 // Typ oder Element ist veraltet
         GridCells[] allCells = FindObjectsOfType<GridCells>();
