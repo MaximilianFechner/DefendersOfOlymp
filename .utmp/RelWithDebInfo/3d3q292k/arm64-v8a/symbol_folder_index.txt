@@ -1,0 +1,1 @@
+C:\Users\iskal\Projects\DefendersOfOlymp\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\3d3q292k\obj\arm64-v8a
