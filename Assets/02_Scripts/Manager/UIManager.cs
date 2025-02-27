@@ -178,6 +178,10 @@ public class UIManager : MonoBehaviour
         MainMenu mainMenu = FindAnyObjectByType<MainMenu>();
         if (mainMenu != null)
         {
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlayCardSFX();
+            }
             mainMenu.PauseGame();
         }
     }
