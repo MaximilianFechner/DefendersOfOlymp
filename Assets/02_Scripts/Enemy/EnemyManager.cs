@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.Audio;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -95,6 +96,9 @@ public class EnemyManager : MonoBehaviour
     private float bloodSpawnRadius = 1.5f;
 
     private AudioSource audioSource;
+    
+    public AudioMixerGroup masterMixerGroup;
+    public AudioMixer masterMixer;   
 
     [Space(10)]
     public AudioClip[] enemySounds;
@@ -270,6 +274,8 @@ public class EnemyManager : MonoBehaviour
         tempAudioSource.ignoreListenerPause = true;
         tempAudioSource.volume = Random.Range(minVolumeSounds, maxVolumeSounds);
         tempAudioSource.pitch = Random.Range(minPitchSounds, maxPitchSounds);
+        
+        tempAudioSource.outputAudioMixerGroup = masterMixerGroup;
 
         tempAudioSource.Play();
 

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
@@ -7,6 +8,8 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance { get; private set; }
 
     private AudioSource audioSource;
+    public AudioMixerGroup masterMixerGroup;
+    public AudioMixer masterMixer;   
 
     public AudioClip levelBackgroundMusic;
     public AudioClip mainMenuMusic;
@@ -36,6 +39,10 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        if (audioSource != null && masterMixerGroup != null)
+        {
+            audioSource.outputAudioMixerGroup = masterMixerGroup;
+        }
     }
 
     public void PlayLevelBackgroundMusic()
@@ -66,6 +73,8 @@ public class AudioManager : MonoBehaviour
         tempAudioSource.volume = 0.02f;
         tempAudioSource.loop = true;
 
+        tempAudioSource.outputAudioMixerGroup = masterMixerGroup;
+
         tempAudioSource.Play();
 
         //throws Error when switchting from Game to Main Menu
@@ -95,6 +104,9 @@ public class AudioManager : MonoBehaviour
         tempAudioSource.clip = waveEndMusic;
         tempAudioSource.ignoreListenerPause = true;
         tempAudioSource.volume = 0.3f;
+        
+        tempAudioSource.outputAudioMixerGroup = masterMixerGroup;
+        
         tempAudioSource.Play();
 
         Destroy(waveSoundObject, waveEndMusic.length);
@@ -108,6 +120,9 @@ public class AudioManager : MonoBehaviour
         tempAudioSource.clip = lostLifeSFX[Random.Range(0, lostLifeSFX.Length)];
         tempAudioSource.ignoreListenerPause = true;
         tempAudioSource.volume = 0.4f;
+        
+        tempAudioSource.outputAudioMixerGroup = masterMixerGroup;
+        
         tempAudioSource.Play();
 
         Destroy(lifeSoundObject, tempAudioSource.clip.length);
@@ -122,6 +137,9 @@ public class AudioManager : MonoBehaviour
         tempAudioSource.ignoreListenerPause = true;
         tempAudioSource.volume = Random.Range(0.1f, 0.2f);
         tempAudioSource.pitch = Random.Range(0.9f, 1.1f);
+        
+        tempAudioSource.outputAudioMixerGroup = masterMixerGroup;
+        
         tempAudioSource.Play();
 
         Destroy(cardSoundObject, cardSFX.length);
@@ -136,6 +154,9 @@ public class AudioManager : MonoBehaviour
         tempAudioSource.ignoreListenerPause = true;
         tempAudioSource.volume = Random.Range(0.2f, 0.3f);
         tempAudioSource.pitch = Random.Range(0.9f, 1.1f);
+        
+        tempAudioSource.outputAudioMixerGroup = masterMixerGroup;
+        
         tempAudioSource.Play();
 
         Destroy(buttonSoundObject, buttonSFX.length);
@@ -150,6 +171,9 @@ public class AudioManager : MonoBehaviour
         tempAudioSource.ignoreListenerPause = true;
         tempAudioSource.volume = Random.Range(0.1f, 0.2f);
         tempAudioSource.pitch = Random.Range(0.9f, 1.1f);
+        
+        tempAudioSource.outputAudioMixerGroup = masterMixerGroup;
+        
         tempAudioSource.Play();
 
         Destroy(stoneSoundObject, stoneSFX.length);
@@ -164,6 +188,9 @@ public class AudioManager : MonoBehaviour
         tempAudioSource.ignoreListenerPause = true;
         tempAudioSource.volume = 0.2f;
         tempAudioSource.pitch = Random.Range(0.9f, 1.1f);
+        
+        tempAudioSource.outputAudioMixerGroup = masterMixerGroup;
+        
         tempAudioSource.Play();
 
         Destroy(towerPlacementSoundObject, towerPlacementSFX[god].length);
@@ -175,6 +202,8 @@ public class AudioManager : MonoBehaviour
 
         tempAudioSource.clip = hitImpactSFX[god];
         tempAudioSource.ignoreListenerPause = true;
+        
+        tempAudioSource.outputAudioMixerGroup = masterMixerGroup;
 
         if (tempAudioSource.clip == hitImpactSFX[0])
         {
@@ -202,6 +231,8 @@ public class AudioManager : MonoBehaviour
         tempAudioSource.ignoreListenerPause = true;
         tempAudioSource.volume = 0.4f;
         tempAudioSource.loop = false;
+        
+        tempAudioSource.outputAudioMixerGroup = masterMixerGroup;
 
         tempAudioSource.Play();
 
@@ -217,6 +248,8 @@ public class AudioManager : MonoBehaviour
         tempAudioSource.ignoreListenerPause = true;
         tempAudioSource.volume = 0.5f;
         tempAudioSource.loop = false;
+        
+        tempAudioSource.outputAudioMixerGroup = masterMixerGroup;
 
         tempAudioSource.Play();
 

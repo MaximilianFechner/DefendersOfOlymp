@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
 using System.Linq;
+using UnityEngine.Audio;
 
 public class ZeusBolt : MonoBehaviour
 {
@@ -79,6 +80,8 @@ public class ZeusBolt : MonoBehaviour
     public GameObject hitPS;
 
     private CameraShake _cameraShake;
+    public AudioMixerGroup masterMixerGroup;
+    public AudioMixer masterMixer;   
 
     private float lastUseTime = -Mathf.Infinity;
     private bool isReady = false;
@@ -201,7 +204,7 @@ public class ZeusBolt : MonoBehaviour
 
         if (hits.Length > 0)
         {
-            // Finde den nächsten Gegner zur Maus
+            // Finde den nï¿½chsten Gegner zur Maus
             RaycastHit2D closestHit = hits.OrderBy(h => Vector2.Distance(h.point, worldPosition)).First();
 
             if (closestHit.collider != null && closestHit.collider.CompareTag("Enemy"))
@@ -291,6 +294,8 @@ public class ZeusBolt : MonoBehaviour
         tempAudioSource.ignoreListenerPause = false;
         tempAudioSource.volume = Random.Range(minVolumeSounds, maxVolumeSounds);
         tempAudioSource.pitch = Random.Range(minPitchSounds, maxPitchSounds);
+        
+        tempAudioSource.outputAudioMixerGroup = masterMixerGroup;
 
         tempAudioSource.Play();
 
@@ -306,6 +311,8 @@ public class ZeusBolt : MonoBehaviour
         tempAudioSource.loop = true;
         tempAudioSource.volume = Random.Range(minVolumeSounds, maxVolumeSounds);
         tempAudioSource.pitch = Random.Range(minPitchSounds, maxPitchSounds);
+        
+        tempAudioSource.outputAudioMixerGroup = masterMixerGroup;
 
         tempAudioSource.Play();
     }
@@ -384,7 +391,7 @@ public class ZeusBolt : MonoBehaviour
         Debug.Log("ZeusBolt upgraded");
         damageLowerLimit += (damageLowerLimitUpgrade);
         damageUpperLimit += (damageUpperLimitUpgrade);
-        cooldownTime -= cooldownReductionUpgrade; //OPTIONAL: Mathf.clamp um Cooldown bspw. auf 1/2 des urpsrgl. CDs zu beschränken
+        cooldownTime -= cooldownReductionUpgrade; //OPTIONAL: Mathf.clamp um Cooldown bspw. auf 1/2 des urpsrgl. CDs zu beschrï¿½nken
         //Multiplikator mit GameManager.Instance.zeusTower; nicht notwendig 
         //da Upgrade mit dem Platzieren/Upgraden eines Turmes jedes Mal aufgerufen wird
     }

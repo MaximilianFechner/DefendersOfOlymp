@@ -172,6 +172,15 @@ public class UIManager : MonoBehaviour
         highscoreVisual.SetActive(false);
         highscoreShadow.SetActive(true);
     }
+
+    public void Pause()
+    {
+        MainMenu mainMenu = FindAnyObjectByType<MainMenu>();
+        if (mainMenu != null)
+        {
+            mainMenu.PauseGame();
+        }
+    }
     
     public void DestroyManager()
     {

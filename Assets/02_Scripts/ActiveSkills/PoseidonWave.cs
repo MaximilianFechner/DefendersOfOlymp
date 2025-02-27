@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -72,6 +73,9 @@ public class PoseidonWave : MonoBehaviour
     public AudioClip skillSound;
     public AudioClip preSkillSound;
     private GameObject preWaveSoundObject;
+    
+    public AudioMixerGroup masterMixerGroup;
+    public AudioMixer masterMixer;   
 
     private float lastUseTime = -Mathf.Infinity;
     private bool isReady = false;
@@ -286,6 +290,8 @@ private void Update()
         tempAudioSource.ignoreListenerPause = true;
         tempAudioSource.volume = Random.Range(minVolumeSounds, maxVolumeSounds);
         tempAudioSource.pitch = Random.Range(minPitchSounds, maxPitchSounds);
+        
+        tempAudioSource.outputAudioMixerGroup = masterMixerGroup;
 
         tempAudioSource.Play();
 
@@ -301,6 +307,8 @@ private void Update()
         tempAudioSource.loop = true;
         tempAudioSource.volume = Random.Range(minVolumeSounds, maxVolumeSounds);
         tempAudioSource.pitch = Random.Range(minPitchSounds, maxPitchSounds);
+        
+        tempAudioSource.outputAudioMixerGroup = masterMixerGroup;
 
         tempAudioSource.Play();
     }
@@ -378,7 +386,7 @@ private void Update()
         Debug.Log("PoseidonWave upgraded");
         damageLowerLimitPerInterval += (damageLowerLimitUpgrade);
         damageUpperLimitPerInterval += (damageUpperLimitUpgrade);
-        _cooldownTime -= cooldownReductionUpgrade; //OPTIONAL: Mathf.clamp um Cooldown bspw. auf 1/2 des urpsrgl. CDs zu beschränken
+        _cooldownTime -= cooldownReductionUpgrade; //OPTIONAL: Mathf.clamp um Cooldown bspw. auf 1/2 des urpsrgl. CDs zu beschrï¿½nken
         //Multiplikator mit GameManager.Instance.zeusTower; nicht notwendig 
         //da Upgrade mit dem Platzieren/Upgraden eines Turmes jedes Mal aufgerufen wird
     }

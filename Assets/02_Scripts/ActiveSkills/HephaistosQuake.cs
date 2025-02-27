@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -95,6 +96,9 @@ public class HephaistosQuake : MonoBehaviour
     public Image image; //BTN CD MOVE
 
     private CameraShake _cameraShake;
+    
+    public AudioMixerGroup masterMixerGroup;
+    public AudioMixer masterMixer;   
 
     [HideInInspector] public int hephaistosSkillLevel = 1;
 
@@ -233,6 +237,8 @@ public class HephaistosQuake : MonoBehaviour
         tempAudioSource.ignoreListenerPause = true;
         tempAudioSource.volume = Random.Range(minVolumeSounds, maxVolumeSounds);
         tempAudioSource.pitch = Random.Range(minPitchSounds, maxPitchSounds);
+        
+        tempAudioSource.outputAudioMixerGroup = masterMixerGroup;
 
         tempAudioSource.Play();
 
@@ -243,7 +249,7 @@ public class HephaistosQuake : MonoBehaviour
         Debug.Log("HephQuake upgraded");
         damageLowerLimitPerInterval += (damageLowerLimitUpgrade);
         damageUpperLimitPerInterval += (damageUpperLimitUpgrade);
-        _cooldownTime -= cooldownReductionUpgrade; //OPTIONAL: Mathf.clamp um Cooldown bspw. auf 1/2 des urpsrgl. CDs zu beschränken
+        _cooldownTime -= cooldownReductionUpgrade; //OPTIONAL: Mathf.clamp um Cooldown bspw. auf 1/2 des urpsrgl. CDs zu beschrï¿½nken
         //Multiplikator mit GameManager.Instance.zeusTower; nicht notwendig 
         //da Upgrade mit dem Platzieren/Upgraden eines Turmes jedes Mal aufgerufen wird
     }
